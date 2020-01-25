@@ -10,15 +10,12 @@
   --secondary: #f2af13;
   --dark: #151314;
   --light: #e5eaea;
-
   --gray: #232323;
   --lightGray: #878787;
   --lighterGray: #{lighten($color: #878787, $amount: 35%)};
   --red: #d0311e;
   --green: #1c8c27;
-}
 
-:root {
   --background-color: var(--dark);
   --text-color: var(--light);
 }
@@ -73,6 +70,18 @@ main {
   margin: auto;
 }
 
+header > h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+
+  > .blixt-wallet-header-icon {
+    width: 50px;
+    line-height: 1.5;
+    vertical-align: top;
+    margin-top: 4px;
+  }
+}
+
 .blixt-wallet-screenshot > img {
   width: 100%;
   max-width: 420px;
@@ -83,6 +92,16 @@ main {
 }
 
 @media screen and (max-width: 650px) {
+  header > h1 {
+    font-size: 43px;
+
+    > .blixt-wallet-header-icon {
+      width: 45px;
+      margin-top: 2px;
+    }
+  }
+
+
   .blixt-wallet-screenshot > img {
     float: unset;
     display: block;
