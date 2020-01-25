@@ -2,10 +2,15 @@
 layout: default
 title: Home
 ---
-<img
-  class="blixt-wallet-screenshot"
-  src="/assets/images/blixt-wallet-screenshot.png"
-/>
+<picture class="blixt-wallet-screenshot">
+  <source srcset="/assets/images/blixt-wallet-screenshot.webp" type="image/webp" />
+  <source srcset="/assets/images/blixt-wallet-screenshot.png" type="image/png" />
+  <img
+    src="/assets/images/blixt-wallet-screenshot.png"
+    alt="Blixt Wallet screenshot"
+    width="430" height="825"
+  />
+</picture>
 <p>
   Blixt Wallet is an open-source Lightning Bitcoin Wallet
   for Android with focus on usability and user experience,
@@ -16,7 +21,7 @@ title: Home
   to try out using Lightning Network.
 </p>
 <p>
-  <a href="https://github.com/hsjoberg/blixt-wallet">View the github project</a>
+  <a href="https://github.com/hsjoberg/blixt-wallet">View the github project.</a>
 </p>
 <h2>Built with lnd and Neutrino SPV</h2>
 <p>
@@ -47,8 +52,10 @@ title: Home
 <p>
   Blixt Wallet keeps up with new developments in
   the Lighting community, supporting features such as
-  LNURL and WebLN as well as keeping up-to-date with
-  the new features in the lnd project.
+  <a href="https://github.com/btcontract/lnurl-rfc/blob/master/spec.md">LNURL</a>
+  and <a href="https://webln.dev/">WebLN</a>
+  as well as keeping up-to-date with the new features
+  in the lnd project.
 </p>
 <h2>Open-source project</h2>
 <p>

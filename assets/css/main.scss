@@ -41,7 +41,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "IBM Plex Sans";
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 body {
@@ -55,20 +55,21 @@ a {
 
 main {
   max-width: 1050px;
-  padding: 10px;
+  padding: 11px;
   margin: auto;
 }
 
-.blixt-wallet-screenshot {
+.blixt-wallet-screenshot > img {
   width: 100%;
   max-width: 420px;
+  height: auto;
   float: right;
   margin-left: 32px;
   margin-bottom: 50px;
 }
 
 @media screen and (max-width: 650px) {
-  .blixt-wallet-screenshot {
+  .blixt-wallet-screenshot > img {
     float: unset;
     display: block;
     margin: 12px auto auto;
