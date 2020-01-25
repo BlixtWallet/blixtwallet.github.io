@@ -1,0 +1,76 @@
+---
+---
+
+// GitHib corner button
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+.github-corner-svg {fill: var(--text-color); color: var(--background-color); position: absolute; top: 0; border: 0; right: 0;}
+
+:root {
+  --primary: #bc6610;
+  --secondary: #f2af13;
+  --dark: #151314;
+  --light: #e5eaea;
+
+  --gray: #232323;
+  --lightGray: #878787;
+  --red: #d0311e;
+  --green: #1c8c27;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark);
+    --text-color: var(--light);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #fff;
+    --text-color: var(--dark);
+  }
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("IBM Plex Sans"), local("IBMPlexSans"), url("/assets/fonts/IBMPlexSans-Regular-Latin1.woff2") format("woff2");
+  unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00A3, U+00A4-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+2074, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans";
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+main {
+  max-width: 1050px;
+  padding: 8px;
+  margin: auto;
+}
+
+.blixt-wallet-screenshot {
+  width: 100%;
+  max-width: 420px;
+  float: right;
+  margin-top: -12px;
+  padding: 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .blixt-wallet-screenshot {
+    float: unset;
+    display: block;
+    margin: auto;
+  }
+}
+
+li {
+  line-height: 1.5;
+}
