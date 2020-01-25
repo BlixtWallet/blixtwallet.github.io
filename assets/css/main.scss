@@ -13,6 +13,7 @@
 
   --gray: #232323;
   --lightGray: #878787;
+  --lighterGray: #{lighten($color: #878787, $amount: 35%)};
   --red: #d0311e;
   --green: #1c8c27;
 }
@@ -20,6 +21,10 @@
 :root {
   --background-color: var(--dark);
   --text-color: var(--light);
+}
+
+::selection {
+  background-color: var(--lightGray);
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -33,6 +38,10 @@
   :root {
     --background-color: #fff;
     --text-color: var(--dark);
+  }
+
+  ::selection {
+    background-color: var(--lighterGray);
   }
 }
 
