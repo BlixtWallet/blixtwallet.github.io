@@ -49,9 +49,13 @@ body {
   color: var(--text-color);
 }
 
+a {
+  color: var(--primary);
+}
+
 main {
   max-width: 1050px;
-  padding: 8px;
+  padding: 10px;
   margin: auto;
 }
 
@@ -59,15 +63,15 @@ main {
   width: 100%;
   max-width: 420px;
   float: right;
-  margin-top: -12px;
-  padding: 8px;
+  margin-left: 32px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 650px) {
   .blixt-wallet-screenshot {
     float: unset;
     display: block;
-    margin: auto;
+    margin: 12px auto auto;
   }
 }
 
