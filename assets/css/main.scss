@@ -17,12 +17,17 @@
   --green: #1c8c27;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: var(--dark);
-    --text-color: var(--light);
-  }
+:root {
+  --background-color: var(--dark);
+  --text-color: var(--light);
 }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background-color: var(--dark);
+//     --text-color: var(--light);
+//   }
+// }
 
 @media (prefers-color-scheme: light) {
   :root {
