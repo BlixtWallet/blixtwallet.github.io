@@ -1,5 +1,7 @@
 ---
 ---
+/* Built on top of normalize.css
+ * by Nicolas Gallagher and Jonathan Neal, MIT licensed */
 
 // GitHib corner button
 .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
@@ -55,24 +57,32 @@
   font-family: "IBM Plex Sans", sans-serif;
 }
 
+html {
+  line-height: 1.3;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
+  margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 a {
   color: var(--primary);
+  background-color: transparent;
 }
 
 main {
-  max-width: 1050px;
+  display: block;
+  max-width: 1200px;
   padding: 11px;
   margin: auto;
 }
 
 header > h1 {
+  margin: 0.67em 0 10px;
   font-size: 52px;
-  margin-bottom: 10px;
 
   > .blixt-wallet-header-icon {
     width: 50px;
@@ -87,11 +97,11 @@ header > h1 {
   max-width: 420px;
   height: auto;
   float: right;
-  margin-left: 32px;
+  margin-left: 42px;
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 675px) {
   header > h1 {
     font-size: 43px;
 
@@ -111,4 +121,50 @@ header > h1 {
 
 li {
   line-height: 1.5;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 75%;
+}
+
+img {
+  border-style: none;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
 }
