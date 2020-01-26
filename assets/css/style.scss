@@ -18,6 +18,7 @@
   --red: #d0311e;
   --green: #1c8c27;
 
+  // Default to dark theme
   --background-color: var(--dark);
   --text-color: var(--light);
 }
@@ -25,13 +26,6 @@
 ::selection {
   background-color: var(--lightGray);
 }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background-color: var(--dark);
-//     --text-color: var(--light);
-//   }
-// }
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -42,6 +36,16 @@
   ::selection {
     background-color: var(--lighterGray);
   }
+}
+
+.light-theme {
+  --background-color: #fff;
+  --text-color: var(--dark);
+}
+
+.dark-theme {
+  --background-color: var(--dark);
+  --text-color: var(--light);
 }
 
 @font-face {
@@ -73,6 +77,15 @@ a {
   background-color: transparent;
 }
 
+#theme-switcher {
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
 main {
   display: block;
   max-width: 1200px;
@@ -81,7 +94,7 @@ main {
 }
 
 header > h1 {
-  margin: 0.67em 0 10px;
+  margin: 1em 0 10px;
   font-size: 52px;
 
   > .blixt-wallet-header-icon {
@@ -101,8 +114,9 @@ header > h1 {
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 700px) {
   header > h1 {
+    margin: 0.67em 0 10px;
     font-size: 43px;
 
     > .blixt-wallet-header-icon {
@@ -110,7 +124,6 @@ header > h1 {
       margin-top: 2px;
     }
   }
-
 
   .blixt-wallet-screenshot > img {
     float: unset;
