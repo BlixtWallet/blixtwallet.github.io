@@ -78,17 +78,18 @@ a {
 }
 
 #theme-switcher {
+  font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol;
   position: absolute;
-  top: 9px;
-  left: 7px;
-  font-size: 16px;
+  top: 7px;
+  left: 6px;
+  font-size: 19px;
   cursor: pointer;
   user-select: none;
 }
 
 main {
   display: block;
-  max-width: 1200px;
+  max-width: 1150px;
   padding: 11px;
   margin: auto;
 }
