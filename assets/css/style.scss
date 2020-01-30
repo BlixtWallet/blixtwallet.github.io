@@ -89,47 +89,66 @@ a {
 
 main {
   display: block;
-  max-width: 1150px;
+  width: 100%;
   padding: 11px;
   margin: auto;
 }
 
 header > h1 {
-  margin: 1em 0 10px;
-  font-size: 52px;
+  margin: 0.67em 0 10px;
+  font-size: 43px;
 
   > .blixt-wallet-header-icon {
-    width: 50px;
-    line-height: 1.5;
-    vertical-align: top;
-    margin-top: 4px;
+    width: 45px;
+    margin-top: 2px;
   }
 }
 
 .blixt-wallet-screenshot > img {
+  display: block;
+  margin: 12px auto auto;
   width: 100%;
   max-width: 420px;
   height: auto;
-  float: right;
-  margin-left: 42px;
-  margin-bottom: 50px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 750px) {
+  main {
+    max-width: 1150px;
+  }
+
   header > h1 {
-    margin: 0.67em 0 10px;
-    font-size: 43px;
+    margin: 1em 0 10px;
+    font-size: 58px;
 
     > .blixt-wallet-header-icon {
-      width: 45px;
-      margin-top: 2px;
+      width: 50px;
+      line-height: 1.5;
+      vertical-align: top;
+      margin-top: 7px;
     }
   }
 
   .blixt-wallet-screenshot > img {
-    float: unset;
-    display: block;
-    margin: 12px auto auto;
+    float: right;
+    margin-left: 42px;
+    margin-bottom: 50px;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.017);
+    }
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  main {
+    width: 59.89%;
+    max-width: 1375px;
+  }
+
+  .blixt-wallet-screenshot > img {
+    margin-left: calc(42px + 2%);
   }
 }
 
