@@ -101,6 +101,8 @@ header > h1 {
   > .blixt-wallet-header-icon {
     width: 45px;
     margin-top: 2px;
+    line-height: 1.5;
+    vertical-align: top;
   }
 }
 
@@ -123,8 +125,6 @@ header > h1 {
 
     > .blixt-wallet-header-icon {
       width: 50px;
-      line-height: 1.5;
-      vertical-align: top;
       margin-top: 7px;
     }
   }
