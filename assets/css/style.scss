@@ -116,7 +116,7 @@ header > h1 {
 
 @media screen and (min-width: 750px) {
   main {
-    max-width: 1150px;
+    max-width: 1175px;
   }
 
   header > h1 {
@@ -136,7 +136,7 @@ header > h1 {
     transition: transform 0.4s;
 
     &:hover {
-      transform: scale(1.019);
+      transform: scale(1.025);
     }
   }
 }
