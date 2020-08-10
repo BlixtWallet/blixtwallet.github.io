@@ -72,6 +72,10 @@ body {
   color: var(--text-color);
 }
 
+p {
+  line-height: 1.55;
+}
+
 a {
   color: var(--primary);
   background-color: transparent;
@@ -110,7 +114,7 @@ header > h1 {
   display: block;
   margin: 12px auto auto;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   height: auto;
 }
 
