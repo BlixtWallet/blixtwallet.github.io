@@ -124,7 +124,7 @@ header > h1 {
   }
 
   header > h1 {
-    margin: 1em 0 10px;
+    margin: 1.25em 0 10px;
     font-size: 58px;
 
     > .blixt-wallet-header-icon {
@@ -136,11 +136,11 @@ header > h1 {
   .blixt-wallet-screenshot > img {
     float: right;
     margin-left: 42px;
-    margin-bottom: 50px;
+    margin-bottom: 75px;
     transition: transform 0.4s;
 
     &:hover {
-      transform: scale(1.035);
+      transform: scale(1.037);
     }
   }
 }
@@ -148,7 +148,7 @@ header > h1 {
 @media screen and (min-width: 1921px) {
   main {
     width: 59.89%;
-    max-width: 1375px;
+    max-width: 1475px;
   }
 
   .blixt-wallet-screenshot > img {
