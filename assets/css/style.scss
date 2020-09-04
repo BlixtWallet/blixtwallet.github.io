@@ -116,6 +116,7 @@ header > h1 {
   width: 100%;
   max-width: 440px;
   height: auto;
+  will-change: transform;
 }
 
 @media screen and (min-width: 750px) {
