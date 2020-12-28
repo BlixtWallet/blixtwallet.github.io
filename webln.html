@@ -263,6 +263,7 @@ p {
 <script>
 const items = document.querySelectorAll("section");
 for (const item of items) {
+	item.addEventListener("touchstart", () => {});
 	item.addEventListener("click", (e) => window.location.href = item.dataset.href)
 }
 </script>
