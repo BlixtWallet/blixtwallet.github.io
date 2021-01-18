@@ -1,0 +1,210 @@
+---
+layout: default
+title: Home
+---
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQZ-aPqIvq4VYQJM_rcyIJ9OgEds4l4dQ" type="text/javascript"></script>
+  <div id="blixt-web-container">
+    <div id="blixt-web-phoneframe">
+      <div id="blixt-web-root"></div>
+    </div>
+  </div>
+  <script src="/assets/blixt-web/app-d9591127ec89d948d5dd.bundle.js"></script>
+  <style>
+@font-face {
+  font-family: 'IBMPlexSans-Medium';
+  src: url('/assets/blixt-web/IBMPlexSans-Medium.ttf') format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBMPlexSans-Regular';
+  src: url('/assets/blixt-web/IBMPlexSans-Regular.ttf') format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AntDesign";
+  src: url("/assets/blixt-web/AntDesign.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Entypo";
+  src: url("/assets/blixt-web/Entypo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "EvilIcons";
+  src: url("/assets/blixt-web/EvilIcons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url("/assets/blixt-web/FontAwesome.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FontAwesome5_Brands";
+  src: url("/assets/blixt-web/FontAwesome5_Brands.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FontAwesome5_Solid";
+  src: url("./assets/blixt-web/FontAwesome5_Solid.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Foundation";
+  src: url("/assets/blixt-web/Foundation.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ionicons";
+  src: url("/assets/blixt-web/Ionicons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'MaterialCommunityIcons';
+  /* font-family: "Material Design Icons"; */
+  src: url("/assets/blixt-web/MaterialCommunityIcons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MaterialIcons";
+  src: url("/assets/blixt-web/MaterialIcons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Octicons";
+  src: url("/assets/blixt-web/Octicons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "simple-line-icons";
+  src: url("/assets/blixt-web/SimpleLineIcons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Feather";
+  src: url("/assets/blixt-web/Feather.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Zocial";
+  src: url("/assets/blixt-web/Zocial.ttf") format("truetype");
+}
+
+#blixt-web-container {
+  float: right;
+  margin-left: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  #blixt-web-container {
+    transform: scale(0.8);
+    transform-origin: top;
+    float: none;
+    margin-top: 13px;
+    margin-bottom: -155px;
+    margin-left: -50px;
+    margin-right: -50px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+#blixt-web-phoneframe {
+  background-image: url(/assets/images/phone-frame2_1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 450px;
+  height: 933px;
+  display: flex;
+}
+
+
+#blixt-web-root {
+  width: 400px;
+  height: 800px;
+  margin-top: 66px;
+  margin-left: 27px;
+}
+
+#blixt-web-root > * {
+  height: 100%;
+  overflow: hidden;
+}
+
+#blixt-web-root * {
+  scrollbar-width: none;
+}
+
+#blixt-web-root *::-webkit-scrollbar {
+  display: none;
+}
+  </style>
+
+</div>
+<small><a href="https://github.com/BlixtWallet/blixtwallet.github.io/edit/master/index.html">Edit this page</a></small>
+<p>
+  Blixt Wallet is a non-custodial open-source Lightning Wallet
+  for Android with a focus on usability and user experience.
+</p>
+<p>
+  It's currently aimed towards Bitcoin users
+  who want to try out using Lightning Network.
+</p>
+<p>
+  <a href="https://github.com/hsjoberg/blixt-wallet">View the github project.</a>
+</p>
+<h2>Built with lnd and Neutrino</h2>
+<p>
+  Blixt Wallet uses the Lightning Network client
+  <a href="https://github.com/lightningnetwork/lnd">lnd</a>
+  and the Bitcoin SPV client
+  <a href="https://github.com/lightninglabs/neutrino">Neutrino</a>
+  under the hood, directly on the phone, respecting your privacy.
+  The wallet doesn't use any centralized servers for doing transactions.
+</p>
+<h2>Simple and clean interface</h2>
+<p>
+  The design philosophy behind Blixt Wallet is
+  to provide a clean and straightforward interface
+  and user experience for doing transactions.
+</p>
+<p>
+  Effort has been made to make sure that the transaction
+  log is descriptive and clear.
+</p>
+<h2>Easy to get started</h2>
+<p>
+  When you send on-chain funds to Blixt Wallet,
+  the wallet will automatically open channel(s) on your behalf
+  so you can get started in no time.
+</p>
+<h2>Feature-rich and cutting-edge</h2>
+<p>
+  Blixt Wallet keeps up with new developments in
+  the Lightning community, supporting features such as
+  <a href="https://github.com/btcontract/lnurl-rfc">LNURL</a>
+  and <a href="https://webln.dev/">WebLN</a>
+  as well as keeping up to date with new features
+  in the lnd project.
+</p>
+<h2>Open-source project</h2>
+<p>
+  Blixt Wallet is built as an
+  <a href="https://github.com/hsjoberg/blixt-wallet/blob/master/LICENSE">MIT</a>-licensed
+  open-source project.
+</p>
+<h2>Contact</h2>
+<p>
+  The project leader and main developer behind Blixt Wallet right now is
+  Hampus Sjöberg, who can be reached via
+  <a id="email">email</a>
+  or on twitter <a href="https://twitter.com/hampus_s">@hampus_s</a>.
+</p>
+<script>
+document.querySelector("#email").setAttribute("href", `${atob("bWFpbHRvOmhhbXB1cy5zam9iZXJnQHByb3Rvbm1haWwuY29t")}`);
+</script>
