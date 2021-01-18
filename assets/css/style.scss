@@ -105,6 +105,7 @@ main {
 header > h1 {
   margin: 0.67em 0 10px;
   font-size: 43px;
+  cursor: default;
 
   > .blixt-wallet-header-icon {
     width: 45px;
@@ -130,7 +131,7 @@ header > a {
 
 @media screen and (min-width: 750px) {
   main {
-    max-width: 1175px;
+    max-width: 1250px;
   }
 
   header > h1 {
