@@ -45,12 +45,7 @@ const setThemeSwitcherEmoji = () => {
 
 const themeSwitcher = document.querySelector("#theme-switcher");
 const body = document.querySelector("body");
-if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-  body.classList.add("light-theme");
-}
-else {
-  body.classList.add("dark-theme");
-}
+body.classList.add("dark-theme");
 
 themeSwitcher.addEventListener("click", () => {
   if (body.classList.contains("dark-theme")) {
