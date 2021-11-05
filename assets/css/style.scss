@@ -139,6 +139,11 @@ header > h1 {
   font-size: 43px;
   cursor: default;
 
+  > a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
   > .blixt-wallet-header-icon {
     width: 45px;
     margin-top: 2px;
@@ -262,4 +267,18 @@ sub {
 
 sup {
   top: -0.5em;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+.faq {
+  > section {
+    margin-bottom: 37px;
+  }
 }
