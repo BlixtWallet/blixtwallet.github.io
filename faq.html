@@ -6,110 +6,134 @@ title: Frequently Asked Questions
   <h1>Frequently Asked Questions</h1>
 
   <section id="blixt-receive-funds">
-  <details>
-	<summary><h3>How do I receive funds (satoshis) into Blixt wallet?</h3></summary>
+  <details><summary><h3>What is Lightning Network (LN), where I can find more info about it?</h3></summary>
+    <p>Before you start using Blixt as LN node wallet, is good that you get familiarized with terms, procedures, features etc. Is good to start reading and have ssome basic knowledge about LN and how to use it, otherwise it will be difficult for you as new user, to understand what are you doing with Blixt as ndoe LN wallet. Here you have some resources, selected for you to start learning:</p>
+    <h4>A. General Information and documentation about Lightning Network</h4>
+      <ol>
+      <li><a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa">An Overview of Lightning Network Implementations</a></li>
+      <li><a href="https://lightning.how">Lightning Network Resources, complete library about LN - by Jamesson Lopp</a></li>
+      <li><a href="https://docs.lightning.engineering/">LND Documentation -  by Lightning Engineering</a></li>
+      <li><a href="https://openoms.gitbook.io/lightning-node-management/">Lightning Node Management – by openoms</a></li>
+      <li><a href="https://bitcoiner.guide/lightning/">Beginners LN Guide 28 – by Bitcoin QnA</a></li>
+      <li><a href="https://github.com/chaincodelabs/lightning-curriculum/">Lightning Network Dev Curriculum – by Chaincode Labs</a></li>
+      </ol>
+    <h4>B. Video tutorials about Lightning Network and Bitcoin nodes</h4>
+      <ol>
+      <li><a href="https://youtu.be/sVeolsQ3cvU">What is a Bitcoin node</a></li>
+      <li><a href="https://youtu.be/z9n8WRfMw8M">The Lightning Network: The most efficient payment system in the world</a></li>
+      <li><a href="https://youtu.be/pOZaLbUUZUs">How LN channels work – by Decentralized thought</a></li>
+      <li><a href="https://www.youtube.com/user/renepickhardt/videos">LN explained – by René Pickhardt</a></li>
+      <li><a href="https://youtu.be/HlPIB6jt6ww">LN Channels Management – by Alex Bosworth</a></li>
+      <li><a href="https://youtu.be/bW7hvvjum9o">Everything you need to know about LN – Till Musshoff</a></li>
+      </ol>
+  </details>
+  </section>
+
+  <section id="blixt-receive-funds">
+  <details><summary><h3>What kind of node is Blixt app? How is possible to have a node on a mobile device?</h3></summary>
+    <p>Blixt Node Wallet uses <a href="https://github.com/LightningNetwork/lnd/issues">LND implementation</a> and the <a href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/">Bitcoin SPV client Neutrino</a> under the hood, directly on the phone, respecting your privacy. The wallet does not use any centralized servers for doing transactions. Neutrino sync will keep on your device only part of the blocks and will sync in just few minutes from Blixt node (by default) or yours if you want to use your own home node or specific one as you wish.</p>
+    <p>Also Blixt can use Tor network so you can have more privacy and usage for incoming LN channels from other nodes, having an unique onion address for your node URI. Here you can read more about BTC/LN Tor nodes, <a href="https://blog.lopp.net/tor-only-bitcoin-lightning-guide/">an article writen by Jamesson Lopp</a></p>
+  </details>
+  </section>
+  
+  <section id="blixt-receive-funds">
+  <details><summary><h3>How do I receive funds (satoshis) into Blixt wallet?</h3></summary>
     <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
-	  <ol>
-	  <li>Once you create the wallet and save the seed, go to Blixt settings and activate "Dunder LSP".</li>
-	  <li>Go back to Blixt main screen - click on receive, put the amount, but no more than 400k sats (there's a limitation for now).</li>
-	  <li>It will create a LN invoice to be paid from another LN wallet.</li>
-	  <li>Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds you sent (200k sats for example) on your channel side. So you will have a nice channel ready to send 200k sats and receive 200k sats.</li>
-	  <li>If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same channel. If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all your receiving payments.</li>
-	  </ol>
-	<h3>IMPORTANT NOTE:</h3>
+      <ol>
+      <li>Once you create the wallet and save the seed, go to Blixt settings and activate "Dunder LSP".</li>
+      <li>Go back to Blixt main screen - click on receive, put the amount, but no more than 400k sats (there's a limitation for now).</li>
+      <li>It will create a LN invoice to be paid from another LN wallet.</li>
+      <li>Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds you sent (200k sats for example) on your channel side. So you will have a nice channel ready to send 200k sats and receive 200k sats.</li>
+      <li>If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same channel. If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all your receiving payments.</li>
+      </ol>
+    <h3>IMPORTANT NOTE:</h3>
     <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
   </details>
   </section>
   
   <section id="blixt-node-address">
-  <details>
-	<summary><h3>How do I obtain/see my Blixt nodeID and Tor onion URI?</h3></summary>
-	<p>In order to be able to share or use your Blixt nodeID for opening channels, you need to activate it. But due to the fact that the Blixt node is a mobile one, so usually your mobile phone will have a different IP based on your location, will need to be used behind Tor network, so could have a static onion address.</p>
-	  <ul>
-	  <li>Go to Blixt - settings - activate Tor onion. app will restart (if not, do it manually)</li>
-	  <li>Wait for Blixt to connect to Tor and sync latest blocks and indexes (see the sync icon on top). Takes only few moments.</li>
-	  <li>Go to Blixt settings - under Tor onion, you have "show onion address" option. Now you can see the full node URI with a onion address. Save that for later use, by long press it, copy into clipboard and then save it in your safe places (eg. password manager).</li>
-	  </ul>
-	<p>If you just need to see the nodeID, go to Blixt settings - "shoe node data". In that window popup you will see "node alias" and node "Identity Pubkey". You can copy it by long press the item.</p>
+  <details><summary><h3>How do I obtain/see my Blixt nodeID and Tor onion URI?</h3></summary>
+    <p>In order to be able to share or use your Blixt nodeID for opening channels, you need to activate it. But due to the fact that the Blixt node is a mobile one, so usually your mobile phone will have a different IP based on your location, will need to be used behind Tor network, so could have a static onion address.</p>
+      <ul>
+      <li>Go to Blixt - settings - activate Tor onion. app will restart (if not, do it manually)</li>
+      <li>Wait for Blixt to connect to Tor and sync latest blocks and indexes (see the sync icon on top). Takes only few moments.</li>
+      <li>Go to Blixt settings - under Tor onion, you have "show onion address" option. Now you can see the full node URI with a onion address. Save that for later use, by long press it, copy into clipboard and then save it in your safe places (eg. password manager).</li>
+      </ul>
+    <p>If you just need to see the nodeID, go to Blixt settings - "shoe node data". In that window popup you will see "node alias" and node "Identity Pubkey". You can copy it by long press the item.</p>
   </details>
   </section>
 
   <section id="connect-full-node">
-  <details>
-	<summary><h3>How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
+  <details><summary><h3>How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
     <p>One thing to note is that Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973">Tor onion v3</a>.</p>
-	<p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
+    <p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
   </details>
   </section>
 
   <section id="umbrel-control">
-  <details>
-    <summary><h3>How do I remotely control an Umbrel node from my Blixt?</h3></summary>
+  <details><summary><h3>How do I remotely control an Umbrel node from my Blixt?</h3></summary>
     <p><strong>Blixt Wallet</strong> is a fully fledged lightning node in of itself. Rather than controlling your full node at your home, enable to Tor and open a channel towards it.</p>
-	<p>Blixt node can be a really good "companion" for your home Umbrel/home node. Take this example:</p>
-	  <ul>
-	  <li>you have your Umbrel LN node with lots of channels open and do several routing. That's your main "bank" withg a lot of funds in it. Umbrel is your routing node.</li>
-	  <li>you have Blixt in your mobile phone, that can be your "node companion", with smaller amounts of satoshis. Blixt is your "spending" node, that need fast and cheap paths for quick spending. So connecting it with your Umbrel node, by opening a channel with it, you can move easy funds and use your Umbrel node as "frontend" sender.</li>
-	  <li>your Blixt mobile node also can connect to other nodes and Dunder LSP. That will bring you even more connectivity and options to move funds around, in a very easy and quick manner.</li>
-	  <li>you can have a Dunder LSP channel for incoming txs and a normal private channel with your home/Umbrel node for outgoing txs.</li>
-	  </ul>
+    <p>Blixt node can be a really good "companion" for your home Umbrel/home node. Take this example:</p>
+      <ul>
+      <li>you have your Umbrel LN node with lots of channels open and do several routing. That's your main "bank" withg a lot of funds in it. Umbrel is your routing node.</li>
+      <li>you have Blixt in your mobile phone, that can be your "node companion", with smaller amounts of satoshis. Blixt is your "spending" node, that need fast and cheap paths for quick spending. So connecting it with your Umbrel node, by opening a channel with it, you can move easy funds and use your Umbrel node as "frontend" sender.</li>
+      <li>your Blixt mobile node also can connect to other nodes and Dunder LSP. That will bring you even more connectivity and options to move funds around, in a very easy and quick manner.</li>
+      <li>you can have a Dunder LSP channel for incoming txs and a normal private channel with your home/Umbrel node for outgoing txs.</li>
+      </ul>
   </details>
   </section>
 
   <section id="umbrel-channel">
-  <details>
-    <summary><h3>How do I open a channel with my Umbrel/myNode/Raspiblitz/other node?</h3></summary>
+  <details><summary><h3>How do I open a channel with my Umbrel/myNode/Raspiblitz/other node?</h3></summary>
     <p>There are 2 options: opening from Blixt towards your node also from your node towards your Blixt node.</p>
-	<p>But first let's mention some aspects to be taken in consideration:</p>
-	  <ul>
-	  <li>these channels open with your home node, will be private by default. That means you will not be able to route other txs through them. And are private for a reason: a mobile node is not supposed to be 100% all the time online, only when is needed to make a tx by the user.</li>
-	  <li>usually these channels are open using <a href="https://en.wikipedia.org/wiki/Tor_(network)">Tor network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor enabled. So when you want to open/use these channels, be sure you activate Tor on your Blixt app.</li>
-	  <li>these channels are your first hop into a payment, so you can easily set 0 total fees and let your main home node to deal with the best following route.</li>
-	  </ul>
-	<h3>How to open a channel from Blixt towards Umbrel/home node</h3>
-	  <ol>
-	  <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
-	  <li>Go to your Umbrel node and copy the onion URI of your Umbrel/home node, or just pull up the QR code for onion URI. it should be in this format `nodeID@onion-address:9735`</li>
-	  <li>Go to Blixt - Settings - Lightning peers - add new peer</li>
-	  <li>Scan QR code from your Umbrel/home node or paste the onion URI and your home node will be added as a peer.</li>
-	  <li>Go back to Blixt main screen - top left drawer - Lightning channels.</li>
-	  <li>Click on open new channel “+” sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
-	  <li>Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own Umbrel node!</li>
-	  </ol>
-	<h3>How do I open a channel from my home node towards Blixt node?</h3>
-	  <ol>
-	  <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
-	  <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
-	  <li>Go to Blixt settings - see “Show Tor onion service”, copy it, is your Blixt node URI. Is good to have it saved also in your password manager, for later usage.</li>
-	  <li>Go to your Umbrel app RTL or Thunderhub (preferably) - add peer and paste your Blixt onion URI</li>
-	  <li>Go to your Umbrel node dashboard or RTL/Thunderhub - open channel, and select known peer from list looking for your Blixt nodeID</li>
-	  <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
-	  <li>Optional, later when is ready active, you can push funds using keysend feature, into one side or another. Blixt also supports keysend, as Thunderhub too.</li>
-	  </ol>
+    <p>But first let's mention some aspects to be taken in consideration:</p>
+      <ul>
+      <li>these channels open with your home node, will be private by default. That means you will not be able to route other txs through them. And are private for a reason: a mobile node is not supposed to be 100% all the time online, only when is needed to make a tx by the user.</li>
+      <li>usually these channels are open using <a href="https://en.wikipedia.org/wiki/Tor_(network)">Tor network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor enabled. So when you want to open/use these channels, be sure you activate Tor on your Blixt app.</li>
+      <li>these channels are your first hop into a payment, so you can easily set 0 total fees and let your main home node to deal with the best following route.</li>
+      </ul>
+    <h3>How to open a channel from Blixt towards Umbrel/home node</h3>
+      <ol>
+      <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
+      <li>Go to your Umbrel node and copy the onion URI of your Umbrel/home node, or just pull up the QR code for onion URI. it should be in this format `nodeID@onion-address:9735`</li>
+      <li>Go to Blixt - Settings - Lightning peers - add new peer</li>
+      <li>Scan QR code from your Umbrel/home node or paste the onion URI and your home node will be added as a peer.</li>
+      <li>Go back to Blixt main screen - top left drawer - Lightning channels.</li>
+      <li>Click on open new channel “+” sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
+      <li>Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own Umbrel node!</li>
+      </ol>
+    <h3>How do I open a channel from my home node towards Blixt node?</h3>
+      <ol>
+      <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
+      <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
+      <li>Go to Blixt settings - see “Show Tor onion service”, copy it, is your Blixt node URI. Is good to have it saved also in your password manager, for later usage.</li>
+      <li>Go to your Umbrel app RTL or Thunderhub (preferably) - add peer and paste your Blixt onion URI</li>
+      <li>Go to your Umbrel node dashboard or RTL/Thunderhub - open channel, and select known peer from list looking for your Blixt nodeID</li>
+      <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
+      <li>Optional, later when is ready active, you can push funds using keysend feature, into one side or another. Blixt also supports keysend, as Thunderhub too.</li>
+      </ol>
   </details>
   </section>
   
   <section id="blixt-restore">
-  <details>
-    <summary><h3>I lost my mobile phone, how can I restore my Blixt node wallet into a new device?</h3></summary>
-	<p>Is supposed that you already made regular backups for your LN channels and the seed, and keep it into a safe place (eg, password manager). If you did that, the procedure is simple:</p>
-	  <ul>
-	  <li>Install Blixt into a new phone</li>
-	  <li>In the first screen to create or restore wallet, got to top right corner and activate Tor (if you had previously channels open with Tor nodes).</li>
-	  <li>Blixt will restart in Tor mode. Then click on "restore". Fill in your 24 words seed from old wallet, space delimited. And add also the channels.backup file you save it previously and copy it into your new phone memory. Optional you can use Google drive, if you have it there.</li>
-	  <li>Click "restore" and wait for the app to do the standard procedure for recovering the funds.</li>
-	  <li>Blixt will close the existing channels and after min 40 blocks funds will be recovered and visible into your onchain wallet. So be patient.</li>
-	  <li>To check the funds, go to main screen, top drawer and enter into onchain wallet. On top right corner you click en see the txs log. After channels were closed and txs confirmed, locktime expired, you will see the funds in tgere.</li>
-	  </ul>
-	<p>NOTE: NEVER do the restore procedure on a new device, if you still have the original still working and online. This action will force close the existing channels and you could get a penalty for that (broadcasting twice the status of channels). You can restore on another device, keeping the original still open, ONLY the onchain wallet/seed, but never put also the channels backup.</p>
-	</details>
-	</section>
+  <details><summary><h3>I lost my mobile phone, how can I restore my Blixt node wallet into a new device?</h3></summary>
+    <p>Is supposed that you already made regular backups for your LN channels and the seed, and keep it into a safe place (eg, password manager). If you did that, the procedure is simple:</p>
+      <ul>
+      <li>Install Blixt into a new phone</li>
+      <li>In the first screen to create or restore wallet, got to top right corner and activate Tor (if you had previously channels open with Tor nodes).</li>
+      <li>Blixt will restart in Tor mode. Then click on "restore". Fill in your 24 words seed from old wallet, space delimited. And add also the channels.backup file you save it previously and copy it into your new phone memory. Optional you can use Google drive, if you have it there.</li>
+      <li>Click "restore" and wait for the app to do the standard procedure for recovering the funds.</li>
+      <li>Blixt will close the existing channels and after min 40 blocks funds will be recovered and visible into your onchain wallet. So be patient.</li>
+      <li>To check the funds, go to main screen, top drawer and enter into onchain wallet. On top right corner you click en see the txs log. After channels were closed and txs confirmed, locktime expired, you will see the funds in tgere.</li>
+      </ul>
+    <p>NOTE: NEVER do the restore procedure on a new device, if you still have the original still working and online. This action will force close the existing channels and you could get a penalty for that (broadcasting twice the status of channels). You can restore on another device, keeping the original still open, ONLY the onchain wallet/seed, but never put also the channels backup.</p>
+  </details>
+  </section>
 
   <section id="blixt-open-channels">
-  <details>
-    <summary><h3>Can I use auto-pilot to open channels for me?</h3></summary>
-	<p>Yes. If you do not want to deal with opening channels manually, Blixt have the auto-pilot feature, that will take care of managing channels for you, using the best options for you.</p>
-	<p>You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, once you deposit funds into your Blixt onchain wallet, it will take the funds and start opening channels with the best peers in the network, so you will be able to send immediatelly funds through LN.</p>
+  <details><summary><h3>Can I use auto-pilot to open channels for me?</h3></summary>
+    <p>Yes. If you do not want to deal with opening channels manually, Blixt have the auto-pilot feature, that will take care of managing channels for you, using the best options for you.</p>
+    <p>You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, once you deposit funds into your Blixt onchain wallet, it will take the funds and start opening channels with the best peers in the network, so you will be able to send immediatelly funds through LN.</p>
   </details>
   </section>
 	
