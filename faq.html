@@ -66,7 +66,9 @@ title: Frequently Asked Questions
   <section id="connect-full-node">
   <details><summary><h3>How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
     <p>One thing to note is that Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973">Tor onion v3</a>.</p>
-    <p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
+    <p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf for your home node. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
+    <p>When LND will support Tor v3 for Neutrino, then you can just add the onion address of your node, for Bitcoin P2P.</p>
+    <p>For example, for Umbrel nodes (most popular), this onion address is NOT the regular node URI onion address. You will go to Umbrel dashboard - connect wallet - select Bitcoin P2P and copy that onion address. No port is necessary, by default is 8333. Paste that onion address into Blixt - settings - Bitcoin node. Restart Blixt (force close/restart if is not restarting automatically. Then wait to sync. You can check the status in settings - LND logs or just click on sync icon on main screen.</p>
   </details>
   </section>
 
@@ -119,7 +121,8 @@ title: Frequently Asked Questions
   <details><summary><h3>I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?</h3></summary>
     <p>RULE NO.1 - Always you should have made those backups for the LN channels and keep it into a safe place (eg, password manager). If you did that, the procedure is simple and you have two ways (fast and slow) and also two situations to take in consideration (you had funds in onchain or not).</p>
     <p>RULE NO.2 - Never use a full backup of a device as a restored backup for BTC/LN wallets. This can end up in losing funds, by broadcasting a wrong state of channels.</p>
-    <p>RULE NO.3 - Migration (or funds restore procedure) means creating a new nodeID and move the restored funds to it. This is a better procedure for privacy, safety of funds and easiest way.</p>
+    <p>NOTE NO.1 - Migration (or funds restore procedure) means creating a new nodeID and move the restored funds to it. This is a better procedure for privacy, safety of funds and easiest way.</p>
+    <p>NOTE NO.2 - if you still have the original DEVICE still working and online with funds in Ln channels, NEVER do the restore procedure on a new device with channels restore options. This action will force close the existing channels and you could get a penalty for that (broadcasting twice the status of channels). You can restore on another device, keeping the original still open, ONLY the onchain wallet/seed, but never put the channels backup.</p>
     <h4>Scenario A - migrate Blixt to a new device (fast way)</h4>
     <p>Conditions:</p>
       <ol>
@@ -137,9 +140,16 @@ title: Frequently Asked Questions
       <li>with the old device Blixt, scan that LN invoice QR code and pay it. The old wallet will send all available funds to the new one and Dunder will open new channel for you, with that amount</li>
       <li>it will take just few minutes until tx is confirmed and channel open on the new device, be patient.</li>
       <li>once you see the funds in the new device available, it is recommended to close those old empty channels. If there are some residual satoshis, it  will come back to onchain wallet and can be sent later to the new device, using an onchain tx</li>
-      <li>DONE! Now is safe to wipe Blixt from the old device and funds are safe into the new one<li>
+      <li>DONE! Now is safe to wipe Blixt from the old device and funds are safe into the new one</li>
       </ul>
     <h4>Scenario B - old device is lost / non functional / non recoverable (slow way)</h4>
+    <p>Conditions:</p>
+      <ol>
+      <li>you do not have the old device anymore</li>
+      <li>you have a new device ready with Blixt app already installed (but not started yet)</li>
+      <li>you have funds into LN channels but also in the onchain wallet</li>
+      </ol>
+    <p>Procedure:</p>
       <ul>
       <li>Install Blixt into a new phone</li>
       <li>In the first screen to create or restore wallet, got to top right corner and activate Tor (if you had previously channels open with Tor nodes).</li>
@@ -148,7 +158,6 @@ title: Frequently Asked Questions
       <li>Blixt will close the existing channels and after min 40 blocks funds will be recovered and visible into your onchain wallet. So be patient.</li>
       <li>To check the funds, go to main screen, top drawer and enter into onchain wallet. On top right corner you click en see the txs log. After channels were closed and txs confirmed, locktime expired, you will see the funds in tgere.</li>
       </ul>
-    <p>NOTE: NEVER do the restore procedure on a new device, if you still have the original still working and online. This action will force close the existing channels and you could get a penalty for that (broadcasting twice the status of channels). You can restore on another device, keeping the original still open, ONLY the onchain wallet/seed, but never put also the channels backup.</p>
   </details>
   </section>
 
