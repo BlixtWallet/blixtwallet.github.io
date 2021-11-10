@@ -116,8 +116,30 @@ title: Frequently Asked Questions
   </section>
   
   <section id="blixt-restore">
-  <details><summary><h3>I lost my mobile phone, how can I restore my Blixt node wallet into a new device?</h3></summary>
-    <p>Is supposed that you already made regular backups for your LN channels and the seed, and keep it into a safe place (eg, password manager). If you did that, the procedure is simple:</p>
+  <details><summary><h3>I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?</h3></summary>
+    <p>RULE NO.1 - Always you should have made those backups for the LN channels and keep it into a safe place (eg, password manager). If you did that, the procedure is simple and you have two ways (fast and slow) and also two situations to take in consideration (you had funds in onchain or not).</p>
+    <p>RULE NO.2 - Never use a full backup of a device as a restored backup for BTC/LN wallets. This can end up in losing funds, by broadcasting a wrong state of channels.</p>
+    <p>RULE NO.3 - Migration (or funds restore procedure) means creating a new nodeID and move the restored funds to it. This is a better procedure for privacy, safety of funds and easiest way.</p>
+    <h4>Scenario A - migrate Blixt to a new device (fast way)</h4>
+    <p>Conditions:</p>
+      <ol>
+      <li>you still have the old device functional</li>
+      <li>you have a new device ready with Blixt app already installed (but not started yet)</li>
+      <li>you have funds ONLY into LN channels, the onchain is empty</li>
+      </ol>
+    <p>Procedure:</p>
+      <ul>
+      <li>create a new Blixt wallet instance on the new device (new seed) and save that seed into a safe place (password manager)</li>
+      <li>wait for Blixt to sync (takes just few minutes), you will see the sync icon on top that disappear</li>
+      <li>on the new device, go to Blixt settings - activate "Dunder LSP"</li>
+      <li>on the new device, go to main screen and click on "receive" button and create a new LN invoice to open a Dunder LSP channel</li>
+      <li>put the amount of total balance available displayed on the old device Blixt (main screen), then press create invoice</li>
+      <li>with the old device Blixt, scan that LN invoice QR code and pay it. The old wallet will send all available funds to the new one and Dunder will open new channel for you, with that amount</li>
+      <li>it will take just few minutes until tx is confirmed and channel open on the new device, be patient.</li>
+      <li>once you see the funds in the new device available, it is recommended to close those old empty channels. If there are some residual satoshis, it  will come back to onchain wallet and can be sent later to the new device, using an onchain tx</li>
+      <li>DONE! Now is safe to wipe Blixt from the old device and funds are safe into the new one<li>
+      </ul>
+    <h4>Scenario B - old device is lost / non functional / non recoverable (slow way)</h4>
       <ul>
       <li>Install Blixt into a new phone</li>
       <li>In the first screen to create or restore wallet, got to top right corner and activate Tor (if you had previously channels open with Tor nodes).</li>
