@@ -139,7 +139,7 @@ p {
 </head>
 <body>
 <header>Lightning Stores and Services</header>
-<section data-href="https://tippin.me/@hampus_s">
+<section data-href="tip-hampus">
 	<img
 		src="data:image/webp;base64,UklGRgoDAABXRUJQVlA4IP4CAAAwIACdASrhAOEAPxGIwlgsKaejo3SoUYAiCWVu4DZ51MA/44ejYcPoI+U1ZuzMat9ZG3O8wHnt6btTpYIZL9FcjNfkBVQBCKwLX5AVUAQir5sg8wGu2ZCKwIdl+xUi7/WibZr8gKp0WBi8M476vifGjmsC1+Jsf2HO+1N58509wYVUAQedXERbxwBxBAiZjGb2txAqYHpJnKajEmwOawAMVEdBprx4efDb5/lMbf80puDfuuh0VSES0M8AqoAhO2YeMMBp/cMdHlVnEIrAtfiCVrTkPJlM8ogCEVgWtb+YIHVlH9OTNdsyEVgQoCpQz5yiUgKqAIRWH28gKqAIRWBa/ICqgCEVgWvxAAD+6wn//YvZHrZIfW8fs3AAmCjeZQg9ctA/XBgS9qs1RQkkpjDfXTsAcQCjphg1bfmmdUGTuGaW9DIcol56cxmUTtn/HoaJ3EKYDoa0N7iQ+NY5U3B1TFtOkdCjUAUNUQnORSN1CAtVTogUeeC6to7cxTh+5bSxEgaVw8EEcOcjBtj5+IdUwapUe7QseomReEsGYtykAYf5LaGPODLwYbn2JkrlwAfjif/T+Zus6nhRsSxK46qrZUHW9QAeuYodXTYom7sqWddmuM0PUU3zTv2DSHxwiiMyOIqNnxgW6nG4luJjPzECmFBpDHMeMc47WbjSBnuXK3JX3sPSNNWmL+6tEe8bMobpcpt9Bid/NllfP26Oi6HtO7ZtU7eEj63BZA8fPE7kVDlfxfA6AVrmfF2/DrlyEU7iMn1ilsylA6YuRhX5otlfhZT1bsGzXFAhDolL0nE/mjwF5i3DwAB6rTJuGx3jq48b4KJqxLIX1WG7LuBOPg8qC2+rfx25c8GER/2Ef6nKXD5H3bJiXSh608c3oRFyfm5SBkxDp9cbC2fEqGPSntTzsK9BwzmFpz/IvCLv7jJAAM5e1+tz1ATYnrfHxcgxNaUS4vxfZmKy8euj0AWage1OuwHK+IOL/y9RclVrU1uIyQAtEPMIIXhUkjmSSAAA"
 	/>
@@ -294,7 +294,16 @@ p {
 const items = document.querySelectorAll("section");
 for (const item of items) {
 	item.addEventListener("touchstart", () => {});
-	item.addEventListener("click", (e) => window.location.href = item.dataset.href)
+	item.addEventListener("click", (e) => {
+		if (item.dataset.href === "tip-hampus") {
+			window.ReactNativeWebView.postMessage(JSON.stringify({
+				type: "nonwebln_foundInvoice",
+				data: "LNURL1DP68GURN8GHJ7CNVD9U8GAMPD3KX2APWVDHK6TEWWAJKCMPDDDHX7AMW9AKXUATJD3CZ76RPD4C82UCGZCFNV"
+			}));
+		} else {
+			window.location.href = item.dataset.href;
+		}
+	})
 }
 </script>
 </body>
