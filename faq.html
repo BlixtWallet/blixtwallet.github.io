@@ -10,29 +10,44 @@ title: Frequently Asked Questions
     <p>Before you start using Blixt as LN node wallet, is good that you get familiarized with terms, procedures, features etc. Is good to start reading and have ssome basic knowledge about LN and how to use it, otherwise it will be difficult for you as new user, to understand what are you doing with Blixt as ndoe LN wallet. Here you have some resources, selected for you to start learning:</p>
     <h4>A. General Information and documentation about Lightning Network</h4>
       <ol>
-      <li><a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa">An Overview of Lightning Network Implementations</a></li>
-      <li><a href="https://lightning.how">Lightning Network Resources, complete library about LN - by Jamesson Lopp</a></li>
-      <li><a href="https://docs.lightning.engineering/">LND Documentation -  by Lightning Engineering</a></li>
-      <li><a href="https://openoms.gitbook.io/lightning-node-management/">Lightning Node Management – by openoms</a></li>
-      <li><a href="https://bitcoiner.guide/lightning/">Beginners LN Guide 28 – by Bitcoin QnA</a></li>
-      <li><a href="https://github.com/chaincodelabs/lightning-curriculum/">Lightning Network Dev Curriculum – by Chaincode Labs</a></li>
+      <li><a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa" target="_blank" rel="noopener noreferrer">An Overview of Lightning Network Implementations</a></li>
+      <li><a href="https://lightning.how" target="_blank" rel="noopener noreferrer">Lightning Network Resources, complete library about LN - by Jamesson Lopp</a></li>
+      <li><a href="https://docs.lightning.engineering/" target="_blank" rel="noopener noreferrer">LND Documentation -  by Lightning Engineering</a></li>
+      <li><a href="https://openoms.gitbook.io/lightning-node-management/" target="_blank" rel="noopener noreferrer">Lightning Node Management – by openoms</a></li>
+      <li><a href="https://bitcoiner.guide/lightning/" target="_blank" rel="noopener noreferrer">Beginners LN Guide 28 – by Bitcoin QnA</a></li>
+      <li><a href="https://github.com/chaincodelabs/lightning-curriculum/" target="_blank" rel="noopener noreferrer">Lightning Network Dev Curriculum – by Chaincode Labs</a></li>
       </ol>
     <h4>B. Video tutorials about Lightning Network and Bitcoin nodes</h4>
       <ol>
-      <li><a href="https://youtu.be/sVeolsQ3cvU">What is a Bitcoin node</a></li>
-      <li><a href="https://youtu.be/z9n8WRfMw8M">The Lightning Network: The most efficient payment system in the world</a></li>
-      <li><a href="https://youtu.be/pOZaLbUUZUs">How LN channels work – by Decentralized thought</a></li>
-      <li><a href="https://www.youtube.com/user/renepickhardt/videos">LN explained – by René Pickhardt</a></li>
-      <li><a href="https://youtu.be/HlPIB6jt6ww">LN Channels Management – by Alex Bosworth</a></li>
-      <li><a href="https://youtu.be/bW7hvvjum9o">Everything you need to know about LN – Till Musshoff</a></li>
+      <li><a href="https://youtu.be/sVeolsQ3cvU" target="_blank" rel="noopener noreferrer">What is a Bitcoin node</a></li>
+      <li><a href="https://youtu.be/z9n8WRfMw8M" target="_blank" rel="noopener noreferrer">The Lightning Network: The most efficient payment system in the world</a></li>
+      <li><a href="https://youtu.be/pOZaLbUUZUs" target="_blank" rel="noopener noreferrer">How LN channels work – by Decentralized thought</a></li>
+      <li><a href="https://www.youtube.com/user/renepickhardt/videos" target="_blank" rel="noopener noreferrer">LN explained – by René Pickhardt</a></li>
+      <li><a href="https://youtu.be/HlPIB6jt6ww" target="_blank" rel="noopener noreferrer">LN Channels Management – by Alex Bosworth</a></li>
+      <li><a href="https://youtu.be/bW7hvvjum9o" target="_blank" rel="noopener noreferrer">Everything you need to know about LN – Till Musshoff</a></li>
       </ol>
+  </details>
+  </section>
+  
+  <section id="blixt-fees">
+  <details><summary><h3>What fees are used? Is there a cost to use LN channels?</h3></summary>
+    <p>1. Blixt itself do not charge ANY fees for usage of the app.</p>
+    <p>2. Use of Lightning Network (LN) is NOT FREE! This is a myth, wrongfully presented. Even if the cost of using LN is really small, there is a cost and some users will look at that cost too.</p>
+    <p>3. Opening and closing channels on LN HAVE A COST. and sometimes is not cheap. It depends also of the miner fees in the moment of opening a LN channel. Sometimews can be high, sometimes can be really cheap. Users should first learn about how these things works. Here is <a href="https://bitcoin.cipix.eu/en/what-is-mempool/" target="_blank" rel="noopener noreferrer">a simple guide about mempool fees.</a> Here is another <a href="https://suredbits.com/lightning-101-lightning-network-fees/" target="_blank" rel="noopener noreferrer">guide about LN fees.</a>
+    <h4>USE CASE SCENARIO - EXAMPLE</h4>
+    <p>Your are a new Blixt user. And you just install the app, you have no funds deposited into its wallet.</p>
+    <p>Let's consider you choose to use Dunder LSP service (<a href="#blixt-lsp">see down below how it works and what is LSP</a>), just to deposit 100k sats into your Blixt LN wallet.</p>
+    <p>In the moment LSP service received your 100k deposit, it will use it to open a 100k channel towards your new fresh Blixt nodeID. But that opening have a cost: onchain fees for the tx and also a commit fee (reserve kept for closing the channel). See more details about commit fees here: <a href="https://lightningwiki.net/index.php/Fees" target="_blank" rel="noopener noreferrer">Link 1</a> - <a href="https://https://bitcoin.stackexchange.com/questions/89232/why-is-my-spendable-msat-much-lower-than-msatoshi-to-us/89235#89235" target="_blank" rel="noopener noreferrer">Link 2</a> - <a href="https://old.reddit.com/r/lightningnetwork/comments/cjtbjt/question_regarding_commit_fee/" target="_blank" rel="noopener noreferrer">Link 3</a></p>
+    <p>So when the channel is open, you will see in its details that from 100k sats, there's a 5-10k sats "not available" to spend, is as "reserved". You end up with only 990k sats for spending.</p>
+    <p> That's why is important NOT to open small channels like 10-20-30-50-100k sats. Is not rentable because it will be eaten in fees. A 500k-1M-2M sats channel is much recommended because then those commit fees will be small in regards of the size of channel.</p>
+    <p>For using small amount of sats, there are many other LN wallet apps, including custodial that can deal with this aspect in another way and cheaper: LNTXBOT (lndhub), Bluewallet (lndhub), Zeus (lndhub), Zebedee.</p>
   </details>
   </section>
 
   <section id="blixt-full-node">
   <details><summary><h3>What kind of node is Blixt app? How is possible to have a node on a mobile device?</h3></summary>
-    <p>Blixt Node Wallet uses <a href="https://github.com/LightningNetwork/lnd/issues">LND implementation</a> and the <a href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/">Bitcoin SPV client Neutrino</a> under the hood, directly on the phone, respecting your privacy. The wallet does not use any centralized servers for doing transactions. Neutrino sync will keep on your device only part of the blocks and will sync in just few minutes from Blixt node (by default) or yours if you want to use your own home node or specific one as you wish.</p>
-    <p>Also Blixt can use Tor network so you can have more privacy and usage for incoming LN channels from other nodes, having an unique onion address for your node URI. Here you can read more about BTC/LN Tor nodes, <a href="https://blog.lopp.net/tor-only-bitcoin-lightning-guide/">an article writen by Jamesson Lopp</a></p>
+    <p>Blixt Node Wallet uses <a href="https://github.com/LightningNetwork/lnd/issues" target="_blank" rel="noopener noreferrer">LND implementation</a> and the <a href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/" target="_blank" rel="noopener noreferrer">Bitcoin SPV client Neutrino</a> under the hood, directly on the phone, respecting your privacy. The wallet does not use any centralized servers for doing transactions. Neutrino sync will keep on your device only part of the blocks and will sync in just few minutes from Blixt node (by default) or yours if you want to use your own home node or specific one as you wish.</p>
+    <p>Also Blixt can use Tor network so you can have more privacy and usage for incoming LN channels from other nodes, having an unique onion address for your node URI. Here you can read more about BTC/LN Tor nodes, <a href="https://blog.lopp.net/tor-only-bitcoin-lightning-guide/" target="_blank" rel="noopener noreferrer">an article writen by Jamesson Lopp</a></p>
     <p>NOTE: Keep in mind that Blixt is a full node, with LN channels as any other LN node. That means, in order to be able to transact on LN, you need to be online, connected, in the moment of transaction. If you do not transact, is not really necessary to stay online. Blixt, once is open it will take few moments to re-sync the latest blocks through SPV Neutrino and you will be back online. On the other side, for transacting onchain (not LN) is not necessary to be online.</p>
   </details>
   </section>
@@ -68,7 +83,7 @@ title: Frequently Asked Questions
 
   <section id="connect-connect-node">
   <details><summary><h3>How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
-    <p>One thing to note is that Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973">Tor onion v3</a>.</p>
+    <p>One thing to note is that Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>.</p>
     <p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf for your home node. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
     <p>When LND will support Tor v3 for Neutrino, then you can just add the onion address of your node, for Bitcoin P2P.</p>
     <p>For example, for Umbrel nodes (most popular), this onion address is NOT the regular node URI onion address. You will go to Umbrel dashboard - connect wallet - select Bitcoin P2P and copy that onion address. No port is necessary, by default is 8333. Paste that onion address into Blixt - settings - Bitcoin node. Restart Blixt (force close/restart if is not restarting automatically. Then wait to sync. You can check the status in settings - LND logs or just click on sync icon on main screen.</p>
@@ -94,7 +109,7 @@ title: Frequently Asked Questions
     <p>But first let's mention some aspects to be taken in consideration:</p>
       <ul>
       <li>these channels open with your home node, will be private by default. That means you will not be able to route other txs through them. And are private for a reason: a mobile node is not supposed to be 100% all the time online, only when is needed to make a tx by the user.</li>
-      <li>usually these channels are open using <a href="https://en.wikipedia.org/wiki/Tor_(network)">Tor network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor enabled. So when you want to open/use these channels, be sure you activate Tor on your Blixt app.</li>
+      <li>usually these channels are open using <a href="https://en.wikipedia.org/wiki/Tor_(network)" target="_blank" rel="noopener noreferrer">Tor network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor enabled. So when you want to open/use these channels, be sure you activate Tor on your Blixt app.</li>
       <li>these channels are your first hop into a payment, so you can easily set 0 total fees and let your main home node to deal with the best following route.</li>
       </ul>
     <h3>How to open a channel from Blixt towards Umbrel/home node</h3>
@@ -126,6 +141,7 @@ title: Frequently Asked Questions
     <p>RULE NO.2 - Never use a full backup of a device as a restored backup for BTC/LN wallets. This can end up in losing funds, by broadcasting a wrong state of channels.</p>
     <p>NOTE NO.1 - Migration (or funds restore procedure) means creating a new nodeID and move the restored funds to it. This is a better procedure for privacy, safety of funds and easiest way.</p>
     <p>NOTE NO.2 - if you still have the original DEVICE still working and online with funds in Ln channels, NEVER do the restore procedure on a new device with channels restore options. This action will force close the existing channels and you could get a penalty for that (broadcasting twice the status of channels). You can restore on another device, keeping the original still open, ONLY the onchain wallet/seed, but never put the channels backup.</p>
+    <p>NOTE NO.3 - For iOS users, before start the recovery procedure, convert your channels.backup file into base64 format, you can use <a href="https://codebeautify.org/binary-to-base64-converter" target="_blank" rel="noopener noreferrer">this simple GUI tool</a>.
     <h4>Scenario A - migrate Blixt to a new device (fast way)</h4>
     <p>Conditions:</p>
       <ol>
