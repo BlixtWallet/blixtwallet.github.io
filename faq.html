@@ -77,7 +77,7 @@ details summary > * {
     <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
   </details>
   </section>
----------  
+  ---------  
   <section id="blixt-node-address">
   <details><summary><h3 style="color:Orange;">How do I obtain/see my Blixt nodeID and Tor onion URI?</h3></summary>
     <p>In order to be able to share or use your Blixt nodeID for opening channels, you need to activate it. But due to the fact that the Blixt node is a mobile one, so usually your mobile phone will have a different IP based on your location, will need to be used behind Tor network, so could have a static onion address.</p>
@@ -100,7 +100,7 @@ details summary > * {
   </section>
 ---------
   <section id="umbrel-control">
-  <details><summary><h3 style="color:Orange;">How do I remotely control an Umbrel node from my Blixt?</h3></summary>
+  <details><summary><h3 style="color:Orange;">Can I remotely control an Umbrel node from my Blixt?</h3></summary>
     <p><strong>Blixt Wallet</strong> is a fully fledged lightning node in of itself. Rather than controlling your full node at your home, enable to Tor and open a channel towards it.</p>
     <p>Blixt node can be a really good "companion" for your home Umbrel/home node. Take this example:</p>
       <ul>
@@ -113,7 +113,7 @@ details summary > * {
   </section>
 ---------
   <section id="umbrel-channel">
-  <details><summary><h3 style="color:Orange;">How do I open a channel with my Umbrel/myNode/Raspiblitz/other node?</h3></summary>
+  <details><summary><h3 style="color:Orange;">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</h3></summary>
     <p>There are 2 options: opening from Blixt towards your node also from your node towards your Blixt node.</p>
     <p>But first let's mention some aspects to be taken in consideration:</p>
       <ul>
@@ -189,10 +189,10 @@ details summary > * {
   </details>
   </section>
 ---------
-  <section id="blixt-open-channels">
+  <section id="blixt-auto-pilot">
   <details><summary><h3 style="color:Orange;">Can I use auto-pilot to open channels for me?</h3></summary>
-    <p>Yes. If you do not want to deal with opening channels manually, Blixt have the auto-pilot feature, that will take care of managing channels for you, using the best options for you.</p>
-    <p>You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, once you deposit funds into your Blixt onchain wallet, it will take the funds and start opening channels with the best peers in the network, so you will be able to send immediatelly funds through LN.</p>
+    <p>Yes. Blixt have the auto-pilot feature, but is used only once, first time you create the Blixt node wallet and you deposit to onchain QR code that appear first time on the main screen. That will open a channel from Blixt public node towards your Blixt mobile node, with the amount you deposited (minus the fees and reserves for the channel).</p>
+    <p>You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, is not used anymore, once the first channel is open. You have the other way, using Dunder LSP channels (<a href="#blixt-lsp">see previous FAQ item about Dunder LSP</a>), or simply open channels with funds from your onchain wallet towards any other LN node. You can check on <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">LN nodes explorer page Amboss.space</a> and choose a LN node that you whish to connect.</p>
   </details>
   </section>
 	
