@@ -5,7 +5,7 @@ title: Frequently Asked Questions
 <article class="faq">
   <h1>Frequently Asked Questions</h1>
 <style>
-details summary { 
+details summary {
   cursor: pointer;
 }
 
@@ -37,7 +37,7 @@ details summary > * {
       </ol>
   </details>
   </section>
----------  
+---------
   <section id="blixt-fees">
   <details><summary><h3 style="color:Orange;">What fees are used? Is there a cost to use LN channels?</h3></summary>
     <p>1. Blixt itself do not charge ANY fees for usage of the app.</p>
@@ -52,7 +52,7 @@ details summary > * {
     <p>For using small amount of sats, there are many other LN wallet apps, including custodial that can deal with this aspect in another way and cheaper: <a href="https://lntxbot.com/" target="_blank" rel="noopener noreferrer">LNTXBOT</a> (Telegram bot, lndhub), <a href="https://bluewallet.io/" target="_blank" rel="noopener noreferrer">Bluewallet</a> (lndhub for LNTXBOT/LNbits), <a href="https://sbw.app" target="_blank" rel="noopener noreferrer">SBW</a> (hosted channels), <a href="https://zeusln.app/" target="_blank" rel="noopener noreferrer">Zeus</a> (lndhub for LNTXBOT/LNbits), <a href="https://zbd.gg/" target="_blank" rel="noopener noreferrer">Zebedee</a> (custodial), <a href="https://coinos.io/" target="_blank" rel="noopener noreferrer">CoinOS</a>.</p>
   </details>
   </section>
----------  
+---------
   <section id="blixt-full-node">
   <details><summary><h3 style="color:Orange;">What kind of node is Blixt app? How is possible to have a node on a mobile device?</h3></summary>
     <p>Blixt Node Wallet uses <a href="https://github.com/LightningNetwork/lnd/issues" target="_blank" rel="noopener noreferrer">LND implementation</a> and the <a href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/" target="_blank" rel="noopener noreferrer">Bitcoin SPV client Neutrino</a> under the hood, directly on the phone, respecting your privacy. The wallet does not use any centralized servers for doing transactions. Neutrino sync will keep on your device only part of the blocks and will sync in just few minutes from Blixt node (by default) or yours if you want to use your own home node or specific one as you wish.</p>
@@ -60,7 +60,7 @@ details summary > * {
     <p>NOTE: Keep in mind that Blixt is a full node, with LN channels as any other LN node. That means, in order to be able to transact on LN, you need to be online, connected, in the moment of transaction. If you do not transact, is not really necessary to stay online. Blixt, once is open it will take few moments to re-sync the latest blocks through SPV Neutrino and you will be back online. On the other side, for transacting onchain (not LN) is not necessary to be online.</p>
   </details>
   </section>
----------  
+---------
   <section id="blixt-lsp">
   <details><summary><h3 style="color:Orange;">How do I receive funds (satoshis) into Blixt wallet? What is LSP?</h3></summary>
     <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
@@ -77,7 +77,7 @@ details summary > * {
     <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
   </details>
   </section>
-  ---------  
+  ---------
   <section id="blixt-node-address">
   <details><summary><h3 style="color:Orange;">How do I obtain/see my Blixt nodeID and Tor onion URI?</h3></summary>
     <p>In order to be able to share or use your Blixt nodeID for opening channels, you need to activate it. But due to the fact that the Blixt node is a mobile one, so usually your mobile phone will have a different IP based on your location, will need to be used behind Tor network, so could have a static onion address.</p>
@@ -92,10 +92,20 @@ details summary > * {
 ---------
   <section id="connect-connect-node">
   <details><summary><h3 style="color:Orange;">How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
-    <p>One thing to note is that Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>.</p>
-    <p>So for the moment, you can use your node only if is "visible" on clearnet (IP/domain) and have activated the SPV filters in bitcoin.conf for your home node. You can test it also using your node local IP when you connect your Blixt on the same LAN ((Wifi) as your home node.</p>
-    <p>When LND will support Tor v3 for Neutrino, then you can just add the onion address of your node, for Bitcoin P2P.</p>
+    <p>
+      Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>,
+      so for the moment, you can use your node only if it's "visible" on clearnet (IP/domain). You can connect to your node via its local LAN IP, but it will then only work if you're connected to your home router.</p>
+      BIP157 filter indexing must be enabled for your node, add this to your bitcoin.conf, if it isn't already set:
+    </p>
+    <pre>
+      blockfilterindex=1
+      peerblockfilters=1
+    </pre>
+    <!-- To be enabled once lnd got onion v3 suppor -->
+    <!--
+    <p>When LND will support Tor v3 for Neutrino, you will be abble to connect via the onion service of your node.</p>
     <p>For example, for Umbrel nodes (most popular), this onion address is NOT the regular node URI onion address. You will go to Umbrel dashboard - connect wallet - select Bitcoin P2P and copy that onion address. No port is necessary, by default is 8333. Paste that onion address into Blixt - settings - Bitcoin node. Restart Blixt (force close/restart if is not restarting automatically. Then wait to sync. You can check the status in settings - LND logs or just click on sync icon on main screen.</p>
+    -->
   </details>
   </section>
 ---------
@@ -143,7 +153,7 @@ details summary > * {
       </ol>
   </details>
   </section>
----------  
+---------
   <section id="blixt-restore">
   <details><summary><h3 style="color:Orange;">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?</h3></summary>
     <p>RULE NO.1 - Always you should have made those backups for the LN channels and keep it into a safe place (eg, password manager). If you did that, the procedure is simple and you have two ways (fast and slow) and also two situations to take in consideration (you had funds in onchain or not).</p>
@@ -197,5 +207,5 @@ details summary > * {
     <p>You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, is not used anymore, once the first channel is open. You have the other way, using Dunder LSP channels (<a href="#blixt-lsp">see previous FAQ item about Dunder LSP</a>), or simply open channels with funds from your onchain wallet towards any other LN node. You can check on <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">LN nodes explorer page Amboss.space</a> and choose a LN node that you whish to connect.</p>
   </details>
   </section>
-	
+
 </article>
