@@ -94,7 +94,8 @@ details summary > * {
   <details><summary><h3 style="color:Orange;">How do I connect Blixt Wallet to my own full node (BIP157)?</h3></summary>
     <p>
       Blixt does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>,
-      so for the moment, you can use your node only if it's "visible" on clearnet (IP/domain). You can connect to your node via its local LAN IP, but it will then only work if you're connected to your home router.</p>
+      so for the moment, you can use your node only if it's "visible" on clearnet (IP/domain), you must make sure that Bitcoin's P2P port (8333) is forwarded by your router.
+      You can connect to your node via its local LAN IP, but it will then only work if you're connected to your home router.</p>
       BIP157 filter indexing must be enabled for your node, add this to your bitcoin.conf, if it isn't already set:
     </p>
     <pre>
