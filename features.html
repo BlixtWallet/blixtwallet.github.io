@@ -2,6 +2,7 @@
 layout: default
 title: Features
 ---
+
 <a href="home">Go back to Main page</a>
 
 <h2 style="color:Orange;">Blixt Wallet Main Features</h2>
@@ -78,7 +79,7 @@ title: Features
 <p>Blixt offers A series of 3rd party LN services, organizing together into a nice simple browser accessible and at hand for the user. It's a nice way also to promote businesses that accept BTC over LN. This is a feature to be more developed in the future. For the time being it doesn't work behind Tor so browsing these apps will be in clearnet.</p>
 <hr/>
 <h3 style="color:Orange;">Contacts List</h3>
-<p>Useful feature if you want to have a stable list of destinations where you are going to pay most of the time. This list can be LNURL, Lightning Address or future static payment information/invoices. For the time being this list can’t be backed up, but it is plans to have an option to export it and also with more options.</p>
+<p>Useful feature if you want to have a stable list of destinations where you are going to pay most of the time. This list can be LNURL, Lightning Address or future static payment information/invoices. For the time being this list canÂ’t be backed up, but it is plans to have an option to export it and also with more options.</p>
 <hr/>
 <h3 style="color:Orange;">Sign messages</h3>
 <p>Very useful tool to sign messages with your node key, login authentication messages and so on. Very few mobile wallets have this feature and make Blixt a niche app, for power LN users.</p>
@@ -111,7 +112,7 @@ title: Features
 <li>Before start using these Tor channels and the Blixt app was long time not open/synced, try waiting for the sync icon on top to finish and check if all channels are online active. Then just go and create your transactions.</li>
 <li>If the channels are still not active (see the small light icon on top drawer color), then go and add again the peer public key/ onion URI into peers, in Blixt options - show peers. You could try also refreshing that list, if the Tor gossip will find your peer, the channels will be back to life. if not, just add it again and will push the gossip to communicate.</li>
 <li>Do not just blindly jump into making a tx immediately after you open Blixt app. takes only moments to check if your channels are active, before getting error route or insufficient funds.</li>
-<li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. This has a name: “commit_fees” that are like a reserve for when the channels are closed, to be able to pay the miners fees. So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open the channel. That’s why is NOT recommended to open tiny small channels like 20-50-100k sats.</li>
+<li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. This has a name: Â“commit_feesÂ” that are like a reserve for when the channels are closed, to be able to pay the miners fees. So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open the channel. ThatÂ’s why is NOT recommended to open tiny small channels like 20-50-100k sats.</li>
 <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe and secured by the network. But are very small, sometimes in msats.</li>
 <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. And DO NOT try to restore on both same LN channels. You will lose funds!</li>
 <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.</li>
