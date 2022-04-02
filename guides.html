@@ -4,7 +4,7 @@ title: Guides
 ---
 {% include blixt-web.html %}
 <article class="guides">
-  <h2>Blixt Wallet use cases</h2>
+  <h1>Blixt Wallet use cases</h1>
   <style>
     details summary {
       cursor: pointer;
@@ -32,6 +32,7 @@ title: Guides
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
+      <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
       <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
@@ -54,9 +55,16 @@ title: Guides
     <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
   </section>
   
+  <section id="guide-autopilot">
+  <h3>How to use autopilot for opening LN channels?</h3>
+    <p>Blixt wallet have the auto-pilot feature, but is used only once, first time you create the Blixt node wallet and you deposit to onchain QR code that appear first time on the main screen. That deposit will open a channel for you with Blixt public node, with the amount you deposited (minus the miner fees and reserves for the channel).</p>
+    <p>By default the autopilot option is already activated, but if you do not want to use it, just go to Settings - "automatically open channels" and disable the box.</p>
+    <p>This feature, is not used anymore, once the first channel is open. For the next channels to open you will have to use <a href="#guide-lsp">Dunder LSP channels</a> and / or <a href="#guide-channels">standard method</a> for opening channels with any other LN node. You can check on <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">LN nodes explorer page Amboss.space</a> and choose a LN node that you whish to connect.</p>
+  </section>
+  
   <section id="guide-channels">
     <h3>How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</h3>
-    <p>There are 2 options: opening from Blixt towards your node also from your node towards your Blixt node.</p>
+    <p>There are 2 options: opening from Blixt towards your node and also from your home node towards your Blixt node.</p>
     <p>But first let's mention some aspects to be taken in consideration:</p>
       <ul>
       <li>these channels open with your home node, will be private by default. That means you will not be able to route other txs through them. And are private for a reason: a mobile node is not supposed to be 100% all the time online, only when is needed to make a tx by the user.</li>
@@ -73,7 +81,8 @@ title: Guides
       <li>Click on open new channel “+” sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
       <li>Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own home node partner!</li>
       </ol>
-    <h4>Opening a channel from my home node towards Blixt mobile node?</h4>
+    <h4>Opening a channel from my home node towards Blixt mobile node</h4>
+    <p><strong>IMPORTANT NOTE</strong>: Until new Tor implementation in Blixt will be deplayed (work in progress) and also Tor v3 fro Neutrino in LND code will be released, consider this option as experimental.</p>
       <ol>
       <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
       <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
