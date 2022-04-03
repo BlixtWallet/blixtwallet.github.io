@@ -27,29 +27,24 @@ title: Guides
       padding-top: 12px;
       color: var(--secondary);
     }
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
   </style>
   <section id="toc">
     <h2>Table of Contents</h2>
     <ul>
-      <li><a href="#guide-videos">Blixt Wallet Video Demos</a></li>
       <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
       <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
       <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
+      <li><a href="#guide-videos">Blixt Wallet Video Demos</a></li>
     </ul>
   </section>
 
-  <section id="guide-videos">
-  <h3>Blixt Wallet Video Demos</h3>
-    <p>Here we present you some simple video demonstrations how Blixt Wallet can be used in real case situations:</p>
-    <p>Example - adding a contact lightning address and send some sats</p>
-     <video width="576" height="1280" controls>
-     <source src="/assets/images/blixt-lnadr.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-     </video>
-  </section>
-  
   <section id="guide-lsp">
   <h3>How to use Dunder LSP to open channels and receive funds over LN?</h3>
     <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
@@ -155,5 +150,15 @@ title: Guides
     <p><strong>NOTE:</strong></p>
     <p>If you do not have a home node, you could use instead a simple desktop Electrum wallet with Lightning function activated. Electrum have integrated swap services and two types of LN channels: <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> and regular private channels, so you can open one with your Blixt node wallet.</p>
     <p>So practically you could just send from your Blixt to your Electrum through LN and from Electrum make a swap into onchain address.</p>
+  </section>
+  
+  <section id="guide-videos">
+  <h3>Blixt Wallet Video Demos</h3>
+    <p>Here we present you some simple video demonstrations how Blixt Wallet can be used in real case situations:</p>
+    <p>Example - adding a contact lightning address and send some sats</p>
+     <video controls>
+     <source src="/assets/images/blixt-lnadr.mp4" type="video/mp4">
+     Your browser does not support the video tag.
+     </video>
   </section>
 </article>
