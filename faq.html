@@ -28,6 +28,7 @@ title: Frequently Asked Questions
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#what-is-ln">What is the Lightning Network?</a></li>
+      <li><a href="#no-sync">My Blixt it doesn't sync, why this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
@@ -108,6 +109,27 @@ title: Frequently Asked Questions
         </a>
       </li>
     </ol>
+  </section>
+  
+  <section id="no-sync">
+    <h3>My Blixt it doesn't sync, why this and what can I do?</h3>
+    <p>First of all let's explain some aspects WHY is not syncing, so the user can understand the situation:</p>
+    <ul>
+    <li>Blixt app need to be online (connected to internet) in order to connect to Neutrino node and sync the block headers and filters. If your device for some reason is not connected to a stable internet connection, Blixt will stale the sync until is restarted.</li>
+    <li>If you use Tor network, also this connection is quite unstable sometimes and not because your device but because of poor or congested Tor relays in your area.</li>
+    <li>Keep in mind that Blixt is also using quite some good amount of space data on your device, up to 1.5GB, so be aware to have enough free space, otherwise the app will stop the sync.</li>
+    <li>Sometimes the sync was not done properly and the app didn't scanned well all your BTC addresses used.</li>
+    <li>If you switched to sync with your own home node, maybe your node was not prepared for this or connection with your node was intrerrupted.</li>
+    </ul>
+    <p>So what you can do?</p>
+    <ul>
+    <li>Restart Blixt app (even try force close, for closing bad connections).</li>
+    <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
+    <li>Switch back to default sync server node.blixtwallet.com or just leave it blank.</li>
+    <li>Go to settings and check the option "rescan wallet", then restart the app. Once it started, look into lnd logs and wait patiently to finish.</li>
+    <li>Check if you have enough space on your device, move some apps, fotos, videos to your mSD card and leave more space on local disk. Blixt needs up to 1.5GB for its data (block headers, LN graph, channels.db etc).</li>
+    <li>Restart app then go to settings, to the last section named "LND Help Center" and run some diagnostics. Get in contact with Blixt support in Telegram group for further instructions or sharing lnd logs.</li>
+    <ul>
   </section>
 
   <section id="fees">
