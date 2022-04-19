@@ -31,6 +31,7 @@ title: Frequently Asked Questions
       <li><a href="#no-sync">My Blixt it doesn't sync, why this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
+      <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
@@ -316,7 +317,14 @@ title: Frequently Asked Questions
       </p>
     </details>
   </section>
--->
+  
+  <section id="routing">
+    <h3>Can I route payments with Blixt Wallet?</h3>
+    <p>Blixt, indeed is a LN node, but is not a routing node, is more like a private LN node.</p>
+    <p>All channels on Blixt are private, that means are not "visible" to the other routing nodes in the network. These are so called "unannounced" channels, used only for private payments.</p>
+    <p>Your Blixt LN node can receive and send payments, using other nodes as hops, but cannot route others payments through your Blixt node.</p>
+    <p>That's why Blixt is so special... nobody knows about your payments. <a href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">Check this short tutorial about LN onion routing</a></p>
+  </section>
 
   <section id="connect-bitcoin-node">
     <h3>How do I connect Blixt Wallet to my own full node?</h3>
