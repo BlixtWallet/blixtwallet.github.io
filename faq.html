@@ -28,12 +28,14 @@ title: Frequently Asked Questions
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#what-is-ln">What is the Lightning Network?</a></li>
+      <li><a href="#no-sync">My Blixt it doesn't sync, why this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
           is the procedure?</a></li>
+      <li><a href="#restored-funds">I restored my old node using SCB file, but funds are not back to my onchain wallet</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -108,6 +110,27 @@ title: Frequently Asked Questions
         </a>
       </li>
     </ol>
+  </section>
+  
+  <section id="no-sync">
+    <h3>My Blixt it doesn't sync, why this and what can I do?</h3>
+    <p>First of all let's explain some aspects WHY is not syncing, so the user can understand the situation:</p>
+    <ul>
+    <li>Blixt app need to be online (connected to internet) in order to connect to Neutrino node and sync the block headers and filters. If your device for some reason is not connected to a stable internet connection, Blixt will stale the sync until is restarted.</li>
+    <li>If you use Tor network, also this connection is quite unstable sometimes and not because your device but because of poor or congested Tor relays in your area.</li>
+    <li>Keep in mind that Blixt is also using quite some good amount of space data on your device, up to 1.5GB, so be aware to have enough free space, otherwise the app will stop the sync.</li>
+    <li>Sometimes the sync was not done properly and the app didn't scanned well all your BTC addresses used.</li>
+    <li>If you switched to sync with your own home node, maybe your node was not prepared for this or connection with your node was intrerrupted.</li>
+    </ul>
+    <p>So what you can do?</p>
+    <ul>
+    <li>Restart Blixt app (even try force close, for closing bad connections).</li>
+    <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
+    <li>Switch back to default sync server node.blixtwallet.com or just leave it blank.</li>
+    <li>Go to settings and check the option "rescan wallet", then restart the app. Once it started, look into lnd logs and wait patiently to finish.</li>
+    <li>Check if you have enough space on your device, move some apps, fotos, videos to your mSD card and leave more space on local disk. Blixt needs up to 1.5GB for its data (block headers, LN graph, channels.db etc).</li>
+    <li>Restart app then go to settings, to the last section named "LND Help Center" and run some diagnostics. Get in contact with Blixt support in Telegram group for further instructions or sharing lnd logs.</li>
+    <ul>
   </section>
 
   <section id="fees">
@@ -551,6 +574,25 @@ peerblockfilters=1</pre>
         and choose a LN node that you whish to connect.
       </p>
     </details>
+  </section>
+
+  <section id="restored-funds">
+    <h3>I restored my old node using SCB file, but funds are not back to my onchain wallet</h3>
+      </summary>
+      <p>OK, I had a dead previous node and I used the restore procedure, using the SCB backup channels file into Blixt. 
+      I wait for the channels to be closed, but funds are not back into my onchain wallet. What can I do?        
+      </p>
+      <p>Usually there are few possible scenarios for closing channels:</p>
+      <ul>
+      <li>A normal "cooperative close" channels usually takes few blocks (no more than 40), if both peers are online. Then everything goes smooth and fast.</li>
+      <li>If the other peer of the channel is not online then the closure task enter in force close. This could take at least 144 blocks until funds are released from the lock time. Check on mempool that locktime for the closing tx.</li>
+      <li>If a normal closure get stuck, for many reasons, mainly bad connectivity, then once all the rest of the channels already entered into "waiting to close" state, you could repeat the process, to push again the closure of remaining stuck channels.</li>
+      </ul>
+      <p>Once all the channels are initiated into "closing", wait patiently. This process takes time. 
+      If you see that on mempool the tx had released the funds, then check into your onchain wallet. If funds are still not there, means that the lnd wallet have to rescan previous addresses and refresh the wallet history. Some UTXOs are linked to "anchor outputs" so are more complicated to get back onchain, depends one to each others.</p>
+      <p>So when you see that all channels are closed, go to Blixt - Settings - donw to the last section that says "rescan wallet". Activate it and restart app (if is not doing automatically).</p>
+      <p>Only when the lnd is initiated, the rescan take place. Be patient and check the lnd logs (see also in Settings - lnd logs). You will read in there how is scaning a bunch of blocks at once for your restored addresses. Once the process is finished, your should see the funds in onchain.</p>
+      <p>Try to keep active the Blixt app during this process. If is intrerrupted, you will have to restart agaiun to trigger it.</p>
   </section>
   -->
 </article>
