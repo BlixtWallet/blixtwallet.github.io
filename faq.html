@@ -179,32 +179,6 @@ title: Frequently Asked Questions
         rel="noopener noreferrer">
         Link 3</a>.
     </p>
-    <!-- Section needs some rework
-    <p>
-      So when the channel is open, you will see in its details that from 100k sats, there's a 5-10k sats "not available"
-      to spend, is as "reserved". You end up with only 99k sats for spending.
-    </p>
-    <p>
-      That's why is important NOT to open small channels like 10-20-30-50-100k sats. Is not rentable because it will be
-      eaten in fees. A 500k-1M-2M sats channel is much recommended because then those commit fees will be small in
-      regards of the size of channel.
-    </p>
-    <p>
-      For using small amount of sats, there are many other LN wallet apps, including custodial that can deal with this
-      aspect in another way and cheaper:
-      <a href="https://lntxbot.com/" target="_blank" rel="noopener noreferrer">LNTXBOT</a>
-      (Telegram bot, lndhub),
-      <a href="https://bluewallet.io/" target="_blank" rel="noopener noreferrer">Bluewallet</a>
-      (lndhub for LNTXBOT/LNbits),
-      <a href="https://sbw.app" target="_blank" rel="noopener noreferrer">SBW</a>
-      (hosted channels),
-      <a href="https://zeusln.app/" target="_blank" rel="noopener noreferrer">Zeus</a>
-      (lndhub for LNTXBOT/LNbits),
-      <a href="https://zbd.gg/" target="_blank" rel="noopener noreferrer">Zebedee</a>
-      (custodial),
-      <a href="https://coinos.io/" target="_blank" rel="noopener noreferrer">CoinOS</a>.
-    </p>
-    -->
   </section>
 
   <section id="blixt-node">
@@ -236,58 +210,6 @@ title: Frequently Asked Questions
     </p>
   </section>
 
-  <!-- Needs to be reworked to explain the 2 ways of on-boarding (Autopilot and Dunder)
-  <section id="blixt-lsp">
-    <details>
-      <summary>
-        <h3 style="color: Orange">How do I receive funds (satoshis) into Blixt wallet?</h3>
-      </summary>
-      <p>
-        This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to
-        deposit funds and manually open channels with specific nodes.
-      </p>
-      <p>
-        This procedure is provided by the LSP (liquidity service provider), is a feature of Blixt that allows users to
-        get instant inbound/outbound liquidity by opening a channel for them, from Blixt LSP node towards your Blixt
-        mobile node.
-      </p>
-      <p>
-        REMEMBER: LSP is just a liquidity provider, not custodial server, not custodial node, so your funds are always
-        on your device channel and you are the only one that can control them. This means also that in order to be
-        operational for receive/send funds, your Blixt Wallet have to be online, like any other node. Is not necessary to
-        stay all the time with the app open and connected. The app it sync in background when your mobile phone has
-        internet connection. Anyways, even if you, for certain short period you hadn't connected, once you open Blixt,
-        it will take few moments and will sync the Neutrino filters (SPV), then your node is back online.
-      </p>
-      <ol>
-        <li>Once you create the wallet and save the seed, go to Blixt settings and activate "Dunder LSP".</li>
-        <li>
-          Go back to Blixt main screen - click on receive, put the amount, but no more than 400k sats (there's a
-          limitation for now).
-        </li>
-        <li>It will create a LN invoice to be paid from another LN wallet.</li>
-        <li>
-          Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds
-          you sent (200k sats for example) on your channel side. So you will have a nice channel ready to send 200k sats
-          and receive 200k sats.
-        </li>
-        <li>
-          If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same
-          channel. If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all
-          your receiving payments.
-        </li>
-      </ol>
-      <h3>IMPORTANT NOTE:</h3>
-      <p>
-        Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to
-        do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place
-        storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it
-        will save you later from much trouble.
-      </p>
-    </details>
-  </section>
--->
-
   <!-- Future of onion address in Blixt uncertain, commenting out for now
   <section id="blixt-node-address">
     <details>
@@ -317,6 +239,7 @@ title: Frequently Asked Questions
       </p>
     </details>
   </section>
+  -->
   
   <section id="routing">
     <h3>Can I route payments with Blixt Wallet?</h3>
@@ -360,104 +283,8 @@ peerblockfilters=1</pre>
     <p>
       Rather than controlling your node at your home, enable to Tor and open a channel towards it.
     </p>
-    <!--
-      <p>Blixt Wallet can be a really good "companion" for your home Umbrel/home node. Take this example:</p>
-      <ul>
-        <li>
-          you have your Umbrel LN node with lots of channels open and do several routing. That's your main "bank" with
-          a lot of funds in it. Umbrel is your routing node.
-        </li>
-        <li>
-          you have Blixt in your mobile phone, that can be your "node companion", with smaller amounts of satoshis.
-          Blixt is your "spending" node, that need fast and cheap paths for quick spending. So connecting it with your
-          Umbrel node, by opening a channel with it, you can move easy funds and use your Umbrel node as "frontend"
-          sender.
-        </li>
-        <li>
-          your Blixt mobile node also can connect to other nodes and Dunder LSP. That will bring you even more
-          connectivity and options to move funds around, in a very easy and quick manner.
-        </li>
-        <li>
-          you can have a Dunder LSP channel for incoming txs and a normal private channel with your home/Umbrel node for
-          outgoing txs.
-        </li>
-      </ul>
-      -->
   </section>
 
-  <!-- Disabled for now until we know if we can have onion services on Android
-  <section id="umbrel-channel">
-    <h3>How do I open a channel with my Umbrel/myNode/RaspiBlitz/etc?</h3>
-    <p>There are 2 options: opening from Blixt Wallet towards your node or from your node towards your Blixt Wallet.
-    </p>
-    <p>But first let's mention some aspects to be taken in consideration:</p>
-    <ul>
-      <li>
-        The channels you open with your home node will be private by default. That means you will not be able to route
-        other transactions through them. They are private for a reason: a mobile node is not supposed to be 100% all
-        the time online, only when is needed to make a tx by the user.
-      </li>
-      <li>
-        usually these channels are opened using the
-        <a href="https://en.wikipedia.org/wiki/Tor_(network)" target="_blank" rel="noopener noreferrer">Tor
-          network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor
-        enabled. So when
-        you want to open/use these channels, be sure you activate Tor in Blixt Wallet.
-      </li>
-      <li>
-        these channels are your first hop into a payment, so you can easily set 0 total fees and let your main home
-        node to deal with the best following route.
-      </li>
-    </ul>
-    <h3>How to open a channel from Blixt towards Umbrel/home node</h3>
-    <ol>
-      <li>
-        Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).
-      </li>
-      <li>
-        Go to your Umbrel node and copy the onion URI of your Umbrel/home node, or just pull up the QR code for onion
-        URI. it should be in this format `nodeID@onion-address:9735`
-      </li>
-      <li>Go to Blixt - Settings - Lightning peers - add new peer</li>
-      <li>
-        Scan QR code from your Umbrel/home node or paste the onion URI and your home node will be added as a peer.
-      </li>
-      <li>Go back to Blixt main screen - top left drawer - Lightning channels.</li>
-      <li>
-        Click on open new channel “+” sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount
-        of sats for the channel, fee and click open.
-      </li>
-      <li>
-        Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own Umbrel
-        node!
-      </li>
-    </ol>
-    <h3>How do I open a channel from my home node towards Blixt node?</h3>
-    <ol>
-      <li>
-        Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).
-      </li>
-      <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
-      <li>
-        Go to Blixt settings - see “Show Tor onion service”, copy it, is your Blixt node URI. Is good to have it saved
-        also in your password manager, for later usage.
-      </li>
-      <li>Go to your Umbrel app RTL or Thunderhub (preferably) - add peer and paste your Blixt onion URI</li>
-      <li>
-        Go to your Umbrel node dashboard or RTL/Thunderhub - open channel, and select known peer from list looking for
-        your Blixt nodeID
-      </li>
-      <li>
-        Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new
-        channel with your "mini node" Blixt.
-      </li>
-      <li>
-        Optional, later when is ready active, you can push funds using keysend feature, into one side or another.
-        Blixt also supports keysend, as Thunderhub too.
-      </li>
-    </ol>
-  </section>
--->
   <section id="blixt-restore">
     <h3>
       I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what is the procedure?
@@ -561,46 +388,4 @@ peerblockfilters=1</pre>
     </ul>
   </section>
 
-  <!---
-  <section id="blixt-auto-pilot">
-    <details>
-      <summary>
-        <h3 style="color: Orange">Can I use auto-pilot to open channels for me?</h3>
-      </summary>
-      <p>
-        Yes. Blixt have the auto-pilot feature, but is used only once, first time you create the Blixt node wallet and
-        you deposit to onchain QR code that appear first time on the main screen. That will open a channel from Blixt
-        public node towards your Blixt mobile node, with the amount you deposited (minus the fees and reserves for the
-        channel).
-      </p>
-      <p>
-        You just have to activate the option in Blixt - Settings - "automatically open channels". This feature, is not
-        used anymore, once the first channel is open. You have the other way, using Dunder LSP channels (<a
-          href="#blixt-lsp">see previous FAQ item about Dunder LSP</a>), or simply open channels with funds from your
-        onchain wallet towards any other LN node. You can check on
-        <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">LN nodes explorer page Amboss.space</a>
-        and choose a LN node that you whish to connect.
-      </p>
-    </details>
-  </section>
-
-  <section id="restored-funds">
-    <h3>I restored my old node using SCB file, but funds are not back to my onchain wallet</h3>
-      </summary>
-      <p>OK, I had a dead previous node and I used the restore procedure, using the SCB backup channels file into Blixt. 
-      I wait for the channels to be closed, but funds are not back into my onchain wallet. What can I do?        
-      </p>
-      <p>Usually there are few possible scenarios for closing channels:</p>
-      <ul>
-      <li>A normal "cooperative close" channels usually takes few blocks (no more than 40), if both peers are online. Then everything goes smooth and fast.</li>
-      <li>If the other peer of the channel is not online then the closure task enter in force close. This could take at least 144 blocks until funds are released from the lock time. Check on mempool that locktime for the closing tx.</li>
-      <li>If a normal closure get stuck, for many reasons, mainly bad connectivity, then once all the rest of the channels already entered into "waiting to close" state, you could repeat the process, to push again the closure of remaining stuck channels.</li>
-      </ul>
-      <p>Once all the channels are initiated into "closing", wait patiently. This process takes time. 
-      If you see that on mempool the tx had released the funds, then check into your onchain wallet. If funds are still not there, means that the lnd wallet have to rescan previous addresses and refresh the wallet history. Some UTXOs are linked to "anchor outputs" so are more complicated to get back onchain, depends one to each others.</p>
-      <p>So when you see that all channels are closed, go to Blixt - Settings - donw to the last section that says "rescan wallet". Activate it and restart app (if is not doing automatically).</p>
-      <p>Only when the lnd is initiated, the rescan take place. Be patient and check the lnd logs (see also in Settings - lnd logs). You will read in there how is scaning a bunch of blocks at once for your restored addresses. Once the process is finished, your should see the funds in onchain.</p>
-      <p>Try to keep active the Blixt app during this process. If is intrerrupted, you will have to restart agaiun to trigger it.</p>
-  </section>
-  -->
 </article>
