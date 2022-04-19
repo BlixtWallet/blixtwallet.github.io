@@ -35,6 +35,7 @@ title: Guides
       <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
       <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
       <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
+      <li><a href="#guide-merchant">I am a small merchant, can I use Blixt to accept payments in bitcoin?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
     </ul>
@@ -110,6 +111,27 @@ title: Guides
       <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
       <li>Optional, later when is ready active, you can push funds using keysend feature, into one side or another. Blixt also supports keysend, as Thunderhub too.</li>
       </ol>
+  </section>
+  
+  <section id="guide-merchant">
+    <h3>Using Blixt Wallet as a small merchant - simple steps</h3>
+    <p>As a merchant, you will need more inbound liquidity, receiving more payments than sending them. You need to have "more space" to receive sats.</p>
+    <p>With Blixt you will need to do some preparation steps to obtain that inbound liquidity.</p>
+    <p>The idea is to have a bunch of enough large channels (depending on your incoming traffic amount), receive payments into these large channels,. and end of day or week, when these channels are filled, you loop out like 90% of the balance into an onchain address, using a submarine swap service (<a href="https://darthcoin.substack.com/p/lightning-network-submarine-swaps" target="_blank" rel="noopener noreferrer">see a detailed guide about swaps here</a>).</p>
+    <p>For the moment Blixt do not offer a swap service "in-app", but is taken in consideration for future developments.</p>
+    <h4>Use case scenario and steps to do:</h4>
+    <ul>
+    <li>Setup your Blixt wallet: generate a new wallet, save the seed, configure your personal settings, write down your nodeID etc...</li>
+    <li>Open a Dunder channel. Go to settings and activate "Enable Dunder LSP" option. Then go to main screen and hit the button "Receive". Make a small invoice like 20k sats. Pay that invoice from another LN wallet or even could be your first customer that pays you in sats. Dunder Blixt server will take that payment and convert it into a LN channel towards your Blixt mobile node, pushing the amount you (or your customer) paid and the rest until 400k sats will be as inbound liquidity space in that new channel (aka empty space to receive more). So now you are ready to receive more 380k sats into that channel.</li>
+    <li>Open more inbound channels. You can use the option "Inbound Channel Services" from app settings. Just follow the instructions displayed. You will practically buy an incoming channel providing your Blixt nodeID.</li>
+    <li>If you have a friend or customer with a node (and you still don't have one) they could also open a channel towards you and provide you with inbound liquidity.</li>
+    <li>Ok, now you have enough inbound liquidity, start receiving payments with your Blixt. Until you fill up all the channels space.</li>
+    <li>Loop out these sats into an onchain address. So practically you need to send these sats to a swap service. Is better to split in smaller txs or activate MPP ("Enable Multi-path payment") in app settings, so your lopp out tx(s) will find a better route for big amounts.</li>
+    <li>Swap services available to do this step: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a></li>
+    <li>Provide them one of your onchain savings/HODL address and loop out from your Blixt Wallet into your HODL wallet.</li>
+    </ul>
+    <p>DONE!</p>
+    <p>You now have more "space" to receive more payments. Happy Lightning!</p>
   </section>
 
   <section id="guide-companion">
