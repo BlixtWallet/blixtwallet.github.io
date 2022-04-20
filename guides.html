@@ -114,7 +114,7 @@ title: Guides
       </ol>
   </section>
   
-  <section id?"guide-tor">
+  <section id="guide-tor">
     <h3>How to use Blixt with Tor - clearnet - VPN</h3>
     <p>Many users want to use Blixt Wallet as a "privacy" node wallet. And we respect and understand that.</p>
     <p>But in some specific situations Tor network is not so reliable for such things, as a LN node have to be 100% well connected, to sync the graph network and communicate well with peers.</p>
@@ -129,8 +129,8 @@ title: Guides
     </ul>
     <p>Now, let's analyze some situations of use with different networks:</p>
     <ul>
-    <li>You want full privacy - you will use Blixt only on Tor and you never switch to clearnet. Open channels with Tor nodes, including with Blixt node. In this way Blixt servers will never know your real IP. But keep in mind, Tor connections are failing a lot nowadays, so are not so reliable.</li>
-    <li>You want privacy only in specific cases - you can use Blixt behind a VPN, that will forward all traffic done on your device through a dedicated IP (that is not yours). A simple use case could be <a href="https://lnvpn.net/" target="_blank" rel="noopener noreferrer">LNVPN.net</a>. VPN connections could be much faster and reliable than Tor.</li>
+    <li>You want full Tor privacy - you will use Blixt only on Tor and you never switch to clearnet. Open channels with Tor nodes, including with Blixt node. In this way Blixt servers will never know your real IP. But keep in mind, Tor connections are failing a lot nowadays, so are not so reliable.</li>
+    <li>You want privacy but Tor is unreliable - you can use Blixt behind a VPN, that will forward all traffic done on your device through a dedicated IP (that is not yours). A simple use case could be <a href="https://lnvpn.net/" target="_blank" rel="noopener noreferrer">LNVPN.net</a>. VPN connections could be much faster and reliable than Tor.</li>
     <li>Best scenario: connect to your node with Neutrino over clearnet/IP. Is only you that knows/have that info anyway. Open only with your own node or nodes that you trust. Over clearnet, it doesn't matter. All the LN traffic will be done anyway from that node where you are connected and will forward all your LN payments for yout Blixt, being the only first hop. After that NOBODY knows from where is coming that tx. <a href="#guide-companion" target="_blank" rel="noopener noreferrer">As it is explained in this guide.</a></li>
     <li>If you are just a regular user, paying some beers over LN, there's no such big deal in using Blixt over clearnet. The only "weak link" will be Blixt server that will log some of your IPs from where you connect your Blixt. That's all, nothing else. All the rest is unknown.</li>
     </ul>
