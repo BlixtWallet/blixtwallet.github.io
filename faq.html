@@ -398,13 +398,16 @@ peerblockfilters=1</pre>
       <ul>
       <li>A normal "cooperative close" channels usually takes few blocks (no more than 40), if both peers are online. Then everything goes smooth and fast.</li>
       <li>If the other peer of the channel is not online then the closure task enter in force close. This could take at least 144 blocks until funds are released from the lock time. Check on mempool that locktime for the closing tx.</li>
-      <li>If a normal closure get stuck, for many reasons, mainly bad connectivity, then once all the rest of the channels already entered into "waiting to close" state, you could repeat the process, to push again the closure of remaining stuck channels.</li>
+      <li>If a normal closure get stuck, for many reasons (mostly because of lost connectivity), then once all the rest of the channels already entered into "waiting to close" state, you could repeat the process, to push again the closure of remaining stuck channels.</li>
+      <li>Another way to "push" the connection with your los peers, is to add them manually. 
+      Go to  <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">amboss.space</a>, copy or scan the QR URI of your peer and go to Blixt Settings --> Lightning Peers --> "+".</li>
+      <li>To try again a force closing action, go to Lightning Channels screen, select the channel you want to push and swipe on activity view to start again the process.</li>
       </ul>
       <p>Once all the channels are initiated into "closing", wait patiently. This process takes time. 
       If you see that on mempool the tx had released the funds, then check into your onchain wallet. If funds are still not there, means that the lnd wallet have to rescan previous addresses and refresh the wallet history. Some UTXOs are linked to "anchor outputs" so are more complicated to get back onchain, depends one to each others.</p>
-      <p>So when you see that all channels are closed, go to Blixt - Settings - donw to the last section that says "rescan wallet". Activate it and restart app (if is not doing automatically).</p>
+      <p>So when you see that all channels are closed, go to Blixt - Settings - down to the last section that says "rescan wallet". Activate it and restart app (if is not doing automatically).</p>
       <p>Only when the lnd is initiated, the rescan take place. Be patient and check the lnd logs (see also in Settings - lnd logs). You will read in there how is scaning a bunch of blocks at once for your restored addresses. Once the process is finished, your should see the funds in onchain.</p>
-      <p>Try to keep active the Blixt app during this process. If is intrerrupted, you will have to restart agaiun to trigger it.</p>
+      <p>Try to keep active the Blixt app during this process. If is intrerrupted, you will have to restart again to trigger it.</p>
   </section>
 
 </article>
