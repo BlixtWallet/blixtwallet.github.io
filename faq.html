@@ -400,7 +400,7 @@ peerblockfilters=1</pre>
       <li>If the other peer of the channel is not online then the closure task enter in force close. This could take at least 144 blocks until funds are released from the lock time. Check on mempool that locktime for the closing tx.</li>
       <li>If a normal closure get stuck, for many reasons (mostly because of lost connectivity), then once all the rest of the channels already entered into "waiting to close" state, you could repeat the process, to push again the closure of remaining stuck channels.</li>
       <li>Another way to "push" the connection with your los peers, is to add them manually. 
-      Go to  <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">amboss.space</a>, copy or scan the QR URI of your peer and go to Blixt Settings --> Lightning Peers --> "+".</li>
+      Go to  <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your peer, copy or scan the QR URI of your peer and go to Blixt Settings --> Lightning Peers --> "+".</li>
       <li>To try again a force closing action, go to Lightning Channels screen, select the channel you want to push and swipe on activity view to start again the process.</li>
       </ul>
       <p>Once all the channels are initiated into "closing", wait patiently. This process takes time. 
