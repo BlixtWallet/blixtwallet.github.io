@@ -32,6 +32,7 @@ title: Frequently Asked Questions
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
+      <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
@@ -179,6 +180,26 @@ title: Frequently Asked Questions
         rel="noopener noreferrer">
         Link 3</a>.
     </p>
+  </section>
+  
+  <section id="blixt-peers">
+    <h3>With which nodes can I open lightning channels?</h3>
+    <p>TO REMEMBER:</p>
+    <ul>
+    <li>Blixt Wallet is using private channels, not routing channels.</li>
+    <li>You can open channels with whatever other node peer, but choose wisely.</li>
+    <li>Blixt Wallet being a private node wallet and mostly for quick payments, you will need to find the best routes: cheap, fast, well connected peers and reliable.</li>
+    <li>You can connect to your own home node, but keep in mind that in that moment your home node will be the liquidity provider for your Blixt Wallet, so be sure you have good routes, good fees and be reliable.</li>
+    <li>Not every LN node wants / agree private channels. If is a dedicated routing node, usualy they do not want private channels because for them is like "locked" liquidity. So will be better if you can ask first the node operator, if agree with a private channel. You can open directly, but be aware, some of them they can just close the channel because they do not want private channels.</li>
+    </ul>
+    <p>Blixt Wallet itself offer opening channels, using two optional methods, towards <a href="https://amboss.space/node/0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb" target="_blank" rel="noopener noreferrer">Blixt Node Server</s>:
+    </p>
+    <ul>
+    <li><a href="/guides#guide-autopilot">Autopilot</a>, for the moment works only for 1st onchain deposit in Blixt and will open a channel with Blixt Node, for the amount you deposited.</li>
+    <li><a href="/guides#guide-lsp">Dunder LSP</a>, Blixt Node Server will provide you an inbound channel until 400k sats, on top of your deposit amount, to start with your first deposit on lightning (if you do not have any other channel). You will need to activate in Settings menu.<li>
+    <p>Inbound liquidity providers - Blixt also offers a direct link, in wallet, to LNBig and Bitrefill (Thor). Just go to settings, select "Inbound channels services", select the desired one and just follow the instructions provided. Those are used only when you need more "INBOUND" liquidity.</p>
+    <p>Open channels with any nodes. As we've pointed out, we recommend to choose wisely your peers. Blixt being a quick spending LN wallet, we recommend to find ones with low fees or even zero. Also look in <a href="https://amboss.space/community/fa2a3e5a-769c-4cbf-ab9d-7ed8680a9ec6">this Amboss Community of Zero Base Fee</a> or many other nodes communities. Remember, your Blixt Wallet needs good positioned peers and low fees, so your payments will be fast and cheap.<p>
+    <p>Also is a very good practice to open channels with those merchants/services you are paying frecquently. Opening a channel with your favorite merchant also can bring you 0 fees, by that direct channel and is like a "line of credit". Anyways you can use that channel to pay also other merchants/services, just be aware of their fees for routing your payment, because if there isn't a direct payment their node will have to route your payment to the next hop until the destination and that imply a cost.</p>
   </section>
 
   <section id="blixt-node">
