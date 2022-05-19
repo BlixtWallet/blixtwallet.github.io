@@ -38,6 +38,7 @@ title: Guides
       <li><a href="#guide-tor">How to use Blixt with Tor - clearnet - VPN?</a></li>
       <li><a href="#guide-merchant">I am a small merchant, can I use Blixt to accept payments in bitcoin?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
+      <li><a href="#guide-swap">How to swap sats from Blixt LN channels into onchain wallet?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
     </ul>
   </section>
@@ -181,6 +182,29 @@ title: Guides
     </ul>
     <li>If you have to send a payment larger than 100k sats, I would suggest to use the MPP (Multi-Part Payment) option (see in settings). This will help to use better the liquidity you have in many channels and also increase privacy. When you use this option, keep in mind that could take more time until is done, due to multiple paths that can take. Also could imply more fees, depending on the payment path is taken.</li>
     </ul>
+  </section>
+  
+  <section id="guide-swap">
+    <h3>How to swap sats from Blixt LN channels into onchain wallet?</h3>
+    <p>Ok, this is quite simple use case. We have users that receive more sats on LN then spend and their LN channels get filled up quickly (merchants, users that buy a lot through LN exchanges and simply "stackers" that just get more sats then spend).</p>
+    <p>Blixt, doesn't have (yet) an internal swap service LN --> onchain, only onchain --> LN (opening LN channels).</p>
+    <p>There are two options for this operation LN --> onchain:</p>
+    <ul>
+    <li>close the LN channel(s) - could take more time and fees and is always back to same Blixt onchain wallet, not external. So if you want to continue receiving sats on  LN, you would need to open new channels again and imply extra costs in fees.</li>
+    <li>use an external swap service like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more.</li>
+    </ul>
+    <p>For closing a channel option is simple, just go to top left drawer, open Lightning Channels, select a channel you want to close and click "Close". You will need to wait until the closing is done and at least 3-4 confirmations for the onchain transaction and your funds will be ready in your Blixt onchain wallet (see top drawer - Onchain Wallet).</p>
+    <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
+    <p>For using a swap service is also quite simple, in few steps:</p>
+    <ul>
+    <li>Go to one of those indicated services websites</li>
+    <li>Select L-BTC (lightning sats) to BTC</li>
+    <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good condiction by the swap exchange.</li>
+    <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide and address from that onchain wallet.</li>
+    <li>Next step is where you will be prompted by the swap service with a LN invoice. Scan the QR with your Blixt wallet and pay the invoice.</li>
+    <li>Once is paid, you will receive a confirmation and you could see the transaction in the mempool and your wallet also will display it, once the miners will include it in a block.</li>
+    </ul>
+    <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on receiving more sats into your Blixt LN channels.</p>
   </section>
 
   <section id="guide-ism">
