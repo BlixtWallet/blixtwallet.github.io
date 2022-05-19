@@ -196,22 +196,32 @@ title: Guides
     <p>On the other side, if you have sats only on LN wallet and you want/need to send to an onchain address, this operation require some steps to do.</p>
     <p>We have users that receive more sats on LN then spend and their LN channels get filled up quickly (merchants, users that buy a lot through LN exchanges and simply "stackers" that just get more sats then spend).</p>
     <p>Blixt, doesn't have (yet) an internal swap service LN --> onchain, only onchain --> LN (opening LN channels, with Dunder LSP or manually).</p>
-    <p>There are two options for this operation LN --> onchain:</p>
-    <ul>
-    <li>close the LN channel(s) - could take more time and fees and is always back to same Blixt onchain wallet, not external. So if you want to continue receiving sats on  LN, you would need to open new channels again and imply extra costs in fees.</li>
-    <li>use an external swap service like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more.</li>
-    </ul>
-    <p>For closing a channel option is simple, just go to top left drawer, open Lightning Channels, select a channel you want to close and click "Close". You will need to wait until the closing is done and at least 3-4 confirmations for the onchain transaction and your funds will be ready in your Blixt onchain wallet (see top drawer - Onchain Wallet).</p>
+    <p>There are few options for this operation LN --> onchain:</p>
+    <ol>
+    <li>
+    <p><strong>Close the LN channel(s)</strong> - could take more time and fees and is always back to same Blixt onchain wallet, not external. So if you want to continue receiving sats on  LN, you would need to open new channels again and imply extra costs in fees.</p>
+    <p>This option is simple, just go to top left drawer, open Lightning Channels, select a channel you want to close and click "Close". You will need to wait until the closing is done and at least 3-4 confirmations for the onchain transaction and your funds will be ready in your Blixt onchain wallet (see top drawer - Onchain Wallet).</p>
+    </li>
+    <li>
+    <p><strong>Use an external swap service</strong> like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more.</p>
     <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
     <p>For using a swap service is also quite simple, in few steps:</p>
-    <ul>
-    <li>Go to one of those indicated services websites</li>
-    <li>Select L-BTC (lightning sats) to BTC</li>
-    <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good conditions by the swap exchange.</li>
-    <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide an address from that onchain wallet.</li>
-    <li>Next step is where you will be prompted by the swap service with a LN invoice. Scan the QR with your Blixt wallet and pay the invoice.</li>
-    <li>Once is paid, you will receive a confirmation and you could see the transaction in the mempool and your wallet also will display it, once the miners will include it in a block.</li>
-    </ul>
+        <ul>
+        <li>Go to one of those indicated services websites</li>
+        <li>Select L-BTC (lightning sats) to BTC</li>
+        <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good conditions by the swap exchange.</li>
+        <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide an address from that onchain wallet.</li>
+        <li>Next step is where you will be prompted by the swap service with a LN invoice. Scan the QR with your Blixt wallet and pay the invoice.</li>
+        <li>Once is paid, you will receive a confirmation and you could see the transaction in the mempool and your wallet also will display it, once the miners will include it in a block.</li>
+        </ul>
+    </li>
+    <li>
+    <p><strong>Using Electrum wallet integrated swap service.</strong> This is particular case but works pretty well, using  <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline channels</a> and integrated swap LN <--> onchain.</p>
+    <p>This option is good if you want to keep more control of the process and don't want to be involved with 3rd party services like those from point 2. The transaction on LN from your Blixt wallet to your own Electrum wallet, is practicaly a totally private transaction.</p>
+    <p>Once you receive it in Electrum LN, you have a simple button on top for swap to onchain and funds are received in Electrum onchain address.</p>
+    <p>Future development with Blixt Wallet Desktop version, maybe will have integrated swaps like Electrum, but until then, you can use Electrum.</p>
+    </li>
+    </ol>
     <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on, now you can receive more sats into your Blixt LN channels!</p>
   </section>
 
