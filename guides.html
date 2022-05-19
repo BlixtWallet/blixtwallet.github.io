@@ -38,7 +38,7 @@ title: Guides
       <li><a href="#guide-tor">How to use Blixt with Tor - clearnet - VPN?</a></li>
       <li><a href="#guide-merchant">I am a small merchant, can I use Blixt to accept payments in bitcoin?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
-      <li><a href="#guide-swap">How to swap sats from Blixt LN channels into onchain wallet?</a></li>
+      <li><a href="#guide-swap">How do I send sats to onchain addresses?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
     </ul>
   </section>
@@ -185,9 +185,17 @@ title: Guides
   </section>
   
   <section id="guide-swap">
-    <h3>How to swap sats from Blixt LN channels into onchain wallet?</h3>
-    <p>Ok, this is quite simple use case. We have users that receive more sats on LN then spend and their LN channels get filled up quickly (merchants, users that buy a lot through LN exchanges and simply "stackers" that just get more sats then spend).</p>
-    <p>Blixt, doesn't have (yet) an internal swap service LN --> onchain, only onchain --> LN (opening LN channels).</p>
+    <h3>How do I send sats to onchain addresses?</h3>
+    <p>Blixt Wallet is also a LN node. And for that is making a clear distinction between "onchain wallet" and "LN wallet". Other wallet applications are not using this distinction and users don't really understand what is going on "behind the scenes". Blixt is more transparent in this matter and is using as "onchain wallet" for opening/closing channels and concentrate more on usability on Lightning Network, more like a private mobile node for spending.</p>
+    <p>Nevertheless, users can still transact onchain anytime, as with any other regular onchain wallet. Blixt have the "onchain wallet" into a separate section in the app, more like a "mini-vault", from two perspectives:</p>
+    <ul>
+    <li>Separating the balances of onchain and LN wallets, makes it more private from "external eyes" sneaking into your mobile screen. Blixt is displaying on the main screen (that you use it more for payments) only the LN wallet balance. That makes to hide the rest of your onchain balances to not be visible and offers you a better public privacy.</li>
+    <li>Having 2 types of balances, also makes you more aware of your spending habits, slowly you became more a hodler, because you see your LN balance going down and you will also slow down your spending habits. This is good in general, to stack more sats. Blixt cares about its users!</li>
+    </ul>
+    <p>So if you just want or you really need to do an onchain payment, just go to top drawer - onchain wallet and in there you have access to all functionalities of a regular onchain wallet.</p>
+    <p>On the other side, if you have sats only on LN wallet and you want/need to send to an onchain address, this operation require some steps to do.</p>
+    <p>We have users that receive more sats on LN then spend and their LN channels get filled up quickly (merchants, users that buy a lot through LN exchanges and simply "stackers" that just get more sats then spend).</p>
+    <p>Blixt, doesn't have (yet) an internal swap service LN --> onchain, only onchain --> LN (opening LN channels, with Dunder LSP or manually).</p>
     <p>There are two options for this operation LN --> onchain:</p>
     <ul>
     <li>close the LN channel(s) - could take more time and fees and is always back to same Blixt onchain wallet, not external. So if you want to continue receiving sats on  LN, you would need to open new channels again and imply extra costs in fees.</li>
@@ -199,12 +207,12 @@ title: Guides
     <ul>
     <li>Go to one of those indicated services websites</li>
     <li>Select L-BTC (lightning sats) to BTC</li>
-    <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good condiction by the swap exchange.</li>
-    <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide and address from that onchain wallet.</li>
+    <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good conditions by the swap exchange.</li>
+    <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide an address from that onchain wallet.</li>
     <li>Next step is where you will be prompted by the swap service with a LN invoice. Scan the QR with your Blixt wallet and pay the invoice.</li>
     <li>Once is paid, you will receive a confirmation and you could see the transaction in the mempool and your wallet also will display it, once the miners will include it in a block.</li>
     </ul>
-    <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on receiving more sats into your Blixt LN channels.</p>
+    <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on, now you can receive more sats into your Blixt LN channels!</p>
   </section>
 
   <section id="guide-ism">
