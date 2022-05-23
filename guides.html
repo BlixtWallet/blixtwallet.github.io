@@ -42,10 +42,10 @@ title: Guides
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
     </ul>
   </section>
-  
+
   <section id="guide-videos">
-  <h3>Blixt Wallet Video Demos</h3>
-    <p>Here we have start with some video demonstrations about how to use some features and functionalities of Blixt Wallet in real situations. Credits also to <a href="https://twitter.com/colbitcoin" target="_blank" rel="noopener noreferrer">@colbitcoin</a> for these great demo videos.</p>
+    <h3>Blixt Wallet Video Demos</h3>
+    <p>Here we start with some video demonstrations about how to use features and functionalities of Blixt Wallet in real situations. Credits also to <a href="https://twitter.com/colbitcoin" target="_blank" rel="noopener noreferrer">@colbitcoin</a> for these great demo videos.</p>
     <ul>
     <li><a href="https://www.youtube.com/watch?v=-vxgrZsblpI" target="_blank" rel="noopener noreferrer">How to configure Blixt Wallet app (in Spanish)</a></li>
     <li><a href="/assets/images/blixt-lnadr.mp4">Adding a contact lightning address and send some sats</a></li>
@@ -59,7 +59,7 @@ title: Guides
     <li><a href="/assets/images/blixt-ES-mobile-credit.mp4">Buying mobile credit in El Salvador with Blixt</a></li>
     </ul>
   </section>
-
+  
   <section id="guide-lsp">
   <h3>How to use Dunder LSP to open channels and receive funds over LN?</h3>
     <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
@@ -99,7 +99,7 @@ title: Guides
       <li>Go to Blixt - Settings - Lightning peers - add new peer.</li>
       <li>Scan QR code from your Umbrel/home node or paste the onion URI and your home node will be added as a peer.</li>
       <li>Go back to Blixt main screen - top left drawer - Lightning channels.</li>
-      <li>Click on open new channel ‚Äú+‚Äù sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
+      <li>Click on open new channel ì+î sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
       <li>Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own home node partner!</li>
       </ol>
     <h4>Opening a channel from my home node towards Blixt mobile node</h4>
@@ -107,7 +107,7 @@ title: Guides
       <ol>
       <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
       <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
-      <li>Go to Blixt settings - see ‚ÄúShow Tor onion service‚Äù, copy it, is your Blixt node URI. Is good to have it saved also in your password manager, for later use. Keep your Blixt app active online during all this process!</li>
+      <li>Go to Blixt settings - see ìShow Tor onion serviceî, copy it, is your Blixt node URI. Is good to have it saved also in your password manager, for later use. Keep your Blixt app active online during all this process!</li>
       <li>Go to your Umbrel app RTL or Thunderhub (preferably) - add peer and paste your Blixt onion URI</li>
       <li>Go to your Umbrel node dashboard or RTL/Thunderhub - open channel, and select known peer from list looking for your Blixt nodeID</li>
       <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
@@ -151,6 +151,7 @@ title: Guides
     <li>Open more inbound channels. You can use the option "Inbound Channel Services" from app settings. Just follow the instructions displayed. You will practically buy an incoming channel providing your Blixt nodeID.</li>
     <li>If you have a friend or customer with a node (and you still don't have one) they could also open a channel towards you and provide you with inbound liquidity.</li>
     <li>More liquidity providers here: <a href="https://lnrouter.app/liquidity-ads" target="_blank" rel="noopener noreferrer">LNRouter Ads</a> or <a href="https://amboss.space/magma" target="_blank" rel="noopener noreferrer">Amboss Magma</a></li>
+    <li>Ok, now you have enough inbound liquidity, start receiving payments with your Blixt. Until you fill up all the channels space.</li>
     <li>Loop out these sats into an onchain address. So practically you need to send these sats to a swap service. Is better to split in smaller txs or activate MPP ("Enable Multi-path payment") in app settings, so your lopp out tx(s) will find a better route for big amounts.</li>
     <li>Swap services available to do this step: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a></li>
     <li>Provide them one of your onchain savings/HODL address and loop out from your Blixt Wallet into your HODL wallet.</li>
@@ -183,7 +184,7 @@ title: Guides
     <li>If you have to send a payment larger than 100k sats, I would suggest to use the MPP (Multi-Part Payment) option (see in settings). This will help to use better the liquidity you have in many channels and also increase privacy. When you use this option, keep in mind that could take more time until is done, due to multiple paths that can take. Also could imply more fees, depending on the payment path is taken.</li>
     </ul>
   </section>
-  
+
   <section id="guide-swap">
     <h3>How do I send sats to onchain addresses?</h3>
     <p>Blixt Wallet is also a LN node. And for that is making a clear distinction between "onchain wallet" and "LN wallet". Other wallet applications are not using this distinction and users don't really understand what is going on "behind the scenes". Blixt is more transparent in this matter and is using as "onchain wallet" for opening/closing channels and concentrate more on usability on Lightning Network, more like a private mobile node for spending.</p>
@@ -224,12 +225,13 @@ title: Guides
     </ol>
     <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on, now you can receive more sats into your Blixt LN channels!</p>
   </section>
-
+  
+  </section>
   <section id="guide-ism">
     <h3>How to use Blixt as "Infrastructure Spending Machine" (ISM)?</h3>
     <p>"Infrastructure Spending Machine" is the method used to buy bitcoins from KYC exchanges and move them to your on-chain HODL wallets, passing through a series of "preparations" in such manner that is breaking the links to your KYC identity, for a better privacy.</p>
     <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
-    <p class="aligncenter"><img src="assets/images/blixt-machine.png" alt="Blixt Infrastructure Spending Machine"></p>
+    <p><img src="assets/images/blixt-machine.png" align="center" alt="Blixt Infrastructure Spending Machine"/></p>
     <p>Considerations:</p>
     <ul>
     <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 2-5M sats channel.</li>

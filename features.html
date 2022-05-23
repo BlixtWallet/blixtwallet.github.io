@@ -42,6 +42,7 @@ title: Features
     <p>These LN channels, by default will be private channels. That means it will not be "visible" by other nodes in the network graph, only the node peer will know about it and will route your txs accordingly, through its other channels. Also private channels DO NOT route others payments.</p>
     <p>So practically Blixt is a PRIVATE NODE, to offer you full control of your payment routes, in a private way, with the costs you decide.</p>
     <p>So choose wisely with which node peer you will open LN channels fro your transactions. Is also worth mentioning that you should have at least 2-3 LN channels open in your Blixt for a better availability of routes and also taking advantage to use MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Part Payment</a>), feature that is also available in Blixt.</p>
+    <p>You can check in the <a href="faq.html#blixt-peers">FAQ page</a> for some recommendations how and with who can open channels.</p>
   </section>
   
   <section id="feature-onchain">
@@ -49,6 +50,7 @@ title: Features
     <p>This feature is quite hidden, because is not the main focus of this app. But it's easy to access it from the top left drawer menu.</p>
     <p>Being not so often used by a power LN user, is not firstly visible on the main screen. But that's OK, you can have it like a separate wallet where you can manage addresses and see txs log. In the future could be included also more functionalities for this on-chain wallet, like coin control, RBF (Replace by Fee) etc.</p>
     <p>Right now the main use of this on-chain wallet is to manage opening and closing LN channels and not as a regular day to day payments using on-chain transactions.</p>
+    <p>See a more detailed explanation about using Blixt onchain wallet <a href="guides#guide-swap">in the Guides page</a>.</p>
   </section>
   
   <section id="feature-lightning">
@@ -62,10 +64,7 @@ title: Features
   <h3>Dunder LSP - Liquidity Service Provider</h3>
     <p>An amazing feature-service that offer to the new user the possibility to start accepting BTC over Lightning Network straight away, with no need to deposit funds onchain and after that opening LN channels. <a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP here.</a></p>
     <p>For new users this is a quick and easy experience, because is supposed that they can start from zero, directly into LN.</p>
-    <p>Just create a LN invoice from main screen "receive", put the amount, description etc and pay from another LN wallet. Blixt will open a max 400k sats channel per received transaction. You can open multiple ones, when is needed.</p>
-    <p>This is also a very nice way to onboard new users: you are already a Blixt user and one of your friends want to start using it too. Your friend install Blixt, click on "Receive", put the amount you want to send him, and you pay that invoice from your Blixt LN wallet. Done, your friend receive directly into LN wwallet and now have your sats sent and also more inbound liquidity for receiveing more.</p>
-    <p>An interesting and useful case for this: let's say your first receive amount is 200k. Blixt will open a channel of 500k sats and with already 200k (minus opening fees) on your side, but you still have 200k available "space" to receive more. So next payment of 100k will come directly to this channel, with no more opening channels fees and you still have 100k space to receive more.</p>
-    <p>But if you choose for the next receiving payment let's say 300k, it will create another new channel of 400k and pushing to your side those 300k.</p>
+    <p>Read a more detailed guide about using Dunder LSP in <a href="guides.html#guide-lsp">the Blixt Guides page</a>.</p>
     <p>In the future Blixt can modify the size of opening a new channel if there are too many inquiries. This is a free service for now, to easy onboard new users.</p>
   </section>
   
@@ -96,12 +95,6 @@ title: Features
     <p>User also have the option to save Blixt channels backup into Google drive and / or local storage in its own mobile device (later move that file into a safe location, out of your device).</p>
     <p>The restore procedure is quite simple: insert the 24 words seed, add the backup file (previously copied into mobile memory) and click restore. It will take some time to sync and scan all the blocks for your txs in the past. Channels will be automatically closed and funds returned to your onchain wallet (see the drawer menu on the left top - onchain).</p>
     <p>Read more about how to restore a LND wallet into Blixt in the <a href="/faq#blixt-restore">Blixt FAQ page.</a></p>
-    <p>Notes:</p>
-    <ul>
-    <li>if you previously had channels open with your old node behind Tor, you should first activate Tor option (and restart app) from menu settings. In this way, the closing procedure will not fail and/or use force close option.</li>
-    <li>remember to make a backup of your LN channels after you open and / or close channels. Takes just few seconds to be safe. Later you can move the backup file to a safe location out of your mobile.</li>
-    <li>to test your seed in a restore scenario, before adding some funds, just use the same 24 words seed (aezeed) into Bluewallet or Zap desktop. If the BTC address generated is the same in Blixt, you are good to go. No need to use Bluewallet after that, you can just delete the restored test wallet.</li>
-    </ul>
   </section>
   
   <section id="feature-keysend">
@@ -125,7 +118,7 @@ title: Features
   
   <section id="feature-contacts">
   <h3>Contacts List</h3>
-    <p>Useful feature if you want to have a stable list of destinations where you are going to pay most of the time. This list can be LNURL, Lightning Address or future static payment information/invoices. For the time being this list can‚Äôt be backed up, but it is plans to have an option to export it and also with more options.</p>
+    <p>Useful feature if you want to have a stable list of destinations where you are going to pay most of the time. This list can be LNURL, Lightning Address or future static payment information/invoices. For the time being this list canít be backed up, but it is plans to have an option to export it and also with more options.</p>
   </section>
   
   <section id="feature-sign">
@@ -140,7 +133,7 @@ title: Features
   
   <section id="feature-security">
   <h3>Security</h3>
-    <p>Being respect privacy and security of its users and for that is offering a way to secure the access to the Blixt app by activating in menu settings, the option to open trhe app with pincode or fingerprint.</p>
+    <p>Being respect privacy and security of its users and for that is offering a way to secure the access to the Blixt app by activating in menu settings, the option to open the app with pincode or fingerprint.</p>
   </section>
   
   <section id="feature-logs">
@@ -176,7 +169,7 @@ title: Features
     <li>Before start using these Tor channels and the Blixt app was long time not open/synced, try waiting for the sync icon on top to finish and check if all channels are online active. Then just go and create your transactions.</li>
     <li>If the channels are still not active (see the small light icon on top drawer color), then go and add again the peer public key/ onion URI into peers, in Blixt options - show peers. You could try also refreshing that list, if the Tor gossip will find your peer, the channels will be back to life. if not, just add it again and will push the gossip to communicate.</li>
     <li>Do not just blindly jump into making a tx immediately after you open Blixt app. takes only moments to check if your channels are active, before getting error route or insufficient funds.</li>
-    <li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. This has a name: ‚Äúcommit_fees‚Äù that are like a reserve for when the channels are closed, to be able to pay the miners fees. So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open the channel. That‚Äôs why is NOT recommended to open tiny small channels like 20-50-100k sats.</li>
+    <li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. This has a name: ìcommit_feesî that are like a reserve for when the channels are closed, to be able to pay the miners fees. So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open the channel. Thatís why is NOT recommended to open tiny small channels like 20-50-100k sats.</li>
     <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe and secured by the network. But are very small, sometimes in msats.</li>
     <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. And DO NOT try to restore on both same LN channels. You will lose funds!</li>
     <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.</li>
