@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Features
 ---
@@ -34,7 +34,7 @@ title: Features
     <p>Está sincronizando todos los bloques de bitcoin (encabezados y filtros) en menos de 5 minutos, respetando la privacidad del usuario. El monedero no utiliza ningún servidor centralizado para hacer transacciones, todas las transacciones se transmiten directamente desde su aplicación Blixt, en Bitcoin Mempool.</p>
     <p>Una mención en este punto: la aplicación Blixt, requerirá algo de espacio para esta sincronización en el dispositivo de usuario, alrededor de 1.5 GB de datos, a partir de la sincronización de bloques y el gráfico LN (mapa de red).</p>
   </section>
-  
+
   <section id="feature-lndnode">
   <h3>Nodo LND no custodial completo</h3>
     <p>El usuario puede administrar sus propios canales de lightning con una interfaz fácil y se muestra suficiente información para tener una experiencia buena y suave.</p>
@@ -44,7 +44,7 @@ title: Features
     <p>Así que elija sabiamente con qué par de nodo abrirá los canales LN de sus transacciones. También vale la pena mencionar que debe tener al menos 2-3 canales LN abiertos en su Blixt para una mejor disponibilidad de rutas y también aprovechar el uso de MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Part Payment</a>), característica que también está disponible en Blixt.</p>
     <p>Puedes ver en la <a href="faq_es.html#blixt-peers">página FAQ</a> algunas recomendaciones, cómo y con quién puede abrir canales.</p>
   </section>
-  
+
   <section id="feature-onchain">
   <h3>Bitcoin On-Chain Wallet</h3>
     <p>Esta característica está bastante oculta, porque no es el foco principal de esta aplicación. Pero es fácil acceder a él desde el menú de cajón superior izquierdo.</p>
@@ -52,14 +52,14 @@ title: Features
     <p>En este momento, el uso principal de esta billetera en onchain es administrar los canales LN de apertura y cierre y no como pagos diarios regulares que utilizan transacciones en onchain.</p>
     <p>Vea una explicación más detallada sobre el uso del monedero Blixt onchain <a href="guides_es.html#guia-swap">en la página de guías</a>.</p>
   </section>
-  
+
   <section id="feature-lightning">
   <h3>Bitcoin Lightning Wallet</h3>
     <p>Esto se encuentra en la pantalla principal, como el uso principal de la aplicación. El balance que se muestra es solo para este monedero LN y no contiene el balance del monedero onchain.</p>
     <p>Tiene una interfaz de función simple fácil de usar y ofrece todas las opciones necesarias para recibir y enviar sats con Lightning Network.</p>
     <p>El usuario puede cambiar fácilmente la unidad mostrada para el saldo, con un simple clic en el signo de la unidad. También muestra el saldo en la moneda fiduciaria local, según una tasa promedio.</p>
   </section>
-  
+
   <section id="feature-lsp">
   <h3>Dunder LSP - Proveedor de servicios de liquidez</h3>
     <p>Un sorprendente servicio de características que ofrece al nuevo usuario la posibilidad de comenzar a aceptar BTC sobre la red de lightning de inmediato, sin necesidad de depositar fondos en onchain y después la apertura de los canales LN. <a href="https://github.com/hsjoberg/dunder-lsp">Lea más sobre Dunder LSP aquí.</a></p>
@@ -67,7 +67,7 @@ title: Features
     <p>Lea una guía más detallada sobre el uso de Dunder LSP en <a href="guides_es.html#guia-lsp">la página de las Guías de Blixt</a>.</p>
     <p>En el futuro, Blixt puede modificar el tamaño de abrir un nuevo canal si hay demasiadas consultas. Este es un servicio gratuito por ahora, para traer nuevos usuarios al bordo.</p>
   </section>
-  
+
   <section id="feature-autopilot">
   <h3>Auto-piloto de apertura de canales LN</h3>
     <p>Una función LND básica que ofrece al usuario una forma simple de abrir automáticamente su primer canal LN.</p>
@@ -75,20 +75,20 @@ title: Features
     <p>Recuerde: esta opción se usa solo una vez, cuando crea su nueva billetera Blixt y se activa. Entonces, si el nuevo usuario, consulte el código QR onchain en la pantalla principal y deposite en esta dirección sus primeros sats, Blixt abrirá automáticamente un canal con esos sats, con el nodo público Blixt.</p>
     <p>Después de esta función de uso por primera vez, Blixt la ignorará y el usuario debe abrir canales LN manualmente o usar la función Dunder LSP.</p>
   </section>
-  
+
   <section id="feature-inbound">
   <h3>Servicios de canales entrantes</h3>
     <p>Esta es una característica dedicada para comerciantes o usuarios avanzados que necesitan más liquidez entrante.</p>
     <p>Es fácil de usar, simplemente vaya a Configuración, seleccione uno de los proveedores de liquidez (por el momento que Thor BitRefill y Lnbig) en la lista, pague la cantidad que desea para el canal y proporcione su ID de nodo de cebolla donde estará el canal Abra hacia su nodo Blixt.</p>
   </section>
-  
+
   <section id="feature-tor">
   <h3>Tor integrado</h3>
     <p>Puede encontrar esta función en Configuración. Una vez que lo active, la aplicación se reiniciará conectando a Red Tor. Desde ese momento puede ver en la configuración del menú, su ID del nodo con una dirección onion, para que otros nodos puedan abrir canales hacia su pequeño nodo móvil Blixt. O supongamos que tiene su propio nodo de máquina en casa y desea tener pequeños canales con su nodo móvil Blixt. Una combinación perfecta.</p>
   </section>
-  
+
   <h2>Funcionalidades Blixt Wallet</h2>
-  
+
   <section id="feature-backup">
   <h3>Copia de seguridad y restauración del nodo LND</h3>
     <p>Funcionalidad potente, fácil de administrar, útil para restaurar otros nodos LND muertos, solo con la semilla de 24 palabras + archivo Channels.Backup.</p>
@@ -96,67 +96,67 @@ title: Features
     <p>El procedimiento de restauración es bastante simple: inserte las 24 palabras de la semilla, agregue el archivo de copia de seguridad (anteriormente copiado en la memoria móvil) y haga clic en Restaurar. Tomará algún tiempo sincronizar y escanear todos los bloques para sus TX en el pasado. Los canales se cerrarán automáticamente y los fondos regresarán a su billetera OnChain (consulte el menú del cajón en la parte superior izquierda - Onchain).</p>
     <p>Lea más sobre cómo restaurar los fondos de los canales LND en Blixt en la <a href="/faq_es#blixt-restaurar">página Blixt FAQ.</a></p>
   </section>
-  
+
   <section id="feature-keysend">
   <h3>Keysend</h3>
     <p>Funcionalidad muy poderosa que pocas billeteras móviles lo tienen. Puede enviar / empujar fondos directamente a través de un canal de pares o señalar a otro nodo, agregando un mensaje si es necesario.</p>
     <p>Keysend no requiere que se genere una factura previa de LN, así que tenga en cuenta que una vez que se envían los fondos, el usuario no puede tener ninguna otra prueba, solo el hash secreto de su propio registro de transacciones. Para un pago de llaves entre 2 pares, este pago es totalmente privado.</p>
     <p>Esta característica es muy útil para enviar mensajes pagados a través de LN, publicar mensajes en <a href="https://Amboss.space">Amboss.space Billboard</a> (Aquí hay una guía sobre <a href="https://darthcoin.substack.com/p/amboss-billboard-amazing-tool">Cómo usar Amboss Billboard</a>).</p>
   </section>
-  
+
   <section id="feature-lnurl">
   <h3>Soporte para LNURL y Lightning Address</h3>
     <p>Blixt ha implementado el soporte completo para <a href="https://github.com/fiatjaf/lnurl-rfc">protocolo LNURL</a>, Los usuarios de Blixt pueden pagar, retirar, autenticarse usando lnurl dentro de la billetera Blixt.</p>
     <p>Con Blixt Wallet, los usuarios también pueden pagar a la dirección de Lightning y guardar esas direcciones en su "lista de contactos" especial para reutilizar. También se planea tener una Lightning Address de Blixt a través de una nueva característica <a href="https://github.com/hsjoberg/lightning-box">"Lightning Box"</a>, eso en realidad está en desarrollo todavia.</p>
   </section>
-  
+
   <section id="feature-webln">
   <h3>Lightning Browser (WebLN)</h3>
     <p>WEBLN: es una biblioteca y un conjunto de especificaciones para aplicaciones de lightning y proveedores de clientes para facilitar la comunicación entre aplicaciones y los nodos de lightning de los usuarios de manera segura. <a href="https://webln.dev/">Lea más sobre Webln aquí</a>.
     <p>Blixt ofrece una serie de servicios LN de terceros, organizándose juntos en un agradable navegador simple accesible y a mano para el usuario. Es una buena manera también promover empresas que aceptan BTC sobre LN. Esta es una característica para estar más desarrollada en el futuro. Por el momento, no funciona detrás de Tor, por lo que navegar estas aplicaciones estará en ClearNet.</p>
   </section>
-  
+
   <section id="feature-contacts">
   <h3>Lista de contactos</h3>
     <p>Característica útil si desea tener una lista estable de destinos en los que va a pagar la mayor parte del tiempo. Esta lista puede ser lnurl, dirección de lightning o información/facturas de pago estático futuras. Por el momento, esta lista no se puede respaldar, pero se planea tener una opción para exportarla y también con más opciones.</p>
   </section>
-  
+
   <section id="feature-sign">
   <h3>Firmar mensajes</h3>
     <p>Herramienta muy útil para firmar mensajes con su clave de nodo, Iniciar sesión mensajes de autenticación, etc. Muy pocas billeteras móviles tienen esta característica y hacen de Blixt una aplicación de nicho, para usuarios de Power LN.</p>
   </section>
-  
+
   <section id="feature-mpp">
   <h3>MPP - Multi-Path Payments (pagos multi-ruta)</h3>
     <p>La característica buena y útil para los pagos de LN, para dividir una factura de LN en múltiples piezas, desde múltiples canales, para llegar al mismo destino. Bueno para equilibrar la liquidez y también para una mayor privacidad. <a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Lea más sobre MPP aquí.</a></p>
   </section>
-  
+
   <section id="feature-security">
   <h3>Seguridad</h3>
     <p>Ser respeto a la privacidad y la seguridad de sus usuarios y, para eso, ofrece una forma de asegurar el acceso a la aplicación Blixt al activar en la configuración del menú, la opción de abrir la aplicación con Pincode o huella digital.</p>
   </section>
-  
+
   <section id="feature-logs">
   <h3>LND logs explorer</h3>
     <p>Herramienta potente para verificar los registros de LND y el estado de nodo en general. Opciones para guardar el archivo de registros en una ubicación específica en su dispositivo, para exportar y depurar posteriormente. Muy bueno tener a mano estos registros en caso de que necesite apoyo del desarrollador para identificar algunos problemas.</p>
   </section>
-  
+
   <section id="feature-help">
   <h3>LND Mobile Centro de ayuda</h3>
     <p>Herramientas de desarrollo más avanzadas para diagnosticar, depurar, identificar problemas en la aplicación Blixt y ayudar a solucionar posibles problemas.</p>
   </section>
-  
+
   <section id="feature-demo">
   <h3>Modo de demostración</h3>
     <p>Funcionalidad muy agradable e interesante que no puede encontrarla en otras aplicaciones de billetera. Ofrece a un nuevo usuario la posibilidad de probar la aplicación Blixt, sin usar fondos reales, o simplemente hacer demostraciones para presentaciones sin fondos reales y mantener información personal privada.</p>
   </section>
-  
+
   <section id="feature-status">
   <h3>Icono de estado de canales</h3>
     <p>A veces los usuarios tienen prisa, no se usan durante algún tiempo su billetera Blixt y simplemente la abren para pagar rápidamente. Es normal, todos hacemos eso.</p>
     <p>Pero Blixt se preocupa por sus usuarios y agregó un pequeño icono especial en el cajón superior, al lado del logotipo, como una bombilla indicadora simple, cambiando los colores en rojo, amarillo, verde, lo que indica el estado de los canales LN, si están listos, esperando u operativo.</p>
   </section>
-  
+
   <section id="feature-eggs">
   <h3>"Huevos de Pascua / Acción modo "Dios" Blixt</h3>
     <p>Sí, dentro de la aplicación Blixt, hay como características ocultas, pequeñas cosas que hacen que la aplicación sea encantadora, activando acciones y respuestas interesantes. Sugerencia: pruebe haciendo clic en el doble del logotipo de Blixt en el cajón. A continuación le invitamos a descubrir todo el resto.</p>

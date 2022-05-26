@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Preguntas frecuentes
 ---
@@ -88,7 +88,7 @@ title: Preguntas frecuentes
       </li>
     </ol>
   </section>
-  
+
   <section id="no-sync">
     <h3>Mi Blixt no sincroniza, porque esto y que puedo hacer?</h3>
     <p>En primer lugar, expliquemos algunos aspectos POR QUÉ no se sincroniza, para que el usuario pueda comprender la situación:</p>
@@ -150,7 +150,7 @@ title: Preguntas frecuentes
        (no LN) no es necesario estar en línea.
     </p>
   </section>
-  
+
   <section id="blixt-pares">
     <h3>¿Con qué nodos puedo abrir canales lightning?</h3>
     <p>RECORDAR:</p>
@@ -172,7 +172,7 @@ title: Preguntas frecuentes
     <p>Un nodo muy popular que ofrece "enrutamiento de tarifa cero" es el <a href="https://amboss.space/node/038fe1bd966b5cb0545963490c631eaa1924e2c4c0ea4e7dcb5d4582a1e7f2f1a5">ZFR node</a>. Sugerimos no abrir pequeños canales pequeños como 20k sats. Si ya decidiste usar un nodo como este como peer, al menos abre un 400-500-600k sats para tener suficiente para tus pagos y también cubrir las reservas y costos. Los canales más pequeños no son eficientes para ambos pares.</p>
     <p>También es una muy buena práctica abrir canales con aquellos comerciantes/servicios que paga con frecuencia. Abrir un canal con tu comerciante favorito también puede traerte 0 tarifas, por ese canal directo y es como una "línea de crédito". De todos modos, puede usar ese canal para pagar también a otros comerciantes/servicios, solo tenga en cuenta sus tarifas por enrutar su pago, porque si no hay un pago directo, su nodo tendrá que enrutar su pago al siguiente salto hasta el destino y que implican un costo.</p>
   </section>
-  
+
   <section id="enrutamiento">
     <h3>¿Puedo enrutar otros pagos con Blixt Wallet?</h3>
     <p>Blixt, de hecho, es un nodo LN, pero no es un nodo de enrutamiento, es más como un nodo LN privado.</p>
@@ -180,7 +180,7 @@ title: Preguntas frecuentes
     <p>Su nodo Blixt LN puede recibir y enviar pagos, utilizando otros nodos como saltos, pero no puede enrutar otros pagos a través de su nodo Blixt.</p>
     <p>Por eso Blixt es tan especial... nadie sabe de tus pagos. <a href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">Consulte este breve tutorial sobre el enrutamiento onion en LN</a></p>
   </section>
-  
+
   <section id="conectar-bitcoin-nodo">
     <h3>¿Cómo conecto Blixt Wallet a mi propio nodo completo?</h3>
     <p>En <i>Configuración -> Bitcoin -> Establecer nodo de Bitcoin</i> puede ingresar un nodo de bitcoin para conectarse</p>
@@ -279,19 +279,19 @@ peerblockfilters=1</pre>
          es ver el registro de txs. Después de que se cerraron los canales y se confirmaron los txs, el tiempo de bloqueo expiró, verá los fondos allí. </li>
     </ul>
   </section>
-  
+
   <section id="fondos-restaurados">
     <h3>Restauré mi antiguo nodo usando el archivo SCB, pero los fondos no han regresado a mi billetera en onchain</h3>
       </summary>
       <p>Bien, tenía un nodo anterior muerto y usé el procedimiento de restauración, usando el archivo de canales de respaldo SCB en Blixt.
-       Espero a que se cierren los canales, pero los fondos no vuelven a mi billetera en cadena. ¿Que puedo hacer?        
+       Espero a que se cierren los canales, pero los fondos no vuelven a mi billetera en cadena. ¿Que puedo hacer?
       </p>
       <p>Por lo general, hay pocos escenarios posibles para cerrar canales:</p>
       <ul>
       <li>Un canal normal de "cierre cooperativo" generalmente toma pocos bloques (no más de 40), si ambos pares están en línea. Entonces todo va suave y rápido.</li>
       <li>Si el otro par del canal no está en línea, la tarea de cierre entrará en vigor cerrar. Esto podría tomar al menos 144 bloques hasta que se liberen los fondos del tiempo de bloqueo. Verifique en mempool ese tiempo de bloqueo para el tx de cierre.</li>
       <li>Si un cierre normal se atasca, por muchas razones (principalmente debido a la pérdida de conectividad), una vez que el resto de los canales ya entraron en el estado "esperando para cerrar", podría repetir el proceso, para empujar nuevamente el cierre de permanecer atascado canales.</li>
-      <li>Otra forma de "empujar" la conexión con sus compañeros perdidos es agregarlos manualmente. 
+      <li>Otra forma de "empujar" la conexión con sus compañeros perdidos es agregarlos manualmente.
       Ir a  <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, busque a su par, copie o escanee el QR URI de su par y vaya a Configuración de Blixt --> Lightning Peers --> "+".</li>
       <li>Para intentar nuevamente una acción de cierre forzado, vaya a la pantalla Lightning Channels, seleccione el canal que desea presionar y deslice en la vista de actividad para comenzar nuevamente el proceso.</li>
       </ul>
@@ -309,5 +309,4 @@ peerblockfilters=1</pre>
       <li>Entonces, antes de comenzar a cerrar sus canales, tenga en cuenta cuánto tenía en saldo total en su nodo, en SU lado de los canales. Esa es la cantidad que recuperará. Algunos canales incluso estarán vacíos de tu lado, así que no esperes obtener sats de esos canales cerrados.</li>
       </ul>
   </section>
-
 </article>
