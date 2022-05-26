@@ -32,6 +32,7 @@ title: Frequently Asked Questions
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
+      <li><a href="#keysend">Can I receive sats through keysend?</a></li>
       <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
@@ -275,6 +276,17 @@ title: Frequently Asked Questions
     <p>All channels on Blixt are private, that means are not "visible" to the other routing nodes in the network. These are so called "unannounced" channels, used only for private payments.</p>
     <p>Your Blixt LN node can receive and send payments, using other nodes as hops, but cannot route others payments through your Blixt node.</p>
     <p>That's why Blixt is so special... nobody knows about your payments. <a href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">Check this short tutorial about LN onion routing</a></p>
+  </section>
+  
+  <section id="keysend">
+    <h3>Can I receive sats through keysend?</h3>
+    <p>Yes, always when your Blixt Wallet is online.<p>
+    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer and open "Keysend Experiment" option. The payer, just have to scan that QR code and pay.</p>
+    <p>Aspects to keep in mind:<p>
+    <ul>
+    <li>if you want to just share your nodeID on a webpage or just send it to somebody to be able to send you through keysend, it will not work if your Blixt Wallet will NOT be online in the moment of the payment.</li>
+    <li>if you, as receiver, you are using Tor connection, the payer also have to use a Tor connection, otherwise cannot "see" your Blixt node and connect with.</li>
+    </ul>
   </section>
 
   <section id="connect-bitcoin-node">
