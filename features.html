@@ -4,6 +4,7 @@ title: Features
 ---
 {% include blixt-web.html %}
 <article class="features">
+  <h2>Blixt Wallet Main Features</h2>
   <style>
     details summary {
       cursor: pointer;
@@ -27,7 +28,6 @@ title: Features
       color: var(--secondary);
     }
   </style>
-  <h2>Blixt Wallet Main Features</h2>
   <section id="feature-neutrino">
   <h3>Neutrino Node</h3>
     <p>Blixt app connects by default to Blixt Server to sync the Bitcoin blocks and indexes with <a href="https://blog.lightning.engineering/posts/2018/10/17/neutrino.html">Neutrino</a> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki">BIP157</a>), but the user can also connect to its own Bitcoin node.</p>
@@ -173,4 +173,5 @@ title: Features
     <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe and secured by the network. But are very small, sometimes in msats.</li>
     <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. And DO NOT try to restore on both same LN channels. You will lose funds!</li>
     <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.</li>
+  </section>
 </article>
