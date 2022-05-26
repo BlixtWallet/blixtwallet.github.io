@@ -33,6 +33,7 @@ title: Preguntas frecuentes
       <li><a href="#blixt-nodo">¿Cómo es posible tener un nodo en un dispositivo móvil?</a></li>
       <li><a href="#blixt-pares">¿Con qué nodos puedo abrir canales lightning?</a></li>
       <li><a href="#enrutamiento">¿Puedo enrutar otros pagos con Blixt Wallet?</a></li>
+      <li><a href="#keysend">¿Puedo recibir satélites a través de KeySend?</a></li>
       <li><a href="#conectar-bitcoin-nodo">¿Cómo conecto Blixt Wallet a mi propio nodo completo?</a></li>
       <li><a href="#umbrel-control">¿Puedo controlar de forma remota un nodo Umbrel desde Blixt Wallet?</a></li>
       <li><a href="#blixt-restaurar">Perdí mi teléfono móvil (muerto, robado) o simplemente quiero migrar a un nuevo teléfono, ¿cuál es el procedimiento?</a></li>
@@ -179,6 +180,17 @@ title: Preguntas frecuentes
     <p>Todos los canales de Blixt son privados, lo que significa que no son "visibles" para los demás nodos de enrutamiento de la red. Estos son los llamados canales "no anunciados", utilizados solo para pagos privados.</p>
     <p>Su nodo Blixt LN puede recibir y enviar pagos, utilizando otros nodos como saltos, pero no puede enrutar otros pagos a través de su nodo Blixt.</p>
     <p>Por eso Blixt es tan especial... nadie sabe de tus pagos. <a href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">Consulte este breve tutorial sobre el enrutamiento onion en LN</a></p>
+  </section>
+
+  <section id="keysend">
+    <h3>¿Puedo recibir satélites a través de KeySend?</h3>
+    <p>Sí, siempre que tu Blixt Wallet esté online.<p>
+    <p>Para extraer su código nodeURI/QR para compartirlo/escanearlo, vaya al cajón superior izquierdo y abra la opción "Experimento Keysend". El pagador, solo tiene que escanear ese código QR y pagar.</p>
+    <p>Aspectos a tener en cuenta:<p>
+    <ul>
+    <li>si solo desea compartir su ID de nodo en una página web o simplemente enviarlo a alguien para que pueda enviarlo a través del envío de claves, no funcionará si su Blixt Wallet NO estará en línea en el momento del pago.</li>
+    <li>si usted, como receptor, está usando una conexión Tor, el pagador también tiene que usar una conexión Tor, de lo contrario no puede "ver" su nodo Blixt y conectarse.</li>
+    </ul>
   </section>
 
   <section id="conectar-bitcoin-nodo">
