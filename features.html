@@ -42,6 +42,7 @@ title: Features
         <li><a href="#main-features">Blixt Wallet Main Features</a></li>
         <li><a href="#blixt-options">Blixt Wallet Options (settings menu)</a></li>
         <li><a href="#blixt-drawer">Blixt Wallet Functions (top left drawer menu)</a></li>
+        <li><a href="#blixt-eggs">Special hidden actions (Easter eggs)</a></li>
       </ul>
   </section>
   
@@ -89,7 +90,7 @@ title: Features
   <section id="option-general">
   <h3>General section</h3>
     <p><img src="assets/images/blixt-options-general.jpg" align="center" alt="Blixt General Options"/></p>
-    <p><strong>Name</strong></p>
+  <h4>Name</h4>
     <p>
       This option will help the user to send a specific name in a payment, but only when is desired and necessary, is totally optional. 
       It can be whatever name and is stored only on the device.
@@ -97,16 +98,16 @@ title: Features
     <p>
       IT IS NOT the LN node alias! Blixt Wallet do not use node alias, is a private LN node.
     </p>
-    <p><strong>Push Notifications</strong></p>
+  <h4>Push Notifications</h4>
     <p>
       This is a simple function that notify the user with messages about transactions and channel events, when the app is working in background.
     </p>
-    <p><strong>Check clipboard for invoices</strong></p>
+  <h4>Check clipboard for invoices</h4>
     <p>
       This option when is activated, will check automatically device clipboard for invoices and when the app is open, will bring up the payment screen, 
       for an easy and simple user experience making payments.
     </p>
-    <p><strong>Save geolocation of transaction</strong></p>
+  <h4>Save geolocation of transaction</h4>
     <p>
       Very useful tool, to add, privately, for each of your payment, a note with a location where was executed.
       Sometimes, you can't remember where you was paying and you want to keep track of your spendings.
@@ -120,18 +121,18 @@ title: Features
   <section id="option-wallet">
   <h3>Wallet section</h3>
     <p><img src="assets/images/blixt-options-wallet.jpg" align="center" alt="Blixt Wallet Options"/></p>
-    <p><strong>Show mnemonic</strong></p>
+  <h4>Show mnemonic</h4>
     <p>
       This option is used to make a backup of your 24 words wallet seed. It can be accessed anytime, multiple times. Save those words in a safe place!
       This is serious, save the seed immediately after you created the new wallet!
     </p>
-    <p><strong>Remove mnemonic from device</strong></p>
+  <h4>Remove mnemonic from device</h4>
     <p>This option is an extra security measure, that after you made the backup of your seed, you can remove it totally from your device.</p>
     <p>Remember: do not use this option if you do not make the backup first!</p>
     <p>It can be used only in case you are afraid that your device could be stolen, seized or accessed accidentaly by somebody else.
       Removing the seed from your device it doesn't mean is removing the wallet and LN node, is just the seed words. Wallet will work just as usual.
     </p>
-    <p><strong>Export channel backup</strong></p>
+  <h4>Export channel backup</h4>
     <p><img src="assets/images/blixt-option-backup.jpg" align="center" alt="Blixt Backup Options"/></p>
     <p>This is a VERY IMPORTANT feature for your Blixt Wallet. <strong>Do not ignore it!</strong>
       It would be used in case of SHTF and you need to recover your funds remained in LN channels.
@@ -150,7 +151,7 @@ title: Features
   <section id="option-security">
   <h3>Security section</h3>
     <p><img src="assets/images/blixt-options-security.jpg" align="center" alt="Blixt Security Options"/></p>  
-    <p><strong>Login with PIN code</strong></p>
+  <h4>Login with PIN code</h4>
     <p>
       This a security feature to add a PIN number when the app is open and protect from unauthorized access to your device.
       You will be prompted 2 times to introduce a personal PIN.
@@ -160,21 +161,30 @@ title: Features
       The only way to restore it will be through full Blixt Wallet restore (seed + channels.backup) and reinstall app.
       That will imply closing channels, fees, time and possible stress.
     </p>
+  <h4>Scheduled chain sync</h4>
+    <p>
+      This option by default is activated and is better to stay like that.
+      It will run the Neutrino sync of blocks, every 4 hours, if the app is active.
+    </p>
+    <p>
+      If this option is disabled, the node stop working and the whole Blixt app will not function properly.
+      Once is reactivated, is better to restart the app, so the lnd node start its services correctly.
+    </p>
   </section>
 
   <section id="option-display">
   <h3>Display section</h3>
     <p><img src="assets/images/blixt-options-display.jpg" align="center" alt="Blixt Display Options"/></p>
-    <p><strong>Fiat currency</strong></p>
+  <h4>Fiat currency</h4>
     <p>
       User can set a local fiat currency and use it to display as main unit in the wallet or just as optional value under bitcoin/satoshis amount.
       The rate is calculated based on an average rate from main exchanges and markets.
     </p>
-    <p><strong>Bitcoin unit</strong></p>
+  <h4>Bitcoin unit</h4>
     <p>
       This option let the user to decide how the main balance, transactions and channels are displaying the bitcoin units (BTC, sats etc).
     </p>
-    <p><strong>Onchain explorer</strong></p>
+  <h4>Onchain explorer</h4>
     <p>
       This is used to check transactions in the different block explorers available. Default is mempool.space explorer.
       User can choose between: Mempool, Blockstream, Oxt, Blockchair, or custom (own node for example).
@@ -182,188 +192,200 @@ title: Features
   </section>
 
   <section id="option-bitcoin">
-    <h3>Bitcoin Network section</h3>
-      <p><img src="assets/images/blixt-options-bitcoin.jpg" align="center" alt="Blixt Bitcoin Network Options"/></p>
-      <p><strong>Bitcoin Node</strong></p>
-      <p>
-        User can set a specific Bitcoin node to sync blocks, can be own node or any other Bitcoin node that support BIP157 (Neutrino sync).
-      </p>
-      <p>
-        By default Blixt Wallet app have set "node.blixtwallet.com", but can be left also blank and will connect with any available server.
-      </p>
-      <p>
-        The new version of Blixt v0.6.x that comes with LND 0.15.x, supports also Tor v3 onion address for Bitcoin nodes. 
-        So you can use your personal home node that runs behind Tor and doesn't have a clearnet IP/domain set. Or any other private node.
-      </p>
-      <p><strong>Enable receiving onchain via Taproot (P2TR)</strong></p>
-      <p>
-        This option is available due to newest support in LND v0.15 for Taproot addresses and Blixt support it only from v0.6.x upward.
-      </p>
-      <p>Taproot (P2TR) is a new set of address type for Bitcoin onchain address with new functionalities and privacy options. 
-         <a href="https://taproot.watch/about">Read more about Taproot here.</a>
-      </p>
+  <h3>Bitcoin Network section</h3>
+    <p><img src="assets/images/blixt-options-bitcoin.jpg" align="center" alt="Blixt Bitcoin Network Options"/></p>
+  <h4>Bitcoin Node</h4>
+    <p>
+      User can set a specific Bitcoin node to sync blocks, can be own node or any other Bitcoin node that support BIP157 (Neutrino sync).
+    </p>
+    <p>
+      By default Blixt Wallet app have set "node.blixtwallet.com", but can be left also blank and will connect with any available server.
+    </p>
+    <p>
+      The new version of Blixt v0.6.x that comes with LND 0.15.x, supports also Tor v3 onion address for Bitcoin nodes. 
+      So you can use your personal home node that runs behind Tor and doesn't have a clearnet IP/domain set. Or any other private node.
+    </p>
+  <h4>Enable receiving onchain via Taproot (P2TR)</h4>
+    <p>
+      This option is available due to newest support in LND v0.15 for Taproot addresses and Blixt support it only from v0.6.x upward.
+    </p>
+    <p>Taproot (P2TR) is a new set of address type for Bitcoin onchain address with new functionalities and privacy options. 
+      <a href="https://taproot.watch/about">Read more about Taproot here.</a>
+    </p>
   </section>
 
   <section id="option-lightning">
-    <h3>Lightning Network section</h3>
-      <p><img src="assets/images/blixt-options-lightning.jpg" align="center" alt="Blixt Lightning Network Options"/></p>
-      <p><strong>Show node data</strong></p>
-      <p>
-        This is an important section where are displayed more details about your Blixt LN node, very useful and good to have them saved for later use.
-        Keep in mind that these information will not be "visible" on public LN explorers, Blixt being a private/unannounced node and channels.
-        This information can be used only in direct connection with other peers.
-      </p>
-      <p>Technical information displayed will be:</p>
-        <ul>
-          <li>Node Alias - short ID for your LN node</li>
-          <li>Chain - bitcoin mainnet or testnet</li>
-          <li>Best header timestamp - when was the last block synced</li>
-          <li>Block Hash - latest block hash number</li>
-          <li>Block Height - latest block number that was synced (Bitcoin Time)</li>
-          <li>Identity PubKey - your node full ID, used to connect with other peers. This is a valuable information, keep it at hand.</li>
-          <li>Num Channels - displays the total number of channels you have on your Blixt node (active, inactive, pending)</li>
-          <li>Num peers - the total number of peers your node is connected in that moment. 
+  <h3>Lightning Network section</h3>
+    <p><img src="assets/images/blixt-options-lightning.jpg" align="center" alt="Blixt Lightning Network Options"/></p>
+  <h4>Show node data</h4>
+    <p>
+      This is an important section where are displayed more details about your Blixt LN node, very useful and good to have them saved for later use.
+      Keep in mind that these information will not be "visible" on public LN explorers, Blixt being a private/unannounced node and channels.
+      This information can be used only in direct connection with other peers.
+    </p>
+    <p>Technical information displayed will be:</p>
+      <ul>
+        <li>Node Alias - short ID for your LN node</li>
+        <li>Chain - bitcoin mainnet or testnet</li>
+        <li>Best header timestamp - when was the last block synced</li>
+        <li>Block Hash - latest block hash number</li>
+        <li>Block Height - latest block number that was synced (Bitcoin Time)</li>
+        <li>Identity PubKey - your node full ID, used to connect with other peers. This is a valuable information, keep it at hand.</li>
+        <li>Num Channels - displays the total number of channels you have on your Blixt node (active, inactive, pending)</li>
+        <li>Num peers - the total number of peers your node is connected in that moment. 
             Peers doesn't mean exactly how many channels you have, could be more or less, depending on your traffic.</li>
-          <li>Synced to chain - true/false showing the syncing status in general of your Blixt node.</li>
-          <li>LND version - shows the LND node software version that is used in Blixt.</li>
-          <li>Node features - displays the specific technical features activated for your node.</li>
-        </ul>
-      <p><strong>Show Lightning peers</strong></p>
-      <p>This screen will display each Lightning peer that your blixt is connected to, with more technical details for each.
-        Also offers the possibility to connect to other peers by clicking the "+" button and scan or add peer URI.
-        This option is useful when you want to route a payment through a specific node, send a keysend payment, you want to open a channel with, 
-        or you lost the peer connection and you want to re-connect.
-      </p>
-      <p>Keep in mind that if you want to add peers that are behind Tor you would need to activatre first the 
-        Tor option in your Blixt settings and restart the Blixt app.
-      </p>
-      <p><strong>Automatically open channels</strong></p>
-      <p>
-        A basic LND feature, that offers to the user a simple way to automatically open his first LN channel.
-      </p>
-      <p>By default, this option is enable, to provide to the first time user of Blixt an easy way to open quickly a LN channel.
-        This is a good feature for new users that do not know too much about with which node and how to open a LN channel.
-      </p>
-      <p>Can be deactivated, if the user want another method to open the first LN channel.</p>
-      <p>Remember: this option is used only once, when you create your new Blixt wallet and is activated. 
-        So if the new user, see the onchain QR code on the main screen and deposit to this address his first sats, 
-        Blixt will open automatically a channel with those sats, with the Blixt public node.
-      </p>
-      <p>
-        After this first time use feature, Blixt app will ignore it and user have to open manually new LN channels or use Dunder LSP feature.
-      </p>
-      <p><strong>Inbound channel services</strong></p>
-      <p>This is a dedicated feature in special for merchants or power users that need more INBOUND liquidity.
-        Inbound liquidity means more available space in a LN channel to RECEIVE more sats.
-      </p>
-      <p>
-        It is easy to use, just go and activate it, select one of the liquidity providers in the list, for the moment Thor Bitrefill and LNBIG, 
-        pay the amount you want for the channel and provide your Blixt Tor onion nodeURI towards the channel will be open.
-      </p>
-      <p><strong>Wait for graph sync before paying</strong></p>
-      <p>
-        This option is by default disabled and is quite technical. 
-        Is used mostly when user wants to have specific optimal payment paths or wants to have clear hops in a payment.
-      </p>
-      <p>Keep in mind that activating this option, could bring a slower startrup and lnd could take longer in syncing the actual graph 
-        before being able to make a payment. Is better to activate it just in specific moments when you want to update your local graph cache 
-        and want to clear up some old zombie channels. Be aware could take some time so check in lnd logs the status.
-      </p>
+        <li>Synced to chain - true/false showing the syncing status in general of your Blixt node.</li>
+        <li>LND version - shows the LND node software version that is used in Blixt.</li>
+        <li>Node features - displays the specific technical features activated for your node.</li>
+      </ul>
+  <h4>Show Lightning peers</h4>
+    <p>This screen will display each Lightning peer that your blixt is connected to, with more technical details for each.
+      Also offers the possibility to connect to other peers by clicking the "+" button and scan or add peer URI.
+      This option is useful when you want to route a payment through a specific node, send a keysend payment, you want to open a channel with, 
+      or you lost the peer connection and you want to re-connect.
+    </p>
+    <p>Keep in mind that if you want to add peers that are behind Tor you would need to activatre first the 
+      Tor option in your Blixt settings and restart the Blixt app.
+    </p>
+  <h4>Automatically open channels</h4>
+    <p>
+      A basic LND feature, that offers to the user a simple way to automatically open his first LN channel.
+    </p>
+    <p>By default, this option is enable, to provide to the first time user of Blixt an easy way to open quickly a LN channel.
+      This is a good feature for new users that do not know too much about with which node and how to open a LN channel.
+    </p>
+    <p>Can be deactivated, if the user want another method to open the first LN channel.</p>
+    <p>Remember: this option is used only once, when you create your new Blixt wallet and is activated. 
+      So if the new user, see the onchain QR code on the main screen and deposit to this address his first sats, 
+      Blixt will open automatically a channel with those sats, with the Blixt public node.
+    </p>
+    <p>
+      After this first time use feature, Blixt app will ignore it and user have to open manually new LN channels or use Dunder LSP feature.
+    </p>
+  <h4>Inbound channel services</h4>
+    <p>This is a dedicated feature in special for merchants or power users that need more INBOUND liquidity.
+      Inbound liquidity means more available space in a LN channel to RECEIVE more sats.
+    </p>
+    <p>
+      It is easy to use, just go and activate it, select one of the liquidity providers in the list, for the moment Thor Bitrefill and LNBIG, 
+      pay the amount you want for the channel and provide your Blixt Tor onion nodeURI towards the channel will be open.
+    </p>
+  <h4>Wait for graph sync before paying</h4>
+    <p>
+      This option is by default disabled and is quite technical. 
+      Is used mostly when user wants to have specific optimal payment paths or wants to have clear hops in a payment.
+    </p>
+    <p>Keep in mind that activating this option, could bring a slower startrup and lnd could take longer in syncing the actual graph 
+      before being able to make a payment. Is better to activate it just in specific moments when you want to update your local graph cache 
+      and want to clear up some old zombie channels. Be aware could take some time so check in lnd logs the status.
+    </p>
   </section>
 
   <section id="option-misc">
-    <h3>Miscellaneous section</h3>
-      <p><img src="assets/images/blixt-options-misc.jpg" align="center" alt="Blixt Miscellaneous Options"/></p>
-      <p><strong>About</strong></p>
-      <p>
-        Displays the usual more technical details about Blixt developer, software used, Github information and licenses.
-      </p>
-      <p><strong>Automatically hide expired invoices</strong></p>
-      <p>
-        This option will remove the invoices that were not fulfilled and user don't want to keep them visible in the main screen.
-        But if you are testing payments and you set a higher time to expire the invoices you created, you can re-use past unpaid invoices from the list.
-      </p>
-      <p><strong>Sign message with wallet key</strong></p>
-      <p>
-        Very powerful feature, that offers a way to sign specific messages or actions, using the unique wallet key as authenticator.
-        This could have various use cases, from validating a Bitcoin address, login into a webservice, even opening a hotel door.
-      </p>
+  <h3>Miscellaneous section</h3>
+    <p><img src="assets/images/blixt-options-misc.jpg" align="center" alt="Blixt Miscellaneous Options"/></p>
+  <h4>About</h4>
+    <p>
+      Displays the usual more technical details about Blixt developer, software used, Github information and licenses.
+    </p>
+  <h4>Copy app log to local storage</h4>
+    <p>
+      This option gives to the user a way to export all app logs to a selected folder on local device.
+      Later the log (txt) file could be consulted or sent for debug to developer or support team.
+    </p>
+  <h4>Copy lnd log to local storage</h4>
+    <p>
+      This option is very useful to export for debug the lnd node logs, to a selected folder.
+      Once is clicked, the user is prompted to select a destination folder.
+      Later the log (txt) file could be consulted or sent for debug to developer or support team.
+    </p>
+  <h4>Automatically hide expired invoices</h4>
+    <p>
+      This option will remove the invoices that were not fulfilled and user don't want to keep them visible in the main screen.
+      But if you are testing payments and you set a higher time to expire the invoices you created, you can re-use past unpaid invoices from the list.
+    </p>
+  <h4>Sign message with wallet key</h4>
+    <p>
+      Very powerful feature, that offers a way to sign specific messages or actions, using the unique wallet key as authenticator.
+      This could have various use cases, from validating a Bitcoin address, login into a webservice, even opening a hotel door.
+    </p>
   </section>
 
   <section id="option-experiments">
-    <h3>Experiments section</h3>
-      <p><img src="assets/images/blixt-options-experiments.jpg" align="center" alt="Blixt Experiments Options"/></p>
-      <p>This section is named "experiments" because the options displayed are still in development and are not fully tested in stressed conditions
-        and are in a continuous change. So the user should take that in consideration and use them with caution.
-      </p>
-      <p><strong>Enable Dunder LSP</strong></p>
-      <p>An amazing feature-service that offers to the new user the possibility to start accepting BTC over Lightning Network straight away, 
-        with no need to deposit funds onchain and after that opening LN channels.
-      </p>
-      <p>
-        For new users this is a quick and easy experience, because is supposed that they can start from zero, directly into LN.
-      </p>
-      <p>In the future Blixt can modify the size of opening a new channel if there are too many inquiries. 
-        This is a free service for now, to easy onboard new users and make a seamless experience directly into Lightning Network.
-      </p>
-      <p><a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP development here.</a></p> 
-      <p><a href="guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
-      <p><strong>Enable Multi-Path Payments</strong></p>
-      <p>Very powerful feature for a LN wallet. When is enabled a larger payment is split in smaller parts can can take more paths.</p>
-      <p>In this way is using channels and peers in a more efficient way and avoid stuck payments, due to low liquidity on the way.</p>
-      <p>Default is not enabled, but is good to use it when you want to do a larger payment. For small payments is not used.</p>
-      <p><strong>Enable Tor</strong></p>
-      <p>Once is activated, the Blixt app will restart using the Tor network. 
-        From that moment you can see in menu settings - Node Info, your nodeID with an onion address, 
-        so other nodes can open channels towards your little mobile Blixt node.
-      <p>
-        Or let's say you have your own machine node at home and want to have a channel with your mobile Blixt node. 
-        A perfect combination. <a href="guides.html">See more details in Blixt Guides page.</a>
-      </p>
-      <p><strong>Invoice expiry</strong></p>
-      <p>
-        This option is for when the user want to create a specific LN invoice with a specific expiring time (longer usualy). Default is 3600 seconds.
-      </p>
-      <p>
-        Keep in mind that using a longer time to expire, doesn't mean you can close your Blixt Wallet, to receive that invoice, 
-        you still need to keep open your Blixt app, to keep the channels online and your Blixt node being reachable.
-      </p>
+  <h3>Experiments section</h3>
+    <p><img src="assets/images/blixt-options-experiments.jpg" align="center" alt="Blixt Experiments Options"/></p>
+    <p>This section is named "experiments" because the options displayed are still in development and are not fully tested in stressed conditions
+      and are in a continuous change. So the user should take that in consideration and use them with caution.
+    </p>
+  <h4>Enable Dunder LSP</h4>
+    <p>An amazing feature-service that offers to the new user the possibility to start accepting BTC over Lightning Network straight away, 
+      with no need to deposit funds onchain and after that opening LN channels.
+    </p>
+    <p>
+      For new users this is a quick and easy experience, because is supposed that they can start from zero, directly into LN.
+    </p>
+    <p>In the future Blixt can modify the size of opening a new channel if there are too many inquiries. 
+      This is a free service for now, to easy onboard new users and make a seamless experience directly into Lightning Network.
+    </p>
+    <p><a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP development here.</a></p> 
+    <p><a href="guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
+  <h4>Enable Multi-Path Payments</h4>
+    <p>Very powerful feature for a LN wallet. When is enabled a larger payment is split in smaller parts can can take more paths.</p>
+    <p>In this way is using channels and peers in a more efficient way and avoid stuck payments, due to low liquidity on the way.</p>
+    <p>Default is not enabled, but is good to use it when you want to do a larger payment. For small payments is not used.</p>
+  <h4>Enable Tor</h4>
+    <p>Once is activated, the Blixt app will restart using the Tor network. 
+      From that moment you can see in menu settings - Node Info, your nodeID with an onion address, 
+      so other nodes can open channels towards your little mobile Blixt node.
+    <p>
+      Or let's say you have your own machine node at home and want to have a channel with your mobile Blixt node. 
+      A perfect combination. <a href="guides.html">See more details in Blixt Guides page.</a>
+    </p>
+  <h4>Invoice expiry</h4>
+    <p>
+      This option is for when the user want to create a specific LN invoice with a specific expiring time (longer usualy). Default is 3600 seconds.
+    </p>
+    <p>
+      Keep in mind that using a longer time to expire, doesn't mean you can close your Blixt Wallet, to receive that invoice, 
+      you still need to keep open your Blixt app, to keep the channels online and your Blixt node being reachable.
+    </p>
   </section>
 
   <section id="option-debug">
-    <h3>Debug section</h3>
-      <p><img src="assets/images/blixt-options-debug.jpg" align="center" alt="Blixt Debug Options"/></p>
-      <p><strong>Show startup info notifications</strong></p>
-      <p>This option, when is activated, and Blixt app is starting up, will show debugging notifications at the bottom of the screen.
-        It is used mostly for power users when is wanted to diagnose the app starting services.
-      </p>
-      <p><strong>Rescan wallet</strong></p>
-      <p>Very useful tool, when user have missing UTXOs in onchain wallet, or after closing channels, funds are not appearing refunded.</p>
-      <p>Once is activated, Blixt app must be restarted. The process is done when lnd is starting and after a quick sync will start scanning 
-        all blocks for used BTC addresses, adding the transaction history in the onchain wallet.
-      </p>
-      <p><strong>LND Mobile Help Center</strong></p>
-      <p>A very useful and powerful tool to diagnose, debug and test Blixt Wallet and lnd node status and services.
-        It can be used when the user is in contact with Blixt developer or help support in Telegram, to identify possible issues.
-      </p>
-      <p><strong>Get node info</strong></p>
-      <p>Simple tool to get more information about a remote node. User must provide a nodeID.</p>
-      <p><strong>Read LND log</strong></p>
-      <p>Very good tool to check lnd logs and diagnose when wallet is having issues.
-        Also logs could be copied and send to developer for further debugging.
-        But in general is used to check the starting up services and connections, syncing etc.
-      </p>
-      <p><strong>Activate Demo Mode</strong></p>
-      <p>A nice way to test Blixt app, used more for demonstrations and not using real data and sats.
-        It is used only once when activated. After restart is coming back to normal real wallet.
-      </p>
-      <p><strong>Disable lnd graph cache</strong></p>
-      <p>
-        A debugging tool to help a faster startup and diagnose possible issues. Is used more with assistance from Blixt developer.
-      </p>
+  <h3>Debug section</h3>
+    <p><img src="assets/images/blixt-options-debug.jpg" align="center" alt="Blixt Debug Options"/></p>
+  <h4>Show startup info notifications</h4>
+    <p>This option, when is activated, and Blixt app is starting up, will show debugging notifications at the bottom of the screen.
+      It is used mostly for power users when is wanted to diagnose the app starting services.
+    </p>
+  <h4>Rescan wallet</h4>
+    <p>Very useful tool, when user have missing UTXOs in onchain wallet, or after closing channels, funds are not appearing refunded.</p>
+    <p>Once is activated, Blixt app must be restarted. The process is done when lnd is starting and after a quick sync will start scanning 
+      all blocks for used BTC addresses, adding the transaction history in the onchain wallet.
+    </p>
+  <h4>LND Mobile Help Center</h4>
+    <p>A very useful and powerful tool to diagnose, debug and test Blixt Wallet and lnd node status and services.
+      It can be used when the user is in contact with Blixt developer or help support in Telegram, to identify possible issues.
+    </p>
+  <h4>Get node info</h4>
+    <p>Simple tool to get more information about a remote node. User must provide a nodeID.</p>
+    <p><strong>Read LND log</strong></p>
+    <p>Very good tool to check lnd logs and diagnose when wallet is having issues.
+      Also logs could be copied and send to developer for further debugging.
+      But in general is used to check the starting up services and connections, syncing etc.
+    </p>
+  <h4>Activate Demo Mode</h4>
+    <p>A nice way to test Blixt app, used more for demonstrations and not using real data and sats.
+      It is used only once when activated. After restart is coming back to normal real wallet.
+    </p>
+  <h4>Disable lnd graph cache</h4>
+    <p>
+      A debugging tool to help a faster startup and diagnose possible issues. Is used more with assistance from Blixt developer.
+    </p>
   </section>
-  <section >
-    <h2 id="blixt-drawer">Blixt Wallet Functions (top left drawer menu)</h2>
+
+  <section id="blixt-drawer">
+    <h2>Blixt Wallet Functions (top left drawer menu)</h2>
 
     <h3 id="function-status">Channels status icon</h3>
       <p>
@@ -438,7 +460,7 @@ title: Features
       </p>
   </section>
 
-  <section id="feature-eggs">
+  <section id="blixt-eggs">
     <h3>"Easter eggs / Blixt God Action"</h3>
       <p>Yes, inside the Blixt app, there are like hidden features, small things that make the app delightful, activating interesting actions 
       and responses. Hint: test clicking twice the Blixt logo in the drawer :) Will let you discover all the rest.
