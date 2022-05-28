@@ -98,6 +98,10 @@ title: Features
     <p>
       IT IS NOT the LN node alias! Blixt Wallet do not use node alias, is a private LN node.
     </p>
+  <h4>Language</h4>
+    <p>
+      Default language is English. Other available languages are: Spanish, German, French, Sweedish, Klingon. Soon more languages will be available.
+    </p>
   <h4>Push Notifications</h4>
     <p>
       This is a simple function that notify the user with messages about transactions and channel events, when the app is working in background.
@@ -369,7 +373,7 @@ title: Features
     </p>
   <h4>Get node info</h4>
     <p>Simple tool to get more information about a remote node. User must provide a nodeID.</p>
-    <p><strong>Read LND log</strong></p>
+  <h4>Read LND log</h3>
     <p>Very good tool to check lnd logs and diagnose when wallet is having issues.
       Also logs could be copied and send to developer for further debugging.
       But in general is used to check the starting up services and connections, syncing etc.
@@ -385,90 +389,90 @@ title: Features
   </section>
 
   <section id="blixt-drawer">
-    <h2>Blixt Wallet Functions (top left drawer menu)</h2>
+  <h2>Blixt Wallet Functions (top left drawer menu)</h2>
 
-    <h3 id="function-status">Channels status icon</h3>
-      <p>
-        Once is open the top drawer, user will see a small icion on top right, that indicate the status of the LN channels.
-        This is a very useful tool to consult before making a payment.
-      </p>
-      <p>
-        Sometimes users are in a hurry or didn't used for some time their Blixt wallet and just open it to pay quick. Is normal, we all do that.
-      </p>
-      <p>
-        But Blixt carees about its users and added a special little icon in the top drawer, next to the logo, like a simple indicator light bulb, 
-        changing the colors, indicating the status of LN channels, if are ready, waiting or operational.
-      </p>
-      <p>
-        Red - channels are offline | Yellow - starting up | Green - channels are ready, active
-      </p>
-    <h3 id="function-clipboard">Paste from clipboard</h3>
-      <p>A simple action button that can paste an invoice from clipboard to be paid. 
-      Will bring up the payment screen with invoice details already filled and user just have to press "send" button.
-      </p>
-    <h3 id="function-lnadrress">Send to Lightning Address</h3>
-      <p>Powerful function of Blixt wallet, integrating payments to <a href="https://lightningaddress.com">Lightning Address</a>.
-      User can paste or type a lightning address and also can save it into contact list.
-      </p>
-      <p>Blixt have implemented full support for <a href="https://github.com/fiatjaf/lnurl-rfc">LNURL protocol</a>, 
-        Blixt users can pay, withdraw, authenticate using LNURL within Blixt wallet.
-      </p>
-      <p>
-        It is planned also to have a Blixt Lightning Address through a new feature (in development) <a href="https://github.com/hsjoberg/lightning-box">"Lightning Box"</a>.
-      </p>
-    <h3 id="function-contacts">Contacts and Services</h3>
-      <p>Useful function if you want to have a stable list of destinations where you are going to pay most of the time. 
-      This contact list can be LNURL, Lightning Address or future static payment information/invoices. 
-      For the time being this list can't be backed up, but there are plans to have an option to export it and also with more options.
-      </p>
-    <h3 id="function-webln">Lightning Browser</h3>
-      <p><a href="https://webln.dev/">WebLN</a> - is a library and set of specifications for lightning apps and client providers to facilitate communication between apps and 
-      users of lightning nodes in a secure way.
-      </p>
-      <p>Blixt offers a series of 3rd party LN services, organized together into a nice simple browser accessible and quite handy.
-      </p>
-      <p>It's a nice way also to promote businesses that accept BTC over LN. This is a feature to be more developed in the future. 
-      For the time being it doesn't work behind Tor so browsing these apps will be in clearnet.
-      </p>
-    <h3 id="function-onchain">On-chain wallet</h3>
-      <p>Dedicated function to operate only the onchain part of Blixt wallet. 
-      The main screen will display the onchain balance and a QR code and a BTC address that can be used to deposit to.
-      </p>
-      <p>On top right you can click on the transactions list button to consult all onchain past transactions.
+  <h3 id="function-status">Channels status icon</h3>
+    <p>
+      Once is open the top drawer, user will see a small icion on top right, that indicate the status of the LN channels.
+      This is a very useful tool to consult before making a payment.
+    </p>
+    <p>
+      Sometimes users are in a hurry or didn't used for some time their Blixt wallet and just open it to pay quick. Is normal, we all do that.
+    </p>
+    <p>
+      But Blixt carees about its users and added a special little icon in the top drawer, next to the logo, like a simple indicator light bulb, 
+      changing the colors, indicating the status of LN channels, if are ready, waiting or operational.
+    </p>
+    <p>
+      Red - channels are offline | Yellow - starting up | Green - channels are ready, active
+    </p>
+  <h3 id="function-clipboard">Paste from clipboard</h3>
+    <p>A simple action button that can paste an invoice from clipboard to be paid. 
+    Will bring up the payment screen with invoice details already filled and user just have to press "send" button.
+    </p>
+  <h3 id="function-lnadrress">Send to Lightning Address</h3>
+    <p>Powerful function of Blixt wallet, integrating payments to <a href="https://lightningaddress.com">Lightning Address</a>.
+    User can paste or type a lightning address and also can save it into contact list.
+    </p>
+    <p>Blixt have implemented full support for <a href="https://github.com/fiatjaf/lnurl-rfc">LNURL protocol</a>, 
+      Blixt users can pay, withdraw, authenticate using LNURL within Blixt wallet.
+    </p>
+    <p>
+      It is planned also to have a Blixt Lightning Address through a new feature (in development) <a href="https://github.com/hsjoberg/lightning-box">"Lightning Box"</a>.
+    </p>
+  <h3 id="function-contacts">Contacts and Services</h3>
+    <p>Useful function if you want to have a stable list of destinations where you are going to pay most of the time. 
+    This contact list can be LNURL, Lightning Address or future static payment information/invoices. 
+    For the time being this list can't be backed up, but there are plans to have an option to export it and also with more options.
+    </p>
+  <h3 id="function-webln">Lightning Browser</h3>
+    <p><a href="https://webln.dev/">WebLN</a> - is a library and set of specifications for lightning apps and client providers to facilitate communication between apps and 
+    users of lightning nodes in a secure way.
+    </p>
+    <p>Blixt offers a series of 3rd party LN services, organized together into a nice simple browser accessible and quite handy.
+    </p>
+    <p>It's a nice way also to promote businesses that accept BTC over LN. This is a feature to be more developed in the future. 
+    For the time being it doesn't work behind Tor so browsing these apps will be in clearnet.
+    </p>
+  <h3 id="function-onchain">On-chain wallet</h3>
+    <p>Dedicated function to operate only the onchain part of Blixt wallet. 
+    The main screen will display the onchain balance and a QR code and a BTC address that can be used to deposit to.
+    </p>
+    <p>On top right you can click on the transactions list button to consult all onchain past transactions.
       You can open each one to see more details, txid etc.
-      </p>
-      <p>This function is mostly used to deposit funds, then consulting opening and closing channels transactions.</p>
-    <h3 id="function-channels">Lightning Channels</h3>
-      <p>
-        This function will open a screen that contain all information about Blixt Lightning channels.
-      </p>
-      <p>
-        Here the user can open and close LN channels, consult the status of each one, funds available per channel.
-      </p>
-    <h3 id="function-keysend">Keysend Experiment</h3>
-      <p>To show up this function, user must click on the "Advanced" sub-drawer.</p>
-      <p>Very powerful function that few other mobile wallets have it. 
-        You can send / push funds directly through a peer channel or pointed to another node, adding a message if is necessary.
-      </p>
-      <p>Keysend doesn't require any prior LN invoice to be generated, so be aware that once the funds are sent, 
-        the user cannot have any other proof, only the secret hash from its own transactions log.
-        For a keysend payment between 2 peers, this payment is totally private.
-      <p>
-      This feature is very useful for sending paid messages through LN, 
-      posting messages on <a href="https://Amboss.space">Amboss.space Billboard</a> 
-      (here is a guide about <a href="https://darthcoin.substack.com/p/amboss-billboard-amazing-tool">how to use that Amboss billboard</a>).
-      </p>
+    </p>
+    <p>This function is mostly used to deposit funds, then consulting opening and closing channels transactions.</p>
+  <h3 id="function-channels">Lightning Channels</h3>
+    <p>
+      This function will open a screen that contain all information about Blixt Lightning channels.
+    </p>
+    <p>
+      Here the user can open and close LN channels, consult the status of each one, funds available per channel.
+    </p>
+  <h3 id="function-keysend">Keysend Experiment</h3>
+    <p>To show up this function, user must click on the "Advanced" sub-drawer.</p>
+    <p>Very powerful function that few other mobile wallets have it. 
+      You can send / push funds directly through a peer channel or pointed to another node, adding a message if is necessary.
+    </p>
+    <p>Keysend doesn't require any prior LN invoice to be generated, so be aware that once the funds are sent, 
+      the user cannot have any other proof, only the secret hash from its own transactions log.
+      For a keysend payment between 2 peers, this payment is totally private.
+    <p>
+    This feature is very useful for sending paid messages through LN, 
+    posting messages on <a href="https://Amboss.space">Amboss.space Billboard</a> 
+    (here is a guide about <a href="https://darthcoin.substack.com/p/amboss-billboard-amazing-tool">how to use that Amboss billboard</a>).
+    </p>
   </section>
 
   <section id="blixt-eggs">
-    <h3>"Easter eggs / Blixt God Action"</h3>
-      <p>Yes, inside the Blixt app, there are like hidden features, small things that make the app delightful, activating interesting actions 
-      and responses. Hint: test clicking twice the Blixt logo in the drawer :) Will let you discover all the rest.
-      </p>
-      <p>
-      The "Blixt God Action" can be activated with a long press on specific text or option inside app. 
-      That action will activate "GodMode" in Blixt and will bring up more actions, like copy the text, hidden actions or popups.
-      </p>
+  <h3>"Easter eggs / Blixt God Action"</h3>
+    <p>Yes, inside the Blixt app, there are like hidden features, small things that make the app delightful, activating interesting actions 
+    and responses. Hint: test clicking twice the Blixt logo in the drawer :) Will let you discover all the rest.
+    </p>
+    <p>
+    The "Blixt God Action" can be activated with a long press on specific text or option inside app. 
+    That action will activate "GodMode" in Blixt and will bring up more actions, like copy the text, hidden actions or popups.
+    </p>
   </section>
 
 </article>
