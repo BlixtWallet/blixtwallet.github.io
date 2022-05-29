@@ -320,33 +320,42 @@ title: Frequently Asked Questions
 
   <section id="keysend">
     <h3>Can I receive sats through keysend?</h3>
-    <p>Yes, always when your Blixt Wallet is online.<p>
-    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer, press "Advanced" section then open "Keysend Experiment" option. The payer, just have to scan that QR code and pay.</p>
+    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer, press "Advanced" section then open "Keysend Experiment" option. 
+      The payer, just have to scan that QR code and pay.</p>
+    <p>But must be accomplised some conditions like:</p>
+      <ul>
+      <li>Always when your Blixt Wallet is online. There's no need to be behind Tor, could be also in clearnet.</li>
+      <li>The payer is also using Blixt Wallet. When will scan your Blixt QR code for node Pubkey, 
+        that QR code is personalized to contain some route hints in order to be able to send through keysend to a private node as Blixt.</li>
+      <li>If the payer do not use another Blixt Wallet, then you should have a common LN channel open between your Blixt and his node.</li>
+      </ul>
+    <p>
+      To send FROM your Blixt Wallet to anotehr node through keysend, you just have to scan other node's QR pubkey, put the amount and click send.
+    </p>
   </section>
 
   <section id="connect-bitcoin-node">
     <h3>How do I connect Blixt Wallet to my own full node?</h3>
     <p>Under <i>Settings -> Bitcoin -> Set Bitcoin node</i> you can enter a bitcoin node to connect to</p>
-    <p>
-      Blixt Wallet does not yet support
-      <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor
-        onion v3</a>, so for the moment, you can use your node only if it's "visible" on clearnet (IP/domain), you
-      must make sure
+    <p>NOTES:</p>
+      <ul>
+      <li>Blixt Wallet prior versions to v 0.6.x DO NOT support this function, because are using LND v0.14.x that do not support
+      <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>, 
+      so for the moment, with these versions you can use your node only if it's "visible" on clearnet (IP/domain). You must make sure 
       that Bitcoin's P2P port (8333) is forwarded by your router. You can connect to your node via its local LAN IP,
-      but it will then only work if you're connected to your home router.
+      but it will then only work only when you're connected to your home LAN router.
+      </li>
+      <li>Blixt Wallet vers. 0.6.x upward comes with LND v 0.15.x that support Tor v.3, 
+        so YES, you can use your own home node behind Tor to connect and sync blocks through Tor on your Blixt Wallet.
+      </li>
+      </ul>
     </p>
     <p>
-      BIP157 compact filter indexing must be enabled for your node, add this to your bitcoin.conf, if it isn't already
-      set:
+      BIP157 compact filter indexing must be enabled for your node, add this to your bitcoin.conf, if it isn't already set:
     </p>
     <pre>
-blockfilterindex=1
-peerblockfilters=1</pre>
-    <!-- To be enabled once lnd got onion v3 support -->
-    <!--
-    <p>When LND will support Tor v3 for Neutrino, you will be abble to connect via the onion service of your node.</p>
-    <p>For example, for Umbrel nodes (most popular), this onion address is NOT the regular node URI onion address. You will go to Umbrel dashboard - connect wallet - select Bitcoin P2P and copy that onion address. No port is necessary, by default is 8333. Paste that onion address into Blixt - settings - Bitcoin node. Restart Blixt (force close/restart if is not restarting automatically. Then wait to sync. You can check the status in settings - LND logs or just click on sync icon on main screen.</p>
-    -->
+        blockfilterindex=1
+        peerblockfilters=1</pre>
   </section>
 
   <section id="umbrel-control">
@@ -406,28 +415,25 @@ peerblockfilters=1</pre>
     <p>Procedure:</p>
     <ul>
       <li>
-        create a new Blixt wallet instance on the new device (new seed) and save that seed into a safe place (password
-        manager)
+        create a new Blixt wallet instance on the new device (new seed) and save that seed into a safe place (password manager).
       </li>
-      <li>wait for Blixt to sync (takes just few minutes), you will see the sync icon on top that disappear</li>
-      <li>on the new device, go to Blixt settings - activate "Dunder LSP"</li>
+      <li>wait for Blixt to sync (takes just few minutes), you will see the sync icon on top that disappear.</li>
+      <li>on the new device, go to Blixt settings - activate "Dunder LSP".</li>
       <li>
-        on the new device, go to main screen and click on "receive" button and create a new LN invoice to open a
-        Dunder LSP channel
+        on the new device, go to main screen and click on "receive" button and create a new LN invoice to open a Dunder LSP channel.
       </li>
       <li>
-        put the amount of total balance available displayed on the old device Blixt (main screen), then press create
-        invoice
+        put the amount of total balance available displayed on the old device Blixt (main screen), then press create invoice.
       </li>
       <li>
-        with the old device Blixt, scan that LN invoice QR code and pay it. The old wallet will send all available
-        funds to the new one and Dunder will open new channel for you, with that amount
+        with the old device Blixt, scan that LN invoice QR code and pay it. Use all available funds to send to the new one Blixt 
+        and Dunder will open new channel for you, with that amount.
       </li>
       <li>it will take just few minutes until tx is confirmed and channel open on the new device, be patient.</li>
       <li>
         once you see the funds in the new device available, it is recommended to close those old empty channels. If
         there are some residual satoshis, it will come back to onchain wallet and can be sent later to the new device,
-        using an onchain tx
+        using an onchain tx.
       </li>
       <li>DONE! Now is safe to wipe Blixt from the old device and funds are safe into the new one</li>
     </ul>

@@ -33,7 +33,7 @@ title: Preguntas frecuentes
       <li><a href="#blixt-nodo">¿Cómo es posible tener un nodo en un dispositivo móvil?</a></li>
       <li><a href="#blixt-pares">¿Con qué nodos puedo abrir canales lightning?</a></li>
       <li><a href="#enrutamiento">¿Puedo enrutar otros pagos con Blixt Wallet?</a></li>
-      <li><a href="#keysend">¿Puedo recibir satélites a través de KeySend?</a></li>
+      <li><a href="#keysend">¿Puedo recibir sats a través de KeySend?</a></li>
       <li><a href="#conectar-bitcoin-nodo">¿Cómo conecto Blixt Wallet a mi propio nodo completo?</a></li>
       <li><a href="#umbrel-control">¿Puedo controlar de forma remota un nodo Umbrel desde Blixt Wallet?</a></li>
       <li><a href="#blixt-restaurar">Perdí mi teléfono móvil (muerto, robado) o simplemente quiero migrar a un nuevo teléfono, ¿cuál es el procedimiento?</a></li>
@@ -183,24 +183,42 @@ title: Preguntas frecuentes
   </section>
 
   <section id="keysend">
-    <h3>¿Puedo recibir satélites a través de KeySend?</h3>
-    <p>Sí, siempre que tu Blixt Wallet esté online.<p>
-    <p>Para extraer su código nodeURI/QR para compartirlo/escanearlo, vaya al cajón superior izquierdo, presione la sección "Avanzado" y luego abra la opción "Experimento Keysend". El pagador, solo tiene que escanear ese código QR y pagar.</p>
+    <h3>¿Puedo recibir sats a través de KeySend?</h3>
+    <p>Para extraer su código nodeURI/QR para compartir/escanear, vaya al cajón superior izquierdo, presione la sección "Avanzado" 
+      y luego abra la opción "Experimento Keysend". El pagador, solo tiene que escanear ese código QR y pagar.</p>
+    <p>Pero se deben cumplir algunas condiciones como:</p>
+      <ul>
+      <li>Siempre que tu Blixt Wallet esté online. No hay necesidad de estar detrás de Tor, también podría estar en clearnet.</li>
+      <li>El pagador también está utilizando Blixt Wallet. Cuándo escaneará su código QR de Blixt para el nodo Pubkey 
+        ese código QR está personalizado para contener algunas sugerencias de ruta para poder enviar a través de keyend a un nodo privado como Blixt.</li>
+      <li>Si el pagador no usa otra billetera Blixt, debe tener un canal LN común abierto entre su Blixt y su nodo.</li>
+      </ul>
+    <p>
+      Para enviar DESDE tu Blixt Wallet a otro nodo a través de claves y, solo tienes que escanear la clave pública QR de otro nodo, 
+      poner el monto y hacer clic en enviar.
+    </p>
   </section>
 
   <section id="conectar-bitcoin-nodo">
     <h3>¿Cómo conecto Blixt Wallet a mi propio nodo completo?</h3>
     <p>En <i>Configuración -> Bitcoin -> Establecer nodo de Bitcoin</i> puede ingresar un nodo de bitcoin para conectarse</p>
-    <p>Blixt Wallet aún no es compatible con
-      <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor
-        onion v3</a>, entonces, por el momento, puede usar su nodo solo si es "visible" en clearnet (IP/dominio), usted
-       debe asegurarse de que su enrutador reenvíe el puerto P2P de Bitcoin (8333). Puede conectarse a su nodo a través de su IP LAN local,
-       pero solo funcionará si está conectado a su enrutador doméstico.
+    <p>NOTAS:</p>
+      <ul>
+      <li>Las versiones anteriores de Blixt Wallet hasta v 0.6.x NO admiten esta función, ya que están utilizando LND v0.14.x que no admiten
+      <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>, 
+      así que por el momento, con estas versiones puedes usar tu nodo solo si está "visible" en clearnet (IP/dominio). Debes asegurarte
+       que el puerto P2P de Bitcoin (8333) es reenviado por su router. Puede conectarse a su nodo a través de su IP LAN local,
+       pero solo funcionará cuando esté conectado a su LAN doméstico.
+      </li>
+      <li>La version Blixt Wallet v0.6.x adelante ya viene con LND v 0.15.x que admite Tor onion v.3,
+        así que SÍ, puede usar su propio nodo personal detrás de Tor para conectarse y sincronizar bloques a través de Tor en su Blixt Wallet.
+      </li>
+      </ul>
     </p>
     <p>La indexación del filtro compacto BIP157 debe estar habilitada para su nodo, agregue esto a su bitcoin.conf, si aún no está configurado:</p>
     <pre>
-blockfilterindex=1
-peerblockfilters=1</pre>
+        blockfilterindex=1
+        peerblockfilters=1</pre>
   </section>
 
   <section id="umbrel-control">
