@@ -31,12 +31,12 @@ title: Features
   <section id="toc">
     <h2>Table of Contents</h2>
       <p>Blixt Wallet contains three main sections, each one with specific options, features and utilities. 
-        The main screen it displays the Lightning wallet directly. LN is the main use of this app and will focus that.
-        Also the main action buttons: send and receive, at the bottom of the screen.
+        The main screen displays the Lightning wallet directly. LN is the main use of this wallet and it will focus that.
+        Also the main action buttons, send and receive, are at the bottom of the screen.
       </p>
       <p>
-        The balance displayed on the main screen it represent ONLY the Lightning wallet balance. The onchain wallet balance is displayed 
-        in the other section of the app (top drawer menu). Reason why is there, <a href="guides.html#guide-swap">you can read here.</a>
+        The balance displayed on the main screen represents ONLY the Lightning wallet balance. The on-chain wallet balance is displayed 
+        in another section of the app (top drawer menu). <a href="guides.html#guide-swap">You can read the reason why here.</a>
       </p>
       <ul>
         <li><a href="#main-features">Blixt Wallet Main Features</a></li>
@@ -49,38 +49,38 @@ title: Features
   <h2 id="main-features">Blixt Wallet Main Features</h2>
   <section id="feature-neutrino">
   <h3>Neutrino Node</h3>
-    <p>Blixt app connects by default to Blixt Server to sync the Bitcoin blocks and indexes with <a href="https://blog.lightning.engineering/posts/2018/10/17/neutrino.html">Neutrino</a> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki">BIP157</a>), but the user can also connect to its own Bitcoin node.</p>
-    <p>It is syncing the whole Bitcoin blocks (headers and filters) in less than 5 min, respecting user privacy. The wallet does not use any centralized servers for doing transactions, all transactions are broadcast directly from your Blixt app, into the Bitcoin mempool.</p>
-    <p>A mention at this point: Blixt app, will require some space for this sync on user device, around 1GB of data, from blocks sync and LN graph (network map).</p>
+    <p>Blixt Wallet connects by default to Blixt Server to sync the Bitcoin blocks and indexes with <a href="https://blog.lightning.engineering/posts/2018/10/17/neutrino.html">Neutrino</a> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki">BIP157</a>), but users can also connect to their own Bitcoin node.</p>
+    <p>It is syncs the entire Bitcoin blockchain (headers and filters) in less than 5 minutes, respecting user privacy. Blixt Wallet does not use any centralized servers for doing transactions, all transactions are broadcast directly from your Blixt app, into the Bitcoin mempool.</p>
+    <p>Please note: At this point Blixt Wallet will require some space for this sync on your device, around 1GB of data for block sync and the LN graph (network map).</p>
   </section>
 
   <section id="feature-lndnode">
   <h3>Full non-custodial LND node</h3>
-    <p>User can manage its own Lightning channels with an easy interface and enough information shown to have a good and smooth experience.</p>
-    <p>In the top left drawer menu you can go to Lightning channels and start opening with other nodes, as you wish.</p>
-    <p>These LN channels, by default will be un-announced channels (so called private channels). That means it will not be "visible" by other nodes in the network graph, only the node peer will know about it and will route your txs accordingly, through its other channels. Also private channels DO NOT route others payments.</p>
-    <p>So practically Blixt is a PRIVATE NODE, to offer you full control of your payment routes, in a private way, with the costs you decide.</p>
-    <p>So choose wisely with which node peer you will open LN channels fro your transactions. Is also worth mentioning that you should have at least 2-3 LN channels open in your Blixt for a better availability of routes and also taking advantage to use MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Part Payment</a>), feature that is also available in Blixt.</p>
-    <p>You can check in the <a href="faq.html#blixt-peers">FAQ page</a> for some recommendations how and with who can open channels.</p>
+    <p>Users can manage their own Lightning channels with an easy interface and enough information shown to have a good and smooth experience.</p>
+    <p>In the top left drawer menu you can go to Lightning channels and start opening channels with other nodes as you wish.</p>
+    <p>These LN channels, by default will be un-announced channels (also called private channels). This means that they will not be "visible" by other nodes in the network, only the channel partner will know about it and will route your transactions accordingly through their own channels. Also private channels DO NOT route payments for others.</p>
+    <p>So practically Blixt is a PRIVATE NODE, to offer you full control of your payment routes in a private way, with the routing costs decided by you based on the peers you connect to. So choose your peers wisely when opening channels.</p>
+    <p>It's also worth mentioning that you should have at least 2-3 LN channels open in your Blixt Wallet for better availability of routes and also to take advantage of MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Path Payments</a>), a feature that is also available in Blixt Wallet.</p>
+    <p>You can check in the <a href="faq.html#blixt-peers">FAQ page</a> for some recommendations on how and with who to open channels.</p>
   </section>
 
   <section id="feature-onchain">
   <h3>Bitcoin On-Chain Wallet</h3>
-    <p>This feature is quite hidden, because is not the main focus of this app. But it's easy to access it from the top left drawer menu.</p>
-    <p>Being not so often used by a power LN user, is not firstly visible on the main screen. But that's OK, you can have it like a separate wallet where you can manage addresses and see txs log. In the future could be included also more functionalities for this on-chain wallet, like coin control, RBF (Replace by Fee) etc.</p>
-    <p>Right now the main use of this on-chain wallet is to manage opening and closing LN channels and not as a regular day to day payments using on-chain transactions.</p>
-    <p>See a more detailed explanation about using Blixt onchain wallet <a href="guides#guide-swap">in the Guides page</a>.</p>
+    <p>This feature is quite hidden, because it's not the main focus of this app. But it's easy to access it from the top left drawer menu.</p>
+    <p>Since on-chain transactions aren't used often by LN power users, it's not visible on the main screen. But that's OK, you can use it like a separate wallet where you can manage addresses and see your transaction log. In the future, more functionalities for this on-chain wallet like coin control, RBF (Replace by Fee), etc. could be included.</p>
+    <p>Right now, the main purpose of this on-chain wallet is to manage the opening and closing of LN channels and not for regular day to day payments using on-chain transactions.</p>
+    <p>See a more detailed explanation about using the Blixt on-chain wallet <a href="guides#guide-swap">in the Guides page</a>.</p>
   </section>
 
   <section id="feature-lightning">
   <h3>Bitcoin Lightning Wallet</h3>
-    <p>This is located on the main screen, as the main usage of the app. The balance displayed is only for this LN wallet and does NOT contain the on-chain wallet balance.</p>
-    <p>It have a simple function interface easy to use and offers all necessary options to receive and send sats over Lightning Network.</p>
-    <p>User can switch easily the displayed unit for the balance, with a simple click on the unit sign. Also it display the balance in local fiat currency, based on a average rate.</p>
+    <p>This is located on the main screen, as it's the main usage of the app. The balance displayed is only for the LN wallet and does NOT contain the on-chain wallet balance.</p>
+    <p>It has a simple and easy to use interface and offers all the necessary options to receive and send sats over Lightning Network.</p>
+    <p>Users can easily switch the units displayed for the balance by simply tapping on the balance. Also it displays the balance in the local fiat currency based on an average rate.</p>
   </section>
 
   <h2 id="blixt-options">Blixt Wallet Options (settings menu)</h2>
-    <p>In this section we will describe each Blixt Wallet functionality that you can find it in the "Settings" menu, for a better understanding.</p>
+    <p>This section will describe each option in the "Settings" menu for a better understanding.</p>
     <p>There are specific sections in this menu: 
       <a href="#option-general">General</a> | <a href="#option-wallet">Wallet</a> | <a href="#option-security">Security</a> | 
       <a href="#option-display">Display</a> | <a href="#option-bitcoin">Bitcoin Network</a> | <a href="option-lightning">Lightning Network</a> | 
@@ -92,33 +92,33 @@ title: Features
     <p><img src="assets/images/blixt-options-general.jpg" align="center" alt="Blixt General Options"/></p>
   <h4>Name</h4>
     <p>
-      This option will help the user to send a specific name in a payment, but only when is desired and necessary, is totally optional. 
-      It can be whatever name and is stored only on the device.
+      This option allows the user to send a specific name in a payment, but only if it's desired and necessary, is completely optional. 
+      It can be any name and is stored only on the device.
     </p>
     <p>
-      IT IS NOT the LN node alias! Blixt Wallet do not use node alias, is a private LN node.
+      IT IS NOT the LN node alias! Blixt Wallet does not use a node alias, it's a private LN node.
     </p>
   <h4>Language</h4>
     <p>
-      Default language is English. Other available languages are: Spanish, German, French, Sweedish, Klingon. Soon more languages will be available.
+      Default language is English. Other available languages are: Spanish, German, French, Sweedish, Klingon. More languages will be available soon.
     </p>
   <h4>Push Notifications</h4>
     <p>
-      This is a simple function that notify the user with messages about transactions and channel events, when the app is working in background.
+      This is a simple function that notifies the user with messages about transactions and channel events when the app is running in background.
     </p>
   <h4>Check clipboard for invoices</h4>
     <p>
-      This option when is activated, will check automatically device clipboard for invoices and when the app is open, will bring up the payment screen, 
-      for an easy and simple user experience making payments.
+      When this option is activated, Blixt Wallet will automatically check the device's clipboard for invoices when the app is opened and will bring up the payment screen 
+      for an easy and simple user experience when making payments.
     </p>
   <h4>Save geolocation of transaction</h4>
     <p>
-      Very useful tool, to add, privately, for each of your payment, a note with a location where was executed.
-      Sometimes, you can't remember where you was paying and you want to keep track of your spendings.
+      A very useful tool to privately add a note to a transaction with the location where it occurred.
+      Sometimes you can't remember where you were paying and you want to keep track of where you spend money.
     </p>
     <p>
       This option is totally optional, so if you are worried about your privacy and/or your device could be stolen and you didn't secure it well, 
-      you can keep disabled this option. Anyways, the data is stored ONLY locally on the device.
+      you can keep this option disabled. Anyways, the data is ONLY stored locally on the device.
     </p>
   </section>
 
@@ -127,28 +127,28 @@ title: Features
     <p><img src="assets/images/blixt-options-wallet.jpg" align="center" alt="Blixt Wallet Options"/></p>
   <h4>Show mnemonic</h4>
     <p>
-      This option is used to make a backup of your 24 words wallet seed. It can be accessed anytime, multiple times. Save those words in a safe place!
-      This is serious, save the seed immediately after you created the new wallet!
+      This option allows you to make a backup of your 24 words wallet seed. It can be accessed at any time, multiple times. Save those words in a safe place!
+      This is serious, save the seed immediately after you create a new wallet!
     </p>
   <h4>Remove mnemonic from device</h4>
-    <p>This option is an extra security measure, that after you made the backup of your seed, you can remove it totally from your device.</p>
-    <p>Remember: do not use this option if you do not make the backup first!</p>
-    <p>It can be used only in case you are afraid that your device could be stolen, seized or accessed accidentaly by somebody else.
-      Removing the seed from your device it doesn't mean is removing the wallet and LN node, is just the seed words. Wallet will work just as usual.
+    <p>This option is an extra security measure. After you've made the backup of your seed, you can totally remove it from your device.</p>
+    <p>Remember: do not use this option if you have not made a backup first!</p>
+    <p>It can be used in case where you are afraid that your device could be stolen, seized or accessed accidentaly by somebody else.
+      Removing the seed from your device doesn't mean it is removing the wallet and LN node, just the seed words. Wallet will work just as usual.
     </p>
   <h4>Export channel backup</h4>
     <p><img src="assets/images/blixt-option-backup.jpg" align="center" alt="Blixt Backup Options"/></p>
     <p>This is a VERY IMPORTANT feature for your Blixt Wallet. <strong>Do not ignore it!</strong>
-      It would be used in case of SHTF and you need to recover your funds remained in LN channels.
+      It would be used in case of SHTF and you need to recover your funds that remain in LN channels.
     </p>
-    <p>When is clicked, it will point the user to select a location on his device to save a copy of Blixt LN channels database (SCB).</p>
-    <p>After is saved, it is strongly recommended to make a copy of that file (even move it away from the device) into a safer location.</p>
-    <p>Better keep a copy of this file together with your Blixt seed words, locked in a password manager.</p>
-    <p>Make this export backup EVERY time you open or close a channel. NOT every time you do a transaction.
-      So would not be so often and could take just few seconds to save it and move it away from your device.
+    <p>When this option is clicked, it will ask you to select a location on your device to save a copy of your Blixt LN static channel backup (SCB).</p>
+    <p>After it's saved, it is strongly recommended to make a copy of that file (even move it away from the device) into a safer location.</p>
+    <p>You should keep a copy of this file together with your Blixt seed words, locked in a password manager.</p>
+    <p>Export this backup EVERY time you open or close a channel. NOT every time you do a transaction.
+      So you don't need to do it very often and it takes just few seconds to save it and move it away from your device.
     </p>
-    <p>User also have the option to save Blixt channels backup into Google drive and / or local storage in its own mobile device (later move that file into a safe location, out of your device).</p>
-    <p>The restore procedure is quite simple: insert the 24 words seed, add the backup file (previously copied into mobile memory) and click restore. It will take some time to sync and scan all the blocks for your txs in the past. Channels will be automatically closed and funds returned to your onchain wallet (see the drawer menu on the left top - onchain).</p>
+    <p>You also have the option to save Blixt static channel backup into Google Drive, iCloud and/or local storage in your mobile device (later move that file into a safe location, off of your device).</p>
+    <p>The restore procedure is quite simple: insert your 24 word seed, add the backup file (previously saved into device storage) and click restore. It will take some time to sync and scan all the blocks for your transactions in the past. Your channels will be automatically closed and funds within them returned to your on-chain wallet (see the drawer menu on the top left - On-chain).</p>
     <p>Read more about how to restore a LND wallet into Blixt in the <a href="/faq#blixt-restore">Blixt FAQ page.</a></p>
   </section>
 
@@ -157,27 +157,30 @@ title: Features
     <p><img src="assets/images/blixt-options-security.jpg" align="center" alt="Blixt Security Options"/></p>  
   <h4>Login with PIN code</h4>
     <p>
-      This a security feature to add a PIN number when the app is open and protect from unauthorized access to your device.
-      User will be prompted 2 times to set a personal PIN.
+      This a security feature to add a PIN number when the app is opened and protect it from unauthorized access to your device.
+      You will be prompted 2 times to set a personal PIN.
     </p>
     <p>
-      Keep in mind to save it (maybe together with your seed) in a safe place and don't forget it. App will be impossible to open after that.
-      The only way to restore it will be through full Blixt Wallet restore (seed + channels.backup) and reinstall app.
-      That will imply closing channels, fees, time and possible stress.
+      Keep in mind to save it (maybe together with your seed) in a safe place and don't forget it. Blixt Wallet will be impossible to open after that without the PIN.
+      The only way to restore it will be through a full Blixt Wallet restore (seed + channels.backup) by re-installing app.
+      That will involve closing channels, channel closing fees, time and possible stress.
     </p>
   <h4>Login with fingerprint</h4>
     <p>
-      This security feature will prompt the user to use his fingerprint in order to be able to open Blixt app 
+      This security feature will prompt you to use your fingerprint in order to open Blixt Wallet 
       and protect it from unauthorized access.
     </p>
   <h4>Scheduled chain sync</h4>
     <p>
-      This option by default is activated and is better to stay like that.
-      It will run the Neutrino sync of blocks, every 4 hours, if the app is active.
+      This option is activated by default and it's best to keep it like that.
+      It will run the Neutrino sync of blocks every 4 hours in the background.
     </p>
     <p>
-      If this option is disabled, the node stop working and the whole Blixt app will not function properly.
-      Once is reactivated, is better to restart the app, so the lnd node start its services correctly.
+      If this option is disabled, neutrino sync is only possible when the app is running in the foreground.
+      This can make the blockchain sync take longer on app start up if Blixt Wallet has not been opened in some time.
+    </p>
+    <p>
+      Note: This feature is not currently available on iOS.
     </p>
   </section>
 
