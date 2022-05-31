@@ -491,7 +491,7 @@ title: Frequently Asked Questions
         Click "restore" and wait for the app to perform the standard procedure for recovering the funds.
       </li>
       <li>
-        Blixt will close the existing channels and, after a minimum of 40 blocks, funds will be recovered and visible in
+        Blixt will close the existing channels and, after a few blocks, funds will be recovered and visible in
         your on-chain wallet. Be patient.
       </li>
       <li>
@@ -525,18 +525,17 @@ title: Frequently Asked Questions
       <li>
         Another way to "push" the connection with your lost peers, is to add them manually.
         Go to <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your
-        peer, copy or scan the QR URI of your peer and go to <i>Settings -> Show Lightning Peers -> +</i> .
+        peer, copy or scan the QR URI of your peer, and go to <i>Settings -> Show Lightning Peers -> +</i> .
       </li>
       <li>
         To try a force closing action again, go to the Lightning Channels screen, select the channel you want to push,
-        and swipe on activity view to start again the process.
+        and swipe on activity view to start the process again.
       </li>
     </ul>
     <p>Once all the channels are initiated into "closing", wait patiently. This process takes time.
       If you see that on mempool the tx has released the funds, check your on-chain wallet. If funds are still
       not there, it means that the lnd wallet has to rescan previous addresses and refresh the wallet history. Some
-      UTXOs
-      are linked to "anchor outputs" so they are more complicated to get back on-chain.</p>
+      UTXOs are linked to "anchor outputs," so they are more complicated to get back on-chain.</p>
     <p>When you see that all channels are closed, go to <i>Settings -> Rescan wallet</i>. Activate it and restart the
       app if it does not do so automatically.</p>
     <p>Only when the lnd is initiated, can the rescan take place. Be patient and check the lnd logs (see <i>Settings ->
@@ -553,9 +552,9 @@ title: Frequently Asked Questions
       <li>By routing others' payments, the dynamic of your channel's balances is changing. That means if you initially
         had 2M sats and you routed 1M sats, your channel balance will be 1M sats. When you close that channel, you will
         get back 1M sats and NOT 2M sats that you had initially.</li>
-      <li>Before you start closing your channels, keep in mind how much you had in total balance in your node, on YOUR
-        side of the channels. That is the amount you will get back. Some channels will be empty on your side, so
-        don't expect to get sats from those closed channels.</li>
+      <li>Before you begin to close your channels, remember the total balance you had in your node on YOUR side of the
+        channels. That is the amount you will get back. Some channels will be empty on your side, so don't expect to get
+        sats from those closed channels.</li>
     </ul>
   </section>
 
