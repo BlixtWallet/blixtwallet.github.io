@@ -320,17 +320,23 @@ title: Frequently Asked Questions
 
   <section id="keysend">
     <h3>Can I receive sats through keysend?</h3>
-    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer, press "Advanced" section then open "Keysend Experiment" option. 
+    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer, press "Advanced" section then open "Keysend Experiment" option.
       The payer, just have to scan that QR code and pay.</p>
     <p>But must be accomplised some conditions like:</p>
-      <ul>
+    <ul>
       <li>Always when your Blixt Wallet is online. There's no need to be behind Tor, could be also in clearnet.</li>
-      <li>The payer is also using Blixt Wallet. When will scan your Blixt QR code for node Pubkey, 
+      <li>The payer is also using Blixt Wallet. When will scan your Blixt QR code for node Pubkey,
         that QR code is personalized to contain some route hints in order to be able to send through keysend to a private node as Blixt.</li>
-      <li>If the payer do not use another Blixt Wallet, then you should have a common LN channel open between your Blixt and his node.</li>
-      </ul>
+      <li>If the payer do not use another Blixt Wallet, he can either:
+        <ul>
+          <li>Have a common LN channel open between your Blixt and his node.</li>
+          <li>Use route hints in the QR code from Blixt Wallet to use a private channel for the payment.</li>
+          <!-- TODO: Add LNCLI command here when https://github.com/lightningnetwork/lnd/issues/6601 is resolved -->
+        </ul>
+      </li>
+    </ul>
     <p>
-      To send FROM your Blixt Wallet to anotehr node through keysend, you just have to scan other node's QR pubkey, put the amount and click send.
+      To send FROM your Blixt Wallet to another node through keysend, you just have to scan other node's QR pubkey, put the amount and click send.
     </p>
   </section>
 
