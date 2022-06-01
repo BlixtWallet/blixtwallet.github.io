@@ -28,7 +28,7 @@ title: Frequently Asked Questions
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#what-is-ln">What is the Lightning Network?</a></li>
-      <li><a href="#no-sync">My Blixt doesn't sync. Why is this and what can I do?</a></li>
+      <li><a href="#no-sync">Blixt doesn't sync. Why is this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
@@ -39,20 +39,17 @@ title: Frequently Asked Questions
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
           is the procedure?</a></li>
       <li><a href="#restored-funds">I restored my old node using SCB file, but funds are not back to my on-chain
-          wallet</a></li>
+          wallet.</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
     <h3>What is the Lightning Network?</h3>
-    <p>
-      Before you start using Blixt Wallet, it's important to get familiarized with terms, procedures, features, etc.
+    <p>Before you start using Blixt Wallet, it's important to get familiarized with terms, procedures, features, etc.
     </p>
-    <p>
-      It's a good idea to start reading and get some basic knowledge about LN and how to use it, otherwise it will be
-      difficult for you as new user, to understand what you are doing with Blixt Wallet as a node LN wallet.
-    </p>
+    <p>It's a good idea to start reading and get some basic knowledge about LN and how to use it, otherwise it will be
+      difficult for you, as a new user, to understand what you are doing with Blixt Wallet as a node LN wallet.</p>
     <p>Here are some resources to start learning:</p>
-    <h4>A. General Information and documentation about Lightning Network</h4>
+    <h4>A. General information and documentation about the Lightning Network</h4>
     <ol>
       <li>
         <a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa"
@@ -89,7 +86,7 @@ title: Frequently Asked Questions
         </a>
       </li>
     </ol>
-    <h4>B. Video tutorials about Lightning Network and Bitcoin nodes</h4>
+    <h4>B. Video tutorials about the Lightning Network and Bitcoin nodes</h4>
     <ol>
       <li>
         <a href="https://youtu.be/sVeolsQ3cvU" target="_blank" rel="noopener noreferrer">
@@ -125,15 +122,15 @@ title: Frequently Asked Questions
   </section>
 
   <section id="no-sync">
-    <h3>My Blixt doesn't sync. Why is this and what can I do?</h3>
+    <h3>Blixt doesn't sync. Why is this and what can I do?</h3>
     <p>First of all, let's explain some reasons for WHY it is not syncing, so the user can understand the situation:</p>
     <ul>
-      <li>The Blixt app needs to be online (connected to the internet) in order to connect to Neutrino node and sync the
-        block headers and filters. If your device for some reason is not connected to a stable internet connection,
-        Blixt will stall the sync until it is restarted.</li>
-      <li>If you use the Tor network, the connection is quite unstable sometimes and not because of your device, but
-        because of poor or congested Tor relays in your area.</li>
-      <li>Keep in mind that Blixt is using quite a good amount of storage on your device, up to 1.5GB, so be
+      <li>The Blixt app needs to be online (connected to the internet) in order to connect to the Neutrino node and sync
+        the block headers and filters. If your device, for some reason, is not connected to a stable internet
+        connection, Blixt will stall the sync until it is restarted.</li>
+      <li>If you use the Tor network, the connection is quite unstable sometimes, not because of your device but because
+        of poor or congested Tor relays in your area.</li>
+      <li>Keep in mind that Blixt uses quite a good amount of storage on your device, up to 1.5GB, so be
         sure to have enough free space, otherwise the app will stop the sync.</li>
       <li>Sometimes the sync was not done properly and the app didn't scan all your BTC addresses.</li>
       <li>If you switched to sync with your own home node, maybe your node was not prepared for this or connection with
@@ -143,51 +140,42 @@ title: Frequently Asked Questions
     <ul>
       <li>Restart the Blixt app (try force close for closing bad connections).</li>
       <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
-      <li>Switch back to default sync server node.blixtwallet.com or just leave it blank.</li>
-      <li>Go to settings and check the option "rescan wallet", then restart the app. Once restarted, look into lnd logs
-        and wait patiently to finish.</li>
-      <li>Check if you have enough space on your device. Move apps, photos, and videos to your mSD card, and leave
-        more space on the local disk. Blixt needs up to 1.5GB for its data (block headers, LN graph, channels.db etc).
-      </li>
-      <li>Restart the app, then go to <i>Settings -> LndMobile Help Center</i>, and run some diagnostics.
-        Get in contact with Blixt support in the Telegram group for further instructions or to share logs.</li>
+      <li>Switch back to default sync server node.blixtwallet.com, or just leave it blank.</li>
+      <li>Go to <i>Settings -> Rescan wallet</i>, then restart the app. Once restarted, go to <i>Settings -> Read lnd
+          log</i>, or go to <i>Settings -> Copy lnd log to local storage</i> to save a copy of the lnd log.</li>
+      <li>Check if you have enough space on your device. Move apps, photos, and videos to your mSD card, and leave more
+        space on the local disk. Blixt needs up to 1.5GB for its data (block headers, LN graph, channels.db, etc).</li>
+      <li>Restart the app, then go to <i>Settings -> LndMobile Help Center</i>, and run a diagnostics test. Get in
+        contact with Blixt support on <a href="https://t.me/BlixtWallet" target="_blank">Telegram</a> for further
+        instructions or to share logs.</li>
       <ul>
   </section>
 
   <section id="fees">
     <h3>What are the fees? Is there a cost to use LN channels?</h3>
     <p>1. Blixt Wallet itself does not charge any fees for usage of the app.</p>
-    <p>
-      2. Use of Lightning Network (LN) is <i>not free</i>! This is a myth. Even if the cost of using LN is really small,
-      there is a cost and some users will look at that cost too.
-    </p>
-    <p>
-      3. Opening and closing channels on LN <i>has a cost</i>, and sometimes it's not cheap. It also depends on the
-      current miner fees when opening a LN channel. Sometimes it can be really high, sometimes can be really low. Users
-      should first learn about how fees works. Here is
-      <a href="https://bitcoin.cipix.eu/en/what-is-mempool/" target="_blank" rel="noopener noreferrer">
-        a simple guide about mempool fees.</a>
-      Here is another
-      <a href="https://suredbits.com/lightning-101-lightning-network-fees/" target="_blank" rel="noopener noreferrer">
-        guide about LN fees</a>.
-    </p>
+    <p>2. Use of the Lightning Network (LN) is <i>not free</i>! This is a myth. Even if the cost of using LN is really
+      small, there is a cost, and some users will look at that cost too.</p>
+    <p>3. Opening and closing channels on LN <i>has a cost</i>, and sometimes it's not cheap. It also depends on the
+      current miner fees when opening a LN channel. Sometimes it can be really high, sometimes it can be really low.
+      Users should first learn about how fees work. To learn more about mempool, users can read <a
+        href="https://bitcoin.cipix.eu/en/what-is-mempool/" target="_blank" rel="noopener noreferrer">What is
+        Mempool?</a>. To learn more about LN fees, users can read <a
+        href="https://suredbits.com/lightning-101-lightning-network-fees/" target="_blank"
+        rel="noopener noreferrer">Lightning 101: Lightning Network Fees</a>.</p>
 
     <h4>USE CASE SCENARIO:</h4>
-    <p>You are a new Blixt Wallet user and you just installed the app. You have no funds deposited into the wallet.</p>
+    <p>You are a new Blixt Wallet user, and you have just installed the app. You have no funds deposited into the
+      wallet.</p>
     <p>
-      Let's say you choose to use Dunder LSP service (<a href="#blixt-lsp">see down below how Dunder LSP works and what
-        is LSP</a>) to deposit 100k sats into your Blixt LN wallet.
-    </p>
-    <p>
-      In the moment LSP service received your 100k deposit, it will use those 100k sats to open a 400k channel
-      (amount can vary,
-      <a href="https://dunder.blixtwallet.com/ondemand-channel/service-status" target="_blank"
-        rel="noopener noreferrer">
-        see here more details
-      </a>
-      ) towards your wallet. You will have 100k sats as outbound liquidity and 300k sats as inbound liquidity, but
-      that opening has a cost: on-chain fees for the tx and also a commit fee (reserve kept for closing the channel).
-      See more details about commit fees here:
+      Let's say you choose to use the Dunder LSP service (<a href="#blixt-lsp">see down below how Dunder LSP works and
+        what is LSP</a>) to deposit 100k sats into your Blixt LN wallet.</p>
+    <p>The moment the LSP service receives your 100k deposit, it will use those 100k sats to open a 400k sats channel
+      (amount can vary, <a href="https://dunder.blixtwallet.com/ondemand-channel/service-status" target="_blank"
+        rel="noopener noreferrer">see here for more details</a>) towards your wallet. You will have 100k sats as
+      outbound liquidity and 300k sats as inbound liquidity, but that opening comes at a cost: on-chain fees for the tx
+      as well as a commit fee (reserve held for channel closure). More information on committing fees can be found in
+      the following links:
     <ul>
       <li>
         <a href="https://lightningwiki.net/index.php/Fees" target="_blank" rel="noopener noreferrer">
@@ -215,62 +203,56 @@ title: Frequently Asked Questions
     <h3>With which nodes can I open lightning channels?</h3>
     <p>REMEMBER:</p>
     <ul>
-      <li>Blixt Wallet is using private channels, not routing channels.</li>
-      <li>You can open channels with whatever node peer, but choose wisely.</li>
-      <li>Blixt Wallet being a private node wallet and mostly for quick payments, you will need to find the best routes:
+      <li>Blixt Wallet uses private channels, not routing channels.</li>
+      <li>You can open channels with whatever node peer you choose, but choose wisely.</li>
+      <li>Blixt Wallet is a private node wallet and mostly for quick payments. You will need to find the best routes:
         cheap, fast, reliable, and well connected peers.</li>
       <li>You can connect to your own home node, but keep in mind that at that moment, your home node will be the
         liquidity provider for your wallet, so make sure it's reliable and you have good routes and good fees.</li>
       <li>Not every LN node wants or agrees with private channels. If it is a dedicated routing node, they usually do
         not want private channels because for them it is like "locked" liquidity. It is better if you can first ask the
-        node operator, if will agree to a private channel. You can open directly, but be aware, some of them can close
-        the channel because they do not want private channels.</li>
+        node operator if they will agree to a private channel. You can open directly, but be aware that some of them can
+        close the channel because they do not want private channels.</li>
     </ul>
     <p>Blixt Wallet itself offers two optional methods for opening channels with the <a
         href="https://amboss.space/node/0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb"
         target="_blank" rel="noopener noreferrer">Blixt Node Server</a>:
     </p>
     <ul>
-      <li><a href="/guides#guide-autopilot">Autopilot</a>: at the moment works only for the first on-chain deposit in
-        Blixt and will open a channel with Blixt Node for the amount you deposited.</li>
-      <li><a id="blixt-lsp" href="/guides#guide-lsp">Dunder LSP</a>: Blixt Node Server will provide you an inbound
-        channel until 400k sats, on top of your deposit amount, to start with your first deposit on lightning (if you do
-        not have any other channel). You will need to activate in Settings menu.</li>
+      <li><a href="/guides#guide-autopilot" target="_blank">Autopilot</a>: at the moment, it works only for the first
+        on-chain deposit in Blixt and will open a channel with the Blixt Node for the amount you deposited.</li>
+      <li><a id="blixt-lsp" href="/guides#guide-lsp" target="_blank">Dunder LSP</a>: Blixt Node Server will provide you
+        with an inbound channel until 400k sats, on top of your deposit amount, to start with your first deposit on
+        Lightning (if you do not have any other channel). You will need to activate it in the Settings menu.</li>
     </ul>
-    <p>Inbound liquidity providers - Blixt also offers a direct link, in wallet, to LNBig and Bitrefill (Thor). Go
-      to settings, select "Inbound channels services", select the desired one, and follow the instructions provided.
+    <p>Inbound liquidity providers - Blixt also offers a direct link, in the wallet, to LNBig and Bitrefill (Thor). Go
+      to <i>Settings -> Inbound channel services</i>. Select the desired one, and follow the instructions provided.
       Those are used only when you need more "INBOUND" liquidity.</p>
     <p>Open channels with any nodes - As we've pointed out, we recommend choosing your peers wisely. Blixt is a
-      quick-spending LN wallet. We recommend finding one with low fees or even zero fees. Also look at <a
-        href="https://amboss.space/community/fa2a3e5a-769c-4cbf-ab9d-7ed8680a9ec6">this Amboss Community of Zero Base
-        Fee</a> or any other node community. Your Blixt Wallet needs good peers and low fees, so your payments will be
-      fast and cheap.
-    <p>
-    <p>A very popular node that offers "zero fees routing" is the <a
-        href="https://amboss.space/node/038fe1bd966b5cb0545963490c631eaa1924e2c4c0ea4e7dcb5d4582a1e7f2f1a5">ZFR
-        node</a>. We suggest not opening small channels like 20k sats. If you want to use a node like this as a peer, at
-      least open channels with 400-500-600k sats to have enough for your payments and also cover the reserves and costs.
-      Smaller channels are not efficient for both peers. There are many others like this one, but also keep in
-      mind the centrality and connectivity with those nodes. Not all will offer good routes for your payments.
-    </p>
-    <p>It is a very good practice to open channels with those merchants/services you are paying frequently. Opening a
-      channel with your favorite merchant can bring you 0 fees, since it is a direct channel and is like a "line of
-      credit." You can also use that channel to pay other merchants/services. Just be aware of their fees for routing
-      your payment, because if there isn't a direct payment, their node will have to route your payment to the next hop
-      until it reaches the destination, and that comes at a cost.
-    </p>
+      quick-spending LN wallet. We recommend finding one with low fees or even zero fees. Also, look at <a
+        href="https://amboss.space/community/fa2a3e5a-769c-4cbf-ab9d-7ed8680a9ec6" target="_blank">this Amboss Community
+        of Zero Base Fee</a> or any other node community. Your Blixt Wallet needs good peers and low fees, so your
+      payments will be fast and cheap.</p>
+    <p>A very popular node that offers "zero fee routing" is the <a
+        href="https://amboss.space/node/038fe1bd966b5cb0545963490c631eaa1924e2c4c0ea4e7dcb5d4582a1e7f2f1a5"
+        target="_blank">ZFR node</a>. We suggest not opening small channels like 20k sats. If you want to use a node
+      like this as a peer, at least open channels with 400-500-600k sats to have enough for your payments and also cover
+      the reserves and costs. Smaller channels are not efficient for both peers. There are many others like this one,
+      but also keep in mind the centrality and connectivity of those nodes. Not all will offer good routes for your
+      payments.</p>
+    <p>It is very good practice to open channels with merchants or services you pay frequently. Opening a channel with
+      your favorite merchant can bring you 0 fees since it is a direct channel and it is like a "line of credit." You
+      can also use that channel to pay other merchants or services. Just be aware of their fees for routing your
+      payment, because if there isn't a direct payment route, their node will have to route your payment to the next hop
+      until it reaches the destination, and that comes at a cost.</p>
   </section>
 
   <section id="blixt-node">
     <h3>How is it possible to have a node on a mobile device?</h3>
-    <p>
-      Blixt Wallet uses the lightning node implementation
-      <a href="https://github.com/LightningNetwork/lnd/issues" target="_blank" rel="noopener noreferrer">
-        lnd</a>
-      and the
-      <a href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/" target="_blank" rel="noopener noreferrer">
-        Bitcoin SPV client Neutrino</a>
-      directly on the phone. Lnd has been configured to work well on mobile devices.
+    <p>Blixt Wallet uses the lightning node implementation <a href="https://github.com/lightningnetwork/lnd"
+        target="_blank" rel="noopener noreferrer">lnd</a> and the<a
+        href="https://suredbits.com/neutrino-what-is-it-and-why-we-need-it/" target="_blank" rel="noopener noreferrer">
+        Bitcoin SPV client Neutrino</a> directly on the phone. Lnd has been configured to work well on mobile devices.
     </p>
     <!-- 
     <p>
@@ -282,13 +264,11 @@ title: Frequently Asked Questions
       where you can read more about BTC/LN Tor nodes,
     </p>
     -->
-    <p>
-      Keep in mind that Blixt Wallet is a Lightning node, with LN channels as any other node. That means that in order
+    <p>Keep in mind that Blixt Wallet is a Lightning node, with LN channels as any other node. That means that in order
       to be able to transact on LN, you need to be online and connected at the moment of the transaction. If you do not
       transact, it's not necessary to stay online. Blixt. Once Blixt is open, it will take a few moments to re-sync the
-      latest blocks through SPV Neutrino and you will be back online. On the other hand, for transacting on-chain (not
-      LN), it's not necessary to be online.
-    </p>
+      latest blocks through SPV Neutrino, and you will be back online. On the other hand, for transacting on-chain (not
+      LN), it's not necessary to be online.</p>
   </section>
 
   <!-- Future of onion address in Blixt uncertain, commenting out for now
@@ -327,11 +307,11 @@ title: Frequently Asked Questions
     <p>Blixt is not a routing node, it is more like a private LN node.</p>
     <p>All channels on Blixt are private, which means they are not "visible" to the other routing nodes in the
       network. These so-called "unannounced" channels are used only for private payments.</p>
-    <p>Your Blixt LN node can receive and send payments, using other nodes as hops, but cannot route other payments
+    <p>Your Blixt LN node can send and receive payments using other nodes as hops, but can not route other payments
       through your Blixt node.</p>
     <p>That's why Blixt is so special ... nobody knows about your payments. <a
         href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">Check out this
-        short tutorial about LN onion routing</a></p>
+        short tutorial about LN onion routing</a>.</p>
   </section>
 
   <section id="keysend">
@@ -342,8 +322,8 @@ title: Frequently Asked Questions
     <p>Aspects to keep in mind:
     <p>
     <ul>
-      <li>If you want to share your nodeID on a webpage or send it to somebody so they can pay you through
-        keysend, it will not work if your Blixt Wallet is NOT online at the moment of the payment.</li>
+      <li>If you want to share your nodeID on a website or send it to someone so they can pay you via keysend, your
+        Blixt Wallet must be online at the time of the payment.</li>
       <li>If you, as receiver, are using a Tor connection, the payer also has to use a Tor connection, otherwise they
         cannot "see" your Blixt node and connect with it.</li>
     </ul>
@@ -351,17 +331,13 @@ title: Frequently Asked Questions
 
   <section id="connect-bitcoin-node">
     <h3>How do I connect Blixt Wallet to my own full node?</h3>
-    <p>Under <i>Settings -> Bitcoin -> Set Bitcoin node</i> you can enter a Bitcoin node to connect to</p>
-    <p>
-      Blixt Wallet does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank"
-        rel="noopener noreferrer">Tor onion v3</a>, so for the moment, you can only use your node if it's "visible" on
+    <p>Under <i>Settings -> Bitcoin Node</i>,you can enter a Bitcoin node to connect to.</p>
+    <p>Blixt Wallet does not yet support <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank"
+        rel="noopener noreferrer">Tor Onion v3</a>, so for the moment, you can only use your node if it is "visible" on
       clearnet (IP/domain). You must make sure that Bitcoin's P2P port (8333) is forwarded by your router. You can
-      connect to your node via its local LAN IP, but it will only work if you're connected to your home router.
-    </p>
-    <p>
-      BIP157 compact filter indexing must be enabled for your node. Add this to your bitcoin.conf if it isn't already
-      set:
-    </p>
+      connect to your node via its local LAN IP, but it will only work if you're connected to your home router.</p>
+    <p>BIP157 compact filter indexing must be enabled for your node. Add this to your bitcoin.conf if it isn't already
+      set:</p>
     <pre>
       blockfilterindex=1
       peerblockfilters=1
@@ -375,22 +351,16 @@ title: Frequently Asked Questions
 
   <section id="umbrel-control">
     <h3>Can I remotely control an Umbrel node from Blixt Wallet?</h3>
-    <p>
-      <strong>Blixt Wallet</strong> is a fully fledged lightning node in and of itself. It's not possible to connect and
-      control a remote node like Umbrel, myNode, RaspiBlitz, etc. For that management task you would need to use apps
-      like Zeus, Zap, Thunderhub, Ride The Lightning, or Fully Noded.
-    </p>
-    <p>
-      Rather than controlling your node at your home, enable Tor and open a channel towards it. That way, you could use
-      your Blixt Node Wallet as a companion for your home routing node. See more details on the <a href="/guides">Guides
-        page</a>.
-    </p>
+    <p><strong>Blixt Wallet</strong> is a fully fledged lightning node in and of itself. It's not possible to connect to
+      and control a remote node like Umbrel, myNode, RaspiBlitz, etc. For that management task, you would need to use
+      apps like Zeus, Zap, Thunderhub, Ride The Lightning, or Fully Noded.</p>
+    <p>Instead of controlling your node from home, enable Tor and open a channel to it. That way, you could use your
+      Blixt Node Wallet as a companion for your home routing node. See more details on the <a href="/guides"
+        target="_blank">Guides</a> page.</p>
   </section>
 
   <section id="blixt-restore">
-    <h3>
-      I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?
-    </h3>
+    <h3>I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?</h3>
     </summary>
     <p>
       RULE NO.1 - You should always have a channel backup and keep it in a safe place (e.g., password manager). If you
@@ -399,7 +369,7 @@ title: Frequently Asked Questions
     </p>
     <p>
       RULE NO.2 - Never use a full backup of a device as a restored backup for BTC/LN wallets. This can result in
-      losing funds, by broadcasting a wrong state of channels.
+      losing funds by broadcasting the wrong state of channels.
     </p>
     <p>
       NOTE NO.1 - Migration (or funds restore procedure) means creating a new Node ID and moving the restored funds to
@@ -420,8 +390,8 @@ title: Frequently Asked Questions
     </p>
     <p>
       NOTE NO.4 - If you restore LN channels that were open using the Tor network, then BEFORE starting the restore
-      process, go to top right corner and activate Tor. That way, your Blixt node can "see" the Tor peers and start the
-      closing procedure in normal way.
+      process, go to <i>Settings -> Enable Tor</i>. That way, your Blixt node can "see" the Tor peers and start the
+      closing procedure in the normal way.
     </p>
     <h4>Scenario A - migrate Blixt to a new device (fast way)</h4>
     <p>Conditions:</p>
@@ -433,7 +403,8 @@ title: Frequently Asked Questions
     <p>Procedure:</p>
     <ul>
       <li>
-        Create a new Blixt wallet instance on the new device (new seed) and save that seed into a safe place (password
+        Create a new Blixt wallet instance on the new device (new seed) and save that seed into a safe place (e.g.,
+        password
         manager).
       </li>
       <li>
@@ -443,19 +414,19 @@ title: Frequently Asked Questions
         On the new device <i>Settings -> Enable Dunder LSP</i>.
       </li>
       <li>
-        On the new device, go to main screen and click on the Receive button and create a new LN invoice to open a
+        On the new device, go to main screen and click on the <i>Receive</i> button to create a new LN invoice to open a
         Dunder LSP channel.
       </li>
       <li>
-        Put the amount of total balance available displayed on the old device Blixt (main screen), then press create
-        invoice.
+        Put the amount of total balance available displayed on the old device Blixt (main screen), then press
+        <i>CREATE INVOICE</i>.
       </li>
       <li>
         With the old Blixt device, scan the LN invoice QR code and pay it. The old wallet will send all available funds
         to the new one, and Dunder will open a new channel for you with that amount.
       </li>
       <li>
-        It will take a few minutes until the tx is confirmed and channel is opened on the new device. Be patient.
+        It will take a few minutes until the tx is confirmed and the channel is opened on the new device. Be patient.
       </li>
       <li>
         Once you see the funds in the new device available, it is recommended to close those old empty channels. If
@@ -463,7 +434,7 @@ title: Frequently Asked Questions
         device using an on-chain tx.
       </li>
       <li>
-        DONE! It is now safe to delete Blixt from the old device, and the funds are secure in the new one.
+        DONE! Blixt can now be deleted from the old device, and the funds are safe in the new one.
       </li>
     </ul>
     <h4>Scenario B - old device is lost, non-functional, or non-recoverable (slow way)</h4>
@@ -476,14 +447,14 @@ title: Frequently Asked Questions
     <p>Procedure:</p>
     <ul>
       <li>
-        Install Blixt Wallet onto a new phone.
+        Install Blixt Wallet on a new phone.
       </li>
       <li>
-        On the first screen to create or restore a wallet, go to <i> Settings -> Enable Tor</i> (if you previously
+        On the first screen to create or restore a wallet, go to <i>Settings -> Enable Tor</i> (if you previously
         opened channels with Tor nodes). You have funds in the LN channels but also in the on-chain wallet.
       </li>
       <li>
-        Blixt will restart in Tor mode. Then click on "restore". Fill in your 24 word seed from your old wallet, space
+        Blixt will restart in Tor mode. Then click on "restore." Fill in your 24 word seed from your old wallet, space
         delimited. You can also add the channels.backup file you saved previously and copy it onto your new phone.
         Optionally, you can use Google Drive, if you have it there.
       </li>
@@ -502,20 +473,19 @@ title: Frequently Asked Questions
   </section>
 
   <section id="restored-funds">
-    <h3>I restored my old node using SCB file, but funds are not back on my on-chain wallet</h3>
+    <h3>I restored my old node using the SCB file, but funds are not back in my on-chain wallet.</h3>
     </summary>
-    <p>OK, I had a dead previous node and I used the restore procedure, using the SCB backup channels file into Blixt.
-      I wait for the channels to be closed, but funds are not back into my on-chain wallet. What can I do?
-    </p>
-    <p>Usually there are few possible scenarios for closing channels:</p>
+    <p>OK, I had a previous dead node and I used the restore procedure, using the SCB backup channels file into Blixt. I
+      wait for the channels to be closed, but funds are not back in my on-chain wallet. What can I do?</p>
+    <p>Usually, there are a few possible scenarios for closing channels:</p>
     <ul>
       <li>
-        A normal "cooperative close" channel usually takes a few blocks (no more than 40), if both peers are online.
-        Then everything goes smooth and fast.
+        A normal "cooperative close" channel usually takes a few blocks if both peers are online. Then everything goes
+        smooth and fast.
       </li>
       <li>
-        If the other channel peer is not online, then the closure task enters into force. This could take at least 144
-        blocks until funds are released from the lock time. Check the locktime for the closing tx on mempool.
+        If the other channel peer is not online, the closure task takes effect. This could take at least 144 blocks
+        until funds are released from the lock time. Check the locktime for the closing tx on mempool.
       </li>
       <li>
         A normal closure can be for many reasons, but mostly because of lost connectivity. If a normal closure gets
@@ -523,13 +493,13 @@ title: Frequently Asked Questions
         process to once again push the closure of the remaining stuck channels.
       </li>
       <li>
-        Another way to "push" the connection with your lost peers, is to add them manually.
-        Go to <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your
-        peer, copy or scan the QR URI of your peer, and go to <i>Settings -> Show Lightning Peers -> +</i> .
+        Another way to "push" the connection with your lost peers is to add them manually. Go to <a
+          href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your peer,
+        copy or scan the QR URI of your peer, and go to <i>Settings -> Show Lightning Peers -> +</i> .
       </li>
       <li>
-        To try a force closing action again, go to the Lightning Channels screen, select the channel you want to push,
-        and swipe on activity view to start the process again.
+        To try a force closing action again, go to <i>Menu -> Lightning Channels</i>. Select the channel you want to
+        push, and swipe on activity view to start the process again.
       </li>
     </ul>
     <p>Once all the channels are initiated into "closing", wait patiently. This process takes time.
@@ -540,18 +510,18 @@ title: Frequently Asked Questions
       app if it does not do so automatically.</p>
     <p>Only when the lnd is initiated, can the rescan take place. Be patient and check the lnd logs (see <i>Settings ->
         Read lnd log</i>). You will read in there how it is scanning many blocks at once for your restored addresses.
-      Once the process is finished, your should see the funds in on-chain.</p>
-    <p>Try to keep the Blixt app active during this process. If it is intrerrupted, you will have to restart again to
+      Once the process is finished, you should see the funds in the on-chain wallet.</p>
+    <p>Try to keep the Blixt app active during this process. If it is interrupted, you will have to restart again to
       trigger it.</p>
     <p>IMPORTANT NOTES TO CONSIDER (in regards of how LN funds are moved):</p>
     <ul>
       <li>When you open a channel of 2M sats with a peer, in the beginning, all the sats will be on YOUR side.</li>
-      <li>You start moving these sats by making payments and/or routing others payments through this channel.</li>
+      <li>You start moving these sats by making payments and/or routing others' payments through this channel.</li>
       <li>If you do not make your own payments out of your node, your balance will always be the same, but some channels
         will move sats in and out.</li>
-      <li>By routing others' payments, the dynamic of your channel's balances is changing. That means if you initially
-        had 2M sats and you routed 1M sats, your channel balance will be 1M sats. When you close that channel, you will
-        get back 1M sats and NOT 2M sats that you had initially.</li>
+      <li>By routing others' payments, the dynamic of your channel's balances is changing. That is, if you started with
+        2M sats and routed 1M sats, your channel balance will be 1M sats. When you close that channel, you will get back
+        1M sats and NOT 2M sats that you had initially.</li>
       <li>Before you begin to close your channels, remember the total balance you had in your node on YOUR side of the
         channels. That is the amount you will get back. Some channels will be empty on your side, so don't expect to get
         sats from those closed channels.</li>
