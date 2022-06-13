@@ -50,14 +50,14 @@ title: Features
   <section id="feature-neutrino">
   <h3>Neutrino Node</h3>
     <p>Blixt Wallet connects by default to the Blixt Wallet node to sync the Bitcoin blocks and indexes with <a href="https://blog.lightning.engineering/posts/2018/10/17/neutrino.html">Neutrino</a> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki">BIP 157</a>), but users can also connect to their own Bitcoin node.</p>
-    <p>It is syncs the entire Bitcoin blockchain (headers and filters) in less than 5 minutes, respecting user privacy. Blixt Wallet does not use any centralized servers for doing transactions, all transactions are broadcast directly from your Blixt app, into the Bitcoin mempool.</p>
+    <p>It is syncs the entire Bitcoin blockchain (headers and filters) in less than 5 minutes, respecting user privacy. Blixt Wallet does not use any centralized servers for doing transactions, all transactions are broadcast directly from your Blixt Wallet app, into the Bitcoin mempool.</p>
     <p>Please note: At this point Blixt Wallet will require some space for this sync on your device, around 1GB of data for block sync and the LN graph (network map).</p>
   </section>
 
   <section id="feature-lndnode">
   <h3>Full non-custodial LND node</h3>
     <p>Users can manage their own Lightning channels with an easy interface and enough information shown to have a good and smooth experience.</p>
-    <p>In the top left drawer menu you can go to Lightning channels and start opening channels with other nodes as you wish. By default, when you first sendn on-chain funds to a new Blixt Wallet, it will automatically open a channel with those funds to the Blixt Wallet LSP node. You can disable this in settings if you wish.</p>
+    <p>In the top left drawer menu you can go to Lightning channels and start opening channels with other nodes as you wish. By default, when you first send on-chain funds to a new Blixt Wallet, it will automatically open a channel with those funds to the Blixt Wallet LSP node. You can disable this in settings if you wish.</p>
     <p>These LN channels, by default will be un-announced channels (also called private channels). This means that they will not be "visible" by other nodes in the network, only the channel partner will know about it and will route your transactions accordingly through their own channels. Also private channels DO NOT route payments for others.</p>
     <p>So practically Blixt is a PRIVATE NODE, to offer you full control of your payment routes in a private way, with the routing costs decided by you based on the peers you connect to. So choose your peers wisely when opening channels.</p>
     <p>It's also worth mentioning that you should have at least 2-3 LN channels open in your Blixt Wallet for better availability of routes and also to take advantage of MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Path Payments</a>), a feature that is also available in Blixt Wallet.</p>
@@ -100,7 +100,7 @@ title: Features
     </p>
   <h4>Language</h4>
     <p>
-      Default language is English. Other available languages are: Spanish, German, French, Sweedish, Klingon. More languages will be available soon.
+      The default language is English. Other available languages are: Spanish, German, French, Swedish, Klingon. More languages will be available soon.
     </p>
   <h4>Push Notifications</h4>
     <p>
@@ -133,7 +133,7 @@ title: Features
   <h4>Remove mnemonic from device</h4>
     <p>This option is an extra security measure. After you've made the backup of your seed, you can totally remove it from your device.</p>
     <p>Remember: do not use this option if you have not made a backup first!</p>
-    <p>It can be used in case where you are afraid that your device could be stolen, seized or accessed accidentaly by somebody else.
+    <p>It can be used in case where you are afraid that your device could be stolen, seized or accessed accidentally by somebody else.
       Removing the seed from your device doesn't mean it is removing the wallet and LN node, just the seed words. Wallet will work just as usual.
     </p>
   <h4>Export channel backup</h4>
@@ -293,7 +293,7 @@ title: Features
     </p>
   <h4>Copy lnd log to local storage</h4>
     <p>
-      This option is very useful to export for debuging any lnd issues. It will be exported to a selected folder on your device.
+      This option is very useful to export for debugging any lnd issues. It will be exported to a selected folder on your device.
       Later the log (txt) file can be reviewed or sent to the developer or support team for debugging purposes.
     </p>
   <h4>Automatically hide expired invoices</h4>
@@ -303,7 +303,7 @@ title: Features
   <h4>Sign message with wallet key</h4>
     <p>
       This is a very powerful feature that offers a way to cryptographically sign specific messages using your wallet key.
-      This could have various use cases, from validating a Bitcoin address, logging in to a webservice, or even opening a hotel door.
+      This could have various use cases, from validating a Bitcoin address, logging in to a web service, or even opening a hotel door.
     </p>
   </section>
 
