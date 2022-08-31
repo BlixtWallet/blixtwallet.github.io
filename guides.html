@@ -36,6 +36,7 @@ title: Guides
       <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
       <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
       <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
+      <li><a href="#guide-refill">How do I refill an existing LN channel from onchain addreess?</a></li>
       <li><a href="#guide-tor">How to use Blixt with Tor - clearnet - VPN?</a></li>
       <li><a href="#guide-merchant">I am a small merchant, can I use Blixt to accept payments in bitcoin?</a></li>
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
@@ -129,6 +130,27 @@ title: Guides
       <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
       <li>Optional, later when is ready active, you can push funds using keysend feature, into one side or another. Blixt also supports keysend, as Thunderhub too.</li>
       </ol>
+  </section>
+  
+  <section id="guide-refill">
+    <h3>How do I refill an existing LN channel from onchain addreess?</h3>
+    <p>Apart from regular opening LN channels in Blixt, sometimes users want to just load up existing channels from onchain address.
+     For the moment Blixt doesn't have an internal way to swap funds onchain to/from LN, but is considered for next releases.</p>
+    <p>So how we can do it?</p>
+    <p>Use case scenario:</p>
+    <ul>
+    <li>you already have 2-3-4 LN channels in Blixt</li>
+    <li>those channels are almost empty and you need more liquidity on LN to make some payments</li>
+    <li>you do not want to close the existing channels and open more</li>
+    <li>you have funds in an onchain address or you just buy from an exchange a small amount and want to withdraw it into a LN wallet</li>
+    </ul>
+    <p>Steps do it:</p>
+    <ol>
+    <li>Go to <a href="http://deezy.io">http://deezy.io</a> (or any other swap service like Boltz, ZigZag, FixedFloat) and select swap onchain to LN</li>
+    <li>Put the amount, pay it from your onchain address (could be even from same Blixt wallet onchain or any other you have)</li>
+    <li>Provide the LN invoice from your Blixt wallet as destinationz</li>
+    </ol>
+    <p>Done! Now you have your sats directly into your Blixt LN channels. This is also a good way for privacy.</p>
   </section>
   
   <section id="guide-tor">
