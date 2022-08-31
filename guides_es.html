@@ -36,6 +36,7 @@ title: Guias
       <li><a href="#guia-lsp">¿Cómo usar Dunder LSP para abrir canales y recibir fondos a través de LN?</a></li>
       <li><a href="#guia-autopilot">¿Cómo usar el piloto automático para abrir canales LN?</a></li>
       <li><a href="#guia-canales">¿Cómo abro un canal con mi Umbrel/myNode/Raspiblitz/otro nodo?</a></li>
+      <li><a href="#guia-recargar">¿Cómo recargo un canal LN existente desde una dirección onchain?</a></li>
       <li><a href="#guia-tor">¿Cómo usar Blixt con Tor - clearnet - VPN?</a></li>
       <li><a href="#guia-comerciante">Soy un pequeño comerciante, ¿puedo usar Blixt para aceptar pagos en bitcoin?</a></li>
       <li><a href="#guia-companion">¿Cómo usar Blixt como compañero de tu nodo doméstico?</a></li>
@@ -128,6 +129,28 @@ title: Guias
       <li>Ingrese la cantidad de sats para el canal, tarifas, haga clic en abrir. Espera 3 confirmaciones de bloque y tienes un nuevo canal con tu "mini nodo" Blixt.</li>
       <li>Opcional, más tarde, cuando esté listo, puede enviar fondos usando la función de envío de clave, en un lado u otro. Blixt también es compatible con el envío de claves, al igual que Thunderhub.</li>
       </ol>
+  </section>
+
+  <section id="guia-recargar">
+    <h3>¿Cómo recargo un canal LN existente desde una dirección onchain?</h3>
+    <p>Además de la apertura regular de canales LN en Blixt, a veces los usuarios solo quieren recargar 
+       los canales existentes desde la dirección en cadena. Por el momento, Blixt no tiene una forma interna de intercambiar 
+       fondos en cadena hacia/desde LN, pero se considera para próximos lanzamientos.</p>
+    <p>Entonces, ¿cómo podemos hacerlo?</p>
+    <p>Escenario de caso de uso:</p>
+    <ul>
+    <li>ya tienes 2-3-4 canales LN en Blixt</li>
+    <li>esos canales están casi vacíos y necesita más liquidez en LN para realizar algunos pagos</li>
+    <li>no desea cerrar los canales existentes y abrir más</li>
+    <li>tiene fondos en una dirección onchain o simplemente compra en un exchange, una pequeña cantidad y desea retirarla en LN</li>
+    </ul>
+    <p>Pasos a seguir:</p>
+    <ol>
+    <li>Entra en <a href="http://deezy.io">http://deezy.io</a> (o cualquier otro servicio de swap como Boltz, ZigZag, FixedFloat) y seleccione intercambiar onchain a LN</li>
+    <li>Ingrese el monto, pague desde su dirección en la cadena (podría ser incluso desde la misma billetera Blixt en la cadena o cualquier otra que tenga)</li>
+    <li>Proporcione la factura LN de su monedero Blixt como destino</li>
+    </ol>
+    <p>¡Hecho! Ahora tienes tus sats directamente en tus canales Blixt LN. Esta es también una buena forma de privacidad.</p>
   </section>
   
   <section id="guia-tor">
