@@ -272,28 +272,53 @@ title: Guides
   </section>
   <section id="guide-ism">
     <h3>How to use Blixt as "Infrastructure Spending Machine" (ISM)?</h3>
-    <p>"Infrastructure Spending Machine" is the method used to buy bitcoins from KYC exchanges and move them to your on-chain HODL wallets, passing through a series of "preparations" in such manner that is breaking the links to your KYC identity, for a better privacy.</p>
-    <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
+    <p>"Infrastructure Spending Machine" is the method used to buy bitcoins from KYC exchanges and move them to your on-chain HODL wallets, 
+       passing through a series of "preparations" in such manner that is breaking the links to your KYC identity, for a better privacy.</p>
+    <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph 
+       or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, 
+       if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
     <p><img src="assets/images/blixt-machine.png" align="center" alt="Blixt Infrastructure Spending Machine"/></p>
     <p>Considerations:</p>
     <ul>
     <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 2-5M sats channel.</li>
-    <li>Use this scenario when the onchain fees are low and mempool is almost empty, to save time and fees. Check on <a href="https://mempool.space">Mempool</a> first, to see the status.</li>
-    <li>You already have a on-chain "cache wallet" to be the intermediary ramp for this procedure. You can use your home node on-chain wallet but is better an Electrum/Sparrow desktop wallet (for a better view management of fees, UTXOs, coins etc). This "cache wallet" is important.</li>
-    <li>You DO NOT withdraw directly from an exchange to the swap service. You could have funds blocked and/or lost if you do that. Usually exchanges are using a delay in withdraw funds, in special to avoid these cases. So withdraw first into your "cache wallet", for safety.</li>
-    <li>Swap services you could use: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more</li>
+    <li>Use this scenario when the onchain fees are low and mempool is almost empty, to save time and fees. 
+        Check on <a href="https://mempool.space">Mempool</a> first, to see the status.</li>
+    <li>You already have a on-chain "cache wallet" to be the intermediary ramp for this procedure. 
+        You can use your home node on-chain wallet but is better an Electrum/Sparrow desktop wallet (for a better view management of fees, 
+        UTXOs, coins etc). This "cache wallet" is important.</li>
+    <li>You DO NOT withdraw directly from an exchange to the swap service. You could have funds blocked and/or lost if you do that. 
+        Usually exchanges are using a delay in withdraw funds, in special to avoid these cases. So withdraw first into your "cache wallet", for safety.</li>
+    <li>Swap services you could use: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | 
+        <a href="https://deezy.io/" target="_blank" rel="noopener noreferrer">Deezy.io (LN to onchain)</a> | 
+        <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | 
+        <a href="https://learn.robosats.com/" target="_blank" rel="noopener noreferrer">RoboSats (Tor P2P)</a> | 
+        <a href="https://amboss.space/magma?type=swap" target="_blank" rel="noopener noreferrer">Amboss (P2P swaps)</a> | 
+        <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more</li>
     </ul>
     <p>Steps to do:</p>
     <ol>
-    <li>Buy BTC from any exchange you comfortable with. If you can, choose one with less KYC or even none. See <a href="https://kycnot.me" target="_blank" rel="noopener noreferrer">KYCnot.me</a></li>
-    <li>Withdraw the BTC immediately to your "cache wallet" on-chain, with low fee selection if you can. Wait for 6 confirmations, checking on <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">Mempool</a> (preferably using Tor or VPN, not your real IP, or use the mempool app from your home node to check directly on your local copy of blockchain).</li>
-    <li>Send BTC to one or more swap services mentioned above. You can split in smaller amounts, if you bought a larger amount. Be sure you choose a good time with los fees and almost empty mempool, otherwise if you are in a hurry you will have to pay higher fees. The swap service have a limited time to wait for that onchain tx to be sent, usually 30 min until the first confirmation is done.</li>
+    <li>Buy BTC from any exchange you comfortable with. If you can, choose one with less KYC or even none. 
+        See <a href="https://kycnot.me" target="_blank" rel="noopener noreferrer">KYCnot.me</a></li>
+    <li>Withdraw the BTC immediately to your "cache wallet" on-chain, with low fee selection if you can. Wait for 6 confirmations, 
+        checking on <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">Mempool</a> (preferably using Tor or VPN, 
+        not your real IP, or use the mempool app from your home node to check directly on your local copy of blockchain).</li>
+    <li>Send BTC to one or more swap services mentioned above. You can split in smaller amounts, if you bought a larger amount. 
+        Be sure you choose a good time with los fees and almost empty mempool, otherwise if you are in a hurry you will have to pay higher fees. 
+        The swap service have a limited time to wait for that onchain tx to be sent, usually 30 min until the first confirmation is done.</li>
     <li>Provide a LN invoice for the amount indicated in the swap service, from your Blixt wallet. Keep your Blixt alive and online during this process.</li>
-    <li>Once you receive the funds from the swap, you can use keysend option from your Blixt or a regular LN invoice from your home node to move the funds from Blixt to your home node. Remember: that transaction will be private, through your private channel between your Blixt and your home node.</li>
-    <li>In this step you could use internal "loop-out" function from RTL or Thunderhub node management apps, to move funds from LN channels to an external on-chain address. Or just keep them to be used on LN, later when is necessary. Also you could use again the external swap services mentioned above, but this time the way around, sending through LN and receive to on-chain, to the desired BTC address of your HODL wallet.</li>
+    <li>Once you receive the funds from the swap, you can use keysend option or a regular LN invoice from your Blixt 
+        to your home node to move the funds from Blixt to your home node. 
+        Remember: that transaction will be private, through your private channel between your Blixt and your home node.</li>
+    <li>In this step you could use internal "loop-out" function from RTL or Thunderhub node management apps, 
+        to move funds from LN channels to an external on-chain address. Or just keep them to be used on LN, later when is necessary. 
+        Also you could use again the external swap services mentioned above, but this time the way around, 
+        sending through LN and receive to on-chain, to the desired BTC address of your HODL wallet.</li>
     </ol>
     <p><strong>NOTE:</strong></p>
-    <p>If you do not have a home node, you could use instead a simple desktop Electrum wallet with Lightning function activated. Electrum have integrated swap services and two types of LN channels: <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> and regular private channels, so you can open one with your Blixt node wallet.</p>
+    <p>If you do not have a home node, you could use instead a simple desktop Electrum wallet with Lightning function activated. 
+       Electrum have integrated swap services and two types of LN channels: 
+       <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> 
+       and regular private channels, so you can open one with your Blixt node wallet.</p>
     <p>So practically you could just send from your Blixt to your Electrum through LN and from Electrum make a swap into onchain address.</p>
   </section>
 </article>
