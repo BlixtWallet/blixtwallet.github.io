@@ -67,13 +67,47 @@ title: Guides
   <section id="notes">
     <h3>IMPORTANT NOTES / TIPS</h3>
       <ul>
-      <li>Before start using these Tor channels and the Blixt app was long time not open/synced, try waiting for the sync icon on top to finish and check if all channels are online active. Then just go and create your transactions.</li>
-      <li>If the channels are still not active (see the small light icon on top drawer color), then go and add again the peer public key/ onion URI into peers, in Blixt options - show peers. You could try also refreshing that list, if the Tor gossip will find your peer, the channels will be back to life. if not, just add it again and will push the gossip to communicate.</li>
-      <li>Do not just blindly jump into making a tx immediately after you open Blixt app. takes only moments to check if your channels are active, before getting error route or insufficient funds.</li>
-      <li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. This has a name: “commit_fees” that are like a reserve for when the channels are closed, to be able to pay the miners fees. So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open the channel. That’s why is NOT recommended to open tiny small channels like 20-50-100k sats.</li>
-      <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe and secured by the network. But are very small, sometimes in msats.</li>
-      <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. And DO NOT try to restore on both same LN channels. You will lose funds!</li>
-      <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.</li>
+      <li>Before start using these Tor channels and the Blixt app was long time not open/synced, 
+          try waiting for the sync icon on top to finish and check if all channels are online active. Then just go and create your transactions.
+      </li>
+      <li>If the channels are still not active (see the small light icon on top drawer color), 
+          then go and add again the peer public key/ onion URI into peers, in Blixt options - show peers. 
+          You could try also refreshing that list, if the Tor gossip will find your peer, the channels will be back to life. 
+          If not, just add it again and will push the gossip to communicate.
+      </li>
+      <li>Do not just blindly jump into making a tx immediately after you open Blixt app. takes only moments to check if your channels are active, 
+          before getting error route or insufficient funds.
+      </li>
+      <li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. 
+          This has a name: “commit_fees” that are like a reserve for when the channels are closed, to be able to pay the miners fees. 
+          So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or 
+          manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open 
+          the channel. That’s why is NOT recommended to open tiny small channels like 20-50-100k sats.
+      </li>
+      <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe 
+          and secured by the network. But are very small, sometimes in msats.
+      </li>
+      <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case 
+          you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without 
+          the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. 
+          And DO NOT try to restore on both same LN channels. You will lose funds!
+      </li>
+      <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). 
+          So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. 
+          For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.
+      </li>
+      <li>We recommend to keep open the channels in your Blixt as much is possible. Through a single channel you can have multiple txs, in and out.
+          And anytime you can refill/empty them with swap services. That's why is also recommended to NOT have small channels like 10-20-30-100k sats. 
+          If you already open some small Dunder channels, is good that, in time, you close them and open just a bigger one.
+      </li>
+      <li>Is recommended to have at least 3 channels open in your Blixt, with 3 different peers, for redundancy of paths, but not more than 5-6.
+          Having more than 6 channels on your Blixt will just add more loading into the graph and performance, will not help too much.</br>
+          One with Blixt node (Dunder or regular) - for a good connection with other big nodes and other Blixt users.</br>
+          One with a low fee LSP node - for cheaper txs and also choose one that is well connected</br>
+          One with your own node (if you have) - for other liquidity movements and or privacy, also as redundancy of previous.</br>
+          Is good also to have always activated the MPP (multi-part payment) in settings. That could help using multiple channels in one tx.</br>
+          Always maintain these few channels with enough liquidity. You can anytime refill them based on your usage, with the swap services.
+      </li>
       </ul>
   </section>
   

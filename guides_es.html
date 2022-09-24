@@ -66,13 +66,50 @@ title: Guias
   <section id="notas">
     <h2>Notas / consejos importantes</h2>
       <ul>
-      <li>Antes de comenzar a usar estos canales TOR y la aplicación Blixt no estaba abierta/sincronizada, intente esperar el icono de sincronización en la parte superior para finalizar y verificar si todos los canales están activos en línea. Luego simplemente vaya y cree sus transacciones.</li>
-      <li>Si los canales aún no están activos (consulte el icono de luz pequeña en el color del cajón superior), luego vaya y agregue nuevamente el URI de la llave pública/ cebolla del par en los compañeros, en opciones de Blixt - Muestre pares. Puede intentar actualizar también esa lista, si el chisme de Tor encontrará su compañero, los canales volverán a la vida. Si no, simplemente agréguelo nuevamente y empujará los chismes para comunicarse.</li>
-      <li>No solo salga ciegamente a hacer un TX inmediatamente después de abrir la aplicación Blixt. Solo toma momentos para verificar si sus canales están activos, antes de obtener una ruta de error o fondos insuficientes.</li>
-      <li>Abrir canales LN con Blixt tiene un costo, como cualquier otro canal de apertura de nodo LN. Esto tiene un nombre: "commit_fees" que son como una reserva para cuando los canales están cerrados, para poder pagar las tarifas de los mineros. Por lo tanto, tenga en cuenta que cuando deposite en su Blixt y abra los canales (no importa, use Dunder LSP o canales de apertura de auto-piloto regular o manual), en su lista de canales verá la cantidad disponible que es un poco menor que la cantidad total que usted Abra el canal. Es por eso que no se recomienda abrir pequeños canales pequeños como 20-50-100k sats.</li>
-      <li>Además, cada LN TX puede tener una pequeña tarifa para la red. Esa no es una tarifa para Blixt, es un costo que hace que sus transacciones sean seguras y aseguradas por la red. Pero son muy pequeños, a veces en msats.</li>
-      <li>Al ser un nodo LN, no se recomienda usar la misma semilla en dos dispositivos diferentes. Se puede hacer este procedimiento solo en caso de que se encuentre en un proceso de recuperación, cuando la billetera de la cadena generada a partir de la semilla comenzará a sincronizar TXs y equilibrios anteriores y sin los canales LN. Entonces sí, verá la misma billetera en ambos dispositivos, pero no en la LN. Y no intente restaurar en ambos los mismos canales LN. ¡Perderás fondos!</li>
-      <li>Los canales de cierre llevan tiempo, hasta que se lanzan los fondos. Así es como funciona LN (lea más en <a href="https://lightning.how" target="_blank" rel="noopener noreferrer">Lightning.how</a>). Entonces, en general, si tiene un cierre cooperativo (normal) tomará al menos 40 bloques hasta que los fondos se liberen en su billetera en la cadena. Para los canales de fuerza cerrados, ese bloqueo es de 144 bloques o incluso más. Así que sea paciente, los fondos estan seguros.</li>
+      <li>Antes de comenzar a usar estos canales TOR y la aplicación Blixt no estaba abierta/sincronizada, intente esperar el icono de sincronización 
+          en la parte superior para finalizar y verificar si todos los canales están activos en línea. Luego simplemente vaya y cree sus transacciones.
+      </li>
+      <li>Si los canales aún no están activos (consulte el icono de luz pequeña en el color del cajón superior), luego vaya y agregue nuevamente el URI 
+          de la llave pública/ cebolla del par en los compañeros, en opciones de Blixt - Muestre pares. Puede intentar actualizar también esa lista, 
+          si el chisme de Tor encontrará su compañero, los canales volverán a la vida. 
+          Si no, simplemente agréguelo nuevamente y empujará los chismes para comunicarse.
+      </li>
+      <li>No solo salga ciegamente a hacer un TX inmediatamente después de abrir la aplicación Blixt. 
+          Solo toma momentos para verificar si sus canales están activos, antes de obtener una ruta de error o fondos insuficientes.
+      </li>
+      <li>Abrir canales LN con Blixt tiene un costo, como cualquier otro canal de apertura de nodo LN. Esto tiene un nombre: "commit_fees" 
+          que son como una reserva para cuando los canales están cerrados, para poder pagar las tarifas de los mineros. 
+          Por lo tanto, tenga en cuenta que cuando deposite en su Blixt y abra los canales (no importa, use Dunder LSP o 
+          canales de apertura de auto-piloto regular o manual), en su lista de canales verá la cantidad disponible que es un poco menor 
+          que la cantidad total que usted Abra el canal. Es por eso que no se recomienda abrir pequeños canales pequeños como 20-50-100k sats.
+      </li>
+      <li>Además, cada LN TX puede tener una pequeña tarifa para la red. Esa no es una tarifa para Blixt, es un costo que hace que sus transacciones 
+          sean seguras y aseguradas por la red. Pero son muy pequeños, a veces en msats.
+      </li>
+      <li>Al ser un nodo LN, no se recomienda usar la misma semilla en dos dispositivos diferentes. Se puede hacer este procedimiento solo en caso 
+          de que se encuentre en un proceso de recuperación, cuando la billetera de la cadena generada a partir de la semilla comenzará a 
+          sincronizar TXs y equilibrios anteriores y sin los canales LN. Entonces sí, verá la misma billetera en ambos dispositivos, 
+          pero no en la LN. Y no intente restaurar en ambos los mismos canales LN. ¡Perderás fondos!
+      </li>
+      <li>Los canales de cierre llevan tiempo, hasta que se lanzan los fondos. Así es como funciona LN 
+          (lea más en <a href="https://lightning.how" target="_blank" rel="noopener noreferrer">Lightning.how</a>). 
+          Entonces, en general, si tiene un cierre cooperativo (normal) tomará al menos 40 bloques hasta que los fondos se liberen en su 
+          billetera en la cadena. Para los canales de fuerza cerrados, ese bloqueo es de 144 bloques o incluso más. 
+          Así que sea paciente, los fondos estan seguros.
+      </li>
+      <li>Recomendamos mantener los canales en su Blixt, ya que sea posible. A través de un solo canal puede tener múltiples txs, entrando y saliendo.
+          Y cada vez que pueda rellenarlos/vaciarlos con servicios de intercambio. Es por eso que también se recomienda no tener 
+          canales pequeños como 10-20-30-100K SAT.
+          Si ya abres algunos pequeños canales de Dunder, es bueno que, con el tiempo, los cierras y abres uno más grande.
+      </li>
+      <li>Se recomienda tener al menos 3 canales abiertos en su Blixt, con 3 pares diferentes, para la redundancia de caminos, pero no más de 5-6.
+          Tener más de 6 canales en su Blixt agregará más carga en el gráfico y el rendimiento, y no ayudará mucho. </br>
+          Uno con el nodo Blixt (Dunder o regular): para una buena conexión con otros nodos grandes y otros usuarios de Blixt. </br>
+          Uno con un nodo LSP de baja tarifa: para TXS más baratas y también elija uno que esté bien conectado, por ejemplo ZFR. </br>
+          Uno con su propio nodo (si tiene): para otros movimientos de liquidez o privacidad, también como redundancia de los demas. </br>
+          Es bueno también que active el MPP (pago de varias partes) en la configuración. Eso podría ayudar a usar múltiples canales en un TX. </br>
+          Mantenga siempre estos pocos canales con suficiente liquidez. Puede rellenarlos en cualquier momento en función de su uso, con los swaps.
+      </li>
       </ul>
     </section>
   
