@@ -1,0 +1,362 @@
+---
+layout: default
+title: Guides
+---
+
+<article class="guides">
+  <h2>Blixt Wallet use cases</h2>
+  <style>
+    details summary {
+      cursor: pointer;
+    }
+
+    details summary>* {
+      display: inline;
+    }
+
+    section {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    section>h3 {
+      padding-top: 14px;
+      color: var(--secondary);
+    }
+    section>h4 {
+      padding-top: 12px;
+      color: var(--secondary);
+    }
+  </style>
+  <section id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#guide-videos">Blixt Wallet Video Demos</a></li>
+      <li><a href="#notes">IMPORTANT NOTES / TIPS</a></li>
+      <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
+      <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
+      <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
+      <li><a href="#guide-refill">How do I refill an existing LN channel from onchain addreess?</a></li>
+      <li><a href="#guide-tor">How to use Blixt with Tor - clearnet - VPN?</a></li>
+      <li><a href="#guide-merchant">I am a small merchant, can I use Blixt to accept payments in bitcoin?</a></li>
+      <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
+      <li><a href="#guide-swap">How do I send sats to onchain addresses?</a></li>
+      <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
+    </ul>
+  </section>
+
+  <section id="guide-videos">
+    <h3>Blixt Wallet Video Demos</h3>
+    <p>Here we start with some video demonstrations about how to use features and functionalities of Blixt Wallet in real situations. Credits also to <a href="https://twitter.com/colbitcoin" target="_blank" rel="noopener noreferrer">@colbitcoin</a> and <a href="https://twitter.com/ian__major" target="_blank" rel="noopener noreferrer">@Rager Major</a> for these great demo videos.</p>
+    <ul>
+    <li><a href="https://www.youtube.com/watch?v=5JyOAeaCN0o" target="_blank" rel="noopener noreferrer">Full review Blixt Wallet (EN)</a></li>
+    <li><a href="https://www.youtube.com/watch?v=-vxgrZsblpI" target="_blank" rel="noopener noreferrer">How to configure Blixt Wallet (ES)</a></li>
+    <li><a href="https://www.youtube.com/watch?v=FcIMkbjMFXk" target="_blank" rel="noopener noreferrer">Tutorial - Blixt Wallet - Einrichten und Bedienen (DE)</a></li>
+    <li><a href="/assets/images/blixt-lnadr.mp4">Adding a contact lightning address and send some sats</a></li>
+    <li><a href="/assets/images/blixt-coinos-lnadr.mp4">Sending from Blixt to CoinOS using LN Address</a></li>
+    <li><a href="/assets/images/blixt-contact-list.mp4">Pay from a contact list</a></li>
+    <li><a href="/assets/images/blixt-keysend.mp4">Post a paid message on Amboss using keysend</a></li>
+    <li><a href="/assets/images/blixt-lnchat.mp4">Using Blixt LN Chat anonimously with LN Browser</a></li>
+    <li><a href="/assets/images/blixt-login-kollider.mp4">Trading on Kollider using Blixt LN auth</a></li>
+    <li><a href="/assets/images/blixt-tips-lncash.mp4">Sending tips to LNcash using Blixt</a></li>
+    <li><a href="/assets/images/blixt-withdraw-lnbits.mp4">Link LNBits wallet and withdraw with Blixt</a></li>
+    <li><a href="/assets/images/blixt-ES-mobile-credit.mp4">Buying mobile credit in El Salvador with Blixt</a></li>
+    </ul>
+  </section>
+
+  <section id="notes">
+    <h3>IMPORTANT NOTES / TIPS</h3>
+      <ul>
+      <li>Before start using these Tor channels and the Blixt app was long time not open/synced, 
+          try waiting for the sync icon on top to finish and check if all channels are online active. Then just go and create your transactions.
+      </li>
+      <li>If the channels are still not active (see the small light icon on top drawer color), 
+          then go and add again the peer public key/ onion URI into peers, in Blixt options - show peers. 
+          You could try also refreshing that list, if the Tor gossip will find your peer, the channels will be back to life. 
+          If not, just add it again and will push the gossip to communicate.
+      </li>
+      <li>Do not just blindly jump into making a tx immediately after you open Blixt app. takes only moments to check if your channels are active, 
+          before getting error route or insufficient funds.
+      </li>
+      <li>Opening LN channels with Blixt, has a cost, as any other LN node opening channels. 
+          This has a name: “commit_fees” that are like a reserve for when the channels are closed, to be able to pay the miners fees. 
+          So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or 
+          manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open 
+          the channel. That’s why is NOT recommended to open tiny small channels like 20-50-100k sats.
+      </li>
+      <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe 
+          and secured by the network. But are very small, sometimes in msats.
+      </li>
+      <li>Being a LN node, it is strongly NOT recommended to use same seed on two different devices. It can be done this procedure ONLY in case 
+          you are in a recovery process, when the onchain wallet generated from seed it will start syncing previous txs and balances and without 
+          the LN channels.backup, will not start full restore procedure. So yes, you will see same onchain wallet on both devices but NOT the LN one. 
+          And DO NOT try to restore on both same LN channels. You will lose funds!
+      </li>
+      <li>Closing channels takes time, until the funds are released. This is how LN works (read more on lightning.how). 
+          So in general if you have a cooperative close (normal) will take at least 40 blocks until the funds are released in your onchain wallet. 
+          For force closed channels, that lock is 144 blocks or even more. So be patient, funds are safu.
+      </li>
+      <li>We recommend to keep open the channels in your Blixt as much is possible. Through a single channel you can have multiple txs, in and out.
+          And anytime you can refill/empty them with swap services. That's why is also recommended to NOT have small channels like 10-20-30-100k sats. 
+          If you already open some small Dunder channels, is good that, in time, you close them and open just a bigger one.
+      </li>
+      <li>Is recommended to have at least 3 channels open in your Blixt, with 3 different peers, for redundancy of paths, but not more than 5-6.
+          Having more than 6 channels on your Blixt will just add more loading into the graph and performance, will not help too much.</br>
+          One with Blixt node (Dunder or regular) - for a good connection with other big nodes and other Blixt users.</br>
+          One with a low fee LSP node - for cheaper txs and also choose one that is well connected</br>
+          One with your own node (if you have) - for other liquidity movements and or privacy, also as redundancy of previous.</br>
+          Is good also to have always activated the MPP (multi-part payment) in settings. That could help using multiple channels in one tx.</br>
+          Always maintain these few channels with enough liquidity. You can anytime refill them based on your usage, with the swap services.
+      </li>
+      </ul>
+  </section>
+  
+  <section id="guide-lsp">
+  <h3>How to use Dunder LSP to open channels and receive funds over LN?</h3>
+    <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
+    <p>This procedure is provided by the LSP (liquidity service provider), is a feature of Blixt that allows users to get instant inbound/outbound liquidity by opening a channel for them, from Blixt LSP node towards your Blixt mobile node.</p>
+    <p>REMEMBER: LSP is just a liquidity provider, not custodial server, not custodial node, so your funds are always on your device channel and you are the only one that can control them. This means also that in order to be operational for receive/send funds, your Blixt app have to be online, like any other node. Is not necessary to stay all the time with the app open and connected. The app it sync in background when your mobile phone has internet connection. Anyways, even if you, for certain short period you hadn't connected, once you open Blixt, it will take few moments and will sync the Neutrino filters (SPV), then your node is back online.</p>
+      <ol>
+      <li>Once you create the wallet and save the seed, go to Blixt settings and activate "Dunder LSP".</li>
+      <li>Go back to Blixt main screen - click on receive, put the amount, but no more than 400k sats (there's a limitation for now).</li>
+      <li>It will create a LN invoice to be paid from another LN wallet.</li>
+      <li>Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds you sent (200k sats for example) on your channel side. So you will have a nice channel ready to send 200k sats and receive 200k sats.</li>
+      <li>If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same channel. If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all your receiving payments.</li>
+      </ol>
+    <h3>IMPORTANT NOTE:</h3>
+    <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
+  </section>
+  
+  <section id="guide-autopilot">
+  <h3>How to use autopilot for opening LN channels?</h3>
+    <p>Blixt wallet have the auto-pilot feature, but is used only once, first time you create the Blixt node wallet and you deposit to onchain QR code that appear first time on the main screen. That deposit will open a channel for you with Blixt public node, with the amount you deposited (minus the miner fees and reserves for the channel).</p>
+    <p>By default the autopilot option is already activated, but if you do not want to use it, just go to Settings - "automatically open channels" and disable the box.</p>
+    <p>This feature, is not used anymore, once the first channel is open. For the next channels to open you will have to use <a href="#guide-lsp">Dunder LSP channels</a> and / or <a href="#guide-channels">standard method</a> for opening channels with any other LN node. You can check on <a href="https://amboss.space" target="_blank" rel="noopener noreferrer">LN nodes explorer page Amboss.space</a> and choose a LN node that you whish to connect.</p>
+  </section>
+  
+  <section id="guide-channels">
+    <h3>How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</h3>
+    <p>There are 2 options: opening from Blixt towards your node and also from your home node towards your Blixt node.</p>
+    <p>But first let's mention some aspects to be taken in consideration:</p>
+      <ul>
+      <li>these channels open with your home node, will be private by default. That means you will not be able to route other txs through them. And are private for a reason: a mobile node is not supposed to be 100% all the time online, only when is needed to make a tx by the user.</li>
+      <li>usually these channels are open using <a href="https://en.wikipedia.org/wiki/Tor_(network)" target="_blank" rel="noopener noreferrer">Tor network</a>, due to the fact that most of home nodes (Umbrel, myNode, Raspiblitz) are by default Tor enabled. So when you want to open/use these channels, be sure you activate Tor on your Blixt app.</li>
+      <li>these channels are your first hop into a payment, so you can easily set 0 total fees and let your main home node to deal with the best following route.</li>
+      </ul>
+    <h4>Opening a channel from Blixt towards your home node</h4>
+      <ol>
+      <li>Activate Tor, in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
+      <li>Go to your Umbrel / home node and copy the onion URI of your home node or just pull up the QR code for onion URI. It should be in this format `nodeID@onion-address:9735`</li>
+      <li>Go to Blixt - Settings - Lightning peers - add new peer.</li>
+      <li>Scan QR code from your Umbrel/home node or paste the onion URI and your home node will be added as a peer.</li>
+      <li>Go back to Blixt main screen - top left drawer - Lightning channels.</li>
+      <li>Click on open new channel + sign and paste the onion URI or scan the QR code of your Umbrel node. Add amount of sats for the channel, fee and click open.</li>
+      <li>Done, channel will be open and functional after 3 block confirmations. Happy Lightning with your own home node partner!</li>
+      </ol>
+    <h4>Opening a channel from my home node towards Blixt mobile node</h4>
+    <p><strong>IMPORTANT NOTE</strong>: Until new Tor implementation in Blixt will be deplayed (work in progress) and also Tor v3 fro Neutrino in LND code will be released, consider this option as experimental.</p>
+      <ol>
+      <li>Activate Tor in Blixt - Settings - Tor onion. App will restart (if not, do it manually with force close).</li>
+      <li>Wait for Blixt to open in Tor mode and sync the latest blocks (see the sync icon on top)</li>
+      <li>Go to Blixt settings - see Show Tor onion service, copy it, is your Blixt node URI. Is good to have it saved also in your password manager, for later use. Keep your Blixt app active online during all this process!</li>
+      <li>Go to your Umbrel app RTL or Thunderhub (preferably) - add peer and paste your Blixt onion URI</li>
+      <li>Go to your Umbrel node dashboard or RTL/Thunderhub - open channel, and select known peer from list looking for your Blixt nodeID</li>
+      <li>Put the amount of sats for the channel, fees, click open. Wait for 3 block confirmations and you have a new channel with your "mini node" Blixt.</li>
+      <li>Optional, later when is ready active, you can push funds using keysend feature, into one side or another. Blixt also supports keysend, as Thunderhub too.</li>
+      </ol>
+  </section>
+  
+  <section id="guide-refill">
+    <h3>How do I refill an existing LN channel from onchain addreess?</h3>
+    <p>Apart from regular opening LN channels in Blixt, sometimes users want to just load up existing channels from onchain address.
+     For the moment Blixt doesn't have an internal way to swap funds onchain to/from LN, but is considered for next releases.</p>
+    <p>So how we can do it?</p>
+    <p>Use case scenario:</p>
+    <ul>
+    <li>you already have 2-3-4 LN channels in Blixt</li>
+    <li>those channels are almost empty and you need more liquidity on LN to make some payments</li>
+    <li>you do not want to close the existing channels and open more</li>
+    <li>you have funds in an onchain address or you just buy from an exchange a small amount and want to withdraw it into a LN wallet</li>
+    </ul>
+    <p>Steps do it:</p>
+    <ol>
+    <li>Go to any swap service like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
+       <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
+       <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats</a> (accessible through Blixt WebLN browser or Tor onion address) 
+       and select swap onchain to LN</li>
+    <li>Put the amount, pay it from your onchain address (could be even from same Blixt wallet onchain or any other you have)</li>
+    <li>Provide the LN invoice from your Blixt wallet as destination</li>
+    </ol>
+    <p>Done! Now you have your sats directly into your Blixt LN channels. This is also a good way for privacy.</p>
+    <p>NOTE: you can also do the way around, taking out sats from LN channels into any onchain address, without closing the channels.
+      In this case you can also use <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a> swap (this one is only LN to onchain)</p>
+  </section>
+  
+  <section id="guide-tor">
+    <h3>How to use Blixt with Tor - clearnet - VPN</h3>
+    <p>Many users want to use Blixt Wallet as a "privacy" node wallet. And we respect and understand that.</p>
+    <p>But in some specific situations Tor network is not so reliable for such things, as a LN node have to be 100% well connected, to sync the graph network and communicate well with peers.</p>
+    <p>But let's see how Blixt is doing the communications:</p>
+    <ul>
+    <li>Blixt will sync the blocks through Neutrino (BIP157) with its default node (node.blixtwallet.com) or with user's node.</li>
+    <li>Blixt, for the moment couldn't use an onion URI for that Neutrino sync. It is waited a new LND release to support that option.</li>
+    <li>Onchain traffic will be done through Blixt node, so your IP will be known only by the Blixt server</li>
+    <li>LN traffic, if you have channels only with Blixt node, will be only through Blixt node.</li>
+    <li>If you have channels with your own node, then only your node will know your Blixt IP/nodeID.</li>
+    <li>If you have channels with various nodes, then they will "see" your IP of your Blixt node or Tor onion address.</li>
+    </ul>
+    <p>Now, let's analyse some situations of usage with different networks:</p>
+    <ul>
+    <li>You want full Tor privacy - you will use Blixt only on Tor and you never switch to clearnet. Open channels with Tor nodes, including with Blixt node. In this way Blixt servers will never know your real IP. But keep in mind: Tor connections are failing a lot nowadays, so are not so reliable.</li>
+    <li>You want privacy but not with Tor (is unreliable) - you can use Blixt behind a VPN, which will forward all traffic done on your device through a dedicated IP (that is not yours). A simple use case could be <a href="https://lnvpn.net/" target="_blank" rel="noopener noreferrer">LNVPN.net</a>. VPN connections could be much faster and reliable than Tor.</li>
+    <li>Best scenario: connect to your own home node with Neutrino over clearnet/IP. Is only you that know/have that info anyway. Open channels only with your own node or nodes that you trust. Over clearnet, it doesn't matter. All the LN traffic will be done anyway from that node where you are connected and will forward all your LN payments for your Blixt, being the only first hop. After that, <a href="https://www.youtube.com/watch?v=toarjBSPFqI" target="_blank" rel="noopener noreferrer">due to onion routing built-in LN</a>, NOBODY knows from where is coming and where is going that tx. <a href="#guide-companion" target="_blank" rel="noopener noreferrer">As it is explained in this guide.</a></li>
+    <li>If you are just a regular user, paying some beers over LN, there's no such big deal in using Blixt over clearnet. The only "weak link" will be Blixt server that will log some of your IPs from where you connect your Blixt. That's all, nothing else. All the rest is unknown.</li>
+    </ul>
+    <p>So choose for yourself, in which situation you are and the trade-offs you are willing to have for each method.</p>
+    <p>"My Blixt is stuck in starting, when I have Tor activated. What can I do?".</p>
+    <p>Yes, sometimes, due to bad connection, bad ISP, bad Tor boostrapping, the service can be stuck.</p>
+    <p>First step: force close Blixt app, so all remaining intents to connect will be removed.</p>
+    <p>Second step: switch your device internet connection, from 4G to Wifi or vice-versa, find another mobile spot to get another IP.</p>
+  </section>
+  
+  <section id="guide-merchant">
+    <h3>Using Blixt Wallet as a small merchant - simple steps</h3>
+    <p>As a merchant, you will need more inbound liquidity, receiving more payments than sending them. You need to have "more space" to receive sats.</p>
+    <p>With Blixt you will need to do some preparation steps to obtain that inbound liquidity.</p>
+    <p>The idea is to have a bunch of enough large channels (depending on your incoming traffic amount), receive payments into these large channels,. and end of day or week, when these channels are filled, you loop out like 90% of the balance into an onchain address, using a submarine swap service (<a href="https://darthcoin.substack.com/p/lightning-network-submarine-swaps" target="_blank" rel="noopener noreferrer">see a detailed guide about swaps here</a>).</p>
+    <p>For the moment Blixt do not offer a swap service "in-app", but is taken in consideration for future developments.</p>
+    <h4>Use case scenario and steps to do:</h4>
+    <ul>
+    <li>Setup your Blixt wallet: generate a new wallet, save the seed, configure your personal settings, write down your nodeID etc...</li>
+    <li>Open a Dunder channel. Go to settings and activate "Enable Dunder LSP" option. Then go to main screen and hit the button "Receive". Make a small invoice like 20k sats. Pay that invoice from another LN wallet or even could be your first customer that pays you in sats. Dunder Blixt server will take that payment and convert it into a LN channel towards your Blixt mobile node, pushing the amount you (or your customer) paid and the rest until 400k sats will be as inbound liquidity space in that new channel (aka empty space to receive more). So now you are ready to receive more 380k sats into that channel.</li>
+    <li>Open more inbound channels. You can use the option "Inbound Channel Services" from app settings. Just follow the instructions displayed. You will practically buy an incoming channel providing your Blixt nodeID.</li>
+    <li>If you have a friend or customer with a node (and you still don't have one) they could also open a channel towards you and provide you with inbound liquidity.</li>
+    <li>More liquidity providers here: <a href="https://lnrouter.app/liquidity-ads" target="_blank" rel="noopener noreferrer">LNRouter Ads</a> or <a href="https://amboss.space/magma" target="_blank" rel="noopener noreferrer">Amboss Magma</a></li>
+    <li>Ok, now you have enough inbound liquidity, start receiving payments with your Blixt. Until you fill up all the channels space.</li>
+    <li>Loop out these sats into an onchain address. So practically you need to send these sats to a swap service. Is better to split in smaller txs or activate MPP ("Enable Multi-path payment") in app settings, so your lopp out tx(s) will find a better route for big amounts.</li>
+    <li>Swap services available to do this step: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a></li>
+    <li>Provide them one of your onchain savings/HODL address and loop out from your Blixt Wallet into your HODL wallet.</li>
+    </ul>
+    <p>DONE!</p>
+    <p>You now have more "space" to receive more payments. Happy Lightning!</p>
+  </section>
+
+  <section id="guide-companion">
+    <h3>How to use Blixt as companion for your home node?</h3>
+    <p>Being a mobile wallet, Blixt Wallet have the advantage to be a spending wallet and also a ramp / gate for your "infrastructure spending strategy machine".<p>
+    <p>Your home node (Umbrel, myNode, RaspiBlitz etc) will be the "commercial bank", that will manage your larger amounts of funding, taking care of your routing, fees, privacy, liquidity etc.</p>
+    <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
+    <p>Considerations:</p>
+    <ul>
+    <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 1-3M sats channel.</li>
+    <li>You already have at least 1-2 even 3 other channels with other nodes (Blixt node, ZeroFeeRouting or many others good ones). <a href="https://telegra.ph/List-of-good-nodes-11-25" target="_blank" rel="noopener noreferrer">Here is a curated list of good nodes to start.</a></li>
+    <li>Optional, you can set in your Blixt wallet app, the option to use MPP (Multi-Part Payment). Use this option when you have a larger payment</li>
+    <li>You have enough liquidity on your Blixt side of the channel with your node, to cover your regular payments. You can always push back funds using keysend from your home node to your Blixt wallet node.</li>
+    <li>You have set in your home node 0/0 fees for the channel you have with your Blixt Wallet and also 2-3 other good peers, to where you can push the flow of txs from your Blixt.</li>
+    </ul>
+    <p>Steps to do:</p>
+    <ol>
+    <li>Just pay your regular LN invoice, using Blixt. Those payments will be routed first to your home node and from there next hops according with your node liquidity and peers.</li>
+    <li>If you drain out your liquidity from Blixt wallet, you have two options:</li>
+    <ul>
+    <li>push back with keysend from your node, through the common channel (if you have enough liquidity)</li>
+    <li>or pay back to yourself using a LN invoice from your Blixt. Your node will pay that invoice through other peers back to your Blixt wallet.</li>
+    </ul>
+    <li>If you have to send a payment larger than 100k sats, I would suggest to use the MPP (Multi-Part Payment) option (see in settings). This will help to use better the liquidity you have in many channels and also increase privacy. When you use this option, keep in mind that could take more time until is done, due to multiple paths that can take. Also could imply more fees, depending on the payment path is taken.</li>
+    </ul>
+  </section>
+
+  <section id="guide-swap">
+    <h3>How do I send sats to onchain addresses?</h3>
+    <p>Blixt Wallet is also a LN node. And for that is making a clear distinction between "onchain wallet" and "LN wallet". Other wallet applications are not using this distinction and users don't really understand what is going on "behind the scenes". Blixt is more transparent in this matter and is using as "onchain wallet" for opening/closing channels and concentrate more on usability on Lightning Network, more like a private mobile node for spending.</p>
+    <p>Nevertheless, users can still transact onchain anytime, as with any other regular onchain wallet. Blixt have the "onchain wallet" into a separate section in the app, more like a "mini-vault", from two perspectives:</p>
+    <ul>
+    <li>Separating the balances of onchain and LN wallets, makes it more private from "external eyes" sneaking into your mobile screen. Blixt is displaying on the main screen (that you use it more for payments) only the LN wallet balance. That makes to hide the rest of your onchain balances to not be visible and offers you a better public privacy.</li>
+    <li>Having 2 types of balances, also makes you more aware of your spending habits, slowly you became more a hodler, because you see your LN balance going down and you will also slow down your spending habits. This is good in general, to stack more sats. Blixt cares about its users!</li>
+    </ul>
+    <p>So if you just want or you really need to do an onchain payment, just go to top drawer - onchain wallet and in there you have access to all functionalities of a regular onchain wallet.</p>
+    <p>On the other side, if you have sats only on LN wallet and you want/need to send to an onchain address, this operation require some steps to do.</p>
+    <p>We have users that receive more sats on LN then spend and their LN channels get filled up quickly (merchants, users that buy a lot through LN exchanges and simply "stackers" that just get more sats then spend).</p>
+    <p>Blixt, doesn't have (yet) an internal swap service LN --> onchain, only onchain --> LN (opening LN channels, with Dunder LSP or manually).</p>
+    <p>There are few options for this operation LN --> onchain:</p>
+    <ol>
+    <li>
+    <p><strong>Close the LN channel(s)</strong> - could take more time and fees and is always back to same Blixt onchain wallet, not external. So if you want to continue receiving sats on  LN, you would need to open new channels again and imply extra costs in fees.</p>
+    <p>This option is simple, just go to top left drawer, open Lightning Channels, select a channel you want to close and click "Close". You will need to wait until the closing is done and at least 3-4 confirmations for the onchain transaction and your funds will be ready in your Blixt onchain wallet (see top drawer - Onchain Wallet).</p>
+    </li>
+    <li>
+    <p><strong>Use an external swap service</strong> like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more.</p>
+    <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
+    <p>For using a swap service is also quite simple, in few steps:</p>
+        <ul>
+        <li>Go to one of those indicated services websites</li>
+        <li>Select L-BTC (lightning sats) to BTC</li>
+        <li>Put the amount of sats you want to swap. Don't use all your sats at once, let some for posible fees. If you use an amount higher than 50k sats, I suggest to use the option MPP (see in Blixt settings). MPP = multi-part payment. That will make to split your high payment into smaller pieces and the payment will be more likely to be fast, cheaper and be received in good conditions by the swap exchange.</li>
+        <li>Go to next step, where the swap service will ask you to paste an onchain BTC address. Could be any from any of your onchain wallets, not necesarily to be from Blixt. For example if you are a merchant and you want to swap out all most of your sats reveiced in that day, into a HODL wallet, provide an address from that onchain wallet.</li>
+        <li>Next step is where you will be prompted by the swap service with a LN invoice. Scan the QR with your Blixt wallet and pay the invoice.</li>
+        <li>Once is paid, you will receive a confirmation and you could see the transaction in the mempool and your wallet also will display it, once the miners will include it in a block.</li>
+        </ul>
+    </li>
+    <li>
+    <p><strong>Using Electrum wallet integrated swap service.</strong> This is particular case but works pretty well, using  <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline channels</a> and integrated swap LN <--> onchain.</p>
+    <p>This option is good if you want to keep more control of the process and don't want to be involved with 3rd party services like those from point 2. The transaction on LN from your Blixt wallet to your own Electrum wallet, is practicaly a totally private transaction.</p>
+    <p>Once you receive it in Electrum LN, you have a simple button on top for swap to onchain and funds are received in Electrum onchain address.</p>
+    <p>Future development with Blixt Wallet Desktop version, maybe will have integrated swaps like Electrum, but until then, you can use Electrum.</p>
+    </li>
+    </ol>
+    <p>DONE! You just swap out your sats from LN into an onchain wallet. Go on, now you can receive more sats into your Blixt LN channels!</p>
+  </section>
+  
+  </section>
+  <section id="guide-ism">
+    <h3>How to use Blixt as "Infrastructure Spending Machine" (ISM)?</h3>
+    <p>"Infrastructure Spending Machine" is the method used to buy bitcoins from KYC exchanges and move them to your on-chain HODL wallets, 
+       passing through a series of "preparations" in such manner that is breaking the links to your KYC identity, for a better privacy.</p>
+    <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph 
+       or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, 
+       if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
+    <p><img src="assets/images/blixt-machine.png" align="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    <p>Considerations:</p>
+    <ul>
+    <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 2-5M sats channel.</li>
+    <li>Use this scenario when the onchain fees are low and mempool is almost empty, to save time and fees. 
+        Check on <a href="https://mempool.space">Mempool</a> first, to see the status.</li>
+    <li>You already have a on-chain "cache wallet" to be the intermediary ramp for this procedure. 
+        You can use your home node on-chain wallet but is better an Electrum/Sparrow desktop wallet (for a better view management of fees, 
+        UTXOs, coins etc). This "cache wallet" is important.</li>
+    <li>You DO NOT withdraw directly from an exchange to the swap service. You could have funds blocked and/or lost if you do that. 
+        Usually exchanges are using a delay in withdraw funds, in special to avoid these cases. So withdraw first into your "cache wallet", for safety.</li>
+    <li>Swap services you could use: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | 
+        <a href="https://deezy.io/" target="_blank" rel="noopener noreferrer">Deezy.io (LN to onchain)</a> | 
+        <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | 
+        <a href="https://learn.robosats.com/" target="_blank" rel="noopener noreferrer">RoboSats (Tor P2P)</a> | 
+        <a href="https://amboss.space/magma?type=swap" target="_blank" rel="noopener noreferrer">Amboss (P2P swaps)</a> | 
+        <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more</li>
+    </ul>
+    <p>Steps to do:</p>
+    <ol>
+    <li>Buy BTC from any exchange you comfortable with. If you can, choose one with less KYC or even none. 
+        See <a href="https://kycnot.me" target="_blank" rel="noopener noreferrer">KYCnot.me</a></li>
+    <li>Withdraw the BTC immediately to your "cache wallet" on-chain, with low fee selection if you can. Wait for 6 confirmations, 
+        checking on <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">Mempool</a> (preferably using Tor or VPN, 
+        not your real IP, or use the mempool app from your home node to check directly on your local copy of blockchain).</li>
+    <li>Send BTC to one or more swap services mentioned above. You can split in smaller amounts, if you bought a larger amount. 
+        Be sure you choose a good time with los fees and almost empty mempool, otherwise if you are in a hurry you will have to pay higher fees. 
+        The swap service have a limited time to wait for that onchain tx to be sent, usually 30 min until the first confirmation is done.</li>
+    <li>Provide a LN invoice for the amount indicated in the swap service, from your Blixt wallet. Keep your Blixt alive and online during this process.</li>
+    <li>Once you receive the funds from the swap, you can use keysend option or a regular LN invoice from your Blixt 
+        to your home node to move the funds from Blixt to your home node. 
+        Remember: that transaction will be private, through your private channel between your Blixt and your home node.</li>
+    <li>In this step you could use internal "loop-out" function from RTL or Thunderhub node management apps, 
+        to move funds from LN channels to an external on-chain address. Or just keep them to be used on LN, later when is necessary. 
+        Also you could use again the external swap services mentioned above, but this time the way around, 
+        sending through LN and receive to on-chain, to the desired BTC address of your HODL wallet.</li>
+    </ol>
+    <p><strong>NOTE:</strong></p>
+    <p>If you do not have a home node, you could use instead a simple desktop Electrum wallet with Lightning function activated. 
+       Electrum have integrated swap services and two types of LN channels: 
+       <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> 
+       and regular private channels, so you can open one with your Blixt node wallet.</p>
+    <p>So practically you could just send from your Blixt to your Electrum through LN and from Electrum make a swap into onchain address.</p>
+  </section>
+</article>
