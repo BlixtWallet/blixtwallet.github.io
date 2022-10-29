@@ -115,18 +115,48 @@ title: Guias
   
   <section id="guia-lsp">
   <h3>¿Cómo usar Dunder LSP para abrir canales y recibir fondos a través de LN?</h3>
-    <p>Esta es una experiencia increíble y simple para recibir fondos directamente en su billetera de nodo Blixt recién abierta, sin necesidad de depositar fondos y abrir canales manualmente con nodos específicos.</p>
-    <p>Este procedimiento es proporcionado por el LSP (proveedor de servicios de liquidez), es una función de Blixt que permite a los usuarios obtener liquidez entrante/saliente instantánea abriendo un canal para ellos, desde el nodo Blixt LSP hacia su nodo móvil Blixt.</p>
-    <p>RECUERDE: LSP es solo un proveedor de liquidez, no un servidor de custodia, no un nodo de custodia, por lo que sus fondos siempre están en el canal de su dispositivo y usted es el único que puede controlarlos. Esto significa también que para estar operativo para recibir/enviar fondos, su aplicación Blixt debe estar en línea, como cualquier otro nodo. No es necesario estar todo el tiempo con la app abierta y conectada. La aplicación se sincroniza en segundo plano cuando su móvil tiene conexión a Internet. De todos modos, incluso si no se ha conectado durante un breve período de tiempo, una vez que abra Blixt, tardará unos momentos y sincronizará los filtros de neutrinos (SPV), luego su nodo volverá a estar en línea.</p>
+    <h4>¿Qué es un canal Dunder?</h4>
+    <p>Dunder es un proveedor de servicios Lightning para Bitcoin Lightning Network. Actualmente admite "aperturas de canales bajo demanda",
+       lo que significa que si una billetera Lightning recibe un pago entrante sin tener capacidad de entrada,
+       Dunder abrirá un canal a la billetera con un monto de inserción igual al pago entrante menos la tarifa en cadena.</p>
+    <h4>¿Cómo funciona el canal de Dunder?</h4>
+    <p>Una técnica para permitir la entrada de pagos cuando la billetera no tiene canales de entrada es tener un nodo intermediario (LSP):</p>
+       <ul>
+       <li>Interceptar el HTLC entrante</li>
+       <li>Resuélvalo por sí mismo en lugar de continuar reenviándolo (dando una preimagen a LSP)</li>
+       <li>Abrir un canal a la billetera con cantidad push</li>
+       </ul>
+    <p>Para hacer esto, la billetera puede crear una factura con una sugerencia de ruta 
+       que conduce a un nodo LSP con una identificación de canal corta falsa.</p>
+    <p>Una vez que el LSP ve un HTLC entrante con información de reenvío que especifica 
+       dicho ID de canal corto falso, puede continuar con el protocolo especificado anteriormente.</p>
+    <h4>PROCEDIMIENTO PARA ABRIR UN CANAL DUNDER:</h4>
       <ol>
-      <li>Una vez que cree la billetera y guarde la semilla, vaya a la configuración de Blixt y active "Dunder LSP".</li>
-      <li>Regrese a la pantalla principal de Blixt: haga clic en recibir, ingrese la cantidad, pero no más de 400k sats (hay una limitación por ahora).</li>
-      <li>Creará una factura de LN para pagar desde otra billetera de LN.</li>
-      <li>Una vez que se pague la factura de LN, el servicio Dunder LSP creará un canal con un máximo de 400 000 sats y transferirá los fondos que envió (200k sats, por ejemplo) al lado de su canal. Entonces tendrá un buen canal listo para enviar 200k sats y recibir 200k sats.</li>
-      <li>Si va a tener otra recepción de pago en su Blixt, por menos de 200k sats, se utilizará el mismo canal. Si la cantidad será mayor, Dunder creará un nuevo canal (de un máximo de 400k sats) y así sucesivamente con todos sus pagos recibidos.</li>
+      <li>Una vez que cree la billetera y guarde la semilla, vaya al menú de configuración de Blixt y active la opción "Dunder LSP".</li>
+      <li>Vuelva a la pantalla principal de Blixt: haga clic en recibir, ingrese la cantidad, pero no más de 400k sats (hay una limitación por ahora).</li>
+      <li>Se creará una factura de LN que se pagará desde otro monedero de LN.</li>
+      <li>Una vez que se pague la factura de LN, el servicio Dunder LSP creará un canal con un máximo de 400k sats y transferirá los fondos que envió (200k sats, por ejemplo).
+          en el lado de tu canal. Entonces tendrá un buen canal listo para enviar 200k sats y recibir 200k sats.</li>
+      <li>Si va a recibir otro pago en su Blixt, por menos de 200k sats, se utilizará el mismo canal.
+          Si la cantidad será mayor, Dunder creará un nuevo canal (de un máximo de 400k sats). y así sucesivamente con todos sus pagos recibidos.</li>
+      <li>Si ya tiene un canal abierto, pero el nuevo monto recibido es mayor que su liquidez entrante real,
+          en la pantalla de creación de la factura, verá un mensaje que dice "esta factura abrirá un canal Dunder".
+          NOTA: Este mensaje / apertura de Dunder aparecerá SOLAMENTE si ya ha activado "Usar canales de Dunder" en las opciones de Blixt.</li>
       </ol>
-    <h3>NOTA IMPORTANTE:</h3>
-    <p>Acostúmbrate a hacer copias de seguridad de tus canales LN cada vez que abres/cierras un canal. Tarda exactamente unos segundos en hacerlo, incluso si por poco tiempo lo almacena en la memoria de su propio móvil. Más tarde puede moverlo a su lugar seguro de almacenamiento. También puede usar la copia de seguridad de Google Drive que se ofrece en Blixt. No seas perezoso e ignores esta simple regla, te salvará de muchos problemas más adelante.</p>
+    <h4>NOTAS IMPORTANTES:</h4>
+      <ul>
+      <li>LSP es solo un proveedor de liquidez, no un servidor de custodia, no un nodo de custodia,
+      para que sus fondos estén siempre en el canal de su dispositivo y usted es el único que puede controlarlos.</li>
+      <li>Utilice Dunder solo como un nuevo usuario de Blixt, cuando no tenga ningún canal abierto y desee tener algo de liquidez entrante también.</li>
+      <li>Para poder recibir/enviar fondos, su aplicación Blixt debe estar en línea, como cualquier otro nodo.
+      No es necesario estar todo el tiempo con la app abierta y conectada. La aplicación se sincroniza en segundo plano cuando su teléfono móvil tiene
+      conexión a Internet. De todos modos, incluso si no te has conectado durante un breve período de tiempo, una vez que abres Blixt,
+      tomará unos momentos y sincronizará los filtros de neutrinos (SPV), luego su nodo volverá a estar en línea.</li>
+      <li>Acostúmbrese a hacer copias de seguridad de sus canales de LN cada vez que abra o cierre un canal.
+          Tarda exactamente unos segundos en hacerlo, incluso si por poco tiempo lo almacena en la memoria de su propio móvil.
+          Más tarde puede moverlo a su lugar seguro de almacenamiento. También puede usar la copia de seguridad de iCloud / Google Drive que se ofrece en Blixt.
+          No seas perezoso e ignores esta simple regla, te ahorrará muchos problemas más adelante.</li>
+      </ul>
   </section>
   
   <section id="guia-autopilot">
@@ -328,8 +358,7 @@ title: Guias
     <li>Una vez que reciba los fondos del intercambio, puede usar la opción de envío de claves de su Blixt o una factura LN regular desde su nodo de inicio para mover los fondos de Blixt a su nodo de inicio. Recuerda: esa transacción será privada, a través de tu canal privado entre tu Blixt y tu nodo home.</li>
     <li>En este paso, puede usar la función interna de "bucle de salida" de las aplicaciones de administración de nodos RTL o Thunderhub para mover fondos de los canales LN a una dirección externa en cadena. O simplemente guárdelos para usarlos en LN, más tarde cuando sea necesario. También podría usar nuevamente los servicios de intercambio externos mencionados anteriormente, pero esta vez al revés, enviando a través de LN y recibiendo en cadena, a la dirección BTC deseada de su billetera HODL.</li>
     </ol>
-    <p><strong>NOTA:</strong></p>
-    <p>Si no tiene un nodo de inicio, puede usar en su lugar una billetera Electrum de escritorio simple con la función Lightning activada. Electrum tiene servicios de intercambio integrados y dos tipos de canales LN: <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> y canales privados regulares, para que pueda abrir uno con su billetera de nodo Blixt.</p>
-    <p>Entonces, prácticamente podría enviar desde su Blixt a su Electrum a través de LN y desde Electrum hacer un intercambio en la dirección de la cadena.</p>
+    <p>Aquí hay un esquema simple para hacer intercambios con Blixt, como ejemplo para usar:</p>
+    <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
   </section>
 </article>

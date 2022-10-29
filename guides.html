@@ -82,7 +82,7 @@ title: Guides
           This has a name: “commit_fees” that are like a reserve for when the channels are closed, to be able to pay the miners fees. 
           So be aware that when you deposit into your Blixt and open channels (no matter you use Dunder LSP or regular auto-pilot or 
           manual opening channels), in your channels list you will see the amount available that is slightly less than the total amount you open 
-          the channel. That’s why is NOT recommended to open tiny small channels like 20-50-100k sats.
+          the channel. That's why is NOT recommended to open tiny small channels like 20-50-100k sats.
       </li>
       <li>Also each LN tx can have a small fee for the network. That is not a fee for Blixt, is a cost that makes your transactions to be safe 
           and secured by the network. But are very small, sometimes in msats.
@@ -113,18 +113,46 @@ title: Guides
   
   <section id="guide-lsp">
   <h3>How to use Dunder LSP to open channels and receive funds over LN?</h3>
-    <p>This is an amazing simple experience to receive funds directly in your fresh open Blixt node wallet, no need to deposit funds and manually open channels with specific nodes.</p>
-    <p>This procedure is provided by the LSP (liquidity service provider), is a feature of Blixt that allows users to get instant inbound/outbound liquidity by opening a channel for them, from Blixt LSP node towards your Blixt mobile node.</p>
-    <p>REMEMBER: LSP is just a liquidity provider, not custodial server, not custodial node, so your funds are always on your device channel and you are the only one that can control them. This means also that in order to be operational for receive/send funds, your Blixt app have to be online, like any other node. Is not necessary to stay all the time with the app open and connected. The app it sync in background when your mobile phone has internet connection. Anyways, even if you, for certain short period you hadn't connected, once you open Blixt, it will take few moments and will sync the Neutrino filters (SPV), then your node is back online.</p>
+    <h4>What is a Dunder channel?</h4>
+    <p>Dunder is a Lightning Service Provider for the Bitcoin Lightning Network. It currently supports "on demand channel openings", 
+       meaning if a Lightning wallet gets an inbound payment while not having any inbound capacity, 
+       Dunder will open a channel to the wallet with push amount equal to the inbound payment minus the on-chain fee.</p>
+    <h4>How Dunder channel works?</h4>
+    <p>A technique to allow incoming payments when the wallet has no inbound channels is to have an intermediary node (LSP):</p>
+       <ul>
+       <li>Intercept the incoming HTLC</li>
+       <li>Settle it itself instead of continuing forwarding it (by giving preimage to LSP)</li>
+       <li>Open a channel to the wallet with push amount</li>
+       </ul>
+    <p>To do this the wallet can create an invoice with a routehint that leads to a LSP node with a fake short channel id.</p>
+    <p>Once the LSP sees an incoming HTLC with forwarding information specifying said fake short channel id, it can proceed with the protocol specified above.</p>
+    <h4>PROCEDURE TO OPEN A DUNDER CHANNEL:</h4>
       <ol>
-      <li>Once you create the wallet and save the seed, go to Blixt settings and activate "Dunder LSP".</li>
+      <li>Once you create the wallet and save the seed, go to Blixt settings menu and activate "Dunder LSP" option.</li>
       <li>Go back to Blixt main screen - click on receive, put the amount, but no more than 400k sats (there's a limitation for now).</li>
       <li>It will create a LN invoice to be paid from another LN wallet.</li>
-      <li>Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds you sent (200k sats for example) on your channel side. So you will have a nice channel ready to send 200k sats and receive 200k sats.</li>
-      <li>If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same channel. If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all your receiving payments.</li>
+      <li>Once the LN invoice is paid, Dunder LSP service will create a channel of max 400k sats and push those funds you sent (200k sats for example)
+          on your channel side. So you will have a nice channel ready to send 200k sats and receive 200k sats.</li>
+      <li>If you will have another receiving payment to your Blixt, for less than 200k sats, it will be used the same channel. 
+          If the amount will be higher, Dunder will create a new channel (of max 400k sats). and so on with all your receiving payments.</li>
+      <li>If you already have a chnanel open, but the new receiving amount is higher than your actual inbound liquidity,
+          in the invoice creation screen you will see a message saying "this invoice will open a Dunder channel". 
+          NOTE: This message / opening Dunder will appear ONLY if you already have activated "Use Dunder channels" in Blixt options.</li>
       </ol>
-    <h3>IMPORTANT NOTE:</h3>
-    <p>Get used to make backups of your LN channels every time you open/close a channel. Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. Later you can move it to your safe place storage. Also you can use Google Drive backup offered into Blixt. Don't be lazy and ignore this simple rule, it will save you later from much trouble.</p>
+    <h4>IMPORTANT NOTES:</h4>
+      <ul>
+      <li>LSP is just a liquidity provider, not custodial server, not custodial node, 
+      so your funds are always on your device channel and you are the only one that can control them.</li>
+      <li>Use Dunder only as a new Blixt user, when you do not have any channels open and you want to have some inbound liquidity as well.</li>
+      <li>In order to be operational for receive/send funds, your Blixt app have to be online, like any other node. 
+      Is not necessary to stay all the time with the app open and connected. The app it sync in background when your mobile phone has 
+      internet connection. Anyways, even if you, for certain short period you hadn't connected, once you open Blixt, 
+      it will take few moments and will sync the Neutrino filters (SPV), then your node is back online.</li>
+      <li>Get used to make backups of your LN channels every time you open/close a channel. 
+          Takes exactly few seconds to do it, even if for short time you store it on your own mobile memory. 
+          Later you can move it to your safe place storage. Also you can use iCloud / Google Drive backup offered into Blixt. 
+          Don't be lazy and ignore this simple rule, it will save you later from much trouble.</li>
+      </ul>
   </section>
   
   <section id="guide-autopilot">
@@ -352,11 +380,7 @@ title: Guides
         Also you could use again the external swap services mentioned above, but this time the way around, 
         sending through LN and receive to on-chain, to the desired BTC address of your HODL wallet.</li>
     </ol>
-    <p><strong>NOTE:</strong></p>
-    <p>If you do not have a home node, you could use instead a simple desktop Electrum wallet with Lightning function activated. 
-       Electrum have integrated swap services and two types of LN channels: 
-       <a href="https://blog.btse.com/trampoline-nodes/" target="_blank" rel="noopener noreferrer">trampoline nodes channels</a> 
-       and regular private channels, so you can open one with your Blixt node wallet.</p>
-    <p>So practically you could just send from your Blixt to your Electrum through LN and from Electrum make a swap into onchain address.</p>
+    <p>Here is a simple scheme to do swaps with Blixt, as example to use:</p>
+    <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
   </section>
 </article>

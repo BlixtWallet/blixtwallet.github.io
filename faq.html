@@ -41,6 +41,8 @@ title: Frequently Asked Questions
           is the procedure?</a></li>
       <li><a href="#restored-funds">I restored my old node using SCB file, but funds are not back to my onchain
           wallet</a></li>
+      <li><a href="#home-node-settings">I have one channel with my home node, but I get "no route found"</a></li>
+      <li><a href="#closing-channels">What would be the procedure to close channels with a peer node?</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -146,6 +148,7 @@ title: Frequently Asked Questions
     <ul>
       <li>Restart the Blixt app (try force close for closing bad connections).</li>
       <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
+      <li>Switch between your internet connections (Wifi <-> 4G). That could trigger a refresh of DNS providers in your device.</li>
       <li>Switch back to default sync server node.blixtwallet.com, or just leave it blank.</li>
       <li>Go to <i>Settings -> Rescan wallet</i>, then restart the app. Once restarted, go to <i>Settings -> Read lnd
           log</i>, or go to <i>Settings -> Copy lnd log to local storage</i> to save a copy of the lnd log.</li>
@@ -209,16 +212,20 @@ title: Frequently Asked Questions
     <h3>With which nodes can I open lightning channels?</h3>
     <p>REMEMBER:</p>
     <ul>
-      <li>Blixt Wallet uses private channels, not routing channels.</li>
-      <li>You can open channels with whatever node peer you choose, but choose wisely.</li>
+      <li>Blixt Wallet uses private channels, NOT public routing channels.</li>
+      <li>You can open channels with whatever node peer you choose, but choose wisely, a peer with good connections.</li>
       <li>Blixt Wallet is a private node wallet and mostly for quick payments. You will need to find the best routes:
         cheap, fast, reliable, and well connected peers.</li>
-      <li>You can connect to your own home node, but keep in mind that at that moment, your home node will be the
+      <li>You can also connect to your own home node, but keep in mind, your home node will be the
         liquidity provider for your wallet, so make sure it's reliable and you have good routes and good fees.</li>
       <li>Not every LN node wants or agrees with private channels. If it is a dedicated routing node, they usually do
-        not want private channels because for them it is like "locked" liquidity. It is better if you can first ask the
-        node operator if they will agree to a private channel. You can open directly, but be aware that some of them can
+        not want private channels because for them it is like "locked" liquidity. It is better if you can ask first the
+        node operator, if they will agree to open a private channel. You can open directly, but be aware that some of them can
         close the channel because they do not want private channels.</li>
+      <li>We always recommend to have more than 1 channel in your Blixt: 
+          one with Blixt node, one with another good routing node and one with your own node (if you have one) or any other friends node.
+          More peers also could trigger a MPP (multi-path payment), if you have it activated in Blixt options. MPP will help finding better routes.
+          Also for example, you have 3-5-6 channels, and 2 are offline, you still have 3 ones that are online and could provide routes.</li>
     </ul>
     <p>Blixt Wallet itself offers two optional methods for opening channels with the <a
         href="https://amboss.space/node/0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb"
@@ -234,19 +241,14 @@ title: Frequently Asked Questions
     <p>Inbound liquidity providers - Blixt also offers a direct link, in the wallet, to LNBig and Bitrefill (Thor). Go
       to <i>Settings -> Inbound channel services</i>. Select the desired one, and follow the instructions provided.
       Those are used only when you need more "INBOUND" liquidity.</p>
-    <p>Open channels with any nodes - As we've pointed out, we recommend choosing your peers wisely. Blixt is a
-      quick-spending LN wallet. We recommend finding one with low fees or even zero fees. Also, look at <a
+    <p>Open channels with any other good nodes - 
+       <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033" target="_blank">Blixt Community recommended peers</a>
+       is a good source to inspire from other Blixt users. As we've pointed out, we recommend choosing your peers wisely. 
+       Blixt is a quick-spending LN wallet. We recommend finding one with low fees or even zero fees. Also, look at <a
         href="https://amboss.space/community/fa2a3e5a-769c-4cbf-ab9d-7ed8680a9ec6" target="_blank">this Amboss Community
         of Zero Base Fee</a> or any other node community. Your Blixt Wallet needs good peers and low fees, so your
-      payments will be fast and cheap.</p>
-    <p>A very popular node that offers "zero fee routing" is the <a
-        href="https://amboss.space/node/038fe1bd966b5cb0545963490c631eaa1924e2c4c0ea4e7dcb5d4582a1e7f2f1a5"
-        target="_blank">ZFR node</a>. We suggest not opening small channels like 20k sats. If you want to use a node
-      like this as a peer, at least open channels with 400-500-600k sats to have enough for your payments and also cover
-      the reserves and costs. Smaller channels are not efficient for both peers. There are many others like this one,
-      but also keep in mind the centrality and connectivity of those nodes. Not all will offer good routes for your
-      payments.</p>
-    <p>It is very good practice to open channels with merchants or services you pay frequently. Opening a channel with
+        payments will be fast and cheap.</p>
+    <p>It is also good practice to open channels with merchants or services you pay frequently. Opening a channel with
       your favorite merchant can bring you 0 fees since it is a direct channel and it is like a "line of credit." You
       can also use that channel to pay other merchants or services. Just be aware of their fees for routing your
       payment, because if there isn't a direct payment route, their node will have to route your payment to the next hop
@@ -362,7 +364,6 @@ title: Frequently Asked Questions
 
   <section id="blixt-restore">
     <h3>I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone. What is the procedure?</h3>
-    </summary>
     <p>
       RULE NO.1 - You should always have a channel backup and keep it in a safe place (e.g., password manager). If you
       did that, the procedure is simple and you have two ways (fast and slow) and also two situations to take into
@@ -475,7 +476,6 @@ title: Frequently Asked Questions
 
   <section id="restored-funds">
     <h3>I restored my old node using the SCB file, but funds are not back in my on-chain wallet.</h3>
-    </summary>
     <p>OK, I had a previous dead node and I used the restore procedure, using the SCB backup channels file into Blixt. I
       wait for the channels to be closed, but funds are not back in my on-chain wallet. What can I do?</p>
     <p>Usually, there are a few possible scenarios for closing channels:</p>
@@ -529,4 +529,41 @@ title: Frequently Asked Questions
     </ul>
   </section>
 
+  <section id="home-node-settings">
+    <h3>I have one channel with my home node, but I get "no route found". What can I do?</h3>
+    <p>In this case, having only one channel open with your own node, you will need to tweak a bit your node.</p>
+    <p>And we've found these options that will help your Blixt to "communicate" better with your home node.</p>
+    <p>Go to your home node lnd.conf file and add these lines:
+    <p>at the end of [Application Options] section</p>
+      <pre>numgraphsyncpeers=9</pre>
+      <pre>ignore-historical-gossip-filters=false</pre>
+    <p>under [Routing] section</p>
+      <pre>routing.strictgraphpruning=false</pre>
+    <p>under [gossip] section (create it at the end if you do not have it)</p>
+      <pre>gossip.max-channel-update-burst=20</pre>
+      <pre>gossip.channel-update-interval=1m</pre>
+    <p>We always recommend to have more than one channel open and not just with the same peer, but with different peer nodes. 
+      <a href="#blixt-peers">As we explain it in this section.</a></p>
+  </section>
+
+  <section id="closing-channels">
+    <h3>What would be the procedure to close channels with a peer node?</h3>
+    <p>I have a channel with a peer node that I want to close it / peer announced that will shut down his node.</p>
+    <p>I would like to have the minimum impact possible over my remaining balance and pay minimum fees.</p>
+    <p>The simple answer is to have a "collaborative closing", so follow this procedure:</p>
+    <ul>
+      <li>Wait for Blixt to sync and also bring online your LN channels. Eventually check Blixt lnd logs in settings.</li>
+      <li>Go to Blixt top drawer - Lightning channels</li>
+      <li>Select the channel you want to close and click on the red button "Close channel".</li>
+      <li>Confirm the closing and wait with Blixt app active until you see the confirmation tx of the closing channel.</li>
+      <li>It will take few moments to be closed.</li>
+      <li>Once the closing tx will have 3 confirmations in the mempool, your remaining funds will be displayed in the on-chain wallet.</li>
+    </ul>
+    <p>Done. This will close the channel with minimum costs in fees and also the channel reserve is returened to your onchain address.</p>
+    <p>If you want a "force close" of the channel, in case that the peer is already shut down, non-responsive, 
+       then instead of a simple click on the red button, use a long press on the same button and then the popup message will contain the words
+       "Do you want to FORCE CLOSE this channel?" and will push the closure with a higher fee.</p>
+    <p>REMEMBER: this procedure will take more time to be confirmed, due to a lock time of the closing tx, in case are penalties to apply.
+       It could take up to 144 blocks, aproximately 2 weeks, but no more.</p>
+  </section>
 </article>
