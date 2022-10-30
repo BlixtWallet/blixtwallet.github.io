@@ -42,6 +42,7 @@ title: Guias
       <li><a href="#guia-companion">¿Cómo usar Blixt como compañero de tu nodo doméstico?</a></li>
       <li><a href="#guia-swap">¿Cómo envío sats a direcciones onchain?</a></li>
       <li><a href="#guia-ism">¿Cómo usar Blixt como "Máquina de Gastos en Infraestructura" (ISM)?</a></li>
+      <li><a href="#guia-wallet-viejo">¿Cómo consolidar fondos de una vieja billetera Blixt?</a></li>
     </ul>
   </section>
 
@@ -361,4 +362,54 @@ title: Guias
     <p>Aquí hay un esquema simple para hacer intercambios con Blixt, como ejemplo para usar:</p>
     <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
   </section>
+
+  <section id="guia-wallet-viejo">
+    <h3>¿Cómo consolidar fondos de una vieja billetera Blixt?</h3>
+    <p>Consideremos este escenario de caso de uso:</p>
+    <ul>
+      <li>tiene una billetera Blixt vieja y el dispositivo está roto, ya no puede ejecutar Blixt,
+          o simplemente desea limpiar la instancia anterior y migrar a un nuevo ID de nodo Blixt y nuevos UTXO.</li>
+      <li>tiene la semilla de respaldo y todos los canales de LN están cerrados, todos los fondos ya están en UTXO de billetera onchain.</li>
+      <li>ya tiene un nuevo dispositivo, listo con una nueva instancia de Blixt. No es necesario tener fondos en él, simplemente vacío.</li>
+    </ul>
+    <p>En este caso, para tener una transición fluida al nuevo dispositivo y también consolidar todos esos UTXO,
+       como resultado del cierre de muchos canales, recomendamos el siguiente procedimiento:</p>
+    <ol>
+      <li>Importe su antigua semilla en Bluewallet (también podría estar en Sparrow, pero es un procedimiento más largo y complicado), como cualquier otra billetera en cadena.</li>
+      <li>Utilice cualquier servicio de intercambio en cadena para LN (<a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> |
+        <a href="https://deezy.io/" target="_blank" rel="noopener noreferrer">Deezy</a> |
+        <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> |
+        <a href="https://learn.robosats.com/" target="_blank" rel="noopener noreferrer">RoboSats (Tor P2P)</a> |
+        <a href="https://amboss.space/magma?type=swap" target="_blank" rel="noopener noreferrer">Amboss (intercambios P2P)</a> |
+        <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> y muchos más)
+      </li>
+      <li>Vaya a su nuevo Blixt, en la configuración, active "usar canales Dunder". Mantenga Blixt activo para mantenerse sincronizado.</li>
+      <li>Envíe los fondos de Bluewallet onchain (sus antiguos fondos de Blixt) a cualquiera de estos servicios de intercambio.</li>
+      <li>Cuando se le solicite que proporcione una factura de LN desde la que se intercambiarán los fondos, abra el nuevo Blixt y haga clic en "Recibir".
+          En este momento verá un mensaje que dice "Esta factura abrirá un nuevo canal de Dunder".
+      </li>
+      <li>Haga clic en crear factura y mantenga Blixt activo.</li>
+      <li>Copie el código de la factura y péguelo en el cuadro de intercambio, que lo está esperando y haga clic en "Enviar/Intercambiar".
+          Los fondos se enviarán a Blixt Dunder Server y en unos momentos se abrirá un nuevo canal hacia su Blixt.
+      </li>
+      <li>Una vez pagada la factura, vaya a su Blixt - cajón superior - canales Lightning.
+          Verás que tras la 1era confirmación aparecerá allí el nuevo canal, en estado "pendiente de apertura".
+      </li>
+      <li>Solo espera a que se confirme por completo (3 confirmaciones en cadena) y estarás listo para usarlo entonces.
+          Sus fondos antiguos se transfieren a un nuevo ID de nodo, lo que agrega más anonimato a sus nuevos UTXO.</li>
+    </ol>
+    <p>RECORDATORIO, algunos aspectos importantes:</p>
+    <ol>
+      <li>Si la cantidad total de fondos que desea transferir es superior a 400k sats (el límite máximo para abrir canales Dunder), tiene estas opciones:</li>
+         <ul>
+          <li>divida la transferencia de intercambio en varias partes más pequeñas, por debajo de 400k sats y abra varios canales de Dunder (no muy recomendable)</li>
+          <li>utilice un LSP de entrada para comprar un canal de entrada con mayor capacidad. Vaya a Configuración de Blixt - Servicios de canal de entrada.
+              Allí encontrará algunos proveedores sugeridos por Blixt (LNbig y Bitrefill). Podrías usar cualquier otro.
+              Tenga en cuenta que debe especificar que necesita un canal privado. Compre un canal con suficiente liquidez mayor que la cantidad total de fondos que desea mover.
+              Pague el costo de ese canal entrante, desde otra billetera LN donde tenga sats en LN. O desde onchain si el LSP lo acepta.
+            </li>
+         </ul>
+      <li>Si la cantidad total de fondos que desea transferir es inferior a 400k sats, puede usar el canal Dunder directamente.</li>
+    </ol>
+  </sección>
 </article>
