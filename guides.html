@@ -42,6 +42,7 @@ title: Guides
       <li><a href="#guide-companion">How to use Blixt as companion for your home node?</a></li>
       <li><a href="#guide-swap">How do I send sats to onchain addresses?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
+      <li><a href="#guide-old-wallet">How to consolidate funds from an old Blixt wallet?</a></li>
     </ul>
   </section>
 
@@ -382,5 +383,55 @@ title: Guides
     </ol>
     <p>Here is a simple scheme to do swaps with Blixt, as example to use:</p>
     <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
+  </section>
+
+  <section id="guide-old-wallet">
+    <h3>How to consolidate UTXOs from an old Blixt wallet?</h3>
+    <p>Let's consider this use case scenario:</p>
+    <ul>
+      <li>you have an old Blixt wallet and the device is broken, can't run anymore Blixt, 
+          or simply you want to clean up old instance and migrate to a new Blixt nodeID and new UTXOs.</li>
+      <li>you have the backup seed and all LN channels are closed, all funds are already in onchain wallet UTXOs.</li>
+      <li>you already have a new device, ready with a new Blixt instance. No need to have any funds on it, just empty.</li>
+    </ul>
+    <p>In this case, in order to have a smooth transition to the new device and also consolidate all those UTXOs, 
+       resulted from closing many channels, we recommend the following procedure:</p>
+    <ol>
+      <li>Import your old seed into Bluewallet (could be also in Sparrow, but is a longer and compicated procedure), as any other onchain wallet.</li>
+      <li>Use any swap service onchain to LN (<a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | 
+        <a href="https://deezy.io/" target="_blank" rel="noopener noreferrer">Deezy</a> | 
+        <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | 
+        <a href="https://learn.robosats.com/" target="_blank" rel="noopener noreferrer">RoboSats (Tor P2P)</a> | 
+        <a href="https://amboss.space/magma?type=swap" target="_blank" rel="noopener noreferrer">Amboss (P2P swaps)</a> | 
+        <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> and many more)
+      </li>
+      <li>Go to your new Blixt, in settings, activate "use Dunder channels". Keep Blixt active, to stay synced.</li>
+      <li>Send the funds from Bluewallet onchain (your old Blixt funds) to any of these swap services.</li>
+      <li>When you are asked to provide a LN invoice where the funds to be send from swap, open the new Blixt and click on "Receive".
+          In this moment you will see a message saying "This invoice will open a new Dunder channel".
+      </li>
+      <li>Click on create invoice and keep Blixt active.</li>
+      <li>Copy the invoice code and paste it into the swap box, that is waiting it and click "Send/Swap". 
+          Funds will be sent to Blixt Dunder Server and in few moments will open a new channel towards your Blixt.
+      </li>
+      <li>Once the invoice is paid, go to your Blixt - top drawer - Lightning channels. 
+          You will see that after 1st confirmation the new channel will appear there, in "pending to open" status.
+      </li>
+      <li>Just wait to be fully confirmed (3 onchain confirmations) and you are ready to use it then. 
+          Your old funds are transfered to a new nodeID, adding more anonymity to your new UTXOs.</li>
+    </ol>
+    <p>REMINDER, some important aspects:</p>
+    <ol>
+      <li>If the total amount of funds you want to transfer is higher than 400k sats (the max limit of opening Dunder channels), you have these options:</li>
+         <ul>
+          <li>split the swap transfer in multiple smaller parts, under 400k sats and open multiple Dunder channels (not really recommended)</li>
+          <li>use an inbound LSP to buy an inbound channel with higher capacity. Go to Blixt Settings - Inbound Channel Services. 
+              You will find there some providers sugested by Blixt (LNbig and Bitrefill). You could use any others. 
+              Be aware, you must specify that you need a private channel. Buy a channel with enough liquidity bigegr than your total amount of funds you want to move.
+              Pay the cost of that inbound channel, from another LN wallet where you have sats in LN. Or from onchain if the LSP accept that.
+            </li>
+         </ul>
+      <li>If the total amount of funds you want to transfer is lower than 400k sats, then you could use Dunder channel directly.</li>
+    </ol>
   </section>
 </article>
