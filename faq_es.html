@@ -38,6 +38,8 @@ title: Preguntas frecuentes
       <li><a href="#umbrel-control">¿Puedo controlar de forma remota un nodo Umbrel desde Blixt Wallet?</a></li>
       <li><a href="#blixt-restaurar">Perdí mi teléfono móvil (muerto, robado) o simplemente quiero migrar a un nuevo teléfono, ¿cuál es el procedimiento?</a></li>
       <li><a href="#fondos-restaurados">Restauré mi antiguo nodo usando el archivo SCB, pero los fondos no han regresado a mi billetera onchain</a></li>
+      <li><a href="#nodo-personal-config">Tengo un canal con mi nodo personal, pero aparece "no se encontró ninguna ruta". ¿Qué puedo hacer?</a></li>
+      <li><a href="#cerrar-canales">¿Cuál sería el procedimiento para cerrar canales con un nodo par?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -339,4 +341,43 @@ title: Preguntas frecuentes
       <li>Entonces, antes de comenzar a cerrar sus canales, tenga en cuenta cuánto tenía en saldo total en su nodo, en SU lado de los canales. Esa es la cantidad que recuperará. Algunos canales incluso estarán vacíos de tu lado, así que no esperes obtener sats de esos canales cerrados.</li>
       </ul>
   </section>
+
+  <section id="nodo-personal-config">
+    <h3>Tengo un canal con mi nodo personal, pero aparece "no se encontró ninguna ruta". ¿Qué puedo hacer?</h3>
+    <p>En este caso, al tener solo un canal abierto con su propio nodo, deberá ajustar un poco su nodo.</p>
+    <p>Y hemos encontrado estas opciones que ayudarán a su Blixt a "comunicarse" mejor con su nodo de inicio.</p>
+    <p>Vaya al archivo lnd.conf de su nodo de inicio y agregue estas líneas:
+    <p>al final de la sección [Application Options]</p>
+      <pre>numgraphsyncpeers=9</pre>
+      <pre>ignore-historical-gossip-filters=false</pre>
+    <p>en la sección [routing]</p>
+      <pre>routing.strictgraphpruning=false</pre>
+      <p>en la sección [gossip] (crealo al final si no lo tienes)</p>
+      <pre>gossip.max-channel-update-burst=20</pre>
+      <pre>gossip.channel-update-interval=1m</pre>
+    <p>Siempre recomendamos tener más de un canal abierto y no solo con el mismo par, sino con diferentes nodos de pares.
+      <a href="#blixt-pares">Como lo explicamos en esta sección.</a></p>
+  </section>
+
+  <section id="cerrar-canales">
+    <h3>¿Cuál sería el procedimiento para cerrar canales con un nodo par?</h3>
+    <p>Tengo un canal con un nodo par que quiero cerrarlo / par anunció que cerrará su nodo.</p>
+    <p>Me gustaría tener el mínimo impacto posible sobre mi saldo restante y pagar tarifas mínimas.</p>
+    <p>La respuesta simple es tener un "cierre colaborativo", así que siga este procedimiento:</p>
+    <ul>
+      <li>Espere a que Blixt se sincronice y también ponga en línea sus canales de LN. Eventualmente verifique los logs lnd de Blixt en la configuración.</li>
+      <li>Ir al cajón superior Blixt - Canales Lightning</li>
+      <li>Seleccione el canal que desea cerrar y haga clic en el botón rojo "Cerrar canal".</li>
+      <li>Confirme el cierre y espere con la aplicación Blixt activa hasta que vea el tx de confirmación del canal de cierre.</li>
+      <li>Tardará unos momentos en cerrarse.</li>
+      <li>Una vez que el tx de cierre tenga 3 confirmaciones en el mempool, sus fondos restantes se mostrarán en la billetera on-chain.</li>
+    </ul>
+    <p>Listo. Esto cerrará el canal con costos mínimos en tarifas y también la reserva del canal se devolverá a su dirección en cadena.</p>
+    <p>Si desea un "cierre forzado" del canal, en caso de que el compañero ya esté cerrado, no responda,
+       luego, en lugar de un simple clic en el botón rojo, presione prolongadamente el mismo botón y luego el mensaje emergente contendrá las palabras
+       "¿Quieres FORZAR EL CIERRE de este canal?" e impulsará el cierre con una tarifa más alta.</p>
+    <p>RECUERDE: este trámite tardará más en ser confirmado, debido a un tiempo de bloqueo del tx de cierre, en caso de que se apliquen sanciones.
+       Podría tomar hasta 144 bloques, aproximadamente 2 semanas, pero no más.</p>
+  </section>
+  
 </article>
