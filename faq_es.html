@@ -231,19 +231,8 @@ title: Preguntas frecuentes
   <section id="conectar-bitcoin-nodo">
     <h3>¿Cómo conecto Blixt Wallet a mi propio nodo completo?</h3>
     <p>En <i>Configuración -> Bitcoin -> Establecer nodo de Bitcoin</i> puede ingresar un nodo de bitcoin para conectarse</p>
-    <p>NOTAS:</p>
-      <ul>
-      <li>Las versiones anteriores de Blixt Wallet hasta v 0.6.x NO admiten esta función, ya que están utilizando LND v0.14.x que no admiten
-      <a href="https://github.com/lightningnetwork/lnd/issues/4973" target="_blank" rel="noopener noreferrer">Tor onion v3</a>, 
-      así que por el momento, con estas versiones puedes usar tu nodo solo si está "visible" en clearnet (IP/dominio). Debes asegurarte
-       que el puerto P2P de Bitcoin (8333) es reenviado por su router. Puede conectarse a su nodo a través de su IP LAN local,
-       pero solo funcionará cuando esté conectado a su LAN doméstico.
-      </li>
-      <li>La version Blixt Wallet v0.6.x adelante ya viene con LND v 0.15.x que admite Tor onion v.3,
-        así que SÍ, puede usar su propio nodo personal detrás de Tor para conectarse y sincronizar bloques a través de Tor en su Blixt Wallet.
-      </li>
-      </ul>
-    </p>
+    <p>Debes asegurarte que el puerto P2P de Bitcoin (8333) es reenviado por su router. Puede conectarse a su nodo a través de su IP LAN local,
+       clearnet o dirección Tor onion.</p>
     <p>La indexación del filtro compacto BIP157 debe estar habilitada para su nodo, agregue esto a su bitcoin.conf, si aún no está configurado:</p>
     <pre>
         blockfilterindex=1
