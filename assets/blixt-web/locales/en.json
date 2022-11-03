@@ -5,7 +5,9 @@
       "nodeAlias": "Node alias",
       "description": "Description",
       "amount": "Amount",
-      "fee": "Fee"
+      "fee": "Fee",
+      "search": "Search",
+      "viewInBlockExplorer": "View in block explorer"
     },
     "buttons": {
       "ok": "Ok",
@@ -46,6 +48,11 @@
     },
     "restoreWallet": {
       "title": "Restore Wallet"
+    },
+    "menu": {
+      "enableTor": "Enable Tor",
+      "disableTor": "Disable Tor",
+      "setBitcoinNode": "Set Bitcoin node"
     }
   },
   "footerNav": {
@@ -84,7 +91,12 @@
       "msg1": "Thank you for using Blixt Wallet!",
       "msg2": "We recommend making a backup of the wallet so that you can restore your funds in case of a phone loss.",
       "backup": "Backup wallet"
-    }
+    },
+    "newChannelBeingOpened": {
+      "info": "A new channel is in the process of being opened...",
+      "view": "View"
+    },
+    "noTransactionsYet": "No transactions yet"
   },
   "help": {
     "title": "Help",
@@ -155,7 +167,6 @@
     },
     "createInvoice": {
       "title": "Create invoice",
-      "error": "Invoice amount cannot be higher than",
       "alert": "Before you can receive, you need to open a Lightning channel.",
       "lsp": {
         "msg": "A payment channel by Dunder LSP will be opened when this invoice is paid.",
@@ -239,6 +250,33 @@
     },
     "balance": {
       "title": "Balance"
+    },
+    "channel": {
+      "alias": "Alias",
+      "node": "Node",
+      "channelId": "Channel ID",
+      "status": "Status",
+      "statusActive": "Active",
+      "statusInactive": "Inactive",
+      "statusPending": "Pending",
+      "statusClosing": "Closing",
+      "statusForceClosing": "Force closing",
+      "statusWaitingForClose": "Waiting for close",
+      "capacity": "Capacity",
+      "howMuchCanBeSent": "Can send",
+      "howMuchCanBeReceived": "Can receive",
+      "localReserve": "Local reserve",
+      "commitmentFee": "Commitment fee",
+      "pendingFunds": "Pending funds",
+      "balanceInLimbo": "Limbo balance",
+      "pendingHtlcs": "Pending HTLCs",
+      "maturityHeight": "Maturity height",
+      "localCommitmentTxid": "Local commitment TXID",
+      "remoteCommitmentTxid": "Remote commitment TXID",
+      "closeChannel": "Close channel",
+      "closeChannelPrompt": {
+        "title": "Close channel"
+      }
     }
   },
   "lightningInfo.openChannel": {
@@ -258,6 +296,11 @@
       "fee_rate": {
         "title": "Fee-rate"
       }
+    },
+    "torPrompt": {
+      "title": "Enable Tor",
+      "text1": "It looks like you're trying to open a channel to a node that is running under a Tor onion service.",
+      "text2": "In order to connect you need to active Tor for Blixt Wallet."
     }
   },
   "onchain.onChainInfo": {
@@ -277,7 +320,6 @@
   },
   "onchain.onChainTransactionDetails": {
     "title": "Transaction",
-    "blockExplorer": "See in Block Explorer",
     "txHash": "Id",
     "timeStamp": "Date",
     "amount": "Amount",
@@ -606,7 +648,7 @@
           "title": "Manually trigger iCloud Backup",
           "alert": "Backed up channels to iCloud"
         },
-        "error": "Error backup up"
+        "error": "Error backing up"
       }
     },
     "security": {
@@ -802,6 +844,10 @@
       "keysend": {
         "title": "Keysend Experiment",
         "subtitle": ""
+      },
+      "invoiceExpiry": {
+        "title": "Invoice expiry (seconds)",
+        "subtitle": "{{expiry}} seconds"
       }
     },
     "debug": {
@@ -841,6 +887,26 @@
       "demo": {
         "title": "Activate Demo Mode",
         "subtitle": "Used for promo. Restart app to reset"
+      },
+      "rescanWallet": {
+        "title": "Rescan wallet",
+        "subtitle": "Rescan the blockchain for wallet transactions"
+      },
+      "getNodeInfo": {
+        "title": "Get node info"
+      },
+      "getChannelInfo": {
+        "title": "Get channel info"
+      },
+      "demoMode": {
+        "title": "Activate Demo Mode",
+        "subtitle": "Used for promo. Restart app to reset"
+      },
+      "disableGraphCache": {
+        "title": "Disable lnd graph cache"
+      },
+      "resetMissionControl": {
+        "title": "Reset payment routing knowledge"
       }
     }
   },
@@ -983,7 +1049,7 @@
         },
         "iCloud": {
           "title": "Restore via iCloud",
-          "alert": "Restoring via iClouod failed"
+          "alert": "Restoring via iCloud failed"
         }
       },
       "seed": "Seed must be exactly 24 words"
