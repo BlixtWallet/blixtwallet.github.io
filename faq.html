@@ -30,6 +30,7 @@ title: Frequently Asked Questions
       <li><a href="#what-is-ln">What is the Bitcoin Lightning Network?</a></li>
       <li><a href="#no-sync">Blixt doesn't sync. Why is this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
+      <li><a href="#reserve">What is the "channel reserve"?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#keysend">Can I receive sats through keysend?</a></li>
@@ -91,6 +92,11 @@ title: Frequently Asked Questions
       <li>
         <a href="https://github.com/chaincodelabs/lightning-curriculum/" target="_blank" rel="noopener noreferrer">
           Lightning Network Dev Curriculum – by Chaincode Labs
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/lnbook/lnbook" target="_blank" rel="noopener noreferrer">
+          The Lightning Book – by Rene Pickhardt, Olaoluwa Osuntokun and Andreas M. Antonopoulos
         </a>
       </li>
     </ol>
@@ -208,6 +214,23 @@ title: Frequently Asked Questions
     </p>
   </section>
 
+  <section id="reserve">
+    <h3>What is the channel reserve?</h3>
+    <p>"I have opened a 500k sats channel, but I can't use more than 495k sats, it says insuficient balance. Why is that?"</p>
+    <p>Another aspect to take in consideration is the "channel reserve". If you go to your Blixt - top drawer - Lightning Channels
+       you will see in the channel details that is mentioned how much is the channel reserve.
+    </p>
+    <p><img src="assets/images/blixt-ch-reserve.jpg" align="center" alt="Blixt Channel Reserve"/></p>
+    <p>A channel reserve is an amount that is set aside by each channel participant which ensures neither have "nothing at stake" 
+      if a cheating attempt occurs.</p>
+    <p>This reserve (usually 1% of the total amount of the channel) cannot be spent, and is held aside for the entirety of the channels lifetime. 
+       Channel reserves make cheating attempts less economical. When one channel party attempts to cheat the other and they are caught, 
+       a penalty transaction can be used to steal all the cheating parties bitcoin as punishment. 
+       Channel reserves makes it so cheating attempts always have something at stake making this less likely to occur.
+     </p>
+     <p><a href="https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve">Read more about LN channel reserve here.</a></p>
+  </section>
+
   <section id="blixt-peers">
     <h3>With which nodes can I open lightning channels?</h3>
     <p>REMEMBER:</p>
@@ -296,12 +319,12 @@ title: Frequently Asked Questions
   <section id="connect-bitcoin-node">
     <h3>How do I connect Blixt Wallet to my own full node?</h3>
     <p>Under <i>Settings -> Bitcoin Node</i>, you can enter a Bitcoin node to connect to.</p>
-    <p>BIP157 compact filter indexing must be enabled for your node. Add this to your bitcoin.conf if it isn't already
-      set:</p>
+    <p>BIP157 compact filter indexing must be enabled for your node. Add this to your bitcoin.conf if it isn't already set:</p>
     <pre>
       blockfilterindex=1
       peerblockfilters=1
     </pre>
+    <p>Also your Bitcoin node's port 8333 should be forwarded into your internet router.</p>
   </section>
 
   <section id="umbrel-control">

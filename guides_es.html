@@ -43,6 +43,7 @@ title: Guias
       <li><a href="#guia-swap">¿Cómo envío sats a direcciones onchain?</a></li>
       <li><a href="#guia-ism">¿Cómo usar Blixt como "Máquina de Gastos en Infraestructura" (ISM)?</a></li>
       <li><a href="#guia-wallet-viejo">¿Cómo consolidar fondos de una vieja billetera Blixt?</a></li>
+      <li><a href="#guia-liquidez">Mini guía rápida de liquidez para Blixt Node</a></li>
     </ul>
   </section>
 
@@ -381,5 +382,52 @@ title: Guias
          </ul>
       <li>Si la cantidad total de fondos que desea transferir es inferior a 400k sats, puede usar el canal Dunder directamente.</li>
     </ol>
+  </section>
+
+  <section id="guide-liquidez">
+    <h3>Mini guía rápida de liquidez para Blixt Node</h3>
+    <p>Escenario de caso de uso:</p>
+    <p>"Tengo 6 canales de Blixt Dunder abiertos, con un total de 400k sats de mi lado. A veces tengo fallas en las rutas y no puedo hacer pagos.
+        Recibí varios pedidos de Robosats y ahora todos los sats se encuentran en 6 canales".
+    </p>
+    <p>¿Qué puedo hacer?</p>
+    <p>Para tener una buena liquidez, no solo por ahora, sino también para uso futuro, debe tener un máximo de 3-4 canales, pero con diferentes pares, no solo uno.
+       Entonces, consideremos que durante una semana, necesita un máximo de 2M sats PARA RECIBIR, aproximadamente. La cantidad se puede ajustar según las necesidades y hábitos de cada usuario.
+       Consideremos también que durante la misma semana, realizará menos pagos, digamos aproximadamente 300k sats.
+       Así cada semana se quedará con un saldo de su lado de 1,7M sats, aproximadamente.
+    </p>
+    <p>En lugar de tener 6 canales, cada uno con una capacidad máxima de 400k sats (un total de 2,4 M sats), es mejor tener 3 canales, cada uno de 1M sats.
+       Ajústelo para sus necesidades entrantes.
+    </p>
+    <p>Cierre todos esos 6 canales, son demasiado pequeños para la necesidad regular de entrada de todos modos.
+       Los canales Dunder son principalmente para usuarios nuevos, para una fácil incorporación con la apertura rápida de un canal LN.
+       No son de uso regular para abrir un canal cada vez que tenga que recibir un pago. Eso es costoso.
+    </p>
+    <h4>ESCENARIO A</h4>
+    <p>Después de que todos estén cerrados y los fondos recuperados en cadena, abra 3 canales grandes, cada uno de 1M sats:</p>
+      <ul>
+        <li>1 con nodo Blixt</li>
+        <li>1 con su propio nodo (si tiene uno) o un nodo amigo (de confianza). Si no quieres/tienes tal amigo,
+            use solo otro nodo bien conocido</li>
+        <li>1 con cualquier otro nodo bueno, bien conectado. <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">Vea aquí algunos pares recomendados</a></li>
+      </ul>
+    <p>Listo. Ahora tienes 3M sats en 3 canales. Toda la liquidez saliente. Así que hagamos un poco de espacio.</p>
+    <p>Use cualquiera de los swaps convenientes (Deezy, Boltz, FixedFloat, Robosats, etc.) y canjee, al menos, el 50 % de toda su liquidez saliente.</p>
+    <p>Puede hacerlo en 3 lotes (recomendado para montos más pequeños) o todos a la vez (podría fallar debido a otras rutas de baja liquidez de los nodos de enrutamiento). Puedes probar ambos casos.</p>
+    <p>Si necesita más liquidez entrante, intercambie más sats, a cualquier otra dirección en cadena, utilizando los intercambios.</p>
+    <p>Pero no cierres esos canales. No todavía.
+       Un canal debe cerrarse solo cuando no tiene suficiente liquidez o el par no responde o está desconectado demasiado tiempo.</p>
+    <p>Así que ahora tiene suficiente liquidez entrante para comprar más de Robosats.</p>
+    <p>Compre más, intercambie, realice pagos, feliz Lightning. Repetir. Nunca cierres esos canales. Úsalos de un lado a otro.</p>
+    <h4>ESCENARIO B</h4>
+    <p>Mantenga un canal abierto, uno en el que tenga suficientes sats para comprar un canal entrante de cualquier LSP (LNBig, Bitrefill, etc.). El resto, ciérralos.</p>
+    <p>Una vez que estén cerrados, compre 2 grandes canales entrantes de esos LSP. Cada uno de 1-2M sats, suficiente para manejar una gran cantidad de pagos.
+       Cuando los tengas listos, puedes ir y comprar más sats de Robosats.</p>
+    <p>Cambia a onchain usando los servicios de intercambio mencionados anteriormente y sé feliz, hiciste más espacio para comprar más.
+       O simplemente use esos sats para realizar pagos a través de LN.</p>
+    <p>Nunca cierres esos 2 grandes canales. Comprar - intercambiar - gastar - comprar más.</p>
+    <p>Cuando tenga 2 o más canales diferentes con diferentes pares, sí se recomienda usar el MPP (pago de múltiples rutas).
+       Pero cuando tiene solo un canal o múltiples canales con el mismo par, el MPP no funciona y podría terminar en "ruta fallida".</p>
+    <p>Por lo tanto, siempre se recomienda tener canales con diferentes pares / nodos y lo suficientemente grandes como para manejar sus transacciones regulares en un cierto período de tiempo.</p>
   </section>
 </article>
