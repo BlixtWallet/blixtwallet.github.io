@@ -73,6 +73,11 @@ title: Preguntas frecuentes
       <li>
         <a href="https://github.com/chaincodelabs/lightning-curriculum/" target="_blank" rel="noopener noreferrer">Lightning Network Dev Curriculum – por Chaincode Labs</a>
       </li>
+      <li>
+        <a href="https://github.com/lnbook/lnbook" target="_blank" rel="noopener noreferrer">
+          The Lightning Book – por Rene Pickhardt, Olaoluwa Osuntokun and Andreas M. Antonopoulos
+        </a>
+      </li>
     </ol>
     <h4>B. Videotutoriales sobre los nodos Lightning Network y Bitcoin</h4>
     <ol>
@@ -138,6 +143,22 @@ title: Preguntas frecuentes
         target="_blank" rel="noopener noreferrer">Link 2</a> -
       <a href="https://old.reddit.com/r/lightningnetwork/comments/cjtbjt/question_regarding_commit_fee/" target="_blank"
         rel="noopener noreferrer">Link 3</a>.</p>
+  </section>
+
+  <section id="reserva">
+    <h3>¿Qué es la reserva de canales?</h3>
+    <p>"He abierto un canal de 500k sats, pero no puedo usar más de 495k sats, dice saldo insuficiente. ¿Por qué?"</p>
+    <p>Otro aspecto a tener en cuenta es la "reserva de canales". Si vas a tu Blixt - cajón superior - Lightning Channels
+       verá en los detalles del canal que se menciona cuánto es la reserva del canal.
+    </p>
+    <p>Una reserva de canal es una cantidad que cada participante del canal reserva para asegurarse de que ninguno tiene "nada en juego".
+      si se produce un intento de trampa.</p>
+    <p>Esta reserva (normalmente el 1% del importe total del canal) no se puede gastar y se reserva durante toda la vida útil del canal.
+       Las reservas de canales hacen que los intentos de hacer trampa sean menos económicos. Cuando una parte del canal intenta engañar a la otra y son atrapados,
+       se puede usar una transacción de penalización para robar bitcoins a todas las partes infieles como castigo.
+       Las reservas de canal hacen que los intentos de trampa siempre tengan algo en juego, lo que hace que sea menos probable que ocurra.
+     </p>
+     <p><a href="https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve">Lea más sobre la reserva de canales de LN aquí.</a></p>
   </section>
 
   <section id="blixt-nodo">
