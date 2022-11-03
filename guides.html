@@ -43,6 +43,7 @@ title: Guides
       <li><a href="#guide-swap">How do I send sats to onchain addresses?</a></li>
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
       <li><a href="#guide-old-wallet">How to consolidate funds from an old Blixt wallet?</a></li>
+      <li><a href="#guide-liquidity">Quick mini guide Blixt Node Liquidity</a></li>
     </ul>
   </section>
 
@@ -438,5 +439,52 @@ title: Guides
          </ul>
       <li>If the total amount of funds you want to transfer is lower than 400k sats, then you could use Dunder channel directly.</li>
     </ol>
+  </section>
+
+  <section id="guide-liquidity">
+    <h3>Quick mini guide Blixt Node Liquidity</h3>
+    <p>Use case scenario:</p>
+    <p>"I have 6 Blixt Dunder channels open, with a total of 400k sats on my side. Sometimes I have route failures and can't make payments. 
+        I received from Robosats several orders and now all sats sits on 6 channels."
+    </p>
+    <p>What to do?</p>
+    <p>In order to have a good liquidity, not just for now, but also for future use, you should have max 3-4 ch, but with different peers, not just one.
+       So let's consider that during a week, you need a max 2M sats TO RECEIVE, roughly. The amount can be adjusted by each user's needs and habits.
+       Let's consider also that during the same week, you will make less payments, let's say roughly 300k sats.
+       So each week will remain with a balance on his side of 1.7M sats, roughly.
+    </p>
+    <p>Instead of having 6 channels, each of 400k sats max capacity ( a total of 2.4M sats), better have 3 channels, each of 1M sats. 
+       Adjust it for you inbound needs.
+    </p>
+    <p>Close all those 6 channels, are too small for regular need of inbound anyways. 
+       Dunder channels are mostly for new users, for easy onboarding with quick opening a LN channel. 
+       Are not for regular use to open one channel each time you have to receive. That is costly.
+    </p>
+    <h4>SCENARIO A</h4>
+    <p>After all are closed and funds recovered in onchain, open 3 big channels, each one of 1M sats:</p>
+      <ul>
+        <li>1 with Blixt node</li>
+        <li>1 with your own node (if you have one) or a friend node (trusted). If you do not want/have such friend, 
+            use just another well known node</li>
+        <li>1 with any other good node, well connected. <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">See here some recommended peers</a></li>
+      </ul>
+    <p>Done. Now you have 3M sats in 3 channels. All outbound liquidity. So let's make some space.</p>
+    <p>Use any of the convenient swaps (Deezy, Boltz, FixedFloat, Robosats etc) and swap, at least 50% of all your outbound liquidity.</p>
+    <p>You can do it in 3 batches (recommended for smaller amounts) or all at once (could fail because of other routing nodes low liquidity routes). You can try both cases.</p>
+    <p>If you need more inbound liquidity, swap out more sats, to your any other onchain address, using the swaps.</p>
+    <p>But do not close those channels. Not yet. 
+       A channel should be closed only when you do not have enough liquidity or peer is not responsive/offline too much time.</p>
+    <p>So now you have enough inbound liquidity to buy more from Robosats.</p>
+    <p>Buy more, swap out, make payments, happy Lightning. Repeat. Never close those channels. Use them back and forth.</p>
+    <h4>SCENARIO B</h4>
+    <p>Keep one channel open, one in which you have enough sats to buy an inbound channel from any LSP (LNBig, Bitrefill etc). All the rest, close them.</p>
+    <p>Once are closed, buy 2 big inbound channels from those LSP. Each one of 1-2M sats, enough to handle a large amount of payments.
+       When you have them ready, you can go and buy more sats from Robosats.</p>
+    <p>Swap out to onchain using the swap services mentioned before and be happy, you made more space for buying more.
+       Or just use those sats for making payments over LN.</p>
+    <p>Never close those 2 big channels. Buy - swap out - spend - buy more.</p>
+    <p>When you have 2 or more different channels with different peers, yes is recommended to use the MPP (multi-path payment). 
+       But when you have just one channel or multiple channels with same peer, the MPP it doesn't work and could end up in "route failed".</p>
+    <p>So is always recommended to have channels with different peers / nodes and big enough to handle your regular transactions in a certain period of time.</p>
   </section>
 </article>
