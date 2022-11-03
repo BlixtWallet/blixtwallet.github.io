@@ -231,12 +231,16 @@ title: Preguntas frecuentes
   <section id="conectar-bitcoin-nodo">
     <h3>¿Cómo conecto Blixt Wallet a mi propio nodo completo?</h3>
     <p>En <i>Configuración -> Bitcoin -> Establecer nodo de Bitcoin</i> puede ingresar un nodo de bitcoin para conectarse</p>
-    <p>Debes asegurarte que el puerto P2P de Bitcoin (8333) es reenviado por su router. Puede conectarse a su nodo a través de su IP LAN local,
-       clearnet (IP/domain) o dirección Tor onion.</p>
-    <p>La indexación del filtro compacto BIP157 debe estar habilitada para su nodo, agregue esto a su bitcoin.conf, si aún no está configurado:</p>
+    <p>Requisitos previos:</p>
+     <ul>
+       <li>El enrutador de Internet debe reenviar el puerto 8333 de su nodo Bitcoin.</li>
+       <li><a href="https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki">BIP157</a> la indexación de filtro compacto debe estar habilitada para su nodo.
+         Agregue esto a su bitcoin.conf si aún no está configurado:
+       </li>
     <pre>
         blockfilterindex=1
-        peerblockfilters=1</pre>
+        peerblockfilters=1
+    </pre>
   </section>
 
   <section id="umbrel-control">
