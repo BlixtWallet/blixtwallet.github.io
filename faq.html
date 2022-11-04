@@ -324,17 +324,26 @@ title: Frequently Asked Questions
 
   <section id="keysend">
     <h3>Can I receive sats through keysend?</h3>
-    <p>Yes, always when your Blixt Wallet is online.</p>
-    <p>To display your nodeURI/QR code, go to <i> Menu -> Advanced -> Keysend Experiment</i>. Have the payer scan that
-      QR code and pay.</p>
-    <p>Aspects to keep in mind:
-    <p>
+    <p>To pull out your nodeURI/QR code to be shared/scanned, go to top left drawer, press "Advanced" section then open "Keysend Experiment" option.
+      The payer, just have to scan that QR code and pay.</p>
+    <p>But must be accomplised some conditions like:</p>
     <ul>
-      <li>If you want to share your nodeID on a website or send it to someone so they can pay you via keysend, your
-        Blixt Wallet must be online at the time of the payment.</li>
+      <li>Always when your Blixt Wallet is online. There's no need to be behind Tor, could be also in clearnet.</li>
       <li>If you, as receiver, are using a Tor connection, the payer also has to use a Tor connection, otherwise they
         cannot "see" your Blixt node and connect with it.</li>
+      <li>The payer is also using Blixt Wallet. When will scan your Blixt QR code for node Pubkey,
+        that QR code is personalized to contain some route hints in order to be able to send through keysend to a private node as Blixt.</li>
+      <li>If the payer do not use another Blixt Wallet, he can either:
+        <ul>
+          <li>Have a common LN channel open between your Blixt and his node.</li>
+          <li>Use route hints in the QR code from Blixt Wallet to use a private channel for the payment.</li>
+          <!-- TODO: Add LNCLI command here when https://github.com/lightningnetwork/lnd/issues/6601 is resolved -->
+        </ul>
+      </li>
     </ul>
+    <p>
+      To send FROM your Blixt Wallet to another node through keysend, you just have to scan other node's QR pubkey, put the amount and click send.
+    </p>
   </section>
 
   <section id="connect-bitcoin-node">
