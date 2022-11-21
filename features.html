@@ -92,15 +92,18 @@ title: Features
     <p><img src="assets/images/blixt-options-general.jpg" align="center" alt="Blixt General Options"/></p>
   <h4>Name</h4>
     <p>
-      This option allows the user to send a specific name in a payment, but only if it's desired and necessary, is completely optional. 
+      This option (NameDesc) allows the user to send a specific name in the payment details, but only if it's desired and necessary, is completely optional. 
       It can be any name and is stored only on the device.
     </p>
+    <p>When you will be ready to pay an invoice or send to a Lightning Address / LNURL, you will see a tick box (off by default) 
+       where you can choose to send that name in the invoice memo. This could be very useful sometimes.</p>
     <p>
       IT IS NOT the LN node alias! Blixt Wallet does not use a node alias, it's a private LN node.
     </p>
   <h4>Language</h4>
     <p>
-      The default language is English. Other available languages are: Spanish, German, French, Swedish, Klingon. More languages will be available soon.
+      The default language is English. Other available languages are: Spanish, German, French, Swedish, Klingon, Dutch, Portuguese, Russian, Vietnamese. 
+      More languages will be available soon.
     </p>
   <h4>Push Notifications</h4>
     <p>
@@ -434,6 +437,14 @@ title: Features
     <p>
       Here you can open and close LN channels, review the status of each one and see the funds available per channel.
     </p>
+    <p><img src="assets/images/blixt-ln-channels.jpg" align="center" alt="Blixt Lightning Channels"/></p>
+    <p>As you can see in this image, the channel bar indicate 3 colors:</p>
+    <ul>
+      <li>Green - represent the outbound liquidity, "can send" amount</li>
+      <li>Red - represent the inbound liquidity, "can receive" amount</li>
+      <li>Gray - represent the "local reserve" + "commitment fee" amount</li>
+    </ul>
+    <p>Keep in mind that "commitment fee" could vary in time, depending on mempool onchain fees for the HTLCs.</p>
   <h3 id="function-keysend">Keysend Experiment</h3>
     <p>To see this option, you must first click on the "Advanced" sub-menu.</p>
     <p>This is a very powerful function that few other mobile wallets have. 
