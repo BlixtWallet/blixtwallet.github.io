@@ -66,7 +66,11 @@ title: Features
 
   <section id="feature-onchain">
   <h3>Bitcoin On-Chain Wallet</h3>
-    <p><img style="vertical-align:middle" src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/></p>
+  <div class="container">
+    <div class="image"></div>
+    <img src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/>
+    </div>
+    <div class="text"></div>
     <p>This feature is quite hidden, because it's not the main focus of this app. But it's easy to access it from the top left drawer menu.</p>
     <p>Since on-chain transactions aren't used often by LN power users, it's not visible on the main screen. But that's OK, you can use it like
        a separate wallet where you can manage addresses and see your transaction log. In the future, more functionalities for this on-chain wallet 
@@ -76,10 +80,13 @@ title: Features
     <p>To access the onchain wallet, go too top left drawer and select "Bitcoin onchain", then you will see these screens.</p>
     <p>As you can see in the transaction log, the type of transactions are detailed and indicate for what were used: (A) deposit, (B) open channel, (C) close channel.</p>
     <p>See a more detailed explanation about using the Blixt on-chain wallet <a href="guides#guide-swap">in the Guides page</a>.</p>
+    </div>
+  </div>
   </section>
 
   <section id="feature-lightning">
   <h3>Bitcoin Lightning Wallet</h3>
+  <p><img src="assets/images/blixt-main-ln-wallet.jpg" align="center" alt="Blixt Lightning Wallet"/></p>
     <p>This is located on the main screen, as it's the main usage of the app. The balance displayed is only for the LN wallet and does NOT contain the on-chain wallet balance.</p>
     <p>It has a simple and easy to use interface and offers all the necessary options to receive and send sats over Lightning Network.</p>
     <p>Users can easily switch the units displayed for the balance by simply tapping on the balance. Also it displays the balance in the local fiat currency sourced from CoinGecko and Blockchain.com.</p>
@@ -429,6 +436,7 @@ title: Features
     For the time being, this doesn't work behind Tor so browsing these apps will be over clearnet.
     </p>
   <h3 id="function-onchain">On-chain wallet</h3>
+    <img src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/>
     <p>Dedicated section to access the on-chain part of Blixt Wallet. 
     This section will display your on-chain balance and a QR code and Bitcoin address to receive on-chain funds to.
     </p>
