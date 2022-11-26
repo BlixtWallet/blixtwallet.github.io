@@ -529,19 +529,37 @@ title: Frequently Asked Questions
     <p>I would like to have the minimum impact possible over my remaining balance and pay minimum fees.</p>
     <p>The simple answer is to have a "collaborative closing", so follow this procedure:</p>
     <ul>
-      <li>Wait for Blixt to sync and also bring online your LN channels. Eventually check Blixt lnd logs in settings.</li>
+      <li>Wait for Blixt to sync and also bring online your LN channels.</li>
+      <li>Eventually check Blixt lnd logs in settings if all the sync is done.</li>
+      <li>Check if your peer is connected. Go to Settings - Lightning peers and check if the peer with which one you want to close is online. 
+          If is not, try to add it, by scanning his node URI.</li>
       <li>Go to Blixt top drawer - Lightning channels</li>
       <li>Select the channel you want to close and click on the red button "Close channel".</li>
       <li>Confirm the closing and wait with Blixt app active until you see the confirmation tx of the closing channel.</li>
-      <li>It will take few moments to be closed.</li>
+      <li>It will take few moments to be closed, depending on the status of the <a href="https://mempool.space">mempool</a></li>
       <li>Once the closing tx will have 3 confirmations in the mempool, your remaining funds will be displayed in the on-chain wallet.</li>
     </ul>
-    <p>Done. This will close the channel with minimum costs in fees and also the channel reserve is returened to your onchain address.</p>
+    <p>Done. This will close the channel with minimum costs in fees and also the channel reserve is returned to your onchain address.</p>
     <p>If you want a "force close" of the channel, in case that the peer is already shut down, non-responsive, 
        then instead of a simple click on the red button, use a long press on the same button and then the popup message will contain the words
        "Do you want to FORCE CLOSE this channel?" and will push the closure with a higher fee.</p>
     <p>REMEMBER: this procedure will take more time to be confirmed, due to a lock time of the closing tx, in case are penalties to apply.
        It could take up to 144 blocks, aproximately 2 weeks, but no more.</p>
+    <p>If for some reasons, the coop close is not done well (see if your txid is not broadcast in the mempool after long time),
+       then you could try to push a "force close" of the "waiting to close" status. This could happen sometimes, for various reasons.
+    </p>
+    <p>Here is an example:</p>
+    <p><img src="assets/images/blixt-force-close-channel.jpg" align="center" alt="Blixt Force Close Channel"/></p>
+    <p>Once you hit the button "Force close pending channel" you will be asked if you are sure and then a message that it will start force close.</p>
+    <p>Be patient, after few moments, you will see in the lnd logs the message that the force close was inititated:</p>
+    <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
+      ChannelPoint(6659e11bd3fc6f266c2e057545a7b4c8ec6e6dbc3579167e4346889af602b485:1) 
+      with txid: ce3ed9c8396c8dda4085be8aef4eff4207562f7fdfb79413ab27b828789170ac
+    </pre>
+    <p>When the txid is taken in a block and you have the 1st confirmation, you will hear a jingle from Blixt app.
+      The closing is on the way, but be aware of the indicated maturity block height, is when actually you will receive the funds in onchain.
+      Usually are 144 blocks for force closing. That means aprox. 1 day.
+    </p>
   </section>
 
 </article>

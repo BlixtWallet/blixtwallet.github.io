@@ -380,12 +380,15 @@ title: Preguntas frecuentes
     <p>Me gustaría tener el mínimo impacto posible sobre mi saldo restante y pagar tarifas mínimas.</p>
     <p>La respuesta simple es tener un "cierre colaborativo", así que siga este procedimiento:</p>
     <ul>
-      <li>Espere a que Blixt se sincronice y también ponga en línea sus canales de LN. Eventualmente verifique los logs lnd de Blixt en la configuración.</li>
+      <li>Espere a que Blixt se sincronice y también ponga en línea sus canales de LN.</li>
+      <li>Eventualmente verifique los registros de Blixt lnd en la configuración si se realizó toda la sincronización.</li>
+      <li>Compruebe si su par está conectado. Vaya a Configuración - Pares Lightning y verifique si el par con el que desea cerrar está en línea.
+          Si no es así, intente agregarlo escaneando su URI de nodo.</li>
       <li>Ir al cajón superior Blixt - Canales Lightning</li>
       <li>Seleccione el canal que desea cerrar y haga clic en el botón rojo "Cerrar canal".</li>
       <li>Confirme el cierre y espere con la aplicación Blixt activa hasta que vea el tx de confirmación del canal de cierre.</li>
-      <li>Tardará unos momentos en cerrarse.</li>
-      <li>Una vez que el tx de cierre tenga 3 confirmaciones en el mempool, sus fondos restantes se mostrarán en la billetera on-chain.</li>
+      <li>Tardará unos minutos en cerrarse, según el estado del <a href="https://mempool.space">mempool</a></li>
+      <li>Una vez que el tx de cierre tenga 3 confirmaciones en el mempool, sus fondos restantes se mostrarán en la billetera en cadena.</li>
     </ul>
     <p>Listo. Esto cerrará el canal con costos mínimos en tarifas y también la reserva del canal se devolverá a su dirección en cadena.</p>
     <p>Si desea un "cierre forzado" del canal, en caso de que el compañero ya esté cerrado, no responda,
@@ -393,6 +396,21 @@ title: Preguntas frecuentes
        "¿Quieres FORZAR EL CIERRE de este canal?" e impulsará el cierre con una tarifa más alta.</p>
     <p>RECUERDE: este trámite tardará más en ser confirmado, debido a un tiempo de bloqueo del tx de cierre, en caso de que se apliquen sanciones.
        Podría tomar hasta 144 bloques, aproximadamente 2 semanas, pero no más.</p>
+    <p>Si por alguna razón, el cierre de la cooperativa no se hace bien (mira si tu txid no se transmite en el mempool después de mucho tiempo),
+       entonces podría intentar presionar un "cierre forzado" del estado "esperando para cerrar". Esto podría suceder a veces, por varias razones.
+    </p>
+    <p>Este es un ejemplo:</p>
+    <p><img src="assets/images/blixt-force-close-channel.jpg" align="center" alt="Blixt Force Close Channel"/></p>
+    <p>Una vez que presione el botón "Forzar el cierre del canal pendiente", se le preguntará si está seguro y luego aparecerá un mensaje de que comenzará a forzar el cierre.</p>
+    <p>Tenga paciencia, después de unos momentos, verá en los registros de lnd el mensaje de que se inició el cierre forzado:</p>
+    <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
+      ChannelPoint(6659e11bd3fc6f266c2e057545a7b4c8ec6e6dbc3579167e4346889af602b485:1) 
+      with txid: ce3ed9c8396c8dda4085be8aef4eff4207562f7fdfb79413ab27b828789170ac
+    </pre>
+    <p>Cuando se toma el txid en un bloque y tiene la primera confirmación, escuchará un jingle de la aplicación Blixt.
+      El cierre está en camino, pero tenga en cuenta la altura del bloque de vencimiento indicado, es cuando realmente recibirá los fondos en cadena.
+      Suelen ser 144 bloques para forzar el cierre. Eso significa aprox. 1 día.
+    </p>
   </section>
   
 </article>

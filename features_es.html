@@ -93,6 +93,7 @@ title: Características
 
   <section id="feature-onchain">
   <h3>Monedero Bitcoin On-Chain</h3>
+    <img src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/>  
     <p>
       Esta característica está bastante oculta, porque no es el enfoque principal de esta aplicación. 
       Pero es fácil acceder a él desde el menú del cajón superior izquierdo.
@@ -107,11 +108,13 @@ title: Características
       En este momento, el uso principal de este monedero onchain es administrar la apertura y el cierre de los canales de LN y 
       no como pagos regulares del día a día mediante transacciones en onchain.
     </p>
+    <p>Como puede ver en el registro de transacciones, se detalla el tipo de transacciones e indica para qué se usaron: (A) depósito, (B) canal abierto, (C) canal cerrado.</p>
     <p>Vea una explicación más detallada sobre el uso de la billetera en cadena Blixt <a href="guides_es.html#guia-swap">en la página de Guías</a>.</p>
   </section>
 
   <section id="feature-lightning">
   <h3>Monedero Bitcoin Lightning</h3>
+    <p><img src="assets/images/blixt-main-ln-wallet.jpg" align="center" alt="Blixt Lightning Wallet"/></p>
     <p>
       Esto se encuentra en la pantalla principal, como el uso principal de la aplicación. 
       El saldo que se muestra es solo para este monedero LN y NO contiene el saldo del monedero onchain.
@@ -142,12 +145,15 @@ title: Características
       Esta opción ayudará al usuario a enviar un nombre específico en un pago, pero solo cuando se desee y sea necesario, es totalmente opcional.
        Puede ser cualquier nombre y se almacena solo en el dispositivo.
     </p>
+    <p>Cuando esté listo para pagar una factura o enviarla a una dirección Lightning / LNURL, verá una casilla de verificación (desactivada de forma predeterminada)
+      donde puede optar por enviar ese nombre en la nota de factura. Esto podría ser muy útil a veces.</p>
     <p>
       ¡NO ES el alias del nodo LN! Blixt Wallet no usa alias de nodo, es un nodo LN privado.
     </p>
   <h4>Idioma</h4>
     <p>
-      El idioma predeterminado es el Inglés. Otros idiomas disponibles son: Español, Alemán, Francés, Sueco, Klingon. Pronto más idiomas seran disponibles.
+      El idioma predeterminado es el Inglés. Otros idiomas disponibles son: español, alemán, francés, sueco, klingon, holandés, portugués, ruso, vietnamita.
+      Pronto más idiomas seran disponibles.
     </p>
   <h4>Notificaciones push</h4>
     <p>
@@ -541,12 +547,20 @@ title: Características
     </p>
     <p>Esta función se utiliza principalmente para depositar fondos y luego consultar las transacciones de los canales de apertura y cierre.</p>
   <h3 id="function-channels">Canales Lightning</h3>
-    <p>
-      Esta función abrirá una pantalla que contiene toda la información sobre los canales Blixt Lightning.
-    </p>
-    <p>
-      Aquí el usuario puede abrir y cerrar canales de LN, consultar el estado de cada uno, fondos disponibles por canal.
-    </p>
+  <p>
+    Esta opción abrirá una pantalla que contiene toda la información sobre los canales Lightning que están abiertos en su Blixt Wallet.
+  </p>
+  <p>
+    Aquí puede abrir y cerrar canales de LN, revisar el estado de cada uno y ver los fondos disponibles por canal.
+  </p>
+  <p><img src="assets/images/blixt-ln-channels.jpg" align="center" alt="Blixt Lightning Channels"/></p>
+  <p>Como puedes ver en esta imagen, la barra del canal indica 3 colores:</p>
+  <ul>
+    <li>Verde: representa la liquidez saliente, cantidad "puede enviar"</li>
+    <li>Rojo: representa la liquidez entrante, cantidad "puede recibir"</li>
+    <li>Gris: representa la cantidad de "reserva local" + "tarifa de compromiso"</li>
+  </ul>
+  <p>Tenga en cuenta que la "tarifa de compromiso" puede variar con el tiempo, dependiendo de las tarifas en cadena de mempool para los HTLC.</p>
   <h3 id="function-keysend">Experimento Keysend</h3>
     <p>Para mostrar esta función, el usuario debe hacer clic en el subcajón "Avanzado".</p>
     <p>Función muy poderosa que pocas otras billeteras móviles tienen.
