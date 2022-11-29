@@ -419,10 +419,13 @@ title: Preguntas frecuentes
     <p>Sí. Recuerda que Blixt es una billetera de nodo LND vainilla completa (aezeed).</p>
     <p>¿Qué significa eso? Significa que puede restaurarlo en cualquier otra aplicación de billetera que admita <a href="https://coldbit.com/what-types-of-mnemonic-seeds-are-used-in-bitcoin/">LND/aezeed type semilla mnemotécnica</a>.</p>
     <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
-    <p>A. Usando <a href="https://bluewallet.io">Bluewallet</a>: simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración,
-      espere unos momentos para restaurar los UTXO antiguos y listo. RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
-    <p>B. Usando Electro. Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía de openoms.</a></p>
-    <p>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a>. RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <h4>A. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
+    <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo. 
+       RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <h4>B. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
+    <p>Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía</a> de openoms.</p>
+    <h4>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
+    <p>RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
     <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
     <ul>
       <li>Vaya a <a href="https://guggero.github.io/cryptography-toolkit/#!/aezeed">Cryptography Toolkit</a> y descargue la página como archivo HTML en su computadora.</li >
@@ -440,6 +443,11 @@ title: Preguntas frecuentes
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
     <p>¡Y listo! Acaba de restaurar su billetera en cadena Blixt en Sparrow.</p>
+    <h4>D. Usando otra instancia de nodo LND.</h4>
+     <p>Sí, es totalmente compatible con cualquier nodo LND de escritorio, como myNode, Raspiblitz, Umbrel, Nodl, Citadel, etc.</p>
+     <p>Incluso podría restaurar sus fondos de los canales LN si tiene el archivo SCB (copia de seguridad de canales estáticos) de Blixt.</p>
+     <p>Simplemente siga el procedimiento regular de restauración de un nodo LND usando el archivo seed + scb:
+        <a href="https://www.lightningnode.info/recovery/lndrecovery">Procedimientos de restauración nodos LND</a></p>
   </section>
   
 </article>
