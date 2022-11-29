@@ -40,6 +40,7 @@ title: Preguntas frecuentes
       <li><a href="#fondos-restaurados">Restauré mi antiguo nodo usando el archivo SCB, pero los fondos no han regresado a mi billetera onchain</a></li>
       <li><a href="#nodo-personal-config">Tengo un canal con mi nodo personal, pero aparece "no se encontró ninguna ruta". ¿Qué puedo hacer?</a></li>
       <li><a href="#cerrar-canales">¿Cuál sería el procedimiento para cerrar canales con un nodo par?</a></li>
+      <li><a href="#restaurar-externo">¿Puedo restaurar mi billetera Blixt en otra aplicación?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -411,6 +412,34 @@ title: Preguntas frecuentes
       El cierre está en camino, pero tenga en cuenta la altura del bloque de vencimiento indicado, es cuando realmente recibirá los fondos en cadena.
       Suelen ser 144 bloques para forzar el cierre. Eso significa aprox. 1 día.
     </p>
+  </section>
+
+  <section id="restaurar-externo">
+    <h3>¿Puedo restaurar mi billetera Blixt en otra aplicación?</h3>
+    <p>Sí. Recuerda que Blixt es una billetera de nodo LND vainilla completa (aezeed).</p>
+    <p>¿Qué significa eso? Significa que puede restaurarlo en cualquier otra aplicación de billetera que admita <a href="https://coldbit.com/what-types-of-mnemonic-seeds-are-used-in-bitcoin/">LND/aezeed type semilla mnemotécnica</a>.</p>
+    <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
+    <p>A. Usando <a href="https://bluewallet.io">Bluewallet</a>: simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración,
+      espere unos momentos para restaurar los UTXO antiguos y listo. RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>B. Usando Electro. Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía de openoms.</a></p>
+    <p>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a>. RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
+    <ul>
+      <li>Vaya a <a href="https://guggero.github.io/cryptography-toolkit/#!/aezeed">Cryptography Toolkit</a> y descargue la página como archivo HTML en su computadora.</li >
+      <li>Abra ese archivo HTML en "modo fuera de línea" (sin Internet) y seleccione "esquema de semillas de cifrado aezed" en Herramientas. Luego vaya a la segunda pestaña "Decodificar mnemotécnico".</li>
+      <li>Pegue sus 24 palabras en el campo "Mnemónico".</li>
+      <li>Seleccione el formato BIP84 native segwit y espere un poco a que se decodifique.</li>
+      <li>Copie el zprv que se muestra en el campo "HD node root base 58".</li>
+      <li>Abra la aplicación de billetera Sparrow (ya descargada) y seleccione "nueva billetera".</li>
+      <li>En "Almacenes de claves", seleccione "nueva cartera de software importada".</li>
+      <li>En la siguiente ventana que se abrirá, seleccione "Master Private Key BIP32" y pegue la clave zprv que obtiene de la herramienta de criptografía.
+          y haga clic en "importar". Le mostrará que es una ruta de derivación m/84/0/0 (como debería ser).</li>
+      <li>Haga clic en "Importar almacén de claves" y volverá a la ventana principal de la aplicación de billetera, donde podrá ver toda la configuración de la billetera.
+          Haga clic en "aplicar" y se le pedirá que establezca una contraseña para cifrar su archivo de billetera local.</li>
+      <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
+          un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
+    </ul>
+    <p>¡Y listo! Acaba de restaurar su billetera en cadena Blixt en Sparrow.</p>
   </section>
   
 </article>
