@@ -45,6 +45,7 @@ title: Frequently Asked Questions
       <li><a href="#home-node-settings">I have one channel with my home node, but I get "no route found"</a></li>
       <li><a href="#closing-channels">What would be the procedure to close channels with a peer node?</a></li>
       <li><a href="#restore-external">Can I restore my Blixt wallet into another app?</a></li>
+      <li><a href="#pruned-zombies">Payments with Blixt not working. What can I do?</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -56,6 +57,10 @@ title: Frequently Asked Questions
     <p>Here are some resources to start learning:</p>
     <h4>A. General information and documentation about the Bitcoin Lightning Network</h4>
     <ol>
+      <li>
+        <a href="https://darthcoin.substack.com/p/the-lightning-network-and-the-airport"
+          target="_blank" rel="noopener noreferrer">The Lightning Network and the airport analogy</a>
+      </li>
       <li>
         <a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa"
           target="_blank" rel="noopener noreferrer">An Overview of Lightning Network Implementations</a>
@@ -87,7 +92,7 @@ title: Frequently Asked Questions
       </li>
       <li>
         <a href="https://bitcoiner.guide/lightning/" target="_blank" rel="noopener noreferrer">
-          Beginners LN Guide 28 – by Bitcoin Q&amp;A
+          Beginners LN Guide – by Bitcoin Q&amp;A
         </a>
       </li>
       <li>
@@ -98,6 +103,11 @@ title: Frequently Asked Questions
       <li>
         <a href="https://github.com/lnbook/lnbook" target="_blank" rel="noopener noreferrer">
           The Lightning Book – by Rene Pickhardt, Olaoluwa Osuntokun and Andreas M. Antonopoulos
+        </a>
+      </li>
+      <li>
+        <a href="https://darthcoin.substack.com/p/lightning-network-is-awesome" target="_blank" rel="noopener noreferrer">
+          ⚡️ Lightning Network is awesome ⚡️ - collection of all kind of things you can do with LN
         </a>
       </li>
     </ol>
@@ -597,6 +607,42 @@ title: Frequently Asked Questions
     <p>You could even restore your funds from LN channels if you have the SCB file (static channels backup) from Blixt.</p>
     <p>Simply follow the regular procedure of restoring a LND node using the seed + scb file: 
        <a href="https://www.lightningnode.info/recovery/lndrecovery">LND nodes procedures</a></p>
+  </section>
+
+  <section id="pruned-zombies">
+    <h3>Payments with Blixt not working. What can I do?</h3>
+    <p>During the Blixt v0.6.2 our team did a lot of testing in regards of pruned zombie channels 
+       that were affecting the normal activity of LN users and especially Blixt users.</p>
+    <p>To fix this annoying issue (payments stuck or mostly failed) it was released the Blixt v0.6.3 
+       with a special flag for prunning all these zombie channels. 
+       Unfortunately, to get rid totally of this issue, Blixt users must close old existing channels, 
+       create from scratch a new Blixt wallet / nodeID using the new v0.6.3 or next ones.</p>
+    <p>Procedure A - keep the same Blixt nodeID/ wallet seed:</p>
+    <ul>
+      <li>Open your Blixt Wallet, wait to be fully synced (onchain and LN graph).</li>
+      <li>Go to top drawer and select "Lightning Channels".</li>
+      <li>Select "close channel" for each channel you already have open.</li>
+      <li>Keep your Blixt app online / active until you see the closing transaction done and your funds are back in your onchain wallet.</li>
+      <li>Go to "Settings" and from "Show mnemonic" write down your 24 words seed words (if you didn't saved them before).</li>
+      <li>Now, you can go and uninstall the existing Blixt app (v 0.6.2). It will wipe all Blixt data from your device.</li>
+      <li>Install the newest Blixt version (v0.6.3 or 0.6.4...)</li>
+      <li>When you start the new Blixt app, select "Restore" and put your previous 24 words seed.</li>
+      <li>Wait until is recovered and all the old addresses are rescaned and your funds will appear in the Blixt onchain wallet. Have patience.</li>
+      <li>Now you are ready to open new LN channels as usual with the balance you already have restored.</li>
+    </ul>
+    <p>Procedure B - create a new Blixt nodeID / wallet seed:</p>
+    <ul>
+      <li>Open your Blixt Wallet, wait to be fully synced (onchain and LN graph).</li>
+      <li>Go to top drawer and select "Lightning Channels".</li>
+      <li>Select "close channel" for each channel you already have open.</li>
+      <li>Keep your Blixt app online / active until you see the closing transaction done and your funds are back in your onchain wallet.</li>
+      <li>Go to top drawer - "Onchain wallet" and send all funds to other external onchain wallet (temporary).</li>
+      <li>Now, you can go and uninstall the existing Blixt app (v 0.6.2). It will wipe all Blixt data from your device.</li>
+      <li>Install the newest Blixt version (v0.6.3 or 0.6.4...)</li>
+      <li>When you start the new Blixt app, select "New wallet" and follow all the instructions for a new Blixt wallet.</li>
+      <li>Wait until is synced and then send back all the sats you had in that temporary onchain wallet to this new Blixt wallet.</li>
+      <li>Once you get back the sats, you are ready to open new LN channels as usual with the balance you already have restored.</li>
+    </ul>
   </section>
 
 </article>

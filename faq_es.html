@@ -41,6 +41,7 @@ title: Preguntas frecuentes
       <li><a href="#nodo-personal-config">Tengo un canal con mi nodo personal, pero aparece "no se encontró ninguna ruta". ¿Qué puedo hacer?</a></li>
       <li><a href="#cerrar-canales">¿Cuál sería el procedimiento para cerrar canales con un nodo par?</a></li>
       <li><a href="#restaurar-externo">¿Puedo restaurar mi billetera Blixt en otra aplicación?</a></li>
+      <li><a href="#pruned-zombies">Pagos con Blixt no funcionan. ¿Qué puedo hacer?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -50,6 +51,10 @@ title: Preguntas frecuentes
     <p>Aquí tienes algunos recursos para empezar a aprender (en ingles):</p>
     <h4>A. Información general y documentación sobre Lightning Network</h4>
     <ol>
+      <li>
+        <a href="https://darthcoin.substack.com/p/lightning-network-y-la-analogia-del"
+          target="_blank" rel="noopener noreferrer">Lightning Network y la analogía del aeropuerto</a>
+      </li>
       <li>
         <a href="https://medium.com/@fulgur.ventures/an-overview-of-lightning-network-implementations-d670255a6cfa"
           target="_blank" rel="noopener noreferrer">Una descripción general de las implementaciones de Lightning Network</a>
@@ -77,6 +82,11 @@ title: Preguntas frecuentes
       <li>
         <a href="https://github.com/lnbook/lnbook" target="_blank" rel="noopener noreferrer">
           The Lightning Book – por Rene Pickhardt, Olaoluwa Osuntokun and Andreas M. Antonopoulos
+        </a>
+      </li>
+      <li>
+        <a href="https://darthcoin.substack.com/p/lightning-network-is-awesome" target="_blank" rel="noopener noreferrer">
+          ⚡️ Lightning Network es asombrosa ⚡️ - colección de todo tipo de cosas que puedes hacer con LN
         </a>
       </li>
     </ol>
@@ -449,5 +459,41 @@ title: Preguntas frecuentes
      <p>Simplemente siga el procedimiento regular de restauración de un nodo LND usando el archivo seed + scb:
         <a href="https://www.lightningnode.info/recovery/lndrecovery">Procedimientos de restauración nodos LND</a></p>
   </section>
+
+  <section id="pruned-zombies">
+    <h3>Pagos con Blixt no funcionan. ¿Qué puedo hacer?</h3>
+    <p>En la v0.6.2 de Blixt nuestro equipo realizó muchas pruebas con respecto a los canales de zombie podados
+      que estaban afectando la actividad normal de los usuarios de LN y especialmente los usuarios de Blixt.</p>
+   <p>Para solucionar este problema molesto (los pagos atascados o en su mayoría fallidos) se lanzó el Blixt V0.6.3
+      Con una bandera especial para prosperar todos estos canales de zombis.
+      Desafortunadamente, para deshacerse totalmente de este problema, los usuarios de Blixt deben cerrar los viejos canales existentes,
+      Cree desde cero una nueva billetera / nodeID Blixt usando el nuevo V0.6.3 o el siguiente.</p>
+   <p> Procedimiento A - Mantenga la misma semilla de nodo Blixt/ billetera: </p>
+   <ul>
+     <li>Abra su app Blixt, espere para estar completamente sincronizado (Onchain y gráfico LN).</li>
+     <li>Vaya al cajón superior y seleccione "canales LN".</li>
+     <li>Seleccione "Cerrar canal" para cada canal que ya tiene abierto.</li>
+     <li>Mantenga su aplicación Blixt en línea / activa hasta que vea la transacción de cierre realizada y sus fondos vuelvan a su billetera en la cadena.</li>
+     <li>Vaya a "Configuración" y de "Show Mnemonic" escriba sus palabras de semillas de 24 palabras (si no las guardó antes).</li>
+     <li>Ahora, puede ir y desinstalar la aplicación BLIXT existente (V 0.6.2). Borrará todos los datos de Blixt de su dispositivo.</li>
+     <li>Instale la versión más nueva de Blixt (v0.6.3 o 0.6.4 ...)</li>
+     <li>Cuando comience la nueva aplicación Blixt, seleccione "Restaurar" y coloque su semilla de 24 palabras anteriores.</li>
+     <li>Espera hasta que se recupere y todas las direcciones antiguas se vuelvan a reescanar y tus fondos aparecerán en la billetera Blixt onchain. Tener paciencia.</li>
+     <li>Ahora está listo para abrir nuevos canales LN como de costumbre con el saldo que ya ha restaurado.</li>
+   </ul>
+   <p>Procedimiento B - Cree una nueva semilla de nodo de nodo / billetera Blixt:</p>
+   <ul>
+     <li>Abra su billetera Blixt, espere para estar completamente sincronizado (gráfico Onchain y LN).</li>
+     <li>Vaya al cajón superior y seleccione "canales LN".</li>
+     <li>Seleccione "Cerrar canal" para cada canal que ya tiene abierto.</li>
+     <li>Mantenga su aplicación Blixt en línea / activa hasta que vea la transacción de cierre realizada y sus fondos vuelvan a su billetera en la cadena.</li>
+     <li>Vaya al cajón superior: "billetera onchain" y envíe todos los fondos a otra billetera externa (temporal).</li>
+     <li>Ahora, puede ir y desinstalar la aplicación Blixt existente (V 0.6.2). Borrará todos los datos de Blixt de su dispositivo.</li>
+     <li>Instale la versión más nueva de Blixt (v0.6.3 o 0.6.4 ...)</li>
+     <li>Cuando comience la nueva aplicación Blixt, seleccione "nueva billetera" y siga todas las instrucciones para una nueva billetera Blixt.</li>
+     <li>Espera hasta que esté sincronizado y luego envíe todos los SAT que tuviste en esa billetera temporal de la cadena a esta nueva billetera Blixt.</li>
+     <li>Una vez que recupere los sats, está listo para abrir nuevos canales LN como de costumbre con el saldo que ya ha restaurado.</li>
+   </ul>
+ </section>
   
 </article>
