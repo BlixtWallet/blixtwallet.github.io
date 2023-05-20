@@ -248,12 +248,25 @@ title: Características
     </p>
   <h4>Sincronización de cadena programada</h4>
     <p>
-      Esta opción por defecto viene activada y es mejor quedarse así. 
-      Ejecutará la sincronización de bloques con Neutrino, cada 4 horas, si la aplicación está activa.
+      Esta opción viene activada por defecto y lo mejor es mantenerla así.
+      Ejecutará la sincronización de bloques de Neutrino cada 4 horas en segundo plano.
     </p>
     <p>
-      Si esta opción está deshabilitada, el nodo dejará de funcionar y toda la aplicación Blixt no funcionará correctamente. 
-      Una vez reactivada, es mejor reiniciar la aplicación, para que el nodo lnd inicie sus servicios correctamente.
+      Si esta opción está deshabilitada, la sincronización de neutrinos solo es posible cuando la aplicación se ejecuta en primer plano.
+      Esto puede hacer que la sincronización de la cadena de bloques tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
+    </p>
+    <p>
+      Nota: esta función no está disponible actualmente en iOS.
+    </p>
+  <h4>Sincronización de chismes programados</h4>
+    <p>
+      Esta opción NO está activada de forma predeterminada, pero se recomienda para una sincronización de gráficos LN más rápida.
+      Ejecutará la sincronización de chismes de LN cada 2 horas en segundo plano.
+    </p>
+    <p>
+      Si esta opción está deshabilitada, la sincronización del gráfico LN solo es posible cuando la aplicación se ejecuta en primer plano.
+      Esto puede hacer que la sincronización de LN tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
+      y, a veces, incluso podría desencadenar "pagos fallidos debido a que no hay rutas".
     </p>
   </section>
 
@@ -338,6 +351,14 @@ title: Características
     <p>Tenga en cuenta que si desea agregar pares que están detrás de Tor, primero deberá activar el
       Opción Tor en la configuración de Blixt y reinicie la aplicación Blixt.
     </p>
+  <h4>Mostrar información de red</h4>
+    <p>Esta pantalla mostrará el estado del gráfico LN sincronizado por su nodo Blixt.
+       Es una muy buena información estadística para ver cómo se posiciona su nodo Blixt en toda la red.</p>
+    <p>Mostrará: capacidad total de la red, número de canales, número de nodos, tamaño promedio del canal, número de canales zombis.</p>
+  <h4>Establecer tarifa máxima de pago</h4>
+    <p>En esta opción, el usuario puede establecer su propio porcentaje de tarifa que está dispuesto a pagar.</p>
+    <p>Esta opción es muy útil en los casos en que un pago podría fallar debido a las altas tarifas de enrutamiento encontradas.</p>
+    <p>Proceda con precaución, por defecto es 2%, como tarifa máxima, puede aumentarla lentamente.</p>
   <h4>Canales abiertos automáticamente</h4>
     <p>
       Una característica básica de LND, que ofrece al usuario una forma sencilla de abrir automáticamente su primer canal LN.
@@ -364,6 +385,21 @@ title: Características
       Es fácil de usar, solo ve y actívalo, selecciona uno de los proveedores de liquidez en la lista, por el momento Thor Bitrefill y LNBIG, 
       pague la cantidad que desee por el canal y proporcione su nodoURI de cebolla Blixt Tor hacia el canal que estará abierto.
     </p>
+  <h4>Habilitar Dunder LSP</h4>
+    <p>Un servicio increíble que le permite comenzar a aceptar BTC a través de Lightning Network de inmediato,
+      sin necesidad de depositar primero fondos en la cadena para abrir un canal Lightning.
+    </p>
+    <p>
+      Para los nuevos usuarios, esta es una experiencia rápida y fácil porque pueden comenzar desde cero y recibir fondos directamente a través de Lightning Network.
+    </p>
+    <p>El tamaño del canal abierto por Dunder LSP está sujeto a cambios según la demanda y la liquidez disponible.
+      Este es un servicio gratuito por ahora para facilitar la incorporación de nuevos usuarios y crear una experiencia perfecta para recibir fondos directamente a través de Lightning Network. La única tarifa que se cobra es la tarifa en cadena necesaria para abrir el canal de entrada.
+    </p>
+    <p><a href="https://github.com/hsjoberg/dunder-lsp">Lea más sobre el desarrollo de Dunder LSP aquí.</a></p>
+    <p><a href="guides.html#guide-lsp">Lea una guía más detallada sobre el uso de Dunder LSP en la página de guías de Blixt.</a></p>
+  <h4>Establecer el servidor LSP de Dunder</h4>
+    <p>En esta sección, el usuario puede configurar un servidor Dunder LSP personalizado, diferente al predeterminado dunder.blixtwallet.com.</p>
+    <p>Puede consultar <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">en esta lista de la comunidad</a> qué otros corredores de nodos podrían ofrecer estos servicios de canales de Dunder.< /p>
   <h4>Espere la sincronización del mapa LN (graph) antes de pagar</h4>
     <p>
       Esta opción está deshabilitada por defecto y es bastante técnica. 
@@ -384,12 +420,12 @@ title: Características
     <p>
       Muestra los detalles más técnicos habituales sobre el desarrollador de Blixt, el software utilizado, la información de Github y las licencias.
     </p>
-  <h4>Copie el registro de la aplicación en el almacenamiento local</h4>
+  <h4>Copiar el registro de la aplicación en el almacenamiento local</h4>
     <p>
       Esta opción le brinda al usuario una forma de exportar todos los registros de la aplicación a una carpeta seleccionada en el dispositivo local. 
       Más tarde, el archivo de registro (txt) podría consultarse o enviarse para su depuración al desarrollador o al equipo de soporte.
     </p>
-  <h4>Copie el registro de lnd en el almacenamiento local</h4>
+  <h4>Copiar el registro de lnd en el almacenamiento local</h4>
     <p>
       Esta opción es muy útil para exportar y depurar los registros del nodo lnd a una carpeta seleccionada. 
       Una vez que se hace clic, se le pide al usuario que seleccione una carpeta de destino. 
@@ -401,6 +437,8 @@ title: Características
       Pero si está probando los pagos y establece un tiempo más alto para vencer las facturas que creó, 
       puede reutilizar las facturas pendientes de pago anteriores de la lista.
     </p>
+  <h4>Transiciones de pantalla</h4>
+    <p>Activar/desactivar una suave transición animada de pantallas usando Blixt.</p>
   <h4>Firmar mensaje con llave del monedero</h4>
     <p>
       Característica muy poderosa, que ofrece una forma de firmar mensajes o acciones específicas, utilizando la clave de billetera única como autenticador. 
@@ -428,13 +466,6 @@ title: Características
     </p>
     <p><a href="https://github.com/hsjoberg/dunder-lsp">Lea más sobre el desarrollo de Dunder LSP aquí.</a></p> 
     <p><a href="guides_es.html#guia-lsp">Lea una guía más detallada sobre el uso de Dunder LSP en la página de guías de Blixt.</a></p>
-  <h4>Habilitar pagos de múltiples rutas</h4>
-    <p>
-      Característica muy poderosa para una billetera LN. 
-      Cuando está habilitado, un pago más grande se divide en partes más pequeñas y puede tomar más rutas.
-    </p>
-    <p>De esta manera está utilizando canales y pares de una manera más eficiente y evita pagos atascados, debido a la baja liquidez en el camino.</p>
-    <p>El valor predeterminado no está habilitado, pero es bueno usarlo cuando desea realizar un pago mayor. Para pequeños pagos no se utiliza.</p>
   <h4>Habilitar Tor</h4>
     <p>Una vez activada, la aplicación Blixt se reiniciará usando la red Tor.
       A partir de ese momento, puede ver en la configuración del menú: Información de nodo, su ID de nodo con una dirección onion,
@@ -443,7 +474,7 @@ title: Características
       O digamos que tiene su propio nodo en casa y quiere tener un canal con su nodo Blixt móvil.
       Una combinación perfecta. <a href="guides_es.html#guia-companion">Ver más detalles en la página de Guías Blixt.</a>
     </p>
-  <h4>Caducidad de la factura</h4>
+  <h4>Vencimiento de la factura</h4>
     <p>
       Esta opción es para cuando el usuario desea crear una factura LN específica con un tiempo de vencimiento específico (normalmente más largo). 
       El valor predeterminado es 3600 segundos.
@@ -452,45 +483,68 @@ title: Características
       Tenga en cuenta que usar un tiempo más largo para caducar no significa que pueda cerrar su Blixt Wallet para recibir esa factura, 
       aún necesita mantener abierta su aplicación Blixt, para mantener los canales en línea y su nodo Blixt accesible.
     </p>
+  <h4>Habilitar la búsqueda de ruta bimodal</h4>
+    <p>Esta es una característica bastante nueva de LND que ayuda a encontrar una mejor ruta de pago.</p>
+    <p><a href="https://docs.lightning.engineering/lightning-network-tools/lnd/pathfinding#docs-internal-guid-d4234be7-7fff-4a09-fdbb-2c7e451ed1db">Lea más detalles sobre bimodal búsqueda de caminos aquí.</a></p>
   </section>
 
   <section id="opcion-debug">
   <h3>Sección de depuración</h3>
     <p><img src="assets/images/blixt-options-debug-es.jpg" align="center" alt="Blixt Debug Options"/></p>
   <h4>Mostrar notificaciones de información de inicio</h4>
-    <p>Esta opción, cuando está activada y la aplicación Blixt se está iniciando, mostrará notificaciones de depuración en la parte inferior de la pantalla.
-      Se usa principalmente para usuarios avanzados cuando se desea diagnosticar los servicios de inicio de la aplicación.
-    </p>
-  <h4>Volver a escanear monedero</h4>
     <p>
-      Herramienta muy útil, cuando al usuario le faltan UTXO en la billetera onchain, 
-      o después de cerrar los canales, los fondos no aparecen reembolsados.    
+      Cuando está habilitado, las notificaciones aparecerán en la parte inferior de la pantalla después de iniciar Blixt Wallet mostrando el estado actual del proceso de inicio. Esto puede ser útil para depurar problemas de inicio.
     </p>
-    <p>
-      Una vez activada, la aplicación Blixt debe reiniciarse. El proceso finaliza cuando se inicia lnd y, 
-      después de una sincronización rápida, comenzará a escanear 
-      todos los bloques para direcciones BTC usadas, agregando el historial de transacciones en la billetera onchain.
+  <h4>Volver a escanear la billetera</h4>
+    <p>Esta es una herramienta útil si parece que le faltan fondos en la billetera en cadena.</p>
+    <p>Una vez activado, Blixt Wallet debe reiniciarse. El proceso comenzará en el próximo inicio de Blixt Wallet y escaneará
+      todos los bloques para las direcciones de Bitcoin usadas, agregando cualquier transacción encontrada a la lista del historial de transacciones en la billetera en cadena. Este proceso puede llevar algún tiempo, así que tenga paciencia.
     </p>
   <h4>Centro de ayuda móvil de LND</h4>
-    <p>Una herramienta muy útil y poderosa para diagnosticar, depurar y probar el estado y los servicios de Blixt Wallet y lnd node.
-      Se puede usar cuando el usuario está en contacto con el desarrollador de Blixt o con el soporte de ayuda en Telegram, para identificar posibles problemas.
+    <p>Esta es una herramienta muy poderosa que se puede usar para diagnosticar, depurar y probar Blixt Wallet y el nodo lnd subyacente.
+      Se puede usar cuando el usuario está en contacto con el desarrollador de Blixt Wallet o soporte en Telegram para identificar posibles problemas.
     </p>
   <h4>Obtener información del nodo</h4>
-    <p>Herramienta sencilla para obtener más información sobre un nodo remoto. El usuario debe proporcionar un ID de nodo.</p>
-  <h4>Leer registro LND</h4>
-    <p>Muy buena herramienta para verificar los registros de lnd y diagnosticar cuando la billetera tiene problemas.
-      También se pueden copiar los registros y enviarlos al desarrollador para una mayor depuración.
-      Pero en general se usa para verificar los servicios y conexiones de inicio, sincronización, etc.
+    <p>Una herramienta sencilla para obtener más información sobre un nodo remoto. Debe proporcionar un ID de nodo.</p>
+  <h4>Obtener información del canal</h4>
+    <p>Una herramienta simple para obtener más información sobre un canal remoto para depurar su estado. Debe proporcionar un ID de canal.</p>
+  <h4>Diagnosticar problemas de Dunder</h4>
+    <p>Una herramienta de depuración simple para probar si un servidor Dunder está en línea y/o tiene fondos suficientes para abrir un canal Dunder.</p>
+  <h4>Leer registro LND</h3>
+    <p>Una herramienta para ver el registro de lnd para diagnosticar cualquier problema que pueda tener.
+      El registro también se puede copiar para enviarlo al desarrollador para una mayor depuración.
+      En general, se puede usar para verificar el proceso de inicio para asegurarse de que todo se vea bien y que la billetera se sincronice correctamente.
     </p>
+  <h4>Establecer nivel de registro LND</h4>
+    <p>Cambie el modo de visualización de los registros LND para centrarse mejor en la información que necesita (depuración, información, advertencia, error, crítica).</p>
   <h4>Activar modo de demostración</h4>
-    <p>Una buena manera de probar la aplicación Blixt, se usa más para demostraciones y no usa datos reales ni satélites.
-      Se usa una sola vez cuando está activado. Después de reiniciar, vuelve a la billetera real normal.
+    <p>Una buena manera de probar Blixt Wallet con fines de demostración sin revelar la información real de la billetera.
+      Cuando se activa, Blixt Wallet estará en modo de demostración hasta que se reinicie.
     </p>
-  <h4>Deshabilitar caché de gráfico lnd</h4>
+  <h4>Desactivar caché de gráfico lnd</h4>
     <p>
-      Una herramienta de depuración para ayudar a un inicio más rápido y diagnosticar posibles problemas. 
-      Se usa más con la ayuda del desarrollador de Blixt.
+      Una herramienta de depuración para ayudar con un inicio más rápido y para diagnosticar posibles problemas. Se usa más con la ayuda del desarrollador de Blixt Wallet.
     </p>
+  <h4>Desactivar caché de gráfico LND</h4>
+    <p>Esta opción debe usarse solo con la supervisión de los desarrolladores de Blixt, solo en caso de problemas de depuración.</p>
+  <h4>Escribir configuración</h4>
+    <p>Esta opción se usa cuando el usuario hará cambios en la configuración del nodo lnd desde los menús avanzados.</p>
+  <h4>Restablecer conocimiento de enrutamiento de pago</h4>
+    <p>Herramienta útil que podría ayudar en caso de un pago fallido debido a que no se encontró la ruta.</p>
+    <p>Está borrando todas las rutas anteriores utilizadas en un pago y prueba una nueva ruta.</p>
+  <h4>Habilitar pagos de múltiples rutas</h4>
+    <p>Una característica muy poderosa para una billetera LN. Cuando está habilitado, un pago más grande se divide en partes más pequeñas que pueden tomar varias rutas.</p>
+    <p>Esto utiliza la liquidez en los canales de manera más eficiente y puede ayudar a evitar que los pagos se atasquen debido a la falta de liquidez en una sola ruta para un pago mayor.</p>
+    <p>Esto está deshabilitado de forma predeterminada, pero es una buena idea usarlo, especialmente si desea realizar o recibir pagos más grandes.</p>
+  <h4>Habilitar LND persistente y Tor</h4>
+    <p>Si está habilitado, el servicio lnd y Tor permanecerán persistentes en el dispositivo.</p>
+    <p>El usuario notará una notificación superior con respecto al servicio Blixt lnd.</p>
+    <p>No se notó un gran consumo de batería del dispositivo, pero los usuarios deben tener en cuenta que este servicio persistente podría usar más de lo habitual.</p>
+    <p>Se recomienda usar solo en los casos en que el nodo Blixt sea necesario para estar permanentemente en línea
+       y sincronizado y el dispositivo está conectado a una fuente de alimentación (por ejemplo, la tienda del comerciante).</p>
+  <h4>Habilitar la poda de gráfico LN estricta</h4>
+    <p>Tenga en cuenta: esta opción es solo para depuración y experimentación. Podría afectar drásticamente la búsqueda de la ruta de pago.</p>
+    <p>Úselo solo con la supervisión de los desarrolladores de Blixt.</p>
   </section>
 
   <section id="blixt-cajon">
