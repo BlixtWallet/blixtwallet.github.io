@@ -186,18 +186,6 @@ title: Features
       This security feature will prompt you to use your fingerprint in order to open Blixt Wallet 
       and protect it from unauthorized access. Face ID is also available for iOS devices.
     </p>
-  <h4>Scheduled chain sync</h4>
-    <p>
-      This option is activated by default and it's best to keep it like that.
-      It will run the Neutrino sync of blocks every 4 hours in the background.
-    </p>
-    <p>
-      If this option is disabled, neutrino sync is only possible when the app is running in the foreground.
-      This can make the blockchain sync take longer on app start up if Blixt Wallet has not been opened in some time.
-    </p>
-    <p>
-      Note: This feature is not currently available on iOS.
-    </p>
   </section>
 
   <section id="option-display">
@@ -217,6 +205,8 @@ title: Features
       This lets you choose which blockchain explorer to use when viewing more info about on-chain transactions. The default is the mempool.space explorer.
       You can choose between: Mempool, Blockstream, Oxt, Blockchair, or custom (your own node for example).
     </p>
+  <h4>Screen transitions</h4>
+    <p>Activate/deactivate a smooth animated transition of screens using Blixt.</p>
   </section>
 
   <section id="option-bitcoin">
@@ -239,6 +229,18 @@ title: Features
     </p>
     <p>Taproot (P2TR) is a new address type for Bitcoin on-chain addresses with new functionalities and privacy options. 
       <a href="https://taproot.watch/about">Read more about Taproot here.</a>
+    </p>
+  <h4>Scheduled chain sync</h4>
+    <p>
+      This option is activated by default and it's best to keep it like that.
+      It will run the Neutrino sync of blocks every 4 hours in the background.
+    </p>
+    <p>
+      If this option is disabled, neutrino sync is only possible when the app is running in the foreground.
+      This can make the blockchain sync take longer on app start up if Blixt Wallet has not been opened in some time.
+    </p>
+    <p>
+      Note: This feature is not currently available on iOS.
     </p>
   </section>
 
@@ -274,6 +276,14 @@ title: Features
     </p>
     <p>Keep in mind that if you want to add peers that are behind Tor, you need to first enable the Tor option in settings and restart the Blixt Wallet app.
     </p>
+  <h4>Show Network Info</h4>
+    <p>This screen will display the status of the LN graph synced by your Blixt node. 
+       Is a very good statistic info to see how your Blixt node is positioned in the whole network.</p>
+    <p>Will display: Total network capacity, No. of channels, No. of nodes, Average channel size, No. of zombie channels.</p>
+  <h4>Set maximum payment fee</h4>
+    <p>In this option, the user can set his own percentage of fee that is willing to pay.</p>
+    <p>This option if very useful in cases that a payment could fail because of high routing fees encountered.</p>
+    <p>Proceed with caution, by default is 2%, as maximum fee, you can increase it slowly.</p>
   <h4>Automatically open channels</h4>
     <p>
       When this is enabled, if you don't yet have any open channels, Blixt Wallet will use any funds sent to the on-chain wallet to automatically open a channel to the Blixt Wallet LSP node. This will not currently work if you already have an open channel. To open subsequent channels, you will either have to manually open it or receive funds with the Dunder LSP.
@@ -288,10 +298,39 @@ title: Features
       It is easy to use, just select one of the liquidity providers in the list, at the moment the options are Bitrefill Thor and LNBIG. 
       Pay the amount you want for the channel and provide your Blixt Wallet Tor onion node URI and the channel will be opened.
     </p>
+  <h4>Enable Dunder LSP</h4>
+    <p>An amazing service that allows you to start accepting BTC over the Lightning Network straight away, 
+      with no need to first deposit funds on-chain to open a Lightning channel.
+    </p>
+    <p>
+      For new users this is a quick and easy experience because they can start from zero, receiving funds directly over the Lightning Network.
+    </p>
+    <p>The size of the channel opened by the Dunder LSP is subject to change depending on demand and available liquidity. 
+      This is a free service for now to make it easy to onboard new users and create a seamless experience to directly receive funds over the Lightning Network. The only fee charged is the on-chain fee needed to open the inbound channel.
+    </p>
+    <p><a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP development here.</a></p> 
+    <p><a href="guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
+  <h4>Set Dunder LSP Server</h4>
+    <p>In this section the user could set a custom Dunder LSP Server, different than default dunder.blixtwallet.com.</p>
+    <p>You can consult <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">in this community list</a> which other node runners could offer these Dunder channels services.</p>
   <h4>Wait for graph sync before paying</h4>
     <p>
       This option is disabled by default and is quite technical. 
       Startup time can increase when this option is enabled, but it can help to find more optimal paths when making payments which can result in lower fees.
+    </p>
+  <h4>Enable Multi-Path Payments</h4>
+    <p>A very powerful feature for a LN wallet. When enabled, a larger payment is split into smaller parts that can take multiple paths.</p>
+    <p>This uses liquidity in channels more efficiently and can help to avoid payments getting stuck due to insufficient liquidity along a single path for a larger payment.</p>
+    <p>This is disabled by default, but it's a good idea to use it, especially if you want to make or receive larger payments.</p>
+  <h4>Scheduled gossip sync</h4>
+    <p>
+      This option is NOT activated by default but is recommended for a faster LN graph sync.
+      It will run the sync of LN gossip every 2 hours in the background.
+    </p>
+    <p>
+      If this option is disabled, the LN graph sync is only possible when the app is running in the foreground.
+      This can make the LN sync take longer on app start up if Blixt Wallet has not been opened in some time
+      and sometimes could even trigger "failed payments due to no routes".
     </p>
   </section>
 
@@ -321,6 +360,9 @@ title: Features
       This is a very powerful feature that offers a way to cryptographically sign specific messages using your wallet key.
       This could have various use cases, from validating a Bitcoin address, logging in to a web service, or even opening a hotel door.
     </p>
+  <h4>Enable bimodal pathfinding</h4>
+    <p>This is a quite new feature of LND that help finding a better payment path finding.</p>
+    <p><a href="https://docs.lightning.engineering/lightning-network-tools/lnd/pathfinding#docs-internal-guid-d4234be7-7fff-4a09-fdbb-2c7e451ed1db">Read more details about bimodal pathfinding here.</a></p>
   </section>
 
   <section id="option-experiments">
@@ -329,22 +371,6 @@ title: Features
     <p>This section is named "experiments" because the options displayed are still in development and are not fully tested yet 
       and are subject to change. You should take this into consideration and use these features with caution.
     </p>
-  <h4>Enable Dunder LSP</h4>
-    <p>An amazing service that allows you to start accepting BTC over the Lightning Network straight away, 
-      with no need to first deposit funds on-chain to open a Lightning channel.
-    </p>
-    <p>
-      For new users this is a quick and easy experience because they can start from zero, receiving funds directly over the Lightning Network.
-    </p>
-    <p>The size of the channel opened by the Dunder LSP is subject to change depending on demand and available liquidity. 
-      This is a free service for now to make it easy to onboard new users and create a seamless experience to directly receive funds over the Lightning Network. The only fee charged is the on-chain fee needed to open the inbound channel.
-    </p>
-    <p><a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP development here.</a></p> 
-    <p><a href="guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
-  <h4>Enable Multi-Path Payments</h4>
-    <p>A very powerful feature for a LN wallet. When enabled, a larger payment is split into smaller parts that can take multiple paths.</p>
-    <p>This uses liquidity in channels more efficiently and can help to avoid payments getting stuck due to insufficient liquidity along a single path for a larger payment.</p>
-    <p>This is disabled by default, but it's a good idea to use it, especially if you want to make or receive larger payments.</p>
   <h4>Enable Tor</h4>
     <p> 
       Disabled by default. Enabling or disabling this option will require you to restart Blixt Wallet. When enabled, you can connect to Bitcoin or Lightning nodes privately over the Tor network. Keep in mind some services will still connect over clearnet. 
@@ -376,12 +402,17 @@ title: Features
     </p>
   <h4>Get node info</h4>
     <p>A simple tool to get more information about a remote node. You must provide a node ID.</p>
+  <h4>Get channel info</h4>
+    <p>A simple tool to get more information about a remote channel to debug their status. You must provide a channel ID.</p>
+  <h4>Diagnose Dunder problems</h4>
+    <p>A simple debug tool to test if a Dunder server is online and/or have enough funds to open a Dunder chaNnnel.</p>
   <h4>Read LND log</h3>
     <p>A tool to view the lnd log to diagnose any issues it may be having.
       The log can also be copied to be sent to the developer for further debugging.
       In general it can be used to check on the startup process to ensure that everything is looking good and that the wallet is syncing properly.
-
     </p>
+  <h4>Set LND log level</h4>
+    <p>Change the display mode of the LND logs for a better focus on info you need it (debug, info, warn, error, critical).</p>
   <h4>Activate Demo Mode</h4>
     <p>A nice way to test Blixt Wallet for demonstration purposes without revealing the real wallet info.
       When activated, Blixt Wallet will be in demo mode until it is restarted.
@@ -390,6 +421,22 @@ title: Features
     <p>
       A debugging tool to help with faster startup and to diagnose possible issues. Is used more with assistance from the Blixt Wallet developer.
     </p>
+  <h4>Disable LND graph cache</h4>
+    <p>This option should be used only with supervision from Blixt developers, only in case of debugging issues.</p>
+  <h4>Write config</h4>
+    <p>This option is used when user will do changes in the lnd node settings from advanced menus.</p>
+  <h4>Reset payment routing knowledge</h4>
+    <p>Useful tool that could help in case of a failed payment due to path not found.</p>
+    <p>Is clearing all previous routes used in a payment and try a new route.</p>
+  <h4>Enable Persistent LND and Tor</h4>
+    <p>If enabled, the lnd service and Tor will remain persistent on the device.</p>
+    <p>User will notice a top notification in regards of Blixt lnd service.</p>
+    <p>It wasn't noticed a big drain of device battery, but users should be aware that this persistent service could use more than usual.</p>
+    <p>It is recommended to use only in cases when the Blixt node is necessary to be permanently online
+       and synced and the device is connected to a power source (eg. merchant's shop).</p>
+  <h4>Enable strict LN graph pruning</h4>
+    <p>Be aware: this option is only for debugging and experimental. It could affect drastically the payment path finding.</p>
+    <p>Use it only with supervision from Blixt developers.</p>
   </section>
 
   <section id="blixt-drawer">
@@ -501,5 +548,4 @@ title: Features
       <li><a href="https://bitcointv.com/w/i9X9brnLyYF1JufG28YdDB">Blixt research preparations</a></li>
     </ul>
   </section>
-
 </article>

@@ -46,6 +46,8 @@ title: Frequently Asked Questions
       <li><a href="#closing-channels">What would be the procedure to close channels with a peer node?</a></li>
       <li><a href="#restore-external">Can I restore my Blixt wallet into another app?</a></li>
       <li><a href="#pruned-zombies">Payments with Blixt not working. What can I do?</a></li>
+      <li><a href="#blixt-migrate">If I reinstall Blixt wallet or switch devices, can I keep my previous channels?</a></li>
+      <li><a href="#blixt-lnaddress">Does Blixt Wallet have a Lightning Address I can receive with?</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -155,7 +157,7 @@ title: Frequently Asked Questions
         connection, Blixt will stall the sync until it is restarted.</li>
       <li>If you use the Tor network, the connection is quite unstable sometimes, not because of your device but because
         of poor or congested Tor relays in your area.</li>
-      <li>Keep in mind that Blixt uses quite a good amount of storage on your device, up to 1.5GB, so be
+      <li>Keep in mind that Blixt uses quite a good amount of storage on your device, up to 2GB, so be
         sure to have enough free space, otherwise the app will stop the sync.</li>
       <li>Sometimes the sync was not done properly and the app didn't scan all your BTC addresses.</li>
       <li>If you switched to sync with your own home node, maybe your node was not prepared for this or connection with
@@ -167,6 +169,7 @@ title: Frequently Asked Questions
       <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
       <li>Switch between your internet connections (Wifi <-> 4G). That could trigger a refresh of DNS providers in your device.</li>
       <li>Switch back to default sync server node.blixtwallet.com, or just leave it blank.</li>
+      <li>Optional you can use an alternative Neutrino Node node.eldamar.icu or your own node if you run one.</li>
       <li>Go to <i>Settings -> Rescan wallet</i>, then restart the app. Once restarted, go to <i>Settings -> Read lnd
           log</i>, or go to <i>Settings -> Copy lnd log to local storage</i> to save a copy of the lnd log.</li>
       <li>Check if you have enough space on your device. Move apps, photos, and videos to your mSD card, and leave more
@@ -645,4 +648,19 @@ title: Frequently Asked Questions
     </ul>
   </section>
 
+  <section id="blixt-migrate">
+    <h3>If I reinstall Blixt Wallet or switch devices, can I keep my previous channels?</h3>
+    <p>Right now, NO. In the future, maybe it will be possible through a more advanced procedure saving the wallet.db and channel.db files
+       from encrypted side of the device into a separate repository, from it can be made the migration to another device.</p>
+    <p>Blixt follows the LND standard procedure of restoring funds using the SCB file (SCB = static channels backup) previously saved</p>
+    <p>Until the optional procedure will be implemented, please make your usual SCB backups and follow the instructions described in the chapter <a href="#blixt-restore">Restore Blixt funds</a></p>
+    <p>REMINDER: do the SCB backup each time you open or close a LN channel. There's NO need after each payment.</p>
+  </section>
+
+  <section id="blixt-lnaddress">
+    <h3>Does Blixt Wallet have a Lightning Address I can receive with?</h3>
+    <p>NO, NOT right now. But soon it will have added a new powerful feature named <a href="https://github.com/hsjoberg/lightning-box">Lightning Box"</a></p>
+    <p>This feature will provide the user with a personalized self custodial Lightning Address linked to his own Blixt wallet.</p>
+    <p>Stay tuned, soon will be released this new feature for Blixt!</p>
+  </section>
 </article>
