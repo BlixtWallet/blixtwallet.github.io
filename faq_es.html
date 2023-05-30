@@ -42,6 +42,8 @@ title: Preguntas frecuentes
       <li><a href="#cerrar-canales">¿Cuál sería el procedimiento para cerrar canales con un nodo par?</a></li>
       <li><a href="#restaurar-externo">¿Puedo restaurar mi billetera Blixt en otra aplicación?</a></li>
       <li><a href="#pruned-zombies">Pagos con Blixt no funcionan. ¿Qué puedo hacer?</a></li>
+      <li><a href="#blixt-migrar">Si vuelvo a instalar la billetera Blixt o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</a></li>
+      <li><a href="#blixt-lnaddress">¿Blixt Wallet tiene una Dirección Lightning con la que puedo recibir?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -496,5 +498,18 @@ title: Preguntas frecuentes
      <li>Una vez que recupere los sats, está listo para abrir nuevos canales LN como de costumbre con el saldo que ya ha restaurado.</li>
    </ul>
  </section>
-  
+ <section id="blixt-migrar">
+     <h3>Si reinstalo Blixt Wallet o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</h3>
+     <p>Ahora mismo, NO. Blixt sigue el procedimiento estándar LND de restauración de fondos utilizando el archivo SCB (SCN = copia de seguridad de canales estáticos) guardado previamente.</p>
+     <p>En el futuro, tal vez sea posible guardar los archivos wallet.db y channel.db a través de un procedimiento más avanzado.
+        desde el lado encriptado del dispositivo a un repositorio separado, desde allí se puede realizar la migración a otro dispositivo.</p>
+     <p>Hasta entonces, realice sus copias de seguridad SCB habituales y siga las instrucciones descritas en el capítulo <a href="#blixt-restore">Restaurar fondos de Blixt</a></p>
+     <p>RECORDATORIO: haga la copia de seguridad de SCB cada vez que abra o cierre un canal LN. NO es necesario después de cada pago.</p>
+   </section>
+   <section id="blixt-lnaddress">
+     <h3>¿Blixt Wallet tiene una dirección Lightning con la que puedo recibir?</h3>
+     <p>NO, NO en este momento. Pero pronto habrá agregado una nueva y poderosa característica llamada <a href="https://github.com/hsjoberg/lightning-box">Lightning Box"</a></p>
+     <p>Esta función proporcionará al usuario una dirección Lightning de autocustodia personalizada vinculada a su propia billetera Blixt.</p>
+     <p>¡Estén atentos, pronto se lanzará esta nueva función para Blixt!</p>
+   </section>
 </article>
