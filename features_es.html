@@ -246,28 +246,6 @@ title: Características
       Esta característica de seguridad le pedirá al usuario que use su huella digital para poder abrir la aplicación Blixt
        y protegerlo del acceso no autorizado.
     </p>
-  <h4>Sincronización de cadena programada</h4>
-    <p>
-      Esta opción viene activada por defecto y lo mejor es mantenerla así.
-      Ejecutará la sincronización de bloques de Neutrino cada 4 horas en segundo plano.
-    </p>
-    <p>
-      Si esta opción está deshabilitada, la sincronización de neutrinos solo es posible cuando la aplicación se ejecuta en primer plano.
-      Esto puede hacer que la sincronización de la cadena de bloques tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
-    </p>
-    <p>
-      Nota: esta función no está disponible actualmente en iOS.
-    </p>
-  <h4>Sincronización de chismes programados</h4>
-    <p>
-      Esta opción NO está activada de forma predeterminada, pero se recomienda para una sincronización de gráficos LN más rápida.
-      Ejecutará la sincronización de chismes de LN cada 2 horas en segundo plano.
-    </p>
-    <p>
-      Si esta opción está deshabilitada, la sincronización del gráfico LN solo es posible cuando la aplicación se ejecuta en primer plano.
-      Esto puede hacer que la sincronización de LN tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
-      y, a veces, incluso podría desencadenar "pagos fallidos debido a que no hay rutas".
-    </p>
   </section>
 
   <section id="opcion-visualizar">
@@ -288,6 +266,8 @@ title: Características
       Sirve para consultar transacciones en los diferentes exploradores de bloques disponibles. El valor predeterminado es mempool.space explorer. 
       El usuario puede elegir entre: Mempool, Blockstream, Oxt, Blockchair o personalizado (nodo propio, por ejemplo).
     </p>
+  <h4>Transiciones de pantalla</h4>
+    <p>Activar/desactivar una suave transición animada de pantallas usando Blixt.</p>
   </section>
 
   <section id="opcion-bitcoin">
@@ -315,6 +295,18 @@ title: Características
     <p>
       Taproot (P2TR) es un nuevo conjunto de tipo de dirección para la dirección onchain de Bitcoin con nuevas funcionalidades y opciones de privacidad. 
       <a href="https://taproot.watch/about">Lea más sobre Taproot aquí.</a>
+    </p>
+  <h4>Sincronización de cadena programada</h4>
+    <p>
+      Esta opción viene activada por defecto y lo mejor es mantenerla así.
+      Ejecutará la sincronización de bloques de Neutrino cada 4 horas en segundo plano.
+    </p>
+    <p>
+      Si esta opción está deshabilitada, la sincronización de neutrinos solo es posible cuando la aplicación se ejecuta en primer plano.
+      Esto puede hacer que la sincronización de la cadena de bloques tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
+    </p>
+    <p>
+      Nota: esta función no está disponible actualmente en iOS.
     </p>
   </section>
 
@@ -411,6 +403,20 @@ title: Características
       y quieres aclarar algunos viejos canales de zombis. Tenga en cuenta que podría llevar algo de tiempo, 
       así que verifique el estado en los registros de lnd.
     </p>
+  <h4>Habilitar pagos de múltiples rutas</h4>
+    <p>Una característica muy poderosa para una billetera LN. Cuando está habilitado, un pago más grande se divide en partes más pequeñas que pueden tomar varias rutas.</p>
+    <p>Esto utiliza la liquidez en los canales de manera más eficiente y puede ayudar a evitar que los pagos se atasquen debido a la falta de liquidez en una sola ruta para un pago mayor.</p>
+    <p>Esto está deshabilitado de forma predeterminada, pero es una buena idea usarlo, especialmente si desea realizar o recibir pagos más grandes.</p>
+  <h4>Sincronización de gossip programados</h4>
+    <p>
+      Esta opción NO está activada de forma predeterminada, pero se recomienda para una sincronización de gráficos LN más rápida.
+      Ejecutará la sincronización de chismes de LN cada 2 horas en segundo plano.
+    </p>
+    <p>
+      Si esta opción está deshabilitada, la sincronización del gráfico LN solo es posible cuando la aplicación se ejecuta en primer plano.
+      Esto puede hacer que la sincronización de LN tarde más en el inicio de la aplicación si Blixt Wallet no se ha abierto en algún momento.
+      y, a veces, incluso podría desencadenar "pagos fallidos debido a que no hay rutas".
+    </p>
   </section>
 
   <section id="opcion-varios">
@@ -437,13 +443,14 @@ title: Características
       Pero si está probando los pagos y establece un tiempo más alto para vencer las facturas que creó, 
       puede reutilizar las facturas pendientes de pago anteriores de la lista.
     </p>
-  <h4>Transiciones de pantalla</h4>
-    <p>Activar/desactivar una suave transición animada de pantallas usando Blixt.</p>
   <h4>Firmar mensaje con llave del monedero</h4>
     <p>
       Característica muy poderosa, que ofrece una forma de firmar mensajes o acciones específicas, utilizando la clave de billetera única como autenticador. 
       Esto podría tener varios casos de uso, desde validar una dirección de Bitcoin, iniciar sesión en un servicio web e incluso abrir la puerta de un hotel.
     </p>
+  <h4>Habilitar la búsqueda de ruta bimodal</h4>
+    <p>Esta es una característica bastante nueva de LND que ayuda a encontrar una mejor ruta de pago.</p>
+    <p><a href="https://docs.lightning.engineering/lightning-network-tools/lnd/pathfinding#docs-internal-guid-d4234be7-7fff-4a09-fdbb-2c7e451ed1db">Lea más detalles sobre bimodal búsqueda de caminos aquí.</a></p>
   </section>
 
   <section id="opcion-experimentos">
@@ -483,9 +490,6 @@ title: Características
       Tenga en cuenta que usar un tiempo más largo para caducar no significa que pueda cerrar su Blixt Wallet para recibir esa factura, 
       aún necesita mantener abierta su aplicación Blixt, para mantener los canales en línea y su nodo Blixt accesible.
     </p>
-  <h4>Habilitar la búsqueda de ruta bimodal</h4>
-    <p>Esta es una característica bastante nueva de LND que ayuda a encontrar una mejor ruta de pago.</p>
-    <p><a href="https://docs.lightning.engineering/lightning-network-tools/lnd/pathfinding#docs-internal-guid-d4234be7-7fff-4a09-fdbb-2c7e451ed1db">Lea más detalles sobre bimodal búsqueda de caminos aquí.</a></p>
   </section>
 
   <section id="opcion-debug">
@@ -532,10 +536,6 @@ title: Características
   <h4>Restablecer conocimiento de enrutamiento de pago</h4>
     <p>Herramienta útil que podría ayudar en caso de un pago fallido debido a que no se encontró la ruta.</p>
     <p>Está borrando todas las rutas anteriores utilizadas en un pago y prueba una nueva ruta.</p>
-  <h4>Habilitar pagos de múltiples rutas</h4>
-    <p>Una característica muy poderosa para una billetera LN. Cuando está habilitado, un pago más grande se divide en partes más pequeñas que pueden tomar varias rutas.</p>
-    <p>Esto utiliza la liquidez en los canales de manera más eficiente y puede ayudar a evitar que los pagos se atasquen debido a la falta de liquidez en una sola ruta para un pago mayor.</p>
-    <p>Esto está deshabilitado de forma predeterminada, pero es una buena idea usarlo, especialmente si desea realizar o recibir pagos más grandes.</p>
   <h4>Habilitar LND persistente y Tor</h4>
     <p>Si está habilitado, el servicio lnd y Tor permanecerán persistentes en el dispositivo.</p>
     <p>El usuario notará una notificación superior con respecto al servicio Blixt lnd.</p>
