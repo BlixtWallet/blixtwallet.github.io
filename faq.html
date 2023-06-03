@@ -48,6 +48,7 @@ title: Frequently Asked Questions
       <li><a href="#pruned-zombies">Payments with Blixt not working. What can I do?</a></li>
       <li><a href="#blixt-migrate">If I reinstall Blixt wallet or switch devices, can I keep my previous channels?</a></li>
       <li><a href="#blixt-lnaddress">Does Blixt Wallet have a Lightning Address I can receive with?</a></li>
+      <li><a href="#blixt-dunder-channels">Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -628,7 +629,7 @@ title: Frequently Asked Questions
       <li>Keep your Blixt app online / active until you see the closing transaction done and your funds are back in your onchain wallet.</li>
       <li>Go to "Settings" and from "Show mnemonic" write down your 24 words seed words (if you didn't saved them before).</li>
       <li>Now, you can go and uninstall the existing Blixt app (v 0.6.2). It will wipe all Blixt data from your device.</li>
-      <li>Install the newest Blixt version (v0.6.3 or 0.6.4...)</li>
+      <li>Install the latest Blixt version (<a href="https://github.com/hsjoberg/blixt-wallet/releases">See here the github releases page</a>)</li>
       <li>When you start the new Blixt app, select "Restore" and put your previous 24 words seed.</li>
       <li>Wait until is recovered and all the old addresses are rescaned and your funds will appear in the Blixt onchain wallet. Have patience.</li>
       <li>Now you are ready to open new LN channels as usual with the balance you already have restored.</li>
@@ -641,7 +642,7 @@ title: Frequently Asked Questions
       <li>Keep your Blixt app online / active until you see the closing transaction done and your funds are back in your onchain wallet.</li>
       <li>Go to top drawer - "Onchain wallet" and send all funds to other external onchain wallet (temporary).</li>
       <li>Now, you can go and uninstall the existing Blixt app (v 0.6.2). It will wipe all Blixt data from your device.</li>
-      <li>Install the newest Blixt version (v0.6.3 or 0.6.4...)</li>
+      <li>Install the latest Blixt version (<a href="https://github.com/hsjoberg/blixt-wallet/releases">See here the github releases page</a>)</li>
       <li>When you start the new Blixt app, select "New wallet" and follow all the instructions for a new Blixt wallet.</li>
       <li>Wait until is synced and then send back all the sats you had in that temporary onchain wallet to this new Blixt wallet.</li>
       <li>Once you get back the sats, you are ready to open new LN channels as usual with the balance you already have restored.</li>
@@ -662,5 +663,28 @@ title: Frequently Asked Questions
     <p>NO, NOT right now. But soon it will have added a new powerful feature named <a href="https://github.com/hsjoberg/lightning-box">Lightning Box"</a></p>
     <p>This feature will provide the user with a personalized self custodial Lightning Address linked to his own Blixt wallet.</p>
     <p>Stay tuned, soon will be released this new feature for Blixt!</p>
+    <p>Can I receive sats while Blixt wallet is closed?</p>
+    <p>Right now, no. Soon, when the Lightning Box will be implemented in Blixt, then yes, you will be able to receive, while your Blixt app is closed / not online</p>
+  </section>
+
+  <section id="blixt-dunder-channels">
+    <h3>Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</h3>
+    <p>Yes, the current limit for opening Dunder channels with Blixt node is max 400k sats.</p>>
+    <p>And that is for some reasons:</p>
+      <ul>
+      <li>Blixt node MUST put from its own pocket the amount of sats as remote balance.</li>
+      <li>Blixt node, is offering this service for free now, but this could not stay forever. It is just a courtesy for a easy onboarding new users.</li>
+      <li>Blixt developers are encouraging more node operators to run <a href="https://github.com/hsjoberg/dunder-lsp">Dunder server</a> 
+          and offer themselves these kind of services, with larger size of the channels and including charging fees. If you will run such Dunder service,
+          your Dunder server could be listed in Blixt app as optional provider too. Like this one (from another Blixt developer): dunder.eldamar.icu,
+          offering even smaller channels as 200k sats max for testing purposes.</li>
+      <li>Do NOT consider Dunder channels as inbound channels! These are designed to be used as quick onboarding method,
+          when the new user do not have any sats in his new Blixt wallet onchain, to be able to open channels. Yes, you can open multiple dunder channels,
+          but please do not abuse this option and also having multiple channels with same peer is NOT recommended and could end up in failed payments.</li>
+      </li>
+      </ul>
+    <p>To change the default Dunder provider, go to Settings -> Set Dunder server and put the name of server. 
+       Then go to Debug Section -> Test Dunder server and see if is responding correctly. After that you can open a new Dunder channel.</p>
+    <p>If the user need more inbound liquidity, please use the specific method with Inbound LSP, that you can find it in Settings.</p>
   </section>
 </article>
