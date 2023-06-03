@@ -431,15 +431,21 @@ title: Preguntas frecuentes
   <section id="restaurar-externo">
     <h3>¿Puedo restaurar mi billetera Blixt en otra aplicación?</h3>
     <p>Sí. Recuerda que Blixt es una billetera de nodo LND vainilla completa (aezeed).</p>
+    <p>NOTA IMPORTANTE:</p>
+    <P>Hay una limitación de todos modos. Blixt ahora también está usando direcciones de tipo Taproot. No viene por defecto, pero si activaste esa opción
+       en Configuración, su billetera Blixt generará direcciones en formato Taproot.</p>
+    <p>Tenga en cuenta que no todas las demás aplicaciones que pueden importar xpub o la billetera Blixt aezeed completa también pueden mostrar/leer esas direcciones.</p>
+    <p>Eso significa que perderá algunos sats en su saldo que se muestra porque esas direcciones raíz serán ignoradas. Eso no significa que hayas perdido tus SAT.
+       Solo que no se muestran, no se muestran, no son "legibles" por la aplicación que usa para importar la billetera.</p>
     <p>¿Qué significa eso? Significa que puede restaurarlo en cualquier otra aplicación de billetera que admita <a href="https://coldbit.com/what-types-of-mnemonic-seeds-are-used-in-bitcoin/">LND/aezeed type semilla mnemotécnica</a>.</p>
     <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
     <h4>A. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
-    <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo. 
-       RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo.<p>
+    <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <h4>B. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
     <p>Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía</a> de openoms.</p>
     <h4>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
-    <p>RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
     <ul>
       <li>Vaya a <a href="https://guggero.github.io/cryptography-toolkit/#!/aezeed">Cryptography Toolkit</a> y descargue la página como archivo HTML en su computadora.</li >
@@ -456,6 +462,7 @@ title: Preguntas frecuentes
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
+    <p>RECORDATORIO: ¡esto restaura SOLO la billetera en cadena, no también los canales de LN! Y tampoco leerá las direcciones taproot de su billetera.</p>
     <p>¡Y listo! Acaba de restaurar su billetera en cadena Blixt en Sparrow.</p>
     <h4>D. Usando otra instancia de nodo LND.</h4>
      <p>Sí, es totalmente compatible con cualquier nodo LND de escritorio, como myNode, Raspiblitz, Umbrel, Nodl, Citadel, etc.</p>

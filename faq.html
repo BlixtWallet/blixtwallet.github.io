@@ -580,15 +580,22 @@ title: Frequently Asked Questions
   <section id="restore-external">
     <h3>Can I restore my Blixt wallet into another app?</h3>
     <p>Yes. Remember that Blixt is a full vanilla LND node wallet (aezeed).</p>
+    <p>IMPORTANT NOTE:</p>
+    <P>There is a limitation anyways. Blixt now is using also Taproot type of addresses. Is not by default, but if you activated that option
+       in Settings, your Blixt wallet will generate Taproot format addresses.</p>
+    <p>Keep in mind that not all other apps that can import xpub or full Blixt aezeed wallet could also display / read those adddresses.</p>
+    <p>That means, you will miss some sats in your balance displayed because those taproot addresses will be ignored. That doesn't means you lost your sats.
+       It just that are not displayed, not shown, not "readable" by the app you use to import the wallet.</p>
     <p>What does it means that? Means that you can restore it in any other wallet app that support <a href="https://coldbit.com/what-types-of-mnemonic-seeds-are-used-in-bitcoin/">LND/aezeed type mnemonic seed</a>.</p>
     <p>Let's say you cannot install anymore Blixt app on your device. You could use the following procedures, to restore your funds from a Blixt wallet:</p>
     <h4>A. Using <a href="https://bluewallet.io">Bluewallet</a>.</h4>
-    <p>Simply put your Blixt 24 words seed into restore procedure, wait few moment to restore old UTXOs and done. 
-       REMINDER: this is restoring ONLY onchain wallet, not also the LN channels!</p>
+    <p>Simply put your Blixt 24 words seed into restore procedure, wait few moment to restore old UTXOs and done.</p> 
+    <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
     <h4>B. Using <a href="https://electrum.org">Electrum Wallet</a>.</h4>
-    <p>This procedure is very well described <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">in this excellent guide</a> by openoms.</h4>
+    <p>This procedure is very well described <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">in this excellent guide</a> by openoms.</p>
+    <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
     <h4>C. Using <a href="https://sparrowwallet.com/">Sparrow Wallet</a>.</h4> 
-    <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels!</p>
+    <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
     <p>The procedure is not complicated but require some steps:</p>
     <ul>
       <li>Go to <a href="https://guggero.github.io/cryptography-toolkit/#!/aezeed">Cryptography Toolkit</a> and download the page as HTML file onto your computer.</li>
@@ -605,12 +612,14 @@ title: Frequently Asked Questions
       <li>Sparrow app will start scanning all your keys and txs and it will be displayed after
           a while in the "Transactions" tab. Patience, it will take some time.</li>
     </ul>
+    <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
     <p>And done! You've just restore your Blixt onchain wallet in Sparrow.</p>
     <h4>D. Using another LND node instance.</h4>
     <p>Yes, is fully compatible with any desktop LND node, as myNode, Raspiblitz, Umbrel, Nodl, Citadel etc.</p>
     <p>You could even restore your funds from LN channels if you have the SCB file (static channels backup) from Blixt.</p>
     <p>Simply follow the regular procedure of restoring a LND node using the seed + scb file: 
        <a href="https://www.lightningnode.info/recovery/lndrecovery">LND nodes procedures</a></p>
+    <p>This procedure could also read/restore your taproot addresses from your wallet, if you are using a LND version higher than 0.15.4.</p>
   </section>
 
   <section id="pruned-zombies">
