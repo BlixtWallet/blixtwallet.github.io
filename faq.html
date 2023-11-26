@@ -716,6 +716,8 @@ title: Frequently Asked Questions
       <li>DO NOT clear data from Android app storage details!</li>
       <li>Open Blixt and go to "Settings". Scroll way down to the "Debug" section and click on "Stop LND and delete Neutrino files".</li>
       <li>This will restart Blixt and at the startup will erase the old neutrino data and resync the new ones, freeing up the storage.</li>
+      <li>Next step is to compact the LND database. Again, go to Blixt "Settings", way down to "Debug" section and click on "compact lnd database"
+        Blixt will restart again and in few moments will compact the database. This compaction will have a serious effect on battery life.</li>
       <li>Now you can go back to Android Blixt app storage details and check the occupied space.</li>
       </ul>
     <p>This procedure is also good to do it, when you se your Blixt in persistent mode. We've notice that by deleting this old data the device is not working
