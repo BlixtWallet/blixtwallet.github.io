@@ -45,6 +45,7 @@ title: Preguntas frecuentes
       <li><a href="#blixt-migrar">Si vuelvo a instalar la billetera Blixt o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</a></li>
       <li><a href="#blixt-lnaddress">¿Blixt Wallet tiene una Dirección Lightning con la que puedo recibir?</a></li>
       <li><a href="#blixt-canales-dunder">Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</a></li>
+      <li><a href="#blixt-datos">Noto que mi blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -544,5 +545,20 @@ title: Preguntas frecuentes
     <p>Para cambiar el proveedor de Dunder predeterminado, vaya a Configuración -> Establecer servidor de Dunder y coloque el nombre del servidor.
        Luego vaya a la Sección de depuración -> Probar el servidor Dunder y vea si responde correctamente. Después de eso, puede abrir un nuevo canal de Dunder.</p>
     <p>Si el usuario necesita más liquidez entrante, utilice el método específico con LSP entrante, que puede encontrar en Configuración.</p>
+  </section>
+
+  <section ID = "blixt-datos">
+    <h3>Noto que mi Blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</h3>
+    <p>Sí, eso podría suceder debido a la sincronización de neutrino que mantiene los datos temporales de sincronización antiguos en el dispositivo.
+      También una parte de esos datos es de LN Graph Sync, pero no es demasiado y esos datos se vuelven a sincronizar cada vez que abre Blixt, sobrescribiendo la anterior.</p>>
+    <p>Hasta los nuevos desarrollos en el código del servidor de neutrino, aconsejamos hacer los siguientes pasos para borrar esos datos antiguos. </p>
+      <ul>
+      <li>¡No borre los datos de los detalles de almacenamiento de la aplicación Android!</li>
+      <li>Abra Blixt y vaya a "Configuración". Desplácese hasta la sección "Depurar" y haga clic en "Stop lnd y elimine los archivos de neutrino".</li>
+      <li>Esto reiniciará a Blixt y al inicio borrará los viejos datos de Neutrino y volverá a sincronizar los nuevos, liberando el almacenamiento.</li>
+      <li>Ahora puede volver a los detalles de almacenamiento de la aplicación Android Blixt y verificar el espacio ocupado.</li>
+      </ul>
+    <p>Este procedimiento también es bueno para hacerlo, cuando ves tu blext en modo persistente. Notamos que al eliminar estos datos antiguos, el dispositivo no funciona
+      Tan intensamente y calentando la batería. También se nota una menor utilización de la batería.</p>
   </section>
 </article>

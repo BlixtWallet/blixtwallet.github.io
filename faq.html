@@ -50,6 +50,7 @@ title: Frequently Asked Questions
       <li><a href="#blixt-migrate">If I reinstall Blixt wallet or switch devices, can I keep my previous channels?</a></li>
       <li><a href="#blixt-lnaddress">Does Blixt Wallet have a Lightning Address I can receive with?</a></li>
       <li><a href="#blixt-dunder-channels">Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</a></li>
+      <li><a href="#blixt-data">I notice that my Blixt occupy a lot of space on my mobile device. How can I reduce it?</a></li>
     </ul>
   </section>
   <section id="what-is-ln">
@@ -589,13 +590,22 @@ title: Frequently Asked Questions
        That means, you will miss some sats in your balance displayed because those taproot addresses will be ignored. That doesn't means you lost your sats.
        It just that are not displayed, not shown, not "readable" by the app you use to import the wallet.</p>
     <p>Let's say you cannot install anymore Blixt app on your device. You could use the following procedures, to restore your funds from a Blixt wallet:</p>
-    <h4>A. Using <a href="https://bluewallet.io">Bluewallet</a>.</h4>
+    <h4>A. Using <a href="https://zeusln.app">Zeus LN</a>.</h4>
+    <p>There are two ways/methods to restore your Blixt node into Zeus: only onchain wallet and / or full recovery with LN channels.</p>
+    <ul>
+      <li>Only onchain recovery - Simply put your Blixt 24 words aezeed seed into <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>
+        wait few moments to restore old UTXOs and done. Wait for Zeus to rescan all UYXOs and all your onchain balance will appear into the onchain wallet.</li>
+      <li>Full recovery with channels funds - Take the SCB file exported previously from your Blixt node and copy the encrypted Basde64 code into 
+        <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>. Remember also to insert the 24 words seed.</li>
+    </ul>
+    <p></p>
+    <h4>B. Using <a href="https://bluewallet.io">Bluewallet</a>.</h4>
     <p>Simply put your Blixt 24 words seed into restore procedure, wait few moment to restore old UTXOs and done.</p> 
     <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
-    <h4>B. Using <a href="https://electrum.org">Electrum Wallet</a>.</h4>
+    <h4>C. Using <a href="https://electrum.org">Electrum Wallet</a>.</h4>
     <p>This procedure is very well described <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">in this excellent guide</a> by openoms.</p>
     <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
-    <h4>C. Using <a href="https://sparrowwallet.com/">Sparrow Wallet</a>.</h4> 
+    <h4>D. Using <a href="https://sparrowwallet.com/">Sparrow Wallet</a>.</h4> 
     <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
     <p>The procedure is not complicated but require some steps:</p>
     <ul>
@@ -691,10 +701,24 @@ title: Frequently Asked Questions
       <li>Do NOT consider Dunder channels as inbound channels! These are designed to be used as quick onboarding method,
           when the new user do not have any sats in his new Blixt wallet onchain, to be able to open channels. Yes, you can open multiple dunder channels,
           but please do not abuse this option and also having multiple channels with same peer is NOT recommended and could end up in failed payments.</li>
-      </li>
       </ul>
     <p>To change the default Dunder provider, go to Settings -> Set Dunder server and put the name of server. 
        Then go to Debug Section -> Test Dunder server and see if is responding correctly. After that you can open a new Dunder channel.</p>
     <p>If the user need more inbound liquidity, please use the specific method with Inbound LSP, that you can find it in Settings.</p>
+  </section>
+
+  <section id="blixt-data">
+    <h3>I notice that my Blixt occupy a lot of space on my mobile device. How can I reduce it?</h3>
+    <p>Yes, that could happen due to Neutrino sync that is keeping the old sync temporary data on the device. 
+      Also a part of that data is from LN Graph sync, but is not too much and that data is re-synced every time you open Blixt, overwritting the old one.</p>>
+    <p>Until new developements on Neutrino server code, we advice to do the following steps to clear up that old data.</p>
+      <ul>
+      <li>DO NOT clear data from Android app storage details!</li>
+      <li>Open Blixt and go to "Settings". Scroll way down to the "Debug" section and click on "Stop LND and delete Neutrino files".</li>
+      <li>This will restart Blixt and at the startup will erase the old neutrino data and resync the new ones, freeing up the storage.</li>
+      <li>Now you can go back to Android Blixt app storage details and check the occupied space.</li>
+      </ul>
+    <p>This procedure is also good to do it, when you se your Blixt in persistent mode. We've notice that by deleting this old data the device is not working
+      so intensively and heating up the battery. Also is noticed an improved less utilization of the battery.</p>
   </section>
 </article>
