@@ -44,6 +44,8 @@ title: Preguntas frecuentes
       <li><a href="#pruned-zombies">Pagos con Blixt no funcionan. ¿Qué puedo hacer?</a></li>
       <li><a href="#blixt-migrar">Si vuelvo a instalar la billetera Blixt o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</a></li>
       <li><a href="#blixt-lnaddress">¿Blixt Wallet tiene una Dirección Lightning con la que puedo recibir?</a></li>
+      <li><a href="#blixt-canales-dunder">Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</a></li>
+      <li><a href="#blixt-datos">Noto que mi blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -431,14 +433,20 @@ title: Preguntas frecuentes
     <h3>¿Puedo restaurar mi billetera Blixt en otra aplicación?</h3>
     <p>Sí. Recuerda que Blixt es una billetera de nodo LND vainilla completa (aezeed).</p>
     <p>¿Qué significa eso? Significa que puede restaurarlo en cualquier otra aplicación de billetera que admita <a href="https://coldbit.com/what-types-of-mnemonic-seeds-are-used-in-bitcoin/">LND/aezeed type semilla mnemotécnica</a>.</p>
+    <p>NOTA IMPORTANTE:</p>
+    <P>Hay una limitación de todos modos. Blixt ahora también está usando direcciones de tipo Taproot. No viene por defecto, pero si activaste esa opción
+       en Configuración, su billetera Blixt generará direcciones en formato Taproot.
+       Tenga en cuenta que no todas las demás aplicaciones que pueden importar xpub o la billetera Blixt aezeed completa también pueden mostrar/leer esas direcciones.
+       Eso significa que perderá algunos sats en su saldo que se muestra porque esas direcciones raíz serán ignoradas. Eso no significa que hayas perdido tus SAT.
+       Solo que no se muestran, no se muestran, no son "legibles" por la aplicación que usa para importar la billetera.</p>
     <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
     <h4>A. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
-    <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo. 
-       RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo.<p>
+    <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <h4>B. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
     <p>Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía</a> de openoms.</p>
     <h4>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
-    <p>RECORDATORIO: ¡esto es restaurar SOLAMENTE la billetera en cadena, no también los canales de LN!</p>
+    <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
     <ul>
       <li>Vaya a <a href="https://guggero.github.io/cryptography-toolkit/#!/aezeed">Cryptography Toolkit</a> y descargue la página como archivo HTML en su computadora.</li >
@@ -455,6 +463,7 @@ title: Preguntas frecuentes
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
+    <p>RECORDATORIO: ¡esto restaura SOLO la billetera en cadena, no también los canales de LN! Y tampoco leerá las direcciones taproot de su billetera.</p>
     <p>¡Y listo! Acaba de restaurar su billetera en cadena Blixt en Sparrow.</p>
     <h4>D. Usando otra instancia de nodo LND.</h4>
      <p>Sí, es totalmente compatible con cualquier nodo LND de escritorio, como myNode, Raspiblitz, Umbrel, Nodl, Citadel, etc.</p>
@@ -513,5 +522,46 @@ title: Preguntas frecuentes
      <p>NO, NO en este momento. Pero pronto habrá agregado una nueva y poderosa característica llamada <a href="https://github.com/hsjoberg/lightning-box">Lightning Box"</a></p>
      <p>Esta función proporcionará al usuario una dirección Lightning de autocustodia personalizada vinculada a su propia billetera Blixt.</p>
      <p>¡Estén atentos, pronto se lanzará esta nueva función para Blixt!</p>
+     <p>¿Puedo recibir sats mientras la billetera Blixt está cerrada?</p>
+     <p>Ahora mismo, no. Pronto, cuando Lightning Box se implemente en Blixt, entonces sí, podrá recibir, mientras su aplicación Blixt esté cerrada/no en línea</p>
    </section>
+
+   <section id="blixt-canales-dunder">
+    <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>
+    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>>
+    <p>Y eso es por algunas razones:</p>
+      <ul>
+      <li>El nodo Blixt DEBE poner de su propio bolsillo la cantidad de sats como saldo remoto.</li>
+      <li>El nodo Blixt, ofrece este servicio de forma gratuita ahora, pero esto no podría quedarse para siempre. Es solo una cortesía para facilitar la incorporación de nuevos usuarios.</li>
+      <li>Los desarrolladores de Blixt animan a más operadores de nodos a ejecutar <a href="https://github.com/hsjoberg/dunder-lsp">servidor Dunder</a>
+          y ofrecerse ellos mismos este tipo de servicios, con mayor tamaño de los canales e incluyendo el cobro de tarifas. Si ejecutará dicho servicio Dunder,
+          su servidor Dunder también podría aparecer en la aplicación Blixt como proveedor opcional. Como este (de otro desarrollador de Blixt): dunder.eldamar.icu,
+          ofreciendo canales aún más pequeños como 200k sats max para propósitos de prueba.</li>
+      <li>¡NO considere los canales de Dunder como canales de entrada! Estos están diseñados para ser utilizados como método de incorporación rápida,
+          cuando el nuevo usuario no tiene sats en su nueva billetera Blixt onchain, para poder abrir canales. Sí, puede abrir múltiples canales de dunder,
+          pero no abuse de esta opción y NO se recomienda tener múltiples canales con el mismo par y podría terminar en pagos fallidos.</li>
+      </li>
+      </ul>
+    <p>Para cambiar el proveedor de Dunder predeterminado, vaya a Configuración -> Establecer servidor de Dunder y coloque el nombre del servidor.
+       Luego vaya a la Sección de depuración -> Probar el servidor Dunder y vea si responde correctamente. Después de eso, puede abrir un nuevo canal de Dunder.</p>
+    <p>Si el usuario necesita más liquidez entrante, utilice el método específico con LSP entrante, que puede encontrar en Configuración.</p>
+  </section>
+
+  <section ID = "blixt-datos">
+    <h3>Noto que mi Blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</h3>
+    <p>Sí, eso podría suceder debido a la sincronización de neutrino que mantiene los datos temporales de sincronización antiguos en el dispositivo.
+      También una parte de esos datos es de LN Graph Sync, pero no es demasiado y esos datos se vuelven a sincronizar cada vez que abre Blixt, sobrescribiendo la anterior.</p>
+    <p>Hasta los nuevos desarrollos en el código del servidor de neutrino, aconsejamos hacer los siguientes pasos para borrar esos datos antiguos. </p>
+      <ul>
+      <li>¡No borre los datos de los detalles de almacenamiento de la aplicación Android!</li>
+      <li>Abra Blixt y vaya a "Configuración". Desplácese hasta la sección "Depurar" y haga clic en "Stop lnd y elimine los archivos de neutrino".</li>
+      <li>Esto reiniciará a Blixt y al inicio borrará los viejos datos de Neutrino y volverá a sincronizar los nuevos, liberando el almacenamiento.</li>
+      <li>El siguiente paso es compactar la base de datos LND. Nuevamente, vaya a la sección de "Configuración" de Blixt, hasta la sección "Depurar"
+         y haga clic en "Base de datos LND compacta". Blixt se reiniciará nuevamente y en pocos momentos compactará la base de datos.
+          Esta compactación tendrá un efecto grave en la vida de las baterías.</li>
+      <li>Ahora puede volver a los detalles de almacenamiento de la aplicación Android Blixt y verificar el espacio ocupado.</li>
+      </ul>
+    <p>Este procedimiento también es bueno para hacerlo, cuando ves tu blext en modo persistente. Notamos que al eliminar estos datos antiguos, el dispositivo no funciona
+      Tan intensamente y calentando la batería. También se nota una menor utilización de la batería.</p>
+  </section>
 </article>

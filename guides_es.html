@@ -55,6 +55,7 @@ title: Guias
     <li><a href="https://www.youtube.com/watch?v=5JyOAeaCN0o" target="_blank" rel="noopener noreferrer">Revision completa Blixt Wallet (EN)</a></li>
     <li><a href="https://www.youtube.com/watch?v=-vxgrZsblpI" target="_blank" rel="noopener noreferrer">Cómo configurar la aplicación Blixt Wallet (ES)</a></li>
     <li><a href="https://www.youtube.com/watch?v=gM7ksjD7Y5o" target="_blank" rel="noopener noreferrer">Tutorial completo con Reckless Satoshi (ES)</a></li>
+    <li><a href="https://www.youtube.com/watch?v=Rdc78V-bLtc" target="_blank" rel="noopener noreferrer">Revision completa Blixt Wallet (PT)</a></li>
     <li><a href="/assets/images/blixt-lnadr.mp4">Agregar una dirección de lightning de contacto y enviar algunos sats</a></li>
     <li><a href="/assets/images/blixt-coinos-lnadr.mp4">Envío desde Blixt a CoinOS usando la dirección LN</a></li>
     <li><a href="/assets/images/blixt-contact-list.mp4">Pagar desde una lista de contactos</a></li>
@@ -169,7 +170,8 @@ title: Guias
       <li>Vaya a su panel de control de nodos de Umbrel o RTL/Thunderhub - abra el canal y seleccione un par conocido de la lista buscando su ID de nodo de Blixt</li>
       <li>Ingrese la cantidad de sats para el canal, tarifas, haga clic en abrir. Espera 3 confirmaciones de bloque y tienes un nuevo canal con tu "mini nodo" Blixt.</li>
       <li>Opcional, más tarde, cuando esté listo, puede enviar fondos usando la función de envío de clave, en un lado u otro. Blixt también es compatible con el envío de claves, al igual que Thunderhub.</li>
-      </ol>
+      <li> <a href="/faq_es#blixt-canales-dunder">Lea más sobre la gestión de canales con Dunder aquí</a></li>  
+    </ol>
   </section>
 
   <section id="guia-recargar">
@@ -187,8 +189,16 @@ title: Guias
     </ul>
     <p>Pasos a seguir:</p>
     <ol>
-    <li>Entra en cualquier servicio de swap como <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
-      <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
+    <li>Entra en cualquier servicio de swap como 
+      <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, 
+      <a href="https://boltz.eldamar.icu/" target="_blank" rel="noopener noreferrer">Boltz Eldamar</a>, 
+      <a href="https://swap.diamondhands.technology/" target="_blank" rel="noopener noreferrer">DiamondHands</a>, 
+      <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
+      <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a>,  
+      <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, 
+      <a href="https://t.me/myloopoutbot" target="_blank" rel="noopener noreferrer">myLoop telegram bot</a>, 
+      <a href="https://www.ipayblue.com/ipb/def/ln-swap-form/" target="_blank" rel="noopener noreferrer">iPayBlue</a>, 
+      <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
       <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats</a> (accesible a través del navegador Blixt WebLN o la dirección Tor onion)
       y seleccione cambiar en cadena a LN</li>
     <li>Ingrese el monto, pague desde su dirección onchain (podría ser incluso desde la misma billetera Blixt onchain o cualquier otra que tenga)</li>
@@ -220,6 +230,12 @@ title: Guias
     <li>Si solo es un usuario habitual que paga algunas cervezas a través de LN, no hay tanto problema en usar Blixt a través de clearnet. El único "eslabón débil" será el servidor Blixt que registrará algunas de sus direcciones IP desde donde conecta su Blixt. Eso es todo, nada más. Todo el resto es desconocido.</li>
     </ul>
     <p>Así que elige por ti mismo, en qué situación te encuentras y las ventajas y desventajas que estás dispuesto a tener para cada método.</p>
+    <p>"Mi Blixt se atasca al iniciar, cuando tengo Tor activado. ¿Qué puedo hacer?".</p>
+    <p>Sí, a veces, debido a una mala conexión, un mal proveedor de servicios de Internet o un mal impulso de Tor, el servicio puede atascarse.</p>
+    <p>Primer paso: fuerce el cierre de la aplicación Blixt, de modo que se eliminen todos los intentos restantes de conexión.</p>
+    <p>Segundo paso: cambie la conexión a Internet de su dispositivo, de 4G a Wifi o viceversa, busque otro punto móvil para obtener otra IP.</p>
+    <p>Si tiene alguna otra aplicación que use Tor / Orbot, debe cerrar esa conexión. A veces, las conexiones Tor simultáneas pueden mezclarse.</p>
+    <p>Si también usa una VPN, cierre esa conexión primero. No es necesario cuando te conectas a través de Tor.</p>
   </section>
   
   <section id="guia-comerciante">
@@ -237,7 +253,7 @@ title: Guias
     <li>Más proveedores de liquidez aquí: <a href="https://lnrouter.app/liquidity-ads" target="_blank" rel="noopener noreferrer">LNRouter Ads</a></li>o<a href="https://amboss.space/node/038fe1bd966b5cb0545963490c631eaa1924e2c4c0ea4e7dcb5d4582a1e7f2f1a5" target="_blank" rel="noopener noreferrer"> ZeroFeeRouting Node</a></li>
     <li>Ok, ahora que tiene suficiente liquidez entrante, comience a recibir pagos con su Blixt. Hasta llenar todo el espacio de los canales.</li>
     <li>Recorra estos satélites en una dirección en cadena. Entonces, prácticamente necesita enviar estos satélites a un servicio de intercambio. Es mejor dividir en txs más pequeños o activar MPP ("Habilitar pago de rutas múltiples") en la configuración de la aplicación, para que sus tx recortados encuentren una mejor ruta para grandes cantidades.</li>
-    <li>Servicios de swaps disponibles para hacer este paso: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a></li>
+    <li>Servicios de swaps disponibles para hacer este paso - <a href="#guia-recargar">ver esta sección</a></li>
     <li>Proporcióneles una de sus direcciones de ahorros en cadena/HODL y pase de su billetera Blixt a su billetera HODL.</li>
     </ul>
     <p>LISTO!</p>
@@ -288,7 +304,7 @@ title: Guias
     <p>Esta opción es simple, simplemente vaya al cajón superior izquierdo, abra Canales Lightning, seleccione un canal que desee cerrar y haga clic en "Cerrar". Deberá esperar hasta que se complete el cierre y al menos 3-4 confirmaciones para la transacción onchain y sus fondos estarán listos en su monedero onchain Blixt (consulte el cajón superior - Monedero onchain).</p>
     </li>
     <li>
-    <p><strong>Utilice un servicio de intercambio externo</strong> como <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> y muchos mas.</p>
+    <p><strong>Utilice un servicio de intercambio externo</strong> mencionados <a href="#guia-recargar">en esta sección</a>
     <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
     <p>Para usar un servicio de intercambio también es bastante simple, en pocos pasos:</p>
         <ul>
@@ -321,7 +337,7 @@ title: Guias
     <li>Use este escenario cuando las tarifas en cadena sean bajas y mempool esté casi vacío, para ahorrar tiempo y tarifas. Comprueba primero <a href="https://mempool.space">Mempool</a> para ver el estado.</li>
     <li>Ya tiene una "cartera de caché" en cadena para ser la rampa intermediaria para este procedimiento. Puede usar la billetera en cadena de su nodo de inicio, pero es mejor una billetera de escritorio Electrum/Sparrow (para una mejor administración de tarifas, UTXO, monedas, etc.). Esta "cartera de caché" es importante.</li>
     <li>NO se retira directamente de un intercambio al servicio de intercambio. Podría tener fondos bloqueados y/o perdidos si hace eso. Por lo general, los intercambios utilizan un retraso en el retiro de fondos, en especial para evitar estos casos. Así que retira primero a tu "cartera de caché", por seguridad.</li>
-    <li>Servicios de intercambio que podrías usar: <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> | <a href="https://zigzag.io" target="_blank" rel="noopener noreferrer">ZigZag</a> | <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> | <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> y muchos mas</li>
+    <li>Servicios de intercambio que podrías usar: <a href="#guia-recargar">ver esta sección</a></li>
     </ul>
     <p>Pasos a seguir:</p>
     <ol>
@@ -349,12 +365,7 @@ title: Guias
        como resultado del cierre de muchos canales, recomendamos el siguiente procedimiento:</p>
     <ol>
       <li>Importe su antigua semilla en Bluewallet (también podría estar en Sparrow, pero es un procedimiento más largo y complicado), como cualquier otra billetera en cadena.</li>
-      <li>Utilice cualquier servicio de intercambio en cadena para LN (<a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a> |
-        <a href="https://deezy.io/" target="_blank" rel="noopener noreferrer">Deezy</a> |
-        <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a> |
-        <a href="https://learn.robosats.com/" target="_blank" rel="noopener noreferrer">RoboSats (Tor P2P)</a> |
-        <a href="https://amboss.space/magma?type=swap" target="_blank" rel="noopener noreferrer">Amboss (intercambios P2P)</a> |
-        <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> y muchos más)
+      <li>Utilice cualquier servicio de intercambio en cadena para LN <a href="#guia-recargar">ver esta sección</a>
       </li>
       <li>Vaya a su nuevo Blixt, en la configuración, active "usar canales Dunder". Mantenga Blixt activo para mantenerse sincronizado.</li>
       <li>Envíe los fondos de Bluewallet onchain (sus antiguos fondos de Blixt) a cualquiera de estos servicios de intercambio.</li>
