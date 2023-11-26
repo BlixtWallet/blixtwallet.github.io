@@ -710,14 +710,15 @@ title: Frequently Asked Questions
   <section id="blixt-data">
     <h3>I notice that my Blixt occupy a lot of space on my mobile device. How can I reduce it?</h3>
     <p>Yes, that could happen due to Neutrino sync that is keeping the old sync temporary data on the device. 
-      Also a part of that data is from LN Graph sync, but is not too much and that data is re-synced every time you open Blixt, overwritting the old one.</p>>
+      Also a part of that data is from LN Graph sync, but is not too much and that data is re-synced every time you open Blixt, 
+      overwritting the old one.</p>
     <p>Until new developements on Neutrino server code, we advice to do the following steps to clear up that old data.</p>
       <ul>
       <li>DO NOT clear data from Android app storage details!</li>
       <li>Open Blixt and go to "Settings". Scroll way down to the "Debug" section and click on "Stop LND and delete Neutrino files".</li>
       <li>This will restart Blixt and at the startup will erase the old neutrino data and resync the new ones, freeing up the storage.</li>
       <li>Next step is to compact the LND database. Again, go to Blixt "Settings", way down to "Debug" section and click on "compact lnd database"
-        Blixt will restart again and in few moments will compact the database. This compaction will have a serious effect on battery life.</li>
+        Blixt will restart again and in few moments will compact the database. This compaction will have a serious good effect and will improve battery life.</li>
       <li>Now you can go back to Android Blixt app storage details and check the occupied space.</li>
       </ul>
     <p>This procedure is also good to do it, when you se your Blixt in persistent mode. We've notice that by deleting this old data the device is not working
