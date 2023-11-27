@@ -46,6 +46,7 @@ title: Guides
       <li><a href="#guide-ism">How to use Blixt as "Infrastructure Spending Machine" (ISM)?</a></li>
       <li><a href="#guide-old-wallet">How to consolidate funds from an old Blixt wallet?</a></li>
       <li><a href="#guide-liquidity">Quick mini guide Blixt Node Liquidity</a></li>
+      <li><a href="#guide-dunder-lsp">How to became a LSP (Liquidity Service Provider) with Dunder?</a></li>
     </ul>
   </section>
 
@@ -486,5 +487,52 @@ title: Guides
     <p>When you have 2 or more different channels with different peers, yes is recommended to use the MPP (multi-path payment). 
        But when you have just one channel or multiple channels with same peer, the MPP it doesn't work and could end up in "route failed".</p>
     <p>So is always recommended to have channels with different peers / nodes and big enough to handle your regular transactions in a certain period of time.</p>
+  </section>
+
+  <section id="guide-dunder-lsp">
+    <h3>How to became a LSP (Liquidity Service Provider) with Dunder?</h3>
+    <h3>This mini guide is dedicated to all node runners that want to give a purpose more to their public routing LN node</h3>
+    <p>We really hope that all those Plebnet node runners are reading this mini guide and give use of their LN nodes.
+      This liquidity is what is needed right now for regular Blixt users.</p>
+    <p>These are some simple steps about how you can offer LN liquidity services for mobile node users.
+      This could be also that "uncle Jim" scenario, where you are offering LN services for your family and friends, that do not/can't run their own node 
+      and just want a way to use LN in a safe and private way, self-custodial.</p>
+    <p><strong>REMINDER:</strong></p>
+    <ul>
+      <li>The LSP do not hold user funds! It just provide liquidity. This is NOT custody of users funds, is just a way to provide, fast opening channels
+        and good routes for users payments. <a href="https://thebitcoinmanual.com/articles/explained-lsp/">Read more here what is a LSP.</a></li>
+      <li>LSPs are very important for mobile private nodes users, to be able to open good channels that offer good liquidity. Not all LN node in the 
+        network are willing to offer this kind of services, because a private node is not always online and is not doing any routing, so those funds 
+        are exclusively for their own payments, so the LSP cannot use them for routing. So in some way they depend on users traffic. 
+        If the user is not using these funds to do payments, the LSP is not earning any fees. Or even worse, if is opening an inbound channel for 
+        the user, the LSP is literally putting money from his pocket into a channel that never move.</li>
+      <li>Is important that these channels services are for users that have most of the time traffic in and out.</li>
+    </ul>
+    <p>Some requirements are to mention first:</p>
+    <ul>
+      <li>you have a good LN public node, with history, with good channels, good liquidity, good maintenance.</li>
+      <li>you run a LND node. This scenario is only for LND node, no CLN, Eclair, LDK for the moment.</li>
+      <li>you know very well how to maintain your liquidity in such way that could offer smooth and fast payments.</li>
+      <li>fees you would apply are up to you, but I suggest to not let the greed controls you.</li>
+      <li>you are familiar with Linux and CLI, installing software. NO NEED for noobs that knows only how to use Umbrel and Windows.</li>
+      <li>willing to maintain the service for your users as long as you could. Be fair and help them as much as you can.</li>
+    </ul>
+    <p>This solution is based on <a href="https://github.com/hsjoberg/dunder-lsp">Dunder LSP specs</a>, that are open source, made by Hampus, 
+      developer of Blixt Wallet. All contributions to improve the code are welcome!</p>
+    <p>This Dunder LSP is offering right easy onboarding for new Blixt wallet users, a full LND node on your mobile. 
+      <a href="/guides#guide-lsp">See more details about how to use Dunder channels in Blixt here.</a></p>
+    <p>So what steps you should do as a LND node runner, to be able to offer Dunder LSP channels to Blixt users?</p>
+    <ol>
+      <li>Install Dunder LSP software on your own node machine</li>
+      <li>Set your own Dunder rules for fees, size of the channels etc</li>
+      <li>Make some tests with your own Blixt wallet, opening an on-demand channel with 0-conf, instant</li>
+      <li>Make some more tests with your family/friends Blixt users, to be sure your node is responding well and can route well all the payments.</li>
+      <li>List your Dunder LSP services on the <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">Blixt community peers</a> - soon maybe this list will be integrated directly into Blixt UI so new users 
+        can pick easily their peers. Right now is just list where Blixt users are posting their preferred peers to use with Blixt, like a vouched list of peers.</li>
+      <li>Give feedback to Hampus, post issues on Dunder Github, if you have, participate with PRs for the code. being open source also can be extended
+         to be a LSP standard for other LN implementations and LN mobile nodes (Zeus, Mutiny, Electrum, Breez, Phoenix).</li>
+    </ol>
+    <p>Only by collaborating, testing, using and improving we can go forward !</p>
+    <p>Happy Blixt Lightning!</p>
   </section>
 </article>
