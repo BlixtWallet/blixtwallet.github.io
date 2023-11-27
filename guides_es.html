@@ -45,6 +45,7 @@ title: Guias
       <li><a href="#guia-ism">¿Cómo usar Blixt como "Máquina de Gastos en Infraestructura" (ISM)?</a></li>
       <li><a href="#guia-wallet-viejo">¿Cómo consolidar fondos de una vieja billetera Blixt?</a></li>
       <li><a href="#guia-liquidez">Mini guía rápida de liquidez para Blixt Node</a></li>
+      <li><a href="#guia-dunder-lsp">¿Cómo convertirse en LSP (proveedor de servicios de liquidez) con Dunder?</a></li>
     </ul>
   </section>
 
@@ -442,5 +443,52 @@ title: Guias
     <p>Cuando tenga 2 o más canales diferentes con diferentes pares, sí se recomienda usar el MPP (pago de múltiples rutas).
        Pero cuando tiene solo un canal o múltiples canales con el mismo par, el MPP no funciona y podría terminar en "ruta fallida".</p>
     <p>Por lo tanto, siempre se recomienda tener canales con diferentes pares / nodos y lo suficientemente grandes como para manejar sus transacciones regulares en un cierto período de tiempo.</p>
+  </section>
+
+  <section id="guia-dunder-lsp">
+    <h3>¿Cómo convertirse en LSP (proveedor de servicios de liquidez) con Dunder?</h3>
+     <h3>Esta mini guía está dedicada a todos los corredores de nodos que quieran darle un propósito más a su nodo LN de enrutamiento público</h3>
+     <p>Realmente esperamos que todos aquellos corredores de nodos Plebnet lean esta mini guía y den uso a sus nodos LN.
+       Esta liquidez es lo que necesitan ahora los usuarios habituales de Blixt.</p>
+     <p>Estos son algunos pasos simples sobre cómo ofrecer servicios de liquidez de LN para usuarios de nodos móviles.
+       Este también podría ser el escenario del "tío Jim", en el que usted ofrece servicios de LN para su familia y amigos, que no ejecutan o no pueden ejecutar su propio nodo.
+       y solo quiero una forma de utilizar LN de forma segura y privada, con custodia propia.</p>
+     <p><strong>RECORDATORIO:</strong></p>
+     <ul>
+       <li>¡El LSP no retiene los fondos de los usuarios! Simplemente proporciona liquidez. Esto NO es la custodia de los fondos de los usuarios, es solo una forma de proporcionar canales de apertura rápida.
+         y buenas rutas para los pagos de los usuarios. <a href="https://thebitcoinmanual.com/articles/explained-lsp/">Lea más aquí qué es un LSP.</a></li>
+       <li>Los LSP son muy importantes para que los usuarios de nodos privados móviles puedan abrir buenos canales que ofrezcan buena liquidez. No todos los nodos LN en el
+         La red está dispuesta a ofrecer este tipo de servicios, porque un nodo privado no siempre está en línea y no realiza ningún enrutamiento, por lo que esos fondos
+         son exclusivamente para sus propios pagos, por lo que el LSP no puede utilizarlos para enrutamiento. Entonces, de alguna manera dependen del tráfico de usuarios.
+         Si el usuario no utiliza estos fondos para realizar pagos, el LSP no gana ninguna tarifa. O peor aún, si está abriendo un canal entrante para
+         Para el usuario, el LSP literalmente está poniendo dinero de su bolsillo en un canal que nunca se mueve.</li>
+       <li>Es importante que los servicios de estos canales sean para usuarios que tienen la mayor parte del tiempo tráfico de entrada y salida.</li>
+     </ul>
+     <p>Algunos requisitos son mencionar primero:</p>
+     <ul>
+       <li>tienes un buen nodo público de LN, con historia, con buenos canales, buena liquidez, buen mantenimiento.</li>
+       <li>ejecutas un nodo LND. Este escenario es solo para el nodo LND, no para CLN, Eclair, LDK por el momento.</li>
+       <li>Sabe muy bien cómo mantener su liquidez de tal manera que pueda ofrecer pagos rápidos y sin problemas.</li>
+       <li>Las tarifas que aplicarías dependen de ti, pero te sugiero que no dejes que la codicia te controle.</li>
+       <li>está familiarizado con Linux y CLI, instalando software. NO HAY NECESIDAD de novatos que solo sepan cómo usar Umbrel y Windows.</li>
+       <li>dispuesto a mantener el servicio para sus usuarios tanto tiempo como pueda. Sé justo y ayúdalos tanto como puedas.</li>
+     </ul>
+     <p>Esta solución se basa en las <a href="https://github.com/hsjoberg/dunder-lsp">especificaciones de Dunder LSP</a>, que son de código abierto, creadas por Hampus.
+       desarrollador de Blixt Wallet. ¡Todas las contribuciones para mejorar el código son bienvenidas!</p>
+     <p>Este LSP de Dunder ofrece una incorporación sencilla y sencilla para los nuevos usuarios de la billetera Blixt, un nodo LND completo en su dispositivo móvil.
+       <a href="/guides_es#guia-lsp">Vea más detalles sobre cómo usar los canales de Dunder en Blixt aquí.</a></p>
+     <p>Entonces, ¿qué pasos debes seguir como corredor de nodos LND para poder ofrecer canales Dunder LSP a los usuarios de Blixt?</p>
+     <ol>
+       <li>Instale el software Dunder LSP en su propia máquina de nodo</li>
+       <li>Establece tus propias reglas de Dunder para tarifas, tamaño de canales, etc.</li>
+       <li>Haz algunas pruebas con tu propia billetera Blixt, abriendo un canal bajo demanda con 0-conf, instantáneo</li>
+       <li>Haga más pruebas con sus familiares/amigos usuarios de Blixt para asegurarse de que su nodo esté respondiendo bien y pueda enrutar bien todos los pagos.</li>
+       <li>Enumere sus servicios Dunder LSP en los <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">pares de la comunidad Blixt</a>; pronto tal vez esta lista se integre directamente en la interfaz de usuario de Blixt para que los nuevos usuarios
+         pueden elegir fácilmente a sus compañeros. En este momento solo hay una lista donde los usuarios de Blixt publican sus pares preferidos para usar con Blixt, como una lista certificada de pares.</li>
+       <li>Envíe comentarios a Hampus, publique problemas en Dunder Github y, si lo ha hecho, participe con relaciones públicas para el código. Al ser de código abierto también se puede ampliar.
+          ser un estándar LSP para otras implementaciones de LN y nodos móviles de LN (Zeus, Mutiny, Electrum, Breez, Phoenix).</li>
+     </ol>
+     <p>¡Solo colaborando, probando, usando y mejorando podremos seguir adelante!</p>
+     <p>¡Feliz Lightning con Blixt!</p>
   </section>
 </article>
