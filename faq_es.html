@@ -46,6 +46,7 @@ title: Preguntas frecuentes
       <li><a href="#blixt-lnaddress">¿Blixt Wallet tiene una Dirección Lightning con la que puedo recibir?</a></li>
       <li><a href="#blixt-canales-dunder">Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</a></li>
       <li><a href="#blixt-datos">Noto que mi blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</a></li>
+      <li><a href="#blixt-taproot">¿Blixt soporta canales Taproot?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -526,7 +527,7 @@ title: Preguntas frecuentes
 
    <section id="blixt-canales-dunder">
     <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>
-    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>>
+    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>
     <p>Y eso es por algunas razones:</p>
       <ul>
       <li>El nodo Blixt DEBE poner de su propio bolsillo la cantidad de sats como saldo remoto.</li>
@@ -561,5 +562,20 @@ title: Preguntas frecuentes
       </ul>
     <p>Este procedimiento también es bueno para hacerlo, cuando ves tu blext en modo persistente. Notamos que al eliminar estos datos antiguos, el dispositivo no funciona
       Tan intensamente y calentando la batería. También se nota una menor utilización de la batería.</p>
+  </section>
+
+  <section id="blixt-taproot">
+    <h3>¿Blixt soporta canales Taproot?</h3>
+    <p>Sí, a partir de la versión 0.6.9, Blixt admite canales Taproot simples.
+       Por el momento están disponibles sólo para abrir canales normales de LN. Pronto también estará disponible para los canales Dunder LSP.</p>
+    <p>Aspectos importantes sobre los canales Taproot simples:</p>
+    <ul>
+      <li>Permita a los usuarios abrir canales (privados) sin previo aviso con transacciones Taproot, lo que mejora la privacidad en cadena y la rentabilidad.</li>
+      <li>Al cerrar estos canales, se incurre en menos tarifas y se les brinda más privacidad, ya que parecen como cualquier otro
+         Gasto de Taproot al examinar su huella en la cadena.</li>
+      <li>la integración de las firmas de Schnorr con Taproot mejora la eficiencia en la cadena al permitir la agregación de firmas.
+         Este desarrollo garantiza que las operaciones cooperativas en cadena sean más eficientes en términos de espacio y costos.</li>
+    <p><a href="https://lightning.engineering/posts/2023-10-03-lnd-0.17-launch/">Lea más sobre los canales Taproot aquí.</a></p>
+    </ul>
   </section>
 </article>
