@@ -34,7 +34,7 @@ title: Guides
     <ul>
       <li><a href="#guide-videos">Blixt Wallet Video Demos</a></li>
       <li><a href="#notes">IMPORTANT NOTES / TIPS</a></li>
-      <li><a href="https://darthcoin.substack.com/p/getting-started-with-blixt-mobile" target="_blank" rel="noopener noreferrer">Blixt Wallet - Gettings started guide</a></li>
+      <li><a href="https://darth-coin.github.io/wallets/getting-started-blixt-wallet-en.html" target="_blank" rel="noopener noreferrer">Blixt Wallet - Gettings started guide</a></li>
       <li><a href="#guide-lsp">How to use Dunder LSP to open channels and receive funds over LN?</a></li>
       <li><a href="#guide-autopilot">How to use autopilot for opening LN channels?</a></li>
       <li><a href="#guide-channels">How do I open a channel with my Umbrel / myNode / Raspiblitz / other node?</a></li>
@@ -59,6 +59,7 @@ title: Guides
     <li><a href="https://www.youtube.com/watch?v=gM7ksjD7Y5o" target="_blank" rel="noopener noreferrer">Tutorial completo con Reckless Satoshi (ES)</a></li>
     <li><a href="https://www.youtube.com/watch?v=FcIMkbjMFXk" target="_blank" rel="noopener noreferrer">Tutorial - Blixt Wallet - Einrichten und Bedienen (DE)</a></li>
     <li><a href="https://www.youtube.com/watch?v=Rdc78V-bLtc" target="_blank" rel="noopener noreferrer">Full review Blixt Wallet (PT)</a></li>
+    <li><a href="/assets/images/blixt-persistent.mp4">How to set Blixt LND service in Persistent Mode</a></li>
     <li><a href="/assets/images/blixt-lnadr.mp4">Adding a contact lightning address and send some sats</a></li>
     <li><a href="/assets/images/blixt-coinos-lnadr.mp4">Sending from Blixt to CoinOS using LN Address</a></li>
     <li><a href="/assets/images/blixt-contact-list.mp4">Pay from a contact list</a></li>
@@ -221,10 +222,8 @@ title: Guides
       <a href="https://boltz.eldamar.icu/" target="_blank" rel="noopener noreferrer">Boltz Eldamar</a>, 
       <a href="https://swap.diamondhands.technology/" target="_blank" rel="noopener noreferrer">DiamondHands</a>, 
       <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
-      <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a>,  
+      <a href="https://swapmarket.github.io/" target="_blank" rel="noopener noreferrer">Swap market</a>,  
       <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, 
-      <a href="https://t.me/myloopoutbot" target="_blank" rel="noopener noreferrer">myLoop telegram bot</a>, 
-      <a href="https://www.ipayblue.com/ipb/def/ln-swap-form/" target="_blank" rel="noopener noreferrer">iPayBlue</a>, 
       <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
       <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats (onion address)</a> (accessible through Blixt WebLN browser or Tor onion address) 
        and select swap onchain to LN</li>
@@ -269,7 +268,7 @@ title: Guides
     <h3>Using Blixt Wallet as a small merchant - simple steps</h3>
     <p>As a merchant, you will need more inbound liquidity, receiving more payments than sending them. You need to have "more space" to receive sats.</p>
     <p>With Blixt you will need to do some preparation steps to obtain that inbound liquidity.</p>
-    <p>The idea is to have a bunch of enough large channels (depending on your incoming traffic amount), receive payments into these large channels,. and end of day or week, when these channels are filled, you loop out like 90% of the balance into an onchain address, using a submarine swap service (<a href="https://darthcoin.substack.com/p/lightning-network-submarine-swaps" target="_blank" rel="noopener noreferrer">see a detailed guide about swaps here</a>).</p>
+    <p>The idea is to have a bunch of enough large channels (depending on your incoming traffic amount), receive payments into these large channels,. and end of day or week, when these channels are filled, you loop out like 90% of the balance into an onchain address, using a submarine swap service (<a href="https://darth-coin.github.io/nodes/lightning-submarine-swaps-en.html" target="_blank" rel="noopener noreferrer">see a detailed guide about swaps here</a>).</p>
     <p>For the moment Blixt do not offer a swap service "in-app", but is taken in consideration for future developments.</p>
     <h4>Use case scenario and steps to do:</h4>
     <ul>
@@ -295,7 +294,7 @@ title: Guides
     <p>Considerations:</p>
     <ul>
     <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 1-3M sats channel.</li>
-    <li>You already have at least 1-2 even 3 other channels with other nodes (Blixt node, ZeroFeeRouting or many others good ones). <a href="https://telegra.ph/List-of-good-nodes-11-25" target="_blank" rel="noopener noreferrer">Here is a curated list of good nodes to start.</a></li>
+    <li>You already have at least 1-2 even 3 other channels with other nodes (Blixt node, ZeroFeeRouting or many others good ones). <a href="https://darth-coin.github.io/nodes/managing-lightning-node-liquidity-en.html" target="_blank" rel="noopener noreferrer">Here is a curated list of good nodes to start.</a></li>
     <li>Optional, you can set in your Blixt wallet app, the option to use MPP (Multi-Part Payment). Use this option when you have a larger payment</li>
     <li>You have enough liquidity on your Blixt side of the channel with your node, to cover your regular payments. You can always push back funds using keysend from your home node to your Blixt wallet node.</li>
     <li>You have set in your home node 0/0 fees for the channel you have with your Blixt Wallet and also 2-3 other good peers, to where you can push the flow of txs from your Blixt.</li>
