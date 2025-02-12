@@ -44,8 +44,9 @@ title: Preguntas frecuentes
       <li><a href="#pruned-zombies">Pagos con Blixt no funcionan. ¿Qué puedo hacer?</a></li>
       <li><a href="#blixt-migrar">Si vuelvo a instalar la billetera Blixt o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</a></li>
       <li><a href="#blixt-lnaddress">¿Blixt Wallet tiene una Dirección Lightning con la que puedo recibir?</a></li>
-      <li><a href="#blixt-canales-dunder">Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</a></li>
+      <li><a href="#blixt-canales-dunder">Los canales abiertos con Dunder tienen una capacidad máxima de 200k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</a></li>
       <li><a href="#blixt-datos">Noto que mi blixt ocupa mucho espacio en mi dispositivo móvil. ¿Cómo puedo reducirlo?</a></li>
+      <li><a href="#blixt-taproot">¿Blixt soporta canales Taproot?</a></li>
     </ul>
   </section>
   <section id="que-es-ln">
@@ -56,7 +57,7 @@ title: Preguntas frecuentes
     <h4>A. Información general y documentación sobre Lightning Network</h4>
     <ol>
       <li>
-        <a href="https://darthcoin.substack.com/p/lightning-network-y-la-analogia-del"
+        <a href="https://darth-coin.github.io/beginner/ln-airport-analogy-es.html"
           target="_blank" rel="noopener noreferrer">Lightning Network y la analogía del aeropuerto</a>
       </li>
       <li>
@@ -146,7 +147,7 @@ title: Preguntas frecuentes
        hay un costo y algunos usuarios también verán ese costo.</p>
     <p>3. Abrir y cerrar canales en LN <i>tienen un costo</i>. y a veces no es barato. Depende también de la
        tarifas de minero en el momento de abrir un canal LN. A veces puede ser alto, a veces puede ser realmente barato. Usuarios
-       primero debe aprender acerca de cómo funcionan estas cosas. Aquí está <a href="https://bitcoin.cipix.eu/en/what-is-mempool/" target="_blank" rel="noopener noreferrer">una guía simple sobre las tarifas de mempool.</a>
+       primero debe aprender acerca de cómo funcionan estas cosas. Aquí está <a href="https://mempool.space/docs/faq" target="_blank" rel="noopener noreferrer">una guía simple sobre las tarifas de mempool.</a>
       Aquí está otro <a href="https://suredbits.com/lightning-101-lightning-network-fees/" target="_blank" rel="noopener noreferrer">guía sobre tarifas de LN</a>.</p>
     <h4>ESCENARIO DE CASO DE USO:</h4>
     <p>Es un nuevo usuario de Blixt Wallet y acaba de instalar la aplicación, no tiene fondos depositados en la billetera.</p>
@@ -519,16 +520,14 @@ title: Preguntas frecuentes
 
    <section id="blixt-lnaddress">
      <h3>¿Blixt Wallet tiene una dirección Lightning con la que puedo recibir?</h3>
-     <p>NO, NO en este momento. Pero pronto habrá agregado una nueva y poderosa característica llamada <a href="https://github.com/hsjoberg/lightning-box">Lightning Box"</a></p>
-     <p>Esta función proporcionará al usuario una dirección Lightning de autocustodia personalizada vinculada a su propia billetera Blixt.</p>
-     <p>¡Estén atentos, pronto se lanzará esta nueva función para Blixt!</p>
-     <p>¿Puedo recibir sats mientras la billetera Blixt está cerrada?</p>
-     <p>Ahora mismo, no. Pronto, cuando Lightning Box se implemente en Blixt, entonces sí, podrá recibir, mientras su aplicación Blixt esté cerrada/no en línea</p>
+     <p>Sí, comenzando con <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> 
+      puede tener una dirección Lightning propia. </p>
+    <P>Vea más detalles en las notas de lanzamiento de Blixt GitHub y/o en la página <a href="/features_es#blixt-cajon"> "Caracteristicas Blixt"</a>.</p>
    </section>
 
    <section id="blixt-canales-dunder">
     <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>
-    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>>
+    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>
     <p>Y eso es por algunas razones:</p>
       <ul>
       <li>El nodo Blixt DEBE poner de su propio bolsillo la cantidad de sats como saldo remoto.</li>
@@ -542,6 +541,8 @@ title: Preguntas frecuentes
           pero no abuse de esta opción y NO se recomienda tener múltiples canales con el mismo par y podría terminar en pagos fallidos.</li>
       </li>
       </ul>
+    <p>Alentamos a otros operadores de nodos a comenzar a utilizar nuestro código fuente abierto para Dunder LSP. <a href="/guides_es#guia-dunder-lsp">Lea aquí una mini guía.</a>
+        Eso descentralizará más las ofertas de canales LSP y también podría ofrecer canales más grandes, según la demanda.</p>
     <p>Para cambiar el proveedor de Dunder predeterminado, vaya a Configuración -> Establecer servidor de Dunder y coloque el nombre del servidor.
        Luego vaya a la Sección de depuración -> Probar el servidor Dunder y vea si responde correctamente. Después de eso, puede abrir un nuevo canal de Dunder.</p>
     <p>Si el usuario necesita más liquidez entrante, utilice el método específico con LSP entrante, que puede encontrar en Configuración.</p>
@@ -563,5 +564,20 @@ title: Preguntas frecuentes
       </ul>
     <p>Este procedimiento también es bueno para hacerlo, cuando ves tu blext en modo persistente. Notamos que al eliminar estos datos antiguos, el dispositivo no funciona
       Tan intensamente y calentando la batería. También se nota una menor utilización de la batería.</p>
+  </section>
+
+  <section id="blixt-taproot">
+    <h3>¿Blixt soporta canales Taproot?</h3>
+    <p>Sí, a partir de la versión 0.6.9, Blixt admite canales Taproot simples.
+       Por el momento están disponibles sólo para abrir canales normales de LN. Pronto también estará disponible para los canales Dunder LSP.</p>
+    <p>Aspectos importantes sobre los canales Taproot simples:</p>
+    <ul>
+      <li>Permita a los usuarios abrir canales (privados) sin previo aviso con transacciones Taproot, lo que mejora la privacidad en cadena y la rentabilidad.</li>
+      <li>Al cerrar estos canales, se incurre en menos tarifas y se les brinda más privacidad, ya que parecen como cualquier otro
+         Gasto de Taproot al examinar su huella en la cadena.</li>
+      <li>la integración de las firmas de Schnorr con Taproot mejora la eficiencia en la cadena al permitir la agregación de firmas.
+         Este desarrollo garantiza que las operaciones cooperativas en cadena sean más eficientes en términos de espacio y costos.</li>
+    <p><a href="https://lightning.engineering/posts/2023-10-03-lnd-0.17-launch/">Lea más sobre los canales Taproot aquí.</a></p>
+    </ul>
   </section>
 </article>
