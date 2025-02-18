@@ -32,11 +32,10 @@ title: Frequently Asked Questions
       <li><a href="#no-sync">Blixt doesn't sync. Why is this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#reserve">What is the "channel reserve"?</a></li>
+      <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#keysend">Can I receive sats through keysend?</a></li>
-      <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
-      <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
@@ -304,6 +303,10 @@ title: Frequently Asked Questions
        Channel reserves makes it so cheating attempts always have something at stake making this less likely to occur.
      </p>
      <p><a href="https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve">Read more about LN channel reserve here.</a></p>
+     <p>Another aspect to keep in mind is that LND (Blixt LN node backend) is using also "channel buffer fees". 
+      <a href="https://github.com/lightningnetwork/lnd/blob/6dea86428d031171af30119e3f6599820dc5454a/lnwallet/channel.go#L3803-L3815">See more technical details here.</a> 
+      Practically, when you try to send all sats you see "spendable" in your channel, in fact only 95-99% you can actually send out. 
+      But after you send that amount you can conitnue sending again 95-99% and so on until depletion.</p>
   </section>
 
   <section id="blixt-peers">
@@ -744,7 +747,7 @@ title: Frequently Asked Questions
   </section>
 
   <section id="blixt-dunder-channels">
-    <h3>Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</h3>
+    <h3>Channels opened with Dunder are max 200k sats capacity. How can I have larger Dunder channels opened?</h3>
     <p>Yes, the current limit for opening Dunder channels with Blixt node is max 200k sats.</p>
     <p>And that is for some reasons:</p>
       <ul>

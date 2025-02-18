@@ -30,6 +30,7 @@ title: Preguntas frecuentes
       <li><a href="#que-es-ln">¿Qué es la Lightning Network?</a></li>
       <li><a href="#no-sync">Mi Blixt no sincroniza, porque esto y que puedo hacer?</a></li>
       <li><a href="#tarifas">¿Qué tarifas se utilizan? ¿Tiene algún costo usar los canales de LN?</a></li>
+      <li><a href="#reserva">¿Qué es la reserva de canales?</a></li>
       <li><a href="#blixt-nodo">¿Cómo es posible tener un nodo en un dispositivo móvil?</a></li>
       <li><a href="#blixt-pares">¿Con qué nodos puedo abrir canales lightning?</a></li>
       <li><a href="#enrutamiento">¿Puedo enrutar otros pagos con Blixt Wallet?</a></li>
@@ -233,6 +234,10 @@ title: Preguntas frecuentes
        Las reservas de canal hacen que los intentos de trampa siempre tengan algo en juego, lo que hace que sea menos probable que ocurra.
      </p>
      <p><a href="https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve">Lea más sobre la reserva de canales de LN aquí.</a></p>
+     <p>Otro aspecto a tener en cuenta es que LND (el backend del nodo Blixt LN) también utiliza "tarifas de buffer de canal".
+      <a href="https://github.com/lightningnetwork/lnd/blob/6dea86428d031171af30119e3f6599820dc5454a/lnwallet/channel.go#L3803-L3815">Consulta más detalles técnicos aquí.</a>
+      En la práctica, cuando intentas enviar todos los sats que ves "gastables" en tu canal, en realidad solo puedes enviar el 95-99 %.
+      Pero después de enviar esa cantidad, puedes seguir enviando de nuevo el 95-99 % y así sucesivamente hasta que se agote.</p>
   </section>
 
   <section id="blixt-nodo">
@@ -582,8 +587,8 @@ title: Preguntas frecuentes
    </section>
 
    <section id="blixt-canales-dunder">
-    <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 400k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>
-    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 400k sats.</p>
+    <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 200k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>
+    <p>Sí, el límite actual para abrir canales Dunder con el nodo Blixt es un máximo de 200k sats.</p>
     <p>Y eso es por algunas razones:</p>
       <ul>
       <li>El nodo Blixt DEBE poner de su propio bolsillo la cantidad de sats como saldo remoto.</li>
