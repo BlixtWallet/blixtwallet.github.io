@@ -202,8 +202,8 @@ title: Frequently Asked Questions
     <li>you can use a VPN but choose it wisely and monitor all the time the ping. Use one that is closer to your geographical location. Distance means more ms response time, remember.</li>
     <li>select wisely your neutrino peers, here is a list of well known public neutrino servers:</li>
     </ul>
-    <pre><code>
-    For US region
+    <p style="color:yellow;">For US region</p>
+    <pre>
     btcd1.lnolymp.us | btcd2.lnolymp.us
     btcd-mainnet.lightning.computer
     swest.blixtwallet.com (Seattle)
@@ -211,12 +211,16 @@ title: Frequently Asked Questions
     noad.sathoarder.com
     bb1.breez.technology | bb2.breez.technology
     neutrino.shock.network
-    For EU region
+    </pre>
+    <p style="color:yellow;">For EU region</p>
+    <pre>
     europe.blixtwallet.com (Germany)
-    For Asia region
+    </pre>
+    <p style="color:yellow;">For Asia region</p>
+    <pre>
     sg.lnolymp.us
     asia.blixtwallet.com
-    </code></pre>
+    </pre>
     <p>Another way is to select one from this list of nodes announcing the "compact filters" (BIP157 / neutrino) - <a href="https://bitnodes.io/nodes/?q=NODE_COMPACT_FILTERS">Bitnodes Page Neutrino filter</a>. Choose one that is closer to your geographical location.</p>
     <p>Another way (the best way) is to connect to a local community node, run by a friend or group that you know them, and is offering neutrino connection. <a href="https://docs.lightning.engineering/lightning-network-tools/lnd/enable-neutrino-mode-in-bitcoin-core">Here are the instructions how to do it.</a> Their node will not be affected in any way, they just need a stable and public connection.</p>
     <p>There is a need for more neutrino servers in the LATAM region, for a better and fast sync. So please organize yourself, with your local Bitcoin community and decide who and where is running a Bitcoin Core + Neutrino for your own use. With just a public IP is enough. If you do not have access to a public IP, you can use a VPS IP and make wireguard tunnel to your home node. That way you redirect all the traffic to your local VPS IP, without revealing any private information about your home node.</p>
