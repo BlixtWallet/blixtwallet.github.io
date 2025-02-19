@@ -32,11 +32,10 @@ title: Frequently Asked Questions
       <li><a href="#no-sync">Blixt doesn't sync. Why is this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
       <li><a href="#reserve">What is the "channel reserve"?</a></li>
+      <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
       <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#keysend">Can I receive sats through keysend?</a></li>
-      <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
-      <li><a href="#routing">Can I route payments with Blixt Wallet?</a></li>
       <li><a href="#connect-bitcoin-node">How do I connect Blixt Wallet to my own full node?</a></li>
       <li><a href="#umbrel-control">Can I remotely control an Umbrel from Blixt Wallet?</a></li>
       <li><a href="#blixt-restore">I lost my mobile phone (dead, stolen) or simply want to migrate to a new phone, what
@@ -49,7 +48,7 @@ title: Frequently Asked Questions
       <li><a href="#pruned-zombies">Payments with Blixt not working. What can I do?</a></li>
       <li><a href="#blixt-migrate">If I reinstall Blixt wallet or switch devices, can I keep my previous channels?</a></li>
       <li><a href="#blixt-lnaddress">Does Blixt Wallet have a Lightning Address I can receive with?</a></li>
-      <li><a href="#blixt-dunder-channels">Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</a></li>
+      <li><a href="#blixt-dunder-channels">Channels opened with Dunder are max 200k sats capacity. How can I have larger Dunder channels opened?</a></li>
       <li><a href="#blixt-data">I notice that my Blixt occupy a lot of space on my mobile device. How can I reduce it?</a></li>
       <li><a href="#blixt-taproot">Does Blixt support Taproot channels?</a></li>
     </ul>
@@ -173,8 +172,7 @@ title: Frequently Asked Questions
       <li>Restart the Blixt app (try force close for closing bad connections).</li>
       <li>Remove Tor connection (if is possible and you want it) and restart Blixt.</li>
       <li>Switch between your internet connections (Wifi <-> 4G). That could trigger a refresh of DNS providers in your device.</li>
-      <li>Switch back to default sync server node.blixtwallet.com, or just leave it blank.</li>
-      <li>Optional you can use an alternative Neutrino Node node.eldamar.icu or your own node if you run one.</li>
+      <li>Switch back to default sync server node.blixtwallet.com, or just leave it blank. See below more details about neutrino peers.</li>
       <li>Go to <i>Settings -> Rescan wallet</i>, then restart the app. Once restarted, go to <i>Settings -> Read lnd
           log</i>, or go to <i>Settings -> Copy lnd log to local storage</i> to save a copy of the lnd log.</li>
       <li>Check if you have enough space on your device. Move apps, photos, and videos to your mSD card, and leave more
@@ -182,7 +180,68 @@ title: Frequently Asked Questions
       <li>Restart the app, then go to <i>Settings -> LndMobile Help Center</i>, and run a diagnostics test. Get in
         contact with Blixt support on <a href="https://t.me/BlixtWallet" target="_blank">Telegram</a> for further
         instructions or to share logs.</li>
+      </ul>
+    <p style="color:yellow;">More details about syncing problems.</p>
+    <p>All these issues start because YOUR DEVICE IS NOT SYNCING PROPERLY. Please understand this important aspect: Blixt is a mobile LND node, that uses Neutrino for syncing / reading the blocks.</p>
       <ul>
+      <li>Here's a less technical explanation from <a href="https://bitcoinmagazine.com/technical/why-bitcoin-wallets-need-block-filters">Bitcoin Magazine</a></li>
+      <li>Here are more technical resources from <a href="https://bitcoinops.org/en/topics/compact-block-filters/">Bitcoin Optech</a></li>
+      <li>Here is how you can activate Neutrino on your own home node and serve blocks filters for your mobile node, from <a href="https://docs.lightning.engineering/lightning-network-tools/lnd/enable-neutrino-mode-in-bitcoin-core">Docs Lightning Engineering</a></li>
+      </ul>
+    <p><span style="color:yellow;">REMINDER:</span> Using Neutrino over clearnet is totally safe, your IP or xpub are not leaked. You are just reading blocks from a remote node with neutrino. That's all. All the rest is done on your local device.</p>
+    <p>So there's NO NEED to use it with Tor. Tor will add a huge latency on your syncing process and will make your Blixt very unstable. If you really want to use over Tor, be sure what are you doing and have a good connection and patience. Same case for using a VPN. Be careful what latency is given to you from that VPN.</p>
+    <p>You can test the latency of a neutrino server by simply ping it, from a PC or from your mobile.</p>
+    <p><img src="/assets/images/blixt.ping-peer.jpg" class="center"></p>
+    <p>This is an usual ping to the neutrino server europe.blixtwallet.com, this shows that the connection is very good with a response time of avg 50ms and a TTL of 51. The response time can vary but not too much. TTL must be stable.</p>
+    <p>If these values are higher than 100-150ms then your syncing process will stale or even worse, it could cause closed channels by peers ! Do not ignore this aspect.</p>
+    <p>Without a proper sync, you also cannot see the correct balance or your LN channels will not get online and operational. No matter how many giga ultra terra mbps you have the download speed IT DOESN'T MATTER. It matter the time response and TTL (time to live).</p>
+    <p>This is like a general case for LATAM users. I don't know what happen down there but you guys have a terrible connection with pings of over 200ms that can disrupt any sync.</p>
+    <p style="color:yellow;">So what is the solution for these desperate users?</p>
+    <ul>
+    <li>stop using Blixt with Tor. Is totally useless</li>
+    <li>you can use a VPN but choose it wisely and monitor all the time the ping. Use one that is closer to your geographical location. Distance means more ms response time, remember.</li>
+    <li>select wisely your neutrino peers, here is a list of well known public neutrino servers:</li>
+    </ul>
+    <p style="color:yellow;">For US region</p>
+    <pre>
+    btcd1.lnolymp.us | btcd2.lnolymp.us
+    btcd-mainnet.lightning.computer
+    swest.blixtwallet.com (Seattle)
+    node.eldamar.icu
+    noad.sathoarder.com
+    bb1.breez.technology | bb2.breez.technology
+    neutrino.shock.network
+    </pre>
+    <p style="color:yellow;">For EU region</p>
+    <pre>
+    europe.blixtwallet.com (Germany)
+    </pre>
+    <p style="color:yellow;">For Asia region</p>
+    <pre>
+    sg.lnolymp.us
+    asia.blixtwallet.com
+    </pre>
+    <p>Another way is to select one from this list of nodes announcing the "compact filters" (BIP157 / neutrino) - <a href="https://bitnodes.io/nodes/?q=NODE_COMPACT_FILTERS">Bitnodes Page Neutrino filter</a>. Choose one that is closer to your geographical location.</p>
+    <p>Another way (the best way) is to connect to a local community node, run by a friend or group that you know them, and is offering neutrino connection. <a href="https://docs.lightning.engineering/lightning-network-tools/lnd/enable-neutrino-mode-in-bitcoin-core">Here are the instructions how to do it.</a> Their node will not be affected in any way, they just need a stable and public connection.</p>
+    <p>There is a need for more neutrino servers in the LATAM region, for a better and fast sync. So please organize yourself, with your local Bitcoin community and decide who and where is running a Bitcoin Core + Neutrino for your own use. With just a public IP is enough. If you do not have access to a public IP, you can use a VPS IP and make wireguard tunnel to your home node. That way you redirect all the traffic to your local VPS IP, without revealing any private information about your home node.</p>
+    <p>Some other "quick fixes" you could do:</p>
+    <h4 style="color:yellow;">Time Server</h4>
+    <p>Sometimes people use various old devices or are not properly connected to a time server. Neutrino is syncing ok until reached the actual blocks that do not correspond to real local time. You will see in Blixt lnd logs an error saying that "block time stamp is far from future" or something related with "header don't pass sanity check".</p>
+    <p><span style="color:yellow;">Quick fix:</span> set the correct time and date for your device and restart Blixt.</p>
+    <h4 style="color:yellow;">Low space on device</h4>
+    <p>Sometimes using an old device, with low space, it can reach a threshold limit and stuck. Indeed for more you are using this mobile LND node, the neutrino files get bigger and also the channel.db file.</p>
+    <p><span style="color:yellow;">Quick fix:</span> Go to Blixt Options - Debug section - Select "stop LND and delete neutrino files". It will restart the app and start a new fresh sync. Sometimes this quick fix can repair also corrupted data. Keep in mind that will take some time, between 1 and 3 min to fully resync. It is NOT deleting existing funds or channels, but yes, after resync it could trigger a re-scan of your bitcoin addresses and that could take more time.</p>
+    <p>Next step is to check how much data is still occupied. You can see this in Android App info - data. If is still bigger than 400-500MB, you can compact the lnd files. So go to Blixt Options - Debug section - Select "Compact DB LND". Restart Blixt app if is not doing automatically. The compaction is taking place at startup and is only once. Now you will see that Blixt data is more less occupied.</p>
+    <h4 style="color:yellow;">Persistent mode</h4>
+    <p>Sometimes people do not open Blixt for long time, so is way too old the sync. But they expect to be synced instantly when they open it.</p>
+    <p>Please have patience, and look at the top spinning wheel. Optional you can go to Options - See Node Info and see if is synced to chain and synced to graph marked as "true". Without that "true" mention you cannot use properly Blixt, you cannot see correctly the balance, you cannot see the LN channels online, you cannot do payments.</p>
+    <p><span style="color:yellow;">Quick fix:</span> There's a powerful option to "keep alive" your Blixt node. Go to Options - Experiments - Select "Activate Persistent Mode". That will restart your Blixt and will put the lnd service in persistent mode, aka will always be active and keep online your sync, even if you switch to another app or simply close Blixt (not force close or kill the task). You can keep it like that all day if you are in a stable connection and you need to use Blixt several times. It will not consume too much the battery.</p>
+    <p>Here is a video demonstration how "Persitent Mode works on Android with Blixt</p>
+    <center>
+      <video width="320" height="640" controls>
+        <source src="/assets/images/blixt-persistent.mp4" type="video/mp4">
+      </video>
+    </center>
   </section>
 
   <section id="fees">
@@ -248,6 +307,10 @@ title: Frequently Asked Questions
        Channel reserves makes it so cheating attempts always have something at stake making this less likely to occur.
      </p>
      <p><a href="https://bitcoin.design/guide/how-it-works/liquidity/#channel-reserve">Read more about LN channel reserve here.</a></p>
+     <p>Another aspect to keep in mind is that LND (Blixt LN node backend) is using also "channel buffer fees". 
+      <a href="https://github.com/lightningnetwork/lnd/blob/6dea86428d031171af30119e3f6599820dc5454a/lnwallet/channel.go#L3803-L3815">See more technical details here.</a> 
+      Practically, when you try to send all sats you see "spendable" in your channel, in fact only 95-99% you can actually send out. 
+      But after you send that amount you can conitnue sending again 95-99% and so on until depletion.</p>
   </section>
 
   <section id="blixt-peers">
@@ -688,7 +751,7 @@ title: Frequently Asked Questions
   </section>
 
   <section id="blixt-dunder-channels">
-    <h3>Channels opened with Dunder are max 400k sats capacity. How can I have larger Dunder channels opened?</h3>
+    <h3>Channels opened with Dunder are max 200k sats capacity. How can I have larger Dunder channels opened?</h3>
     <p>Yes, the current limit for opening Dunder channels with Blixt node is max 200k sats.</p>
     <p>And that is for some reasons:</p>
       <ul>
