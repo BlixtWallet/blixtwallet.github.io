@@ -522,10 +522,11 @@ title: Preguntas frecuentes
       <li>Copie el zprv que se muestra en el campo "HD node root base 58".</li>
       <li>Abra la aplicación de billetera Sparrow (ya descargada) y seleccione "nueva billetera".</li>
       <li>En "Almacenes de claves", seleccione "nueva cartera de software importada".</li>
-      <li>En la siguiente ventana que se abrirá, seleccione "Master Private Key BIP32" y pegue la clave zprv que obtiene de la herramienta de criptografía.
-          y haga clic en "importar". Le mostrará que es una ruta de derivación m/84/0/0 (como debería ser).</li>
-      <li>Haga clic en "Importar almacén de claves" y volverá a la ventana principal de la aplicación de billetera, donde podrá ver toda la configuración de la billetera.
-          Haga clic en "aplicar" y se le pedirá que establezca una contraseña para cifrar su archivo de billetera local.</li>
+      <li>En la siguiente ventana que se abrirá, selecciona "Master Private Key BIP32" y pega la clave "zprv" que obtuviste de la herramienta de criptografía y haz clic en "import". Te mostrará que es una ruta de derivación m/84'/0'/0. Eso importará solo el tipo de direcciones segwit P2WPKH. Pero si usaste direcciones Taproot P2TR, entonces debes cambiarlas a "m/86'/0'/0".</li>
+      <li>Haz clic en "Import Keystore" y volverás a la ventana principal de la aplicación de billetera donde puedes ver toda la configuración de la billetera. Haz clic en "apply" y te pedirá que configures una contraseña para cifrar tu archivo de billetera local.</li>
+      <li>Si usaste ambos tipos de direcciones en Blixt, te sugerimos que las importes como dos billeteras en Sparrow, usando la misma clave "xprv" pero cada una con una ruta de derivación diferente. De esta manera, puedes evitar confusiones.</li>
+      <li>También puedes cambiar entre segwit y taproot en una billetera ya importada, yendo a Configuración de billetera y cambiando el "Tipo de Scrypt" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH o "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) y luego volver a importar las claves BIP32 xprv para hacer el cambio.</li>
+      <p><img src="assets/images/shtf-sparrow-p2tr.png" align="center" alt="Configuración de billetera Sparrow"/></p>
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
