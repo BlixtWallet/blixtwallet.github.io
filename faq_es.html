@@ -30,6 +30,7 @@ title: Preguntas frecuentes
       <li><a href="#que-es-ln">¿Qué es la Lightning Network?</a></li>
       <li><a href="#no-sync">Mi Blixt no sincroniza, porque esto y que puedo hacer?</a></li>
       <li><a href="#tarifas">¿Qué tarifas se utilizan? ¿Tiene algún costo usar los canales de LN?</a></li>
+      <li><a href="#balance">¿Por qué mi saldo de Blixt a veces varía?</a></li>
       <li><a href="#reserva">¿Qué es la reserva de canales?</a></li>
       <li><a href="#blixt-nodo">¿Cómo es posible tener un nodo en un dispositivo móvil?</a></li>
       <li><a href="#blixt-pares">¿Con qué nodos puedo abrir canales lightning?</a></li>
@@ -223,13 +224,35 @@ title: Preguntas frecuentes
         rel="noopener noreferrer">Link 3</a>.</p>
   </section>
 
+  <section id="balance">
+    <h3>¿Por qué mi saldo de Blixt a veces varía?</h3>
+    <p>El saldo de LN (gastable) fluctúa porque las comisiones de compromiso de los canales se renegocian a medida que cambia el coste de publicación en la blockchain de Bitcoin.
+    Cuando las comisiones de compromiso suben (las comisiones de BTC se encarecen), parte de tu saldo local se reserva para cubrirlas, lo que resulta en una disminución de tu saldo local. Cuando las comisiones bajan, ocurre lo contrario.</p>
+    <p>Para evitar este problema, lo que debes hacer es sumar todos los saldos locales de tus canales con las comisiones de compromiso de los canales que has abierto.
+    Actualmente no hay una forma sencilla de saber si has abierto un canal o no, pero, por ejemplo, se incluyó una solicitud de registro (PR) en lnd para facilitar esta tarea a los desarrolladores.
+    Actualmente, la solución que estoy usando es inferir si abrí o no un canal por su saldo enviado, recibido y local.</p>
+    <p><img src="assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    <p>Además de la reserva del 1% del canal, usted, como financiador, es responsable de pagar las comisiones en cadena en caso de que necesite forzar el cierre del canal al gastar la transacción de compromiso. Los nodos Lightning, en general, sobreestiman las comisiones en cadena, ya que no pueden confiar en que las comisiones cobradas al firmar la transacción de compromiso se mantendrán en el futuro si se fuerza el cierre del canal.</p>
+    <p>Cosas que puedes hacer:</p>
+    <ul>
+    <li>No fuerces el cierre de canales (las comisiones serán mucho menores con cierres mutuos, ya que la comisión es más precisa y solo se necesita una transacción).</li>
+    <li>Ten canales más grandes, entonces la comisión relativa no es tan alta.</li>
+    <li>Ni siquiera puedes excederte, ya que las comisiones que se utilizan se negocian entre tú y tu socio de canal. Si el socio del canal empieza con una comisión muy alta, prácticamente no hay nada que puedas hacer para protegerte.</li>
+    </ul>
+    <p>La razón de ser de commit_fee es prepararse en caso de que el canal sufra un cierre forzoso.</p>
+    <p>Si tu canal tiene un cierre cooperativo, puedes elegir la comisión que quieres pagar con --sat_per_byte.</p>
+    <p>Si tu canal tiene un cierre forzoso, la comisión de transacción no se puede configurar manualmente, sino que la establece el sistema LND basándose en la comisión estimada del nodo de Bitcoin al momento del cierre del canal.</p>
+    <p>Y la mayoría de las veces, un cierre forzoso genera una comisión de transacción de cierre más alta que un cierre cooperativo; por ello, se reserva una comisión de compromiso de una cantidad tan alta. Sin embargo, si el canal no se cierra forzoso, no tendrás que gastar tanto dinero en comisiones.</p>
+    <p>Actualmente, LND tiene 20k sat como mínimo del canal por defecto, pero es demasiado bajo. Creo que lo cambiarán a un número más alto.</p>
+  </section>
+
   <section id="reserva">
     <h3>¿Qué es la reserva de canales?</h3>
     <p>"He abierto un canal de 500k sats, pero no puedo usar más de 495k sats, dice saldo insuficiente. ¿Por qué?"</p>
     <p>Otro aspecto a tener en cuenta es la "reserva de canales". Si vas a tu Blixt - cajón superior - Lightning Channels
        verá en los detalles del canal que se menciona cuánto es la reserva del canal.
     </p>
-    <p><img src="assets/images/blixt-ch-reserve.jpg" align="center" alt="Blixt Channel Reserve"/></p>
+    <p><img src="assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
     <p>Una reserva de canal es una cantidad que cada participante del canal reserva para asegurarse de que ninguno tiene "nada en juego".
       si se produce un intento de trampa.</p>
     <p>Esta reserva (normalmente el 1% del importe total del canal) no se puede gastar y se reserva durante toda la vida útil del canal.
@@ -482,7 +505,7 @@ title: Preguntas frecuentes
        entonces podría intentar presionar un "cierre forzado" del estado "esperando para cerrar". Esto podría suceder a veces, por varias razones.
     </p>
     <p>Este es un ejemplo:</p>
-    <p><img src="assets/images/blixt-force-close-channel.jpg" align="center" alt="Blixt Force Close Channel"/></p>
+    <p><img src="assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
     <p>Una vez que presione el botón "Forzar el cierre del canal pendiente", se le preguntará si está seguro y luego aparecerá un mensaje de que comenzará a forzar el cierre.</p>
     <p>Tenga paciencia, después de unos momentos, verá en los registros de lnd el mensaje de que se inició el cierre forzado:</p>
     <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
@@ -526,7 +549,7 @@ title: Preguntas frecuentes
       <li>Haz clic en "Import Keystore" y volverás a la ventana principal de la aplicación de billetera donde puedes ver toda la configuración de la billetera. Haz clic en "apply" y te pedirá que configures una contraseña para cifrar tu archivo de billetera local.</li>
       <li>Si usaste ambos tipos de direcciones en Blixt, te sugerimos que las importes como dos billeteras en Sparrow, usando la misma clave "xprv" pero cada una con una ruta de derivación diferente. De esta manera, puedes evitar confusiones.</li>
       <li>También puedes cambiar entre segwit y taproot en una billetera ya importada, yendo a Configuración de billetera y cambiando el "Tipo de Scrypt" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH o "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) y luego volver a importar las claves BIP32 xprv para hacer el cambio.</li>
-      <p><img src="assets/images/shtf-sparrow-p2tr.png" align="center" alt="Configuración de billetera Sparrow"/></p>
+      <p><img src="assets/images/shtf-sparrow-p2tr.png" class="center" alt="Configuración de billetera Sparrow"/></p>
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
