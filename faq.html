@@ -563,7 +563,7 @@ title: Frequently Asked Questions
       </li>
       <li>
         Another way to "push" the connection with your lost peers is to add them manually. Go to <a
-          href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your peer,
+          href="https://mempool.space/lightning" target="_blank" rel="noopener noreferrer">mempool.space/lightning</a>, search for your peer,
         copy or scan the QR URI of your peer, and go to <i>Settings -> Show Lightning Peers -> +</i> .
       </li>
       <li>
@@ -746,11 +746,12 @@ title: Frequently Asked Questions
 
   <section id="blixt-migrate">
     <h3>If I reinstall Blixt Wallet or switch devices, can I keep my previous channels?</h3>
-    <p>Right now, NO. In the future, maybe it will be possible through a more advanced procedure saving the wallet.db and channel.db files
-       from encrypted side of the device into a separate repository, from it can be made the migration to another device.</p>
     <p>Blixt follows the LND standard procedure of restoring funds using the SCB file (SCB = static channels backup) previously saved</p>
-    <p>Until the optional procedure will be implemented, please make your usual SCB backups and follow the instructions described in the chapter <a href="#blixt-restore">Restore Blixt funds</a></p>
+    <p>Please make your usual SCB backups and follow the instructions described in the chapter <a href="#blixt-restore">Restore Blixt funds</a></p>
     <p>REMINDER: do the SCB backup each time you open or close a LN channel. There's NO need after each payment.</p>
+    <p>Nevertheless, recently it was implemented a new Blixt feature for migrating an old node with existing channels into a new device,
+      but is not recommended for inexperienced users and we want to be done ONLY under close supervision of Blixt devs/support.</p>
+    <p>So in order to do this step, please contact Hampus or support team in the <a href="https://t.me/blixtwallet/411466"></a>Blixt Telegram group chat</a> for asssitance</p>
   </section>
 
   <section id="blixt-lnaddress">
