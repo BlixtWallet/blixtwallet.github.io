@@ -288,7 +288,8 @@ title: Frequently Asked Questions
     <p>Things you can do:</p>
     <ul>
       <li>Don't force close channels (fees will be much smaller with mutual closes, since the fee is more accurate and only one tx is needed)</li>
-      <li>Have bigger channels then the relative fee is not so high</li>
+      <li>Have bigger channels then the relative fee. When you have a channel size of 20-30k sats your "spendable" balance could be even 0 in a high fee enviornment.
+        But when you have let's say a 300-500k sats channel, those commit fees are almost negligible.</li>
       <li>You cannot even do too much as the fees being used are negotiated between you and your channel partner. 
         If the channel partner starts out with a really high fee there is hardly anything you can do to defend against this.</li>
     </ul>
@@ -318,7 +319,7 @@ title: Frequently Asked Questions
      <p>Another aspect to keep in mind is that LND (Blixt LN node backend) is using also "channel buffer fees". 
       <a href="https://github.com/lightningnetwork/lnd/blob/6dea86428d031171af30119e3f6599820dc5454a/lnwallet/channel.go#L3803-L3815">See more technical details here.</a> 
       Practically, when you try to send all sats you see "spendable" in your channel, in fact only 95-99% you can actually send out. 
-      But after you send that amount you can conitnue sending again 95-99% and so on until depletion.</p>
+      But after you send that amount you can continue sending again 95-99% and so on until depletion.</p>
   </section>
 
   <section id="blixt-peers">
