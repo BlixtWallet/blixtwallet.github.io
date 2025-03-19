@@ -192,7 +192,9 @@ title: Frequently Asked Questions
     <p><span style="color:yellow;">REMINDER:</span> Using Neutrino over clearnet is totally safe, your IP or xpub are not leaked. You are just reading blocks from a remote node with neutrino. That's all. All the rest is done on your local device.</p>
     <p>So there's NO NEED to use it with Tor. Tor will add a huge latency on your syncing process and will make your Blixt very unstable. If you really want to use over Tor, be sure what are you doing and have a good connection and patience. Same case for using a VPN. Be careful what latency is given to you from that VPN.</p>
     <p>You can test the latency of a neutrino server by simply ping it, from a PC or from your mobile.</p>
+    <center>
     <p><img src="/assets/images/blixt.ping-peer.jpg" class="center"></p>
+    </center>
     <p>This is an usual ping to the neutrino server europe.blixtwallet.com, this shows that the connection is very good with a response time of avg 50ms and a TTL of 51. The response time can vary but not too much. TTL must be stable.</p>
     <p>If these values are higher than 100-150ms then your syncing process will stale or even worse, it could cause closed channels by peers ! Do not ignore this aspect.</p>
     <p>Without a proper sync, you also cannot see the correct balance or your LN channels will not get online and operational. No matter how many giga ultra terra mbps you have the download speed IT DOESN'T MATTER. It matter the time response and TTL (time to live).</p>
@@ -281,7 +283,9 @@ title: Frequently Asked Questions
     <p>To avoid this issue what you want to do is sum all your channel local balances with the commit fees for only the channels you have opened. 
       There is currently no easy way to tell if you opened a channel or not but there was just a PR in lnd for example to make this easier on developers. 
       Right now the solution I am using is to infer whether or not I opened a channel by its sent, received, and local balance.</p>
+    <center>
     <p><img src="assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    </center>
     <p>Besides the 1% channel reserve you as the funder are responsible for paying onchain fees in case you need to force close the channel by spending the commitment transaction.
       Lightning nodes in general are rather overestimating onchain fees as they cannot rely on the fact that the fees that where taken when the commitment 
       transaction was signed will work in the future if force closing of the channel takes place.</p>
@@ -307,7 +311,9 @@ title: Frequently Asked Questions
     <p>Another aspect to take in consideration is the "channel reserve". If you go to your Blixt - top drawer - Lightning Channels
        you will see in the channel details that is mentioned how much is the channel reserve.
     </p>
+    <center>
     <p><img src="assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    </center>
     <p>A channel reserve is an amount that is set aside by each channel participant which ensures neither have "nothing at stake" 
       if a cheating attempt occurs.</p>
     <p>This reserve (usually 1% of the total amount of the channel) cannot be spent, and is held aside for the entirety of the channels lifetime. 
@@ -640,7 +646,9 @@ title: Frequently Asked Questions
        then you could try to push a "force close" of the "waiting to close" status. This could happen sometimes, for various reasons.
     </p>
     <p>Here is an example:</p>
+    <center>
     <p><img src="assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    </center>
     <p>Once you hit the button "Force close pending channel" you will be asked if you are sure and then a message that it will start force close.</p>
     <p>Be patient, after few moments, you will see in the lnd logs the message that the force close was inititated:</p>
     <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
@@ -694,7 +702,9 @@ title: Frequently Asked Questions
       <li>Click on "Import Keystore" and it will go back to main window of the wallet app where you can see all the wallet config. Click on "apply" and will prompt you to set a password to encrypt your local wallet file.</li>
       <li>If you used both types of addresses in Blixt, we suggest to import them as two wallets in Sparrow, using the same "xprv" key but each one with a different derivation path. In this way you can avoid confusions.</li>
       <li>You can also change between segwit and taproot an already imported wallet, by going to wallet Settings and switch the "Scrypt Type" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH or "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) and then re-import the BIP32 xprv keys to make the switch.</li>
+      <center>
       <p><img src="assets/images/shtf-sparrow-p2tr.png" class="center" alt="Sparrow wallet settings"/></p>
+      </center>
       <li>Sparrow app will start scanning all your keys and txs and it will be displayed after
           a while in the "Transactions" tab. Patience, it will take some time.</li>
     </ul>

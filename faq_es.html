@@ -149,7 +149,9 @@ title: Preguntas frecuentes
     <p><span style="color:yellow;">RECORDATORIO:</span> Usar Neutrino sobre clearnet es totalmente seguro, tu IP o xpub no se filtran. Solo estás leyendo bloques desde un nodo remoto con Neutrino. Eso es todo. Todo el resto se hace en tu dispositivo local.</p>
     <p>Por lo tanto, NO HAY NECESIDAD de usarlo con Tor. Tor agregará una gran latencia en tu proceso de sincronización y hará que tu Blixt sea muy inestable. Si realmente quieres usarlo sobre Tor, asegúrate de lo que estás haciendo y ten una buena conexión y paciencia. Lo mismo ocurre con el uso de una VPN. Ten cuidado con la latencia que te proporciona esa VPN.</p>
     <p>Puedes probar la latencia de un servidor de neutrino simplemente haciéndole ping, desde una PC o desde tu móvil.</p>
+    <center>
     <p><img src="/assets/images/blixt.ping-peer.jpg" class="center"></p>
+    </center>
     <p>Este es un ping habitual al servidor de neutrino europe.blixtwallet.com, que muestra que la conexión es muy buena con un tiempo de respuesta de 50 ms de media y un TTL de 51. El tiempo de respuesta puede variar, pero no demasiado. El TTL debe ser estable.</p>
     <p>Si estos valores son superiores a 100-150 ms, el proceso de sincronización se estancará o, peor aún, podría provocar que los pares cierren los canales. No ignores este aspecto.</p>
     <p>Sin una sincronización adecuada, tampoco podrás ver el balance correcto o tus canales LN no se pondrán en línea ni operativos. No importa cuántos gigabits ultra terra mbps tengas, la velocidad de descarga NO IMPORTA. Importa el tiempo de respuesta y el TTL (tiempo de vida).</p>
@@ -231,7 +233,9 @@ title: Preguntas frecuentes
     <p>Para evitar este problema, lo que debes hacer es sumar todos los saldos locales de tus canales con las comisiones de compromiso de los canales que has abierto.
     Actualmente no hay una forma sencilla de saber si has abierto un canal o no, pero, por ejemplo, se incluyó una solicitud de registro (PR) en lnd para facilitar esta tarea a los desarrolladores.
     Actualmente, la solución que estoy usando es inferir si abrí o no un canal por su saldo enviado, recibido y local.</p>
+    <center>
     <p><img src="assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    </center>
     <p>Además de la reserva del 1% del canal, usted, como financiador, es responsable de pagar las comisiones en cadena en caso de que necesite forzar el cierre del canal al gastar la transacción de compromiso. Los nodos Lightning, en general, sobreestiman las comisiones en cadena, ya que no pueden confiar en que las comisiones cobradas al firmar la transacción de compromiso se mantendrán en el futuro si se fuerza el cierre del canal.</p>
     <p>Cosas que puedes hacer:</p>
     <ul>
@@ -253,7 +257,9 @@ title: Preguntas frecuentes
     <p>Otro aspecto a tener en cuenta es la "reserva de canales". Si vas a tu Blixt - cajón superior - Lightning Channels
        verá en los detalles del canal que se menciona cuánto es la reserva del canal.
     </p>
+    <center>
     <p><img src="assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    </center>
     <p>Una reserva de canal es una cantidad que cada participante del canal reserva para asegurarse de que ninguno tiene "nada en juego".
       si se produce un intento de trampa.</p>
     <p>Esta reserva (normalmente el 1% del importe total del canal) no se puede gastar y se reserva durante toda la vida útil del canal.
@@ -506,7 +512,9 @@ title: Preguntas frecuentes
        entonces podría intentar presionar un "cierre forzado" del estado "esperando para cerrar". Esto podría suceder a veces, por varias razones.
     </p>
     <p>Este es un ejemplo:</p>
+    <center>
     <p><img src="assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    </center>
     <p>Una vez que presione el botón "Forzar el cierre del canal pendiente", se le preguntará si está seguro y luego aparecerá un mensaje de que comenzará a forzar el cierre.</p>
     <p>Tenga paciencia, después de unos momentos, verá en los registros de lnd el mensaje de que se inició el cierre forzado:</p>
     <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
@@ -550,7 +558,9 @@ title: Preguntas frecuentes
       <li>Haz clic en "Import Keystore" y volverás a la ventana principal de la aplicación de billetera donde puedes ver toda la configuración de la billetera. Haz clic en "apply" y te pedirá que configures una contraseña para cifrar tu archivo de billetera local.</li>
       <li>Si usaste ambos tipos de direcciones en Blixt, te sugerimos que las importes como dos billeteras en Sparrow, usando la misma clave "xprv" pero cada una con una ruta de derivación diferente. De esta manera, puedes evitar confusiones.</li>
       <li>También puedes cambiar entre segwit y taproot en una billetera ya importada, yendo a Configuración de billetera y cambiando el "Tipo de Scrypt" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH o "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) y luego volver a importar las claves BIP32 xprv para hacer el cambio.</li>
+      <center>
       <p><img src="assets/images/shtf-sparrow-p2tr.png" class="center" alt="Configuración de billetera Sparrow"/></p>
+      </center>
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>

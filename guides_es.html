@@ -193,20 +193,16 @@ title: Guias
     <ol>
     <li>Entra en cualquier servicio de swap como 
       <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, 
-      <a href="https://boltz.eldamar.icu/" target="_blank" rel="noopener noreferrer">Boltz Eldamar</a>, 
-      <a href="https://swap.diamondhands.technology/" target="_blank" rel="noopener noreferrer">DiamondHands</a>, 
-      <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
+      <a href="https://ff.io/" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
       <a href="https://swapmarket.github.io/" target="_blank" rel="noopener noreferrer">Swap market</a>, 
-      <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, 
       <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
-      <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats</a> (accesible a través del navegador Blixt WebLN o la dirección Tor onion)
+      <a href="http://robosats.org/">RoboSats</a> (accesible a través del navegador Blixt WebLN o la dirección Tor onion)
       y seleccione cambiar en cadena a LN</li>
     <li>Ingrese el monto, pague desde su dirección onchain (podría ser incluso desde la misma billetera Blixt onchain o cualquier otra que tenga)</li>
     <li>Proporcione la factura LN de su monedero Blixt como destino</li>
     </ol>
     <p>¡Hecho! Ahora tienes tus sats directamente en tus canales Blixt LN. Esta es también una buena forma de privacidad.</p>
-    <p>NOTA: también puede hacer lo contrario, sacando sats de los canales LN a cualquier dirección onchain, sin cerrar los canales.
-      En este caso, también puede usar <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a> swap (este es solo LN para onchain)</p>
+    <p>NOTA: también puede hacer lo contrario, sacando sats de los canales LN a cualquier dirección onchain, sin cerrar los canales.</p>
   </section>
   
   <section id="guia-tor">
@@ -305,7 +301,9 @@ title: Guias
     </li>
     <li>
     <p><strong>Utilice un servicio de intercambio externo</strong> mencionados <a href="#guia-recargar">en esta sección</a>
+    <center>
     <p><img src="assets/images/swap-LN-onchain.jpg" class="center" alt="swap-LN-onchain"/></p>
+    </center>
     <p>Para usar un servicio de intercambio también es bastante simple, en pocos pasos:</p>
         <ul>
         <li>Vaya a uno de esos sitios web de servicios indicados.</li>
@@ -330,7 +328,9 @@ title: Guias
     <h3>¿Cómo usar Blixt como "Máquina de Gastos en Infraestructura" (ISM)?</h3>
     <p>La "Máquina de gastos de infraestructura" es el método utilizado para comprar bitcoins de los intercambios KYC y moverlos a sus billeteras HODL en cadena, pasando por una serie de "preparaciones" de tal manera que se rompen los enlaces a su identidad KYC, para una mejor privacidad.</p>
     <p>Entre tu Blixt móvil y el nodo de casa tendrás canales privados, que solo tú conoces, no son visibles en el gráfico público de LN ni son conocidos por otros. Este aspecto le brindará más privacidad para sus txs regulares, pero también una buena vía de tráfico, si desea mover fondos de fuentes KYC, a través de exchanges, a sus billeteras en cadena HODL.</p>
+    <center>
     <p><img src="assets/images/blixt-machine.png" class="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    </center>
     <p>Consideraciones:</p>
     <ul>
     <li>Ya tienes un canal entre tu Blixt y el nodo de inicio. Mejor lo suficientemente grande como para manejar transacciones más grandes y numerosas. Ejemplo un canale de 2-5M sats.</li>
@@ -349,7 +349,9 @@ title: Guias
     <li>En este paso, puede usar la función interna de "bucle de salida" de las aplicaciones de administración de nodos RTL o Thunderhub para mover fondos de los canales LN a una dirección externa en cadena. O simplemente guárdelos para usarlos en LN, más tarde cuando sea necesario. También podría usar nuevamente los servicios de intercambio externos mencionados anteriormente, pero esta vez al revés, enviando a través de LN y recibiendo en cadena, a la dirección BTC deseada de su billetera HODL.</li>
     </ol>
     <p>Aquí hay un esquema simple para hacer intercambios con Blixt, como ejemplo para usar:</p>
+    <center>
     <p><img src="assets/images/swaps-blixt.jpg" class="center" alt="Blixt Swaps Scheme"/></p>
+    </center>
   </section>
 
   <section id="guia-wallet-viejo">
