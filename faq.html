@@ -284,7 +284,7 @@ title: Frequently Asked Questions
       There is currently no easy way to tell if you opened a channel or not but there was just a PR in lnd for example to make this easier on developers. 
       Right now the solution I am using is to infer whether or not I opened a channel by its sent, received, and local balance.</p>
     <center>
-    <p><img src="assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    <p><img src="/assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
     </center>
     <p>Besides the 1% channel reserve you as the funder are responsible for paying onchain fees in case you need to force close the channel by spending the commitment transaction.
       Lightning nodes in general are rather overestimating onchain fees as they cannot rely on the fact that the fees that where taken when the commitment 
@@ -312,7 +312,7 @@ title: Frequently Asked Questions
        you will see in the channel details that is mentioned how much is the channel reserve.
     </p>
     <center>
-    <p><img src="assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    <p><img src="/assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
     </center>
     <p>A channel reserve is an amount that is set aside by each channel participant which ensures neither have "nothing at stake" 
       if a cheating attempt occurs.</p>
@@ -647,7 +647,7 @@ title: Frequently Asked Questions
     </p>
     <p>Here is an example:</p>
     <center>
-    <p><img src="assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    <p><img src="/assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
     </center>
     <p>Once you hit the button "Force close pending channel" you will be asked if you are sure and then a message that it will start force close.</p>
     <p>Be patient, after few moments, you will see in the lnd logs the message that the force close was inititated:</p>
@@ -672,7 +672,7 @@ title: Frequently Asked Questions
        That means, you will miss some sats in your balance displayed because those taproot addresses will be ignored. That doesn't means you lost your sats.
        It just that are not displayed, not shown, not "readable" by the app you use to import the wallet.</p>
     <p>Let's say you cannot install anymore Blixt app on your device. You could use the following procedures, to restore your funds from a Blixt wallet:</p>
-    <h4>A. Using <a href="https://zeusln.app">Zeus LN</a>.</h4>
+    <h4>A. Using <a href="https://zeusln.com">Zeus LN</a>.</h4>
     <p>There are two ways/methods to restore your Blixt node into Zeus: only onchain wallet and / or full recovery with LN channels.</p>
     <ul>
       <li>Only onchain recovery - Simply put your Blixt 24 words aezeed seed into <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>
@@ -680,7 +680,6 @@ title: Frequently Asked Questions
       <li>Full recovery with channels funds - Take the SCB file exported previously from your Blixt node and copy the encrypted Basde64 code into 
         <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>. Remember also to insert the 24 words seed.</li>
     </ul>
-    <p></p>
     <h4>B. Using <a href="https://bluewallet.io">Bluewallet</a>.</h4>
     <p>Simply put your Blixt 24 words seed into restore procedure, wait few moment to restore old UTXOs and done.</p> 
     <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
@@ -703,7 +702,7 @@ title: Frequently Asked Questions
       <li>If you used both types of addresses in Blixt, we suggest to import them as two wallets in Sparrow, using the same "xprv" key but each one with a different derivation path. In this way you can avoid confusions.</li>
       <li>You can also change between segwit and taproot an already imported wallet, by going to wallet Settings and switch the "Scrypt Type" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH or "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) and then re-import the BIP32 xprv keys to make the switch.</li>
       <center>
-      <p><img src="assets/images/shtf-sparrow-p2tr.png" class="center" alt="Sparrow wallet settings"/></p>
+      <p><img src="/assets/images/shtf-sparrow-p2tr.png" class="center" alt="Sparrow wallet settings"/></p>
       </center>
       <li>Sparrow app will start scanning all your keys and txs and it will be displayed after
           a while in the "Transactions" tab. Patience, it will take some time.</li>

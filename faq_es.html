@@ -234,7 +234,7 @@ title: Preguntas frecuentes
     Actualmente no hay una forma sencilla de saber si has abierto un canal o no, pero, por ejemplo, se incluyó una solicitud de registro (PR) en lnd para facilitar esta tarea a los desarrolladores.
     Actualmente, la solución que estoy usando es inferir si abrí o no un canal por su saldo enviado, recibido y local.</p>
     <center>
-    <p><img src="assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    <p><img src="/assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
     </center>
     <p>Además de la reserva del 1% del canal, usted, como financiador, es responsable de pagar las comisiones en cadena en caso de que necesite forzar el cierre del canal al gastar la transacción de compromiso. Los nodos Lightning, en general, sobreestiman las comisiones en cadena, ya que no pueden confiar en que las comisiones cobradas al firmar la transacción de compromiso se mantendrán en el futuro si se fuerza el cierre del canal.</p>
     <p>Cosas que puedes hacer:</p>
@@ -258,7 +258,7 @@ title: Preguntas frecuentes
        verá en los detalles del canal que se menciona cuánto es la reserva del canal.
     </p>
     <center>
-    <p><img src="assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    <p><img src="/assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
     </center>
     <p>Una reserva de canal es una cantidad que cada participante del canal reserva para asegurarse de que ninguno tiene "nada en juego".
       si se produce un intento de trampa.</p>
@@ -513,7 +513,7 @@ title: Preguntas frecuentes
     </p>
     <p>Este es un ejemplo:</p>
     <center>
-    <p><img src="assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    <p><img src="/assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
     </center>
     <p>Una vez que presione el botón "Forzar el cierre del canal pendiente", se le preguntará si está seguro y luego aparecerá un mensaje de que comenzará a forzar el cierre.</p>
     <p>Tenga paciencia, después de unos momentos, verá en los registros de lnd el mensaje de que se inició el cierre forzado:</p>
@@ -538,12 +538,19 @@ title: Preguntas frecuentes
        Eso significa que perderá algunos sats en su saldo que se muestra porque esas direcciones raíz serán ignoradas. Eso no significa que hayas perdido tus SAT.
        Solo que no se muestran, no se muestran, no son "legibles" por la aplicación que usa para importar la billetera.</p>
     <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
-    <h4>A. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
+    <h4>A. Usando <a href="https://zeusln.com">Zeus LN</a>.</h4>
+<p>Hay dos maneras/métodos para restaurar tu nodo Blixt en Zeus: solo con la billetera on-chain y/o con una recuperación completa con canales LN.</p>
+<ul>
+<li>Recuperación solo on-chain: simplemente introduce tu semilla aezeed de 24 palabras de Blixt en el <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">procedimiento de restauración de Zeus</a>.
+Espera unos instantes para restaurar las UTXO antiguas y listo. Espera a que Zeus vuelva a escanear todos los UYXO y todo tu saldo onchain aparecerá en tu billetera onchain.</li>
+<li>Recuperación completa con fondos de canales: Toma el archivo SCB exportado previamente desde tu nodo Blixt y copia el código Basde64 cifrado en el <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Procedimiento de restauración de Zeus</a>. Recuerda también insertar la semilla de 24 palabras.</li>
+</ul>
+    <h4>B. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
     <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo.<p>
     <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
-    <h4>B. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
+    <h4>C. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
     <p>Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía</a> de openoms.</p>
-    <h4>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
+    <h4>D. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
     <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
     <ul>
@@ -559,7 +566,7 @@ title: Preguntas frecuentes
       <li>Si usaste ambos tipos de direcciones en Blixt, te sugerimos que las importes como dos billeteras en Sparrow, usando la misma clave "xprv" pero cada una con una ruta de derivación diferente. De esta manera, puedes evitar confusiones.</li>
       <li>También puedes cambiar entre segwit y taproot en una billetera ya importada, yendo a Configuración de billetera y cambiando el "Tipo de Scrypt" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH o "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) y luego volver a importar las claves BIP32 xprv para hacer el cambio.</li>
       <center>
-      <p><img src="assets/images/shtf-sparrow-p2tr.png" class="center" alt="Configuración de billetera Sparrow"/></p>
+      <p><img src="/assets/images/shtf-sparrow-p2tr.png" class="center" alt="Configuración de billetera Sparrow"/></p>
       </center>
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
