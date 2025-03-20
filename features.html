@@ -36,7 +36,7 @@ title: Features
       </p>
       <p>
         The balance displayed on the main screen represents ONLY the Lightning wallet balance. The on-chain wallet balance is displayed 
-        in another section of the app (top drawer menu). <a href="guides.html#guide-swap">You can read the reason why here.</a>
+        in another section of the app (top drawer menu). <a href="/guides.html#guide-swap">You can read the reason why here.</a>
       </p>
       <ul>
         <li><a href="#main-features">Blixt Wallet Main Features</a></li>
@@ -62,16 +62,14 @@ title: Features
     <p>These LN channels, by default will be un-announced channels (also called private channels). This means that they will not be "visible" by other nodes in the network, only the channel partner will know about it and will route your transactions accordingly through their own channels. Also private channels DO NOT route payments for others.</p>
     <p>So practically Blixt is a PRIVATE NODE, to offer you full control of your payment routes in a private way, with the routing costs decided by you based on the peers you connect to. So choose your peers wisely when opening channels.</p>
     <p>It's also worth mentioning that you should have at least 2-3 LN channels open in your Blixt Wallet for better availability of routes and also to take advantage of MPP (<a href="https://docs.lightning.engineering/the-lightning-network/multihop-payments/multipath-payments-mpp">Multi-Path Payments</a>), a feature that is also available in Blixt Wallet.</p>
-    <p>You can check in the <a href="faq.html#blixt-peers">FAQ page</a> for some recommendations on how and with who to open channels.</p>
+    <p>You can check in the <a href="/faq.html#blixt-peers">FAQ page</a> for some recommendations on how and with who to open channels.</p>
   </section>
 
   <section id="feature-onchain">
   <h3>Bitcoin On-Chain Wallet</h3>
-  <div class="container">
-    <div class="image"></div>
-    <img src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/>
-    </div>
-    <div class="text"></div>
+<center>
+   <p><img src="/assets/images/blixt-onchain-wallet.jpg" class="center" alt="Blixt Onchain Wallet"/></p>
+</center>
     <p>This feature is quite hidden, because it's not the main focus of this app. But it's easy to access it from the top left drawer menu.</p>
     <p>Since on-chain transactions aren't used often by LN power users, it's not visible on the main screen. But that's OK, you can use it like
        a separate wallet where you can manage addresses and see your transaction log. In the future, more functionalities for this on-chain wallet 
@@ -80,14 +78,14 @@ title: Features
        using on-chain transactions.</p>
     <p>To access the onchain wallet, go too top left drawer and select "Bitcoin onchain", then you will see these screens.</p>
     <p>As you can see in the transaction log, the type of transactions are detailed and indicate for what were used: (A) deposit, (B) open channel, (C) close channel.</p>
-    <p>See a more detailed explanation about using the Blixt on-chain wallet <a href="guides#guide-swap">in the Guides page</a>.</p>
-    </div>
-  </div>
+    <p>See a more detailed explanation about using the Blixt on-chain wallet <a href="/guides#guide-swap">in the Guides page</a>.</p>
   </section>
 
   <section id="feature-lightning">
   <h3>Bitcoin Lightning Wallet</h3>
-  <p><img src="assets/images/blixt-main-ln-wallet.jpg" align="center" alt="Blixt Lightning Wallet"/></p>
+<center>
+  <p><img src="/assets/images/blixt-main-ln-wallet.jpg" class="center" alt="Blixt Lightning Wallet"/></p>
+</center>
     <p>This is located on the main screen, as it's the main usage of the app. The balance displayed is only for the LN wallet and does NOT contain the on-chain wallet balance.</p>
     <p>It has a simple and easy to use interface and offers all the necessary options to receive and send sats over Lightning Network.</p>
     <p>Users can easily switch the units displayed for the balance by simply tapping on the balance. Also it displays the balance in the local fiat currency sourced from CoinGecko and Blockchain.com.</p>
@@ -103,7 +101,9 @@ title: Features
   
   <section id="option-general">
   <h3>General section</h3>
-    <p><img src="assets/images/blixt-options-general.jpg" align="center" alt="Blixt General Options"/></p>
+<center>
+<p><img src="/assets/images/blixt-options-general.jpg" class="center" alt="Blixt General Options"/></p>
+</center>
   <h4>Name</h4>
     <p>
       This option (NameDesc) allows the user to send a specific name in the payment details, but only if it's desired and necessary, is completely optional. 
@@ -141,7 +141,9 @@ title: Features
 
   <section id="option-wallet">
   <h3>Wallet section</h3>
-    <p><img src="assets/images/blixt-options-wallet.jpg" align="center" alt="Blixt Wallet Options"/></p>
+  <center>
+  <p><img src="/assets/images/blixt-options-wallet.jpg" class="center" alt="Blixt Wallet Options"/></p>
+  </center>
   <h4>Show mnemonic</h4>
     <p>
       This option allows you to make a backup of your 24 words wallet seed. It can be accessed at any time, multiple times. Save those words in a safe place!
@@ -154,8 +156,10 @@ title: Features
       Removing the seed from your device doesn't mean it is removing the wallet and LN node, just the seed words. Wallet will work just as usual.
     </p>
   <h4>Export channel backup</h4>
-    <p><img src="assets/images/blixt-option-backup.jpg" align="center" alt="Blixt Backup Options"/></p>
-    <p>This is a VERY IMPORTANT feature for your Blixt Wallet. <strong>Do not ignore it!</strong>
+<center>
+<p><img src="/assets/images/blixt-option-backup.jpg" class="center" alt="Blixt Backup Options"/></p>
+</center>
+<p>This is a VERY IMPORTANT feature for your Blixt Wallet. <strong>Do not ignore it!</strong>
       It would be used in case of SHTF and you need to recover your funds that remain in LN channels.
     </p>
     <p>When this option is clicked, it will ask you to select a location on your device to save a copy of your Blixt LN static channel backup (SCB).</p>
@@ -171,8 +175,10 @@ title: Features
 
   <section id="option-security">
   <h3>Security section</h3>
-    <p><img src="assets/images/blixt-options-security.jpg" align="center" alt="Blixt Security Options"/></p>  
-  <h4>Login with PIN code</h4>
+<center>
+<p><img src="/assets/images/blixt-options-security.jpg" class="center" alt="Blixt Security Options"/></p>  
+</center>
+<h4>Login with PIN code</h4>
     <p>
       This a security feature to add a PIN number when the app is opened and protect it from unauthorized access to your device.
       You will be prompted 2 times to set a personal PIN.
@@ -191,8 +197,10 @@ title: Features
 
   <section id="option-display">
   <h3>Display section</h3>
-    <p><img src="assets/images/blixt-options-display.jpg" align="center" alt="Blixt Display Options"/></p>
-  <h4>Fiat currency</h4>
+<center>
+<p><img src="/assets/images/blixt-options-display.jpg" class="center" alt="Blixt Display Options"/></p>
+</center>
+<h4>Fiat currency</h4>
     <p>
       You can set a local fiat currency here. You can switch the primary unit displayed on the main screen between fiat and bitcoin units by tapping on the balance.
       The fiat exchange rate is sourced from CoinGecko and Blockchain.com.
@@ -212,8 +220,10 @@ title: Features
 
   <section id="option-bitcoin">
   <h3>Bitcoin Network section</h3>
-    <p><img src="assets/images/blixt-options-bitcoin.jpg" align="center" alt="Blixt Bitcoin Network Options"/></p>
-  <h4>Bitcoin Node</h4>
+<center>
+<p><img src="/assets/images/blixt-options-bitcoin.jpg" class="center" alt="Blixt Bitcoin Network Options"/></p>
+</center>
+<h4>Bitcoin Node</h4>
     <p>
       You can set a specific Bitcoin node to sync blocks from. It can be your own node or any other Bitcoin node that supports BIP 157 (Neutrino sync).
     </p>
@@ -247,8 +257,10 @@ title: Features
 
   <section id="option-lightning">
   <h3>Lightning Network section</h3>
-    <p><img src="assets/images/blixt-options-lightning.jpg" align="center" alt="Blixt Lightning Network Options"/></p>
-  <h4>Show node data</h4>
+<center>
+<p><img src="/assets/images/blixt-options-lightning.jpg" class="center" alt="Blixt Lightning Network Options"/></p>
+</center>  
+<h4>Show node data</h4>
     <p>
       This is an important section where more details about your Blixt Wallet LN node are displayed. This information is very useful and it might be a good idea to save this information for later use if needed.
       Keep in mind that this information will not be "visible" on public LN explorers, Blixt Wallet uses private/unannounced channels and without any public channels, the node will not be publicly visible.
@@ -310,7 +322,7 @@ title: Features
       This is a free service for now to make it easy to onboard new users and create a seamless experience to directly receive funds over the Lightning Network. The only fee charged is the on-chain fee needed to open the inbound channel.
     </p>
     <p><a href="https://github.com/hsjoberg/dunder-lsp">Read more about Dunder LSP development here.</a></p> 
-    <p><a href="guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
+    <p><a href="/guides.html#guide-lsp">Read a more detailed guide about using Dunder LSP in the Blixt Guides page.</a></p>
   <h4>Set Dunder LSP Server</h4>
     <p>In this section the user could set a custom Dunder LSP Server, different than default dunder.blixtwallet.com.</p>
     <p>You can consult <a href="https://github.com/hsjoberg/blixt-wallet/issues/1033">in this community list</a> which other node runners could offer these Dunder channels services.</p>
@@ -337,8 +349,10 @@ title: Features
 
   <section id="option-misc">
   <h3>Miscellaneous section</h3>
-    <p><img src="assets/images/blixt-options-misc.jpg" align="center" alt="Blixt Miscellaneous Options"/></p>
-  <h4>About</h4>
+<center>
+<p><img src="/assets/images/blixt-options-misc.jpg" class="center" alt="Blixt Miscellaneous Options"/></p>
+</center>  
+<h4>About</h4>
     <p>
       Displays details about the developer of Blixt Wallet, open-source software used, Github information and licenses.
     </p>
@@ -368,7 +382,9 @@ title: Features
 
   <section id="option-experiments">
   <h3>Experiments section</h3>
-    <p><img src="assets/images/blixt-options-experiments.jpg" align="center" alt="Blixt Experiments Options"/></p>
+<center>    
+<p><img src="/assets/images/blixt-options-experiments.jpg" class="center" alt="Blixt Experiments Options"/></p>
+</center>
     <p>This section is named "experiments" because the options displayed are still in development and are not fully tested yet 
       and are subject to change. You should take this into consideration and use these features with caution.
     </p>
@@ -387,7 +403,9 @@ title: Features
 
   <section id="option-debug">
   <h3>Debug section</h3>
-    <p><img src="assets/images/blixt-options-debug.jpg" align="center" alt="Blixt Debug Options"/></p>
+<center>
+<p><img src="/assets/images/blixt-options-debug.jpg" class="center" alt="Blixt Debug Options"/></p>
+</center>
   <h4>Show startup info notifications</h4>
     <p>
       When enabled, notifications will appear at the bottom of the screen after launching Blixt Wallet showing the current status of the start up process. This can be useful for debugging start up issues.
@@ -464,10 +482,10 @@ title: Features
     You can paste or type a lightning address and also save it into a contact list.
     </p>
     <p>Blixt Wallet has implemented full support for the <a href="https://github.com/fiatjaf/lnurl-rfc">LNURL protocol</a>, 
-      Blixt Wallet users can pay, withdraw, authenticate using LNURL.
+      Blixt Wallet users can pay, withdraw, receive and authenticate using LNURL.
     </p>
     <p>
-      Eventually you will also be able to receive payments with a Blixt Wallet Lightning Address through a new feature (in development) <a href="https://github.com/hsjoberg/lightning-box">"Lightning Box"</a>.
+      Starting with v0.6.9-420, Blixt introduced its Lightning Address through a new module <a href="https://github.com/hsjoberg/lightning-box">"Lightning Box"</a> so now you can also receive through your own user@blixtwallet.com LN address.
     </p>
   <h3 id="function-contacts">Contacts and Services</h3>
     <p>A useful function if you want to have a stable list of destinations where you are going to pay most of the time. 
@@ -475,7 +493,9 @@ title: Features
     For the time being this list can't be backed up, but there are plans to have an option to export it and also with more options.
     </p>
     <p>An interesting way to add a contact is directly from the payment detail modal screen:</p>
-    <p><img src="assets/images/blixt-option-add-contact.jpg" align="center" alt="Blixt add contact"/></p>
+<center>
+<p><img src="/assets/images/blixt-option-add-contact.jpg" class="center" alt="Blixt add contact"/></p>
+</center>
   <h3 id="function-webln">Lightning Browser</h3>
     <p><a href="https://webln.dev/">WebLN</a> - is a library and set of specifications for lightning apps and client providers to facilitate communication between apps and 
     users of lightning nodes in a secure way.
@@ -486,7 +506,9 @@ title: Features
     For the time being, this doesn't work behind Tor so browsing these apps will be over clearnet.
     </p>
   <h3 id="function-onchain">On-chain wallet</h3>
-    <img src="assets/images/blixt-onchain-wallet.jpg" align="center" alt="Blixt Onchain Wallet"/>
+<center>
+<p><img src="/assets/images/blixt-onchain-wallet.jpg" class="center" alt="Blixt Onchain Wallet"/></p>
+</center>
     <p>Dedicated section to access the on-chain part of Blixt Wallet. 
     This section will display your on-chain balance and a QR code and Bitcoin address to receive on-chain funds to.
     </p>
@@ -501,7 +523,9 @@ title: Features
     <p>
       Here you can open and close LN channels, review the status of each one and see the funds available per channel.
     </p>
-    <p><img src="assets/images/blixt-ln-channels.jpg" align="center" alt="Blixt Lightning Channels"/></p>
+<center>
+<p><img src="/assets/images/blixt-ln-channels.jpg" class="center" alt="Blixt Lightning Channels"/></p>
+</center>
     <p>As you can see in this image, the channel bar indicate 3 colors:</p>
     <ul>
       <li>Green - represent the outbound liquidity, "can send" amount</li>
@@ -519,7 +543,7 @@ title: Features
       you do not have any other proof of the transaction, only the secret hash from your own transaction log.
       For a keysend payment between 2 peers, the payment is totally private.
     </p>
-    <p>See more details about how to use the keysend function <a href="faq.html#keysend">in the FAQ page.</a></p>
+    <p>See more details about how to use the keysend function <a href="/faq.html#keysend">in the FAQ page.</a></p>
     <p>
     This feature is very useful for sending paid messages through LN, 
     for example, posting messages on <a href="https://Amboss.space">Amboss.space Billboard</a> 
@@ -537,7 +561,12 @@ title: Features
       <p>A draft specification for the protocol can be found <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md">here</a>.</p>
       <p>The Blixt Project hosts a Lightning Box service for @blixtwallet.com type Lightning Addresses.</p>
       <p>In the future we will look at Lightning Box support without using Persistent mode and for other platforms than Android.</p>
-      <p><a href="assets/images/blixt-ln-box-setup.mp4">Here you can see a demo video</a> how to setup your Lightning Box with a desired Lightning Address fro your Blixt wallet.</p>
+      <p>Here you can see a demo video about how to setup your Lightning Box with a desired Lightning Address for your Blixt wallet.</p>
+      <center>
+        <video width="224" height="480" controls>
+          <source src="/assets/images/blixt-ln-box-setup.mp4" type="video/mp4">
+        </video>
+      </center>
   </section>
 
   <section id="blixt-eggs">

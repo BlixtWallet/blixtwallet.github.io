@@ -47,6 +47,7 @@ title: Guides
       <li><a href="#guide-old-wallet">How to consolidate funds from an old Blixt wallet?</a></li>
       <li><a href="#guide-liquidity">Quick mini guide Blixt Node Liquidity</a></li>
       <li><a href="#guide-dunder-lsp">How to became a LSP (Liquidity Service Provider) with Dunder?</a></li>
+      <li><a href="#guide-sn">How to use Blixt with Stacker News</a></li>
     </ul>
   </section>
 
@@ -220,20 +221,16 @@ title: Guides
     <p>Steps do it:</p>
     <ol>
     <li>Go to any swap service like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, 
-      <a href="https://boltz.eldamar.icu/" target="_blank" rel="noopener noreferrer">Boltz Eldamar</a>, 
-      <a href="https://swap.diamondhands.technology/" target="_blank" rel="noopener noreferrer">DiamondHands</a>, 
-      <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
+      <a href="https://ff.io/" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
       <a href="https://swapmarket.github.io/" target="_blank" rel="noopener noreferrer">Swap market</a>,  
-      <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, 
       <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
-      <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats (onion address)</a> (accessible through Blixt WebLN browser or Tor onion address) 
+      <a href="https://robosats.org">RoboSats (onion address)</a> (accessible through Blixt WebLN browser or Tor onion address) 
        and select swap onchain to LN</li>
     <li>Put the amount, pay it from your onchain address (could be even from same Blixt wallet onchain or any other you have)</li>
     <li>Provide the LN invoice from your Blixt wallet as destination</li>
     </ol>
     <p>Done! Now you have your sats directly into your Blixt LN channels. This is also a good way for privacy.</p>
-    <p>NOTE: you can also do the way around, taking out sats from LN channels into any onchain address, 
-       without closing the channels.</p>
+    <p>NOTE: you can also do the way around, taking out sats from LN channels into any onchain address without closing the channels.</p>
   </section>
   
   <section id="guide-tor">
@@ -332,7 +329,9 @@ title: Guides
     </li>
     <li>
     <p><strong>Use an external swap service</strong> mentioned <a href="#guide-refill">in this section</a>
-    <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
+    <center>
+    <p><img src="/assets/images/swap-LN-onchain.jpg" class="center" alt="swap-LN-onchain"/></p>
+    </center>
     <p>For using a swap service is also quite simple, in few steps:</p>
         <ul>
         <li>Go to one of those indicated services websites</li>
@@ -361,7 +360,9 @@ title: Guides
     <p>Between your mobile Blixt and home node you will have private channels, known only by you, are not visible in the LN public graph 
        or known by others. This aspect will give you more privacy for your regular txs but also a good traffic pipe, 
        if you want to move funds from KYC sources, through swaps, into your HODL onchain wallets.</p>
-    <p><img src="assets/images/blixt-machine.png" align="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-machine.png" class="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    </center>
     <p>Considerations:</p>
     <ul>
     <li>You already have a channel between your Blixt and home node. Better big enough to handle larger and many transactions. Example 2-5M sats channel.</li>
@@ -394,7 +395,9 @@ title: Guides
         sending through LN and receive to on-chain, to the desired BTC address of your HODL wallet.</li>
     </ol>
     <p>Here is a simple scheme to do swaps with Blixt, as example to use:</p>
-    <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
+    <center>
+    <p><img src="/assets/images/swaps-blixt.jpg" class="center" alt="Blixt Swaps Scheme"/></p>
+    </center>
   </section>
 
   <section id="guide-old-wallet">
@@ -535,4 +538,20 @@ title: Guides
     <p>Only by collaborating, testing, using and improving we can go forward !</p>
     <p>Happy Blixt Lightning!</p>
   </section>
+
+  <section id="guide-sn">
+    <h3>How to use Blixt with Stacker News</h3>
+    <p><a href="https://stacker.news/">Stacker News</a> is a forum platform using sats as payments to post, zaps to upvote posts and reward writers. Is a good platform to be for a bitcoiner.</p>
+    <p>But comes with a catch: SN user have 2 options: connect an external LN wallet or use internal "cowboy credits".</p>
+    <p>From the variety of options to connect an external wallet, there's also one that is using WebLN, exactly what is doing Blixt with its integrated Lightning browser, where you can find the link to Stacker News. So practically you can use Blixt for browsing, login, zap, all in the same app with just 1 click.</p>
+    <p>So how you can do that? Follow these steps:</p>
+    <ul>
+      <li>We suppose that you already have at least a LN channel open and ready to be used. Open your Blixt wallet app. Go to top left drawer and open the "Lightning Browser".</li>
+      <li>Search for Stacker News and open it. Go to login icon and select "login with Lightning". Blixt will automatically log you in using its LN-auth feature. Keep in mind to add an alternative login to your SN account in case you do don't have anymore your Blixt wallet available. Your account will be linked with that Blixt wallet and nobody could reset it anymore.</li>
+      <li>Once you login in SN, go to wallets and activate the "WebLN" wallet. Is just a small box to select and save.</li>
+      <li>Now, in the same "Wallets" section go to "Lightning Address" and set your Blixt LN address. We suppose <a href="/faq#blixt-lnaddress">you already setup that in Blixt</a>. With this LN address you will be able to receive zaps from other stackers in SN.</li>
+      <li>In order to be able to send and receive instantly and always, you should put Blixt in "Persistent Mode". Go to Blixt - Settings - Experiment section - "Enable persistent app". It will restart and you will see that the LND service will always be active, even if you close the Blixt app. That will keep your LN node synced and active as long as you do not shut down the LND service.</li>
+      <li>Now just start making some posts, comments and can start zapping sats to those who deserve it. You can also receive sats straight into your Blixt wallet.</li>
+    </ul>
+    </section>
 </article>

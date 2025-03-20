@@ -46,6 +46,7 @@ title: Guias
       <li><a href="#guia-wallet-viejo">¿Cómo consolidar fondos de una vieja billetera Blixt?</a></li>
       <li><a href="#guia-liquidez">Mini guía rápida de liquidez para Blixt Node</a></li>
       <li><a href="#guia-dunder-lsp">¿Cómo convertirse en LSP (proveedor de servicios de liquidez) con Dunder?</a></li>
+      <li><a href="#guia-sn">Cómo usar Blixt con Stacker News</a></li>
     </ul>
   </section>
 
@@ -193,20 +194,16 @@ title: Guias
     <ol>
     <li>Entra en cualquier servicio de swap como 
       <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, 
-      <a href="https://boltz.eldamar.icu/" target="_blank" rel="noopener noreferrer">Boltz Eldamar</a>, 
-      <a href="https://swap.diamondhands.technology/" target="_blank" rel="noopener noreferrer">DiamondHands</a>, 
-      <a href="https://fixedfloat.com" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
+      <a href="https://ff.io/" target="_blank" rel="noopener noreferrer">FixedFloat</a>, 
       <a href="https://swapmarket.github.io/" target="_blank" rel="noopener noreferrer">Swap market</a>, 
-      <a href="https://submarineswaps.org/" target="_blank" rel="noopener noreferrer">Submarineswaps</a>, 
       <a href="https://coinos.io" target="_blank" rel="noopener noreferrer">CoinOS</a> or
-      <a href="http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/">RoboSats</a> (accesible a través del navegador Blixt WebLN o la dirección Tor onion)
+      <a href="https://robosats.org/">RoboSats</a> (accesible a través del navegador Blixt WebLN o la dirección Tor onion)
       y seleccione cambiar en cadena a LN</li>
     <li>Ingrese el monto, pague desde su dirección onchain (podría ser incluso desde la misma billetera Blixt onchain o cualquier otra que tenga)</li>
     <li>Proporcione la factura LN de su monedero Blixt como destino</li>
     </ol>
     <p>¡Hecho! Ahora tienes tus sats directamente en tus canales Blixt LN. Esta es también una buena forma de privacidad.</p>
-    <p>NOTA: también puede hacer lo contrario, sacando sats de los canales LN a cualquier dirección onchain, sin cerrar los canales.
-      En este caso, también puede usar <a href="https://deezy.io" target="_blank" rel="noopener noreferrer">Deezy.io</a> swap (este es solo LN para onchain)</p>
+    <p>NOTA: también puede hacer lo contrario, sacando sats de los canales LN a cualquier dirección onchain, sin cerrar los canales.</p>
   </section>
   
   <section id="guia-tor">
@@ -305,7 +302,9 @@ title: Guias
     </li>
     <li>
     <p><strong>Utilice un servicio de intercambio externo</strong> mencionados <a href="#guia-recargar">en esta sección</a>
-    <p><img src="assets/images/swap-LN-onchain.jpg" align="center" alt="swap-LN-onchain"/></p>
+    <center>
+    <p><img src="/assets/images/swap-LN-onchain.jpg" class="center" alt="swap-LN-onchain"/></p>
+    </center>
     <p>Para usar un servicio de intercambio también es bastante simple, en pocos pasos:</p>
         <ul>
         <li>Vaya a uno de esos sitios web de servicios indicados.</li>
@@ -330,7 +329,9 @@ title: Guias
     <h3>¿Cómo usar Blixt como "Máquina de Gastos en Infraestructura" (ISM)?</h3>
     <p>La "Máquina de gastos de infraestructura" es el método utilizado para comprar bitcoins de los intercambios KYC y moverlos a sus billeteras HODL en cadena, pasando por una serie de "preparaciones" de tal manera que se rompen los enlaces a su identidad KYC, para una mejor privacidad.</p>
     <p>Entre tu Blixt móvil y el nodo de casa tendrás canales privados, que solo tú conoces, no son visibles en el gráfico público de LN ni son conocidos por otros. Este aspecto le brindará más privacidad para sus txs regulares, pero también una buena vía de tráfico, si desea mover fondos de fuentes KYC, a través de exchanges, a sus billeteras en cadena HODL.</p>
-    <p><img src="assets/images/blixt-machine.png" align="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-machine.png" class="center" alt="Blixt Infrastructure Spending Machine"/></p>
+    </center>
     <p>Consideraciones:</p>
     <ul>
     <li>Ya tienes un canal entre tu Blixt y el nodo de inicio. Mejor lo suficientemente grande como para manejar transacciones más grandes y numerosas. Ejemplo un canale de 2-5M sats.</li>
@@ -349,7 +350,9 @@ title: Guias
     <li>En este paso, puede usar la función interna de "bucle de salida" de las aplicaciones de administración de nodos RTL o Thunderhub para mover fondos de los canales LN a una dirección externa en cadena. O simplemente guárdelos para usarlos en LN, más tarde cuando sea necesario. También podría usar nuevamente los servicios de intercambio externos mencionados anteriormente, pero esta vez al revés, enviando a través de LN y recibiendo en cadena, a la dirección BTC deseada de su billetera HODL.</li>
     </ol>
     <p>Aquí hay un esquema simple para hacer intercambios con Blixt, como ejemplo para usar:</p>
-    <p><img src="assets/images/swaps-blixt.jpg" align="center" alt="Blixt Swaps Scheme"/></p>
+    <center>
+    <p><img src="/assets/images/swaps-blixt.jpg" class="center" alt="Blixt Swaps Scheme"/></p>
+    </center>
   </section>
 
   <section id="guia-wallet-viejo">
@@ -490,4 +493,19 @@ title: Guias
      <p>¡Solo colaborando, probando, usando y mejorando podremos seguir adelante!</p>
      <p>¡Feliz Lightning con Blixt!</p>
   </section>
+  <section id="guia-sn">
+    <h3>Cómo usar Blixt con Stacker News</h3>
+    <p><a href="https://stacker.news/">Stacker News</a> es una plataforma de foros que utiliza sats como pagos para publicar, zaps para votar positivamente las publicaciones y recompensar a los escritores. Es una buena plataforma para un usuario de Bitcoin.</p>
+    <p>Pero tiene una trampa: los usuarios de SN tienen dos opciones: conectar una billetera externa de LN o usar créditos internos.</p>
+    <p>De entre las diversas opciones para conectar una billetera externa, también hay una que usa WebLN, exactamente lo que hace Blixt con su navegador Lightning integrado, donde puedes encontrar el enlace a Stacker News. Así que prácticamente puedes usar Blixt para navegar, iniciar sesión y usar zaps, todo en la misma aplicación con un solo clic.</p>
+    <p>¿Cómo se hace esto? Sigue estos pasos:</p>
+    <ul>
+    <li>Suponemos que ya tienes al menos un canal LN abierto y listo para usar. Abre la aplicación de tu billetera Blixt. Ve a la esquina superior izquierda y abre "Lightning Browser".</li>
+    <li>Busca Stacker News y ábrelo. Ve al icono de inicio de sesión y selecciona "Iniciar sesión con Lightning". Blixt iniciará sesión automáticamente con su función de autenticación LN. Recuerda agregar un inicio de sesión alternativo a tu cuenta SN en caso de que ya no tengas tu billetera Blixt disponible. Tu cuenta se vinculará con esa billetera Blixt y nadie podrá restablecerla.</li>
+    <li>Una vez que inicies sesión en SN, ve a "Billeteras" y activa la billetera "WebLN". Solo hay un pequeño recuadro para seleccionar y guardar.</li>
+    <li>Ahora, en la misma sección "Billeteras", ve a "Dirección Lightning" y configura tu dirección LN de Blixt. Suponemos que <a href="/faq_es#blixt-lnaddress">ya lo has configurado en Blixt</a>. Con esta dirección LN, podrás recibir zaps de otros usuarios en SN.</li>
+    <li>Para poder enviar y recibir de forma instantánea y constante, debes activar Blixt en "Modo Persistente". Ve a Blixt - Configuración - Sección Experimento - "Habilitar aplicación persistente". Se reiniciará y verás que el servicio LND siempre estará activo, incluso si cierras la aplicación de Blixt. Esto mantendrá tu nodo LN sincronizado y activo mientras no cierres el servicio LND.</li>
+    <li>Ahora empieza a publicar y comentar, y empieza a enviar sats a quienes lo merecen. También puedes recibir sats directamente en tu billetera de Blixt.</li>
+    </ul>
+    </section>
 </article>

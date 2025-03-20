@@ -30,6 +30,7 @@ title: Preguntas frecuentes
       <li><a href="#que-es-ln">¿Qué es la Lightning Network?</a></li>
       <li><a href="#no-sync">Mi Blixt no sincroniza, porque esto y que puedo hacer?</a></li>
       <li><a href="#tarifas">¿Qué tarifas se utilizan? ¿Tiene algún costo usar los canales de LN?</a></li>
+      <li><a href="#balance">¿Por qué mi saldo de Blixt a veces varía?</a></li>
       <li><a href="#reserva">¿Qué es la reserva de canales?</a></li>
       <li><a href="#blixt-nodo">¿Cómo es posible tener un nodo en un dispositivo móvil?</a></li>
       <li><a href="#blixt-pares">¿Con qué nodos puedo abrir canales lightning?</a></li>
@@ -148,7 +149,9 @@ title: Preguntas frecuentes
     <p><span style="color:yellow;">RECORDATORIO:</span> Usar Neutrino sobre clearnet es totalmente seguro, tu IP o xpub no se filtran. Solo estás leyendo bloques desde un nodo remoto con Neutrino. Eso es todo. Todo el resto se hace en tu dispositivo local.</p>
     <p>Por lo tanto, NO HAY NECESIDAD de usarlo con Tor. Tor agregará una gran latencia en tu proceso de sincronización y hará que tu Blixt sea muy inestable. Si realmente quieres usarlo sobre Tor, asegúrate de lo que estás haciendo y ten una buena conexión y paciencia. Lo mismo ocurre con el uso de una VPN. Ten cuidado con la latencia que te proporciona esa VPN.</p>
     <p>Puedes probar la latencia de un servidor de neutrino simplemente haciéndole ping, desde una PC o desde tu móvil.</p>
+    <center>
     <p><img src="/assets/images/blixt.ping-peer.jpg" class="center"></p>
+    </center>
     <p>Este es un ping habitual al servidor de neutrino europe.blixtwallet.com, que muestra que la conexión es muy buena con un tiempo de respuesta de 50 ms de media y un TTL de 51. El tiempo de respuesta puede variar, pero no demasiado. El TTL debe ser estable.</p>
     <p>Si estos valores son superiores a 100-150 ms, el proceso de sincronización se estancará o, peor aún, podría provocar que los pares cierren los canales. No ignores este aspecto.</p>
     <p>Sin una sincronización adecuada, tampoco podrás ver el balance correcto o tus canales LN no se pondrán en línea ni operativos. No importa cuántos gigabits ultra terra mbps tengas, la velocidad de descarga NO IMPORTA. Importa el tiempo de respuesta y el TTL (tiempo de vida).</p>
@@ -223,13 +226,40 @@ title: Preguntas frecuentes
         rel="noopener noreferrer">Link 3</a>.</p>
   </section>
 
+  <section id="balance">
+    <h3>¿Por qué mi saldo de Blixt a veces varía?</h3>
+    <p>El saldo de LN (gastable) fluctúa porque las comisiones de compromiso de los canales se renegocian a medida que cambia el coste de publicación en la blockchain de Bitcoin.
+    Cuando las comisiones de compromiso suben (las comisiones de BTC se encarecen), parte de tu saldo local se reserva para cubrirlas, lo que resulta en una disminución de tu saldo local. Cuando las comisiones bajan, ocurre lo contrario.</p>
+    <p>Para evitar este problema, lo que debes hacer es sumar todos los saldos locales de tus canales con las comisiones de compromiso de los canales que has abierto.
+    Actualmente no hay una forma sencilla de saber si has abierto un canal o no, pero, por ejemplo, se incluyó una solicitud de registro (PR) en lnd para facilitar esta tarea a los desarrolladores.
+    Actualmente, la solución que estoy usando es inferir si abrí o no un canal por su saldo enviado, recibido y local.</p>
+    <center>
+    <p><img src="/assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    </center>
+    <p>Además de la reserva del 1% del canal, usted, como financiador, es responsable de pagar las comisiones en cadena en caso de que necesite forzar el cierre del canal al gastar la transacción de compromiso. Los nodos Lightning, en general, sobreestiman las comisiones en cadena, ya que no pueden confiar en que las comisiones cobradas al firmar la transacción de compromiso se mantendrán en el futuro si se fuerza el cierre del canal.</p>
+    <p>Cosas que puedes hacer:</p>
+    <ul>
+    <li>No fuerces el cierre de canales (las comisiones serán mucho menores con cierres mutuos, ya que la comisión es más precisa y solo se necesita una transacción).</li>
+    <li>Tener canales más grandes que la tarifa correspondiente. Si tienes un canal de 20k a 30k sats, tu saldo disponible podría ser incluso cero en un entorno con tarifas altas.
+        Pero si tienes, por ejemplo, un canal de 300k a 500k sats, esas tarifas de compromiso son prácticamente insignificantes.</li>
+    <li>Ni siquiera puedes excederte, ya que las comisiones que se utilizan se negocian entre tú y tu socio de canal. Si el socio del canal empieza con una comisión muy alta, prácticamente no hay nada que puedas hacer para protegerte.</li>
+    </ul>
+    <p>La razón de ser de commit_fee es prepararse en caso de que el canal sufra un cierre forzoso.</p>
+    <p>Si tu canal tiene un cierre cooperativo, puedes elegir la comisión que quieres pagar con --sat_per_byte.</p>
+    <p>Si tu canal tiene un cierre forzoso, la comisión de transacción no se puede configurar manualmente, sino que la establece el sistema LND basándose en la comisión estimada del nodo de Bitcoin al momento del cierre del canal.</p>
+    <p>Y la mayoría de las veces, un cierre forzoso genera una comisión de transacción de cierre más alta que un cierre cooperativo; por ello, se reserva una comisión de compromiso de una cantidad tan alta. Sin embargo, si el canal no se cierra forzoso, no tendrás que gastar tanto dinero en comisiones.</p>
+    <p>Actualmente, LND tiene 20k sat como mínimo del canal por defecto, pero es demasiado bajo. Creo que lo cambiarán a un número más alto.</p>
+  </section>
+
   <section id="reserva">
     <h3>¿Qué es la reserva de canales?</h3>
     <p>"He abierto un canal de 500k sats, pero no puedo usar más de 495k sats, dice saldo insuficiente. ¿Por qué?"</p>
     <p>Otro aspecto a tener en cuenta es la "reserva de canales". Si vas a tu Blixt - cajón superior - Lightning Channels
        verá en los detalles del canal que se menciona cuánto es la reserva del canal.
     </p>
-    <p><img src="assets/images/blixt-ch-reserve.jpg" align="center" alt="Blixt Channel Reserve"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    </center>
     <p>Una reserva de canal es una cantidad que cada participante del canal reserva para asegurarse de que ninguno tiene "nada en juego".
       si se produce un intento de trampa.</p>
     <p>Esta reserva (normalmente el 1% del importe total del canal) no se puede gastar y se reserva durante toda la vida útil del canal.
@@ -482,7 +512,9 @@ title: Preguntas frecuentes
        entonces podría intentar presionar un "cierre forzado" del estado "esperando para cerrar". Esto podría suceder a veces, por varias razones.
     </p>
     <p>Este es un ejemplo:</p>
-    <p><img src="assets/images/blixt-force-close-channel.jpg" align="center" alt="Blixt Force Close Channel"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    </center>
     <p>Una vez que presione el botón "Forzar el cierre del canal pendiente", se le preguntará si está seguro y luego aparecerá un mensaje de que comenzará a forzar el cierre.</p>
     <p>Tenga paciencia, después de unos momentos, verá en los registros de lnd el mensaje de que se inició el cierre forzado:</p>
     <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
@@ -506,12 +538,19 @@ title: Preguntas frecuentes
        Eso significa que perderá algunos sats en su saldo que se muestra porque esas direcciones raíz serán ignoradas. Eso no significa que hayas perdido tus SAT.
        Solo que no se muestran, no se muestran, no son "legibles" por la aplicación que usa para importar la billetera.</p>
     <p>Digamos que no puede instalar más la aplicación Blixt en su dispositivo. Puede usar los siguientes procedimientos para restaurar sus fondos desde una billetera Blixt:</p>
-    <h4>A. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
+    <h4>A. Usando <a href="https://zeusln.com">Zeus LN</a>.</h4>
+<p>Hay dos maneras/métodos para restaurar tu nodo Blixt en Zeus: solo con la billetera on-chain y/o con una recuperación completa con canales LN.</p>
+<ul>
+<li>Recuperación solo on-chain: simplemente introduce tu semilla aezeed de 24 palabras de Blixt en el <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">procedimiento de restauración de Zeus</a>.
+Espera unos instantes para restaurar las UTXO antiguas y listo. Espera a que Zeus vuelva a escanear todos los UYXO y todo tu saldo onchain aparecerá en tu billetera onchain.</li>
+<li>Recuperación completa con fondos de canales: Toma el archivo SCB exportado previamente desde tu nodo Blixt y copia el código Basde64 cifrado en el <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Procedimiento de restauración de Zeus</a>. Recuerda también insertar la semilla de 24 palabras.</li>
+</ul>
+    <h4>B. Usando <a href="https://bluewallet.io">Bluewallet</a></h4>
     <p>Simplemente coloque su semilla de Blixt 24 palabras en el procedimiento de restauración, espere unos momentos para restaurar los UTXO antiguos y listo.<p>
     <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
-    <h4>B. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
+    <h4>C. Usando <a href="https://electrum.org">Electrum Wallet</a>.</h4>
     <p>Este procedimiento está muy bien descrito <a href="https://www.lightningnode.info/technicals/restorelndonchainfundsinelectrum">en esta excelente guía</a> de openoms.</p>
-    <h4>C. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
+    <h4>D. Usando <a href="https://sparrowwallet.com/">Sparrow Wallet</a></h4>
     <p>RECORDATORIO: ¡esto está restaurando SOLAMENTE la billetera en cadena, no también los canales LN! Y tampoco leerá sus direcciones taproot de su billetera.</p>
     <p>El procedimiento no es complicado pero requiere algunos pasos:</p>
     <ul>
@@ -526,7 +565,9 @@ title: Preguntas frecuentes
       <li>Haz clic en "Import Keystore" y volverás a la ventana principal de la aplicación de billetera donde puedes ver toda la configuración de la billetera. Haz clic en "apply" y te pedirá que configures una contraseña para cifrar tu archivo de billetera local.</li>
       <li>Si usaste ambos tipos de direcciones en Blixt, te sugerimos que las importes como dos billeteras en Sparrow, usando la misma clave "xprv" pero cada una con una ruta de derivación diferente. De esta manera, puedes evitar confusiones.</li>
       <li>También puedes cambiar entre segwit y taproot en una billetera ya importada, yendo a Configuración de billetera y cambiando el "Tipo de Scrypt" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH o "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) y luego volver a importar las claves BIP32 xprv para hacer el cambio.</li>
-      <p><img src="assets/images/shtf-sparrow-p2tr.png" align="center" alt="Configuración de billetera Sparrow"/></p>
+      <center>
+      <p><img src="/assets/images/shtf-sparrow-p2tr.png" class="center" alt="Configuración de billetera Sparrow"/></p>
+      </center>
       <li>La aplicación Sparrow comenzará a escanear todas sus claves y txs y se mostrará después
           un rato en la pestaña "Transacciones". Paciencia, llevará algo de tiempo.</li>
     </ul>
@@ -575,21 +616,28 @@ title: Preguntas frecuentes
    </ul>
  </section>
 
- <section id="blixt-migrar">
-   <h3>Si reinstalo Blixt Wallet o cambio de dispositivo, ¿puedo mantener mis canales anteriores?</h3>
-   <p>Ahora mismo, NO. En el futuro, tal vez sea posible a través de un procedimiento más avanzado que guarde los archivos wallet.db y channel.db
-      desde el lado encriptado del dispositivo en un repositorio separado, haceiendo la migración a otro dispositivo. </p>
-   <p>Blixt sigue el procedimiento estándar LND para restaurar fondos utilizando el archivo SCB (SCB = Copia de seguridad de los canales estáticos) previamente guardado </p>
-   <p>Hasta que se implementará el procedimiento opcional, haga sus copias de seguridad SCB habituales y siga las instrucciones descritas en el capítulo <a href="#blixtore"> Restauración de fondos de Blixt </a> </p>
-     <p>RECORDATORIO: haga la copia de seguridad de SCB cada vez que abra o cierre un canal LN. NO es necesario después de cada pago.</p>
-   </section>
+ <section id="blixt-migrate">
+  <h3>Si reinstalo Blixt Wallet o cambio de dispositivo, ¿puedo conservar mis canales anteriores?</h3>
+  <p>Blixt sigue el procedimiento estándar de LND para restaurar fondos utilizando el archivo SCB (SCB = copia de seguridad de canales estáticos) previamente guardado.</p>
+  <p>Realiza tus copias de seguridad habituales de SCB y sigue las instrucciones del capítulo <a href="#blixt-restore">Restaurar fondos de Blixt</a></p>
+  <p>RECORDATORIO: Realiza la copia de seguridad de SCB cada vez que abras o cierres un canal de LN. No es necesario después de cada pago.</p>
+  <p>Sin embargo, recientemente se implementó una nueva función de Blixt para migrar un nodo antiguo con canales existentes a un nuevo dispositivo. 
+     Sin embargo, no se recomienda para usuarios sin experiencia y queremos que se realice SOLO bajo la estrecha supervisión de los desarrolladores y el equipo de soporte de Blixt.</p>
+  <p>Para realizar este paso, contacta con Hampus o con el equipo de soporte en el <a href="https://t.me/blixtwallet/411466">grupo de Telegram de Blixt</a> para obtener ayuda.</p>
+  </section>
 
-   <section id="blixt-lnaddress">
-     <h3>¿Blixt Wallet tiene una dirección Lightning con la que puedo recibir?</h3>
-     <p>Sí, comenzando con <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> 
-      puede tener una dirección Lightning propia. </p>
-    <P>Vea más detalles en las notas de lanzamiento de Blixt GitHub y/o en la página <a href="/features_es#blixt-cajon"> "Caracteristicas Blixt"</a>.</p>
-   </section>
+  <section id="blixt-lnaddress">
+    <h3>¿Blixt Wallet tiene una dirección Lightning con la que pueda recibir pagos?</h3>
+    <p>Sí, a partir de la versión <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a>, puedes tener tu propia dirección Lightning.</p>
+    <p><a href="https://github.com/hsjoberg/lightning-box">Lightning Box</a> es un proveedor de direcciones Lightning para nodos móviles como Blixt Wallet, que te permite recibir pagos con direcciones Lightning directamente en tu teléfono.</p>
+    <p>Esto funciona junto con el modo persistente de la versión v0.6.9, que permite que Blixt Wallet permanezca activo en segundo plano para recibir pagos. Ten en cuenta que esta función solo está disponible para usuarios de Android.</p>
+    <p>También puedes usarla para dar propinas en <a href="https://nostr.com">NOSTR</a> y con <a href="/guides_es#guia-sn">Stacker News</a>.</p>
+    <p>Registra tu propia dirección Lightning desde el menú izquierdo -> Avanzado -> Lightning Box.</p>
+    <p>Lightning Box es un software de código abierto y puedes ejecutar tu propia instancia, que funciona a la perfección con Blixt Wallet.
+    Puedes encontrar un borrador de la especificación del protocolo <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md">aquí.</a></p>
+    <p>El Proyecto Blixt aloja un servicio Lightning Box para las direcciones Lightning de @blixtwallet.com. En el futuro, analizaremos la compatibilidad con Lightning Box sin usar el modo persistente y para otras plataformas además de Android.</p>
+    <p><strong>Nota importante:</strong> Si el consumo de batería del modo persistente es alto, prueba "Compactar bases de datos de Lightning" en Ajustes -> Depurar.</p>
+  </section>
 
    <section id="blixt-canales-dunder">
     <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 200k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>

@@ -31,6 +31,7 @@ title: Frequently Asked Questions
       <li><a href="#what-is-ln">What is the Bitcoin Lightning Network?</a></li>
       <li><a href="#no-sync">Blixt doesn't sync. Why is this and what can I do?</a></li>
       <li><a href="#fees">What fees are used? Is there a cost to use LN channels?</a></li>
+      <li><a href="#balance">Why my Blixt balance sometimes is variable?</a></li>
       <li><a href="#reserve">What is the "channel reserve"?</a></li>
       <li><a href="#blixt-peers">With which nodes can I open lightning channels?</a></li>
       <li><a href="#blixt-node">How is it possible to have a node on a mobile device?</a></li>
@@ -191,7 +192,9 @@ title: Frequently Asked Questions
     <p><span style="color:yellow;">REMINDER:</span> Using Neutrino over clearnet is totally safe, your IP or xpub are not leaked. You are just reading blocks from a remote node with neutrino. That's all. All the rest is done on your local device.</p>
     <p>So there's NO NEED to use it with Tor. Tor will add a huge latency on your syncing process and will make your Blixt very unstable. If you really want to use over Tor, be sure what are you doing and have a good connection and patience. Same case for using a VPN. Be careful what latency is given to you from that VPN.</p>
     <p>You can test the latency of a neutrino server by simply ping it, from a PC or from your mobile.</p>
+    <center>
     <p><img src="/assets/images/blixt.ping-peer.jpg" class="center"></p>
+    </center>
     <p>This is an usual ping to the neutrino server europe.blixtwallet.com, this shows that the connection is very good with a response time of avg 50ms and a TTL of 51. The response time can vary but not too much. TTL must be stable.</p>
     <p>If these values are higher than 100-150ms then your syncing process will stale or even worse, it could cause closed channels by peers ! Do not ignore this aspect.</p>
     <p>Without a proper sync, you also cannot see the correct balance or your LN channels will not get online and operational. No matter how many giga ultra terra mbps you have the download speed IT DOESN'T MATTER. It matter the time response and TTL (time to live).</p>
@@ -267,29 +270,39 @@ title: Frequently Asked Questions
       (amount can vary, <a href="https://dunder.blixtwallet.com/ondemand-channel/service-status" target="_blank"
         rel="noopener noreferrer">see here for more details</a>) towards your wallet. You will have 100k sats as
       outbound liquidity and 300k sats as inbound liquidity, but that opening comes at a cost: on-chain fees for the tx
-      as well as a commit fee (reserve held for channel closure). More information on committing fees can be found in
-      the following links:
-    <ul>
-      <li>
-        <a href="https://lightningwiki.net/index.php/Fees" target="_blank" rel="noopener noreferrer">
-          Fees - lightning wiki
-        </a>
-      </li>
-      <li>
-        <a href="https://bitcoin.stackexchange.com/questions/89232/why-is-my-spendable-msat-much-lower-than-msatoshi-to-us/89235#89235"
-          target="_blank" rel="noopener noreferrer">
-          Why is my "spendable_msat" much lower than "msatoshi_to_us"? - Bitcoin Stack Exchange
-        </a>
-      </li>
-      <li>
-        <a href="https://old.reddit.com/r/lightningnetwork/comments/cjtbjt/question_regarding_commit_fee/"
-          target="_blank" rel="noopener noreferrer">
-          Question regarding Commit Fee - Reddit
-        </a>
-      </li>
-    </ul>
+      as well as a commit fee (reserve held for channel closure).
 
     </p>
+  </section>
+
+  <section id="balance">
+    <h3>Why my Blixt balance sometimes is variable?</h3>
+    <p>The LN balance (spendable) fluctuates because commit fees for channels get renegotiated as the cost to publish to the bitcoin blockchain changes. 
+      When the commit fees rise (btc fees become more expensive) some of your local balance is reserved to meet those fees, 
+      resulting in your local balance dropping. When fees drop the reverse happens.</p>
+    <p>To avoid this issue what you want to do is sum all your channel local balances with the commit fees for only the channels you have opened. 
+      There is currently no easy way to tell if you opened a channel or not but there was just a PR in lnd for example to make this easier on developers. 
+      Right now the solution I am using is to infer whether or not I opened a channel by its sent, received, and local balance.</p>
+    <center>
+    <p><img src="/assets/images/blixt-ch-commit-fee.jpg" class="center" alt="Channel Commit Fees"/></p>
+    </center>
+    <p>Besides the 1% channel reserve you as the funder are responsible for paying onchain fees in case you need to force close the channel by spending the commitment transaction.
+      Lightning nodes in general are rather overestimating onchain fees as they cannot rely on the fact that the fees that where taken when the commitment 
+      transaction was signed will work in the future if force closing of the channel takes place.</p>
+    <p>Things you can do:</p>
+    <ul>
+      <li>Don't force close channels (fees will be much smaller with mutual closes, since the fee is more accurate and only one tx is needed)</li>
+      <li>Have bigger channels then the relative fee. When you have a channel size of 20-30k sats your "spendable" balance could be even 0 in a high fee enviornment.
+        But when you have let's say a 300-500k sats channel, those commit fees are almost negligible.</li>
+      <li>You cannot even do too much as the fees being used are negotiated between you and your channel partner. 
+        If the channel partner starts out with a really high fee there is hardly anything you can do to defend against this.</li>
+    </ul>
+    <p>The reason for commit_fee to exist is to prepare if the channel ends up in a force closing.</p>
+    <p>If your channel has a cooperative closing you can choose how much fee you want to pay with --sat_per_byte.</p>
+    <p>If your channel has a force closing the tx fee can't be manually set, but it's set by the LND system based on bitcoin node's estimated fee at the time the channel is closed.</p>
+    <p>And most of the time a force closure creates a higher closing tx fee than a co-operative closure, because of this a commit fee is set aside in such a high amount, 
+      but if the channel is not closed by force you won't have to spend that much money in fee.</p>
+    <p>Currently LND has 20k sat as the channel minimum by default but it's too low. I think it will be changed to a higher number.</p>
   </section>
 
   <section id="reserve">
@@ -298,7 +311,9 @@ title: Frequently Asked Questions
     <p>Another aspect to take in consideration is the "channel reserve". If you go to your Blixt - top drawer - Lightning Channels
        you will see in the channel details that is mentioned how much is the channel reserve.
     </p>
-    <p><img src="assets/images/blixt-ch-reserve.jpg" align="center" alt="Blixt Channel Reserve"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-ch-reserve.jpg" class="center" alt="Blixt Channel Reserve"/></p>
+    </center>
     <p>A channel reserve is an amount that is set aside by each channel participant which ensures neither have "nothing at stake" 
       if a cheating attempt occurs.</p>
     <p>This reserve (usually 1% of the total amount of the channel) cannot be spent, and is held aside for the entirety of the channels lifetime. 
@@ -310,7 +325,7 @@ title: Frequently Asked Questions
      <p>Another aspect to keep in mind is that LND (Blixt LN node backend) is using also "channel buffer fees". 
       <a href="https://github.com/lightningnetwork/lnd/blob/6dea86428d031171af30119e3f6599820dc5454a/lnwallet/channel.go#L3803-L3815">See more technical details here.</a> 
       Practically, when you try to send all sats you see "spendable" in your channel, in fact only 95-99% you can actually send out. 
-      But after you send that amount you can conitnue sending again 95-99% and so on until depletion.</p>
+      But after you send that amount you can continue sending again 95-99% and so on until depletion.</p>
   </section>
 
   <section id="blixt-peers">
@@ -554,7 +569,7 @@ title: Frequently Asked Questions
       </li>
       <li>
         Another way to "push" the connection with your lost peers is to add them manually. Go to <a
-          href="https://amboss.space" target="_blank" rel="noopener noreferrer">amboss.space</a>, search for your peer,
+          href="https://mempool.space/lightning" target="_blank" rel="noopener noreferrer">mempool.space/lightning</a>, search for your peer,
         copy or scan the QR URI of your peer, and go to <i>Settings -> Show Lightning Peers -> +</i> .
       </li>
       <li>
@@ -631,7 +646,9 @@ title: Frequently Asked Questions
        then you could try to push a "force close" of the "waiting to close" status. This could happen sometimes, for various reasons.
     </p>
     <p>Here is an example:</p>
-    <p><img src="assets/images/blixt-force-close-channel.jpg" align="center" alt="Blixt Force Close Channel"/></p>
+    <center>
+    <p><img src="/assets/images/blixt-force-close-channel.jpg" class="center" alt="Blixt Force Close Channel"/></p>
+    </center>
     <p>Once you hit the button "Force close pending channel" you will be asked if you are sure and then a message that it will start force close.</p>
     <p>Be patient, after few moments, you will see in the lnd logs the message that the force close was inititated:</p>
     <pre>[INF] PEER: Waiting for confirmation of cooperative close of 
@@ -655,7 +672,7 @@ title: Frequently Asked Questions
        That means, you will miss some sats in your balance displayed because those taproot addresses will be ignored. That doesn't means you lost your sats.
        It just that are not displayed, not shown, not "readable" by the app you use to import the wallet.</p>
     <p>Let's say you cannot install anymore Blixt app on your device. You could use the following procedures, to restore your funds from a Blixt wallet:</p>
-    <h4>A. Using <a href="https://zeusln.app">Zeus LN</a>.</h4>
+    <h4>A. Using <a href="https://zeusln.com">Zeus LN</a>.</h4>
     <p>There are two ways/methods to restore your Blixt node into Zeus: only onchain wallet and / or full recovery with LN channels.</p>
     <ul>
       <li>Only onchain recovery - Simply put your Blixt 24 words aezeed seed into <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>
@@ -663,7 +680,6 @@ title: Frequently Asked Questions
       <li>Full recovery with channels funds - Take the SCB file exported previously from your Blixt node and copy the encrypted Basde64 code into 
         <a href="https://docs.zeusln.app/for-users/embedded-node/backup-and-recovery">Zeus restore procedure</a>. Remember also to insert the 24 words seed.</li>
     </ul>
-    <p></p>
     <h4>B. Using <a href="https://bluewallet.io">Bluewallet</a>.</h4>
     <p>Simply put your Blixt 24 words seed into restore procedure, wait few moment to restore old UTXOs and done.</p> 
     <p>REMINDER: this is restoring ONLY onchain wallet, not also the LN channels! And also will not read your taproot addresses from your wallet.</p>
@@ -685,7 +701,9 @@ title: Frequently Asked Questions
       <li>Click on "Import Keystore" and it will go back to main window of the wallet app where you can see all the wallet config. Click on "apply" and will prompt you to set a password to encrypt your local wallet file.</li>
       <li>If you used both types of addresses in Blixt, we suggest to import them as two wallets in Sparrow, using the same "xprv" key but each one with a different derivation path. In this way you can avoid confusions.</li>
       <li>You can also change between segwit and taproot an already imported wallet, by going to wallet Settings and switch the "Scrypt Type" ("bc1q" (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>) segwit P2WPKH or "bc1p" <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a> taproot P2TR) and then re-import the BIP32 xprv keys to make the switch.</li>
-      <p><img src="assets/images/shtf-sparrow-p2tr.png" align="center" alt="Sparrow wallet settings"/></p>
+      <center>
+      <p><img src="/assets/images/shtf-sparrow-p2tr.png" class="center" alt="Sparrow wallet settings"/></p>
+      </center>
       <li>Sparrow app will start scanning all your keys and txs and it will be displayed after
           a while in the "Transactions" tab. Patience, it will take some time.</li>
     </ul>
@@ -737,18 +755,25 @@ title: Frequently Asked Questions
 
   <section id="blixt-migrate">
     <h3>If I reinstall Blixt Wallet or switch devices, can I keep my previous channels?</h3>
-    <p>Right now, NO. In the future, maybe it will be possible through a more advanced procedure saving the wallet.db and channel.db files
-       from encrypted side of the device into a separate repository, from it can be made the migration to another device.</p>
     <p>Blixt follows the LND standard procedure of restoring funds using the SCB file (SCB = static channels backup) previously saved</p>
-    <p>Until the optional procedure will be implemented, please make your usual SCB backups and follow the instructions described in the chapter <a href="#blixt-restore">Restore Blixt funds</a></p>
+    <p>Please make your usual SCB backups and follow the instructions described in the chapter <a href="#blixt-restore">Restore Blixt funds</a></p>
     <p>REMINDER: do the SCB backup each time you open or close a LN channel. There's NO need after each payment.</p>
+    <p>Nevertheless, recently it was implemented a new Blixt feature for migrating an old node with existing channels into a new device,
+      but is not recommended for inexperienced users and we want to be done ONLY under close supervision of Blixt devs/support.</p>
+    <p>So in order to do this step, please contact Hampus or support team in the <a href="https://t.me/blixtwallet/411466">Blixt Telegram group chat</a> for asssitance</p>
   </section>
 
   <section id="blixt-lnaddress">
     <h3>Does Blixt Wallet have a Lightning Address I can receive with?</h3>
-    <p>Yes, starting with <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> you can have 
-      a Lightning Address of your own.</p>
-    <p>See more details in the Blixt Github release notes and/or in the <a href="/features#blixt-drawer">"Blixt Features" page</a>.</p>
+    <p>Yes, starting with <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> you can have a Lightning Address of your own.</p>
+    <p><a href="https://github.com/hsjoberg/lightning-box">Lightning Box</a> is a Lightning Address provider for mobile nodes like Blixt Wallet, letting you receive Lightning Address payments directly to your phone.</p>
+    <p>This works in conjunction with the Persistent Mode released in v0.6.9, which allows Blixt Wallet to stay active in the background in order to receive payments. Keep in mind that this feature is available only for Android users.</p>
+    <p>You can also use this for <a href="https://nostr.com">NOSTR</a> tipping and with <a href="/guides#guide-sn">Stacker News</a> too.</p>
+    <p>Register your own Lightning Address from the left menu -> Advanced -> Lightning Box.</p>
+    <p>Lightning Box is open-source software and you can run your own instance, working seamlessly with Blixt Wallet.
+      A draft specification for the protocol can be found <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md">here.</a></p>
+    <p>The Blixt Project hosts a Lightning Box service for @blixtwallet.com Lightning Addresses. In the future we will look at Lightning Box support without using Persistent mode and for other platforms than Android.</p>
+    <p><strong>Important note:</strong> If battery drain for Persistent Mode is high, try "Compact lnd's databases" from Settings -> Debug.</p>
   </section>
 
   <section id="blixt-dunder-channels">
