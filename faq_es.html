@@ -619,12 +619,18 @@ title: Preguntas frecuentes
   <p>Para realizar este paso, contacta con Hampus o con el equipo de soporte en el <a href="https://t.me/blixtwallet/411466">grupo de Telegram de Blixt</a> para obtener ayuda.</p>
   </section>
 
-   <section id="blixt-lnaddress">
-     <h3>¿Blixt Wallet tiene una dirección Lightning con la que puedo recibir?</h3>
-     <p>Sí, comenzando con <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> 
-      puede tener una dirección Lightning propia. </p>
-    <P>Vea más detalles en las notas de lanzamiento de Blixt GitHub y/o en la página <a href="/features_es#blixt-cajon"> "Caracteristicas Blixt"</a>.</p>
-   </section>
+  <section id="blixt-lnaddress">
+    <h3>¿Blixt Wallet tiene una dirección Lightning con la que pueda recibir pagos?</h3>
+    <p>Sí, a partir de la versión <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a>, puedes tener tu propia dirección Lightning.</p>
+    <p><a href="https://github.com/hsjoberg/lightning-box">Lightning Box</a> es un proveedor de direcciones Lightning para nodos móviles como Blixt Wallet, que te permite recibir pagos con direcciones Lightning directamente en tu teléfono.</p>
+    <p>Esto funciona junto con el modo persistente de la versión v0.6.9, que permite que Blixt Wallet permanezca activo en segundo plano para recibir pagos. Ten en cuenta que esta función solo está disponible para usuarios de Android.</p>
+    <p>También puedes usarla para dar propinas en <a href="https://nostr.com">NOSTR</a> y con <a href="/guides_es#guia-sn">Stacker News</a>.</p>
+    <p>Registra tu propia dirección Lightning desde el menú izquierdo -> Avanzado -> Lightning Box.</p>
+    <p>Lightning Box es un software de código abierto y puedes ejecutar tu propia instancia, que funciona a la perfección con Blixt Wallet.
+    Puedes encontrar un borrador de la especificación del protocolo <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md">aquí.</a></p>
+    <p>El Proyecto Blixt aloja un servicio Lightning Box para las direcciones Lightning de @blixtwallet.com. En el futuro, analizaremos la compatibilidad con Lightning Box sin usar el modo persistente y para otras plataformas además de Android.</p>
+    <p><strong>Nota importante:</strong> Si el consumo de batería del modo persistente es alto, prueba "Compactar bases de datos de Lightning" en Ajustes -> Depurar.</p>
+  </section>
 
    <section id="blixt-canales-dunder">
     <h3>Los canales abiertos con Dunder tienen una capacidad máxima de 200k sats. ¿Cómo puedo abrir canales de Dunder más grandes?</h3>

@@ -766,9 +766,15 @@ title: Frequently Asked Questions
 
   <section id="blixt-lnaddress">
     <h3>Does Blixt Wallet have a Lightning Address I can receive with?</h3>
-    <p>Yes, starting with <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> you can have 
-      a Lightning Address of your own.</p>
-    <p>See more details in the Blixt Github release notes and/or in the <a href="/features#blixt-drawer">"Blixt Features" page</a>.</p>
+    <p>Yes, starting with <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.9-420">Blixt v0.6.9-420</a> you can have a Lightning Address of your own.</p>
+    <p><a href="https://github.com/hsjoberg/lightning-box">Lightning Box</a> is a Lightning Address provider for mobile nodes like Blixt Wallet, letting you receive Lightning Address payments directly to your phone.</p>
+    <p>This works in conjunction with the Persistent Mode released in v0.6.9, which allows Blixt Wallet to stay active in the background in order to receive payments. Keep in mind that this feature is available only for Android users.</p>
+    <p>You can also use this for <a href="https://nostr.com">NOSTR</a> tipping and with <a href="/guides#guide-sn">Stacker News</a> too.</p>
+    <p>Register your own Lightning Address from the left menu -> Advanced -> Lightning Box.</p>
+    <p>Lightning Box is open-source software and you can run your own instance, working seamlessly with Blixt Wallet.
+      A draft specification for the protocol can be found <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md">here.</a></p>
+    <p>The Blixt Project hosts a Lightning Box service for @blixtwallet.com Lightning Addresses. In the future we will look at Lightning Box support without using Persistent mode and for other platforms than Android.</p>
+    <p><strong>Important note:</strong> If battery drain for Persistent Mode is high, try "Compact lnd's databases" from Settings -> Debug.</p>
   </section>
 
   <section id="blixt-dunder-channels">

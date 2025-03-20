@@ -46,6 +46,7 @@ title: Guias
       <li><a href="#guia-wallet-viejo">¿Cómo consolidar fondos de una vieja billetera Blixt?</a></li>
       <li><a href="#guia-liquidez">Mini guía rápida de liquidez para Blixt Node</a></li>
       <li><a href="#guia-dunder-lsp">¿Cómo convertirse en LSP (proveedor de servicios de liquidez) con Dunder?</a></li>
+      <li><a href="#guia-sn">Cómo usar Blixt con Stacker News</a></li>
     </ul>
   </section>
 
@@ -492,4 +493,19 @@ title: Guias
      <p>¡Solo colaborando, probando, usando y mejorando podremos seguir adelante!</p>
      <p>¡Feliz Lightning con Blixt!</p>
   </section>
+  <section id="guia-sn">
+    <h3>Cómo usar Blixt con Stacker News</h3>
+    <p><a href="https://stacker.news/">Stacker News</a> es una plataforma de foros que utiliza sats como pagos para publicar, zaps para votar positivamente las publicaciones y recompensar a los escritores. Es una buena plataforma para un usuario de Bitcoin.</p>
+    <p>Pero tiene una trampa: los usuarios de SN tienen dos opciones: conectar una billetera externa de LN o usar créditos internos.</p>
+    <p>De entre las diversas opciones para conectar una billetera externa, también hay una que usa WebLN, exactamente lo que hace Blixt con su navegador Lightning integrado, donde puedes encontrar el enlace a Stacker News. Así que prácticamente puedes usar Blixt para navegar, iniciar sesión y usar zaps, todo en la misma aplicación con un solo clic.</p>
+    <p>¿Cómo se hace esto? Sigue estos pasos:</p>
+    <ul>
+    <li>Suponemos que ya tienes al menos un canal LN abierto y listo para usar. Abre la aplicación de tu billetera Blixt. Ve a la esquina superior izquierda y abre "Lightning Browser".</li>
+    <li>Busca Stacker News y ábrelo. Ve al icono de inicio de sesión y selecciona "Iniciar sesión con Lightning". Blixt iniciará sesión automáticamente con su función de autenticación LN. Recuerda agregar un inicio de sesión alternativo a tu cuenta SN en caso de que ya no tengas tu billetera Blixt disponible. Tu cuenta se vinculará con esa billetera Blixt y nadie podrá restablecerla.</li>
+    <li>Una vez que inicies sesión en SN, ve a "Billeteras" y activa la billetera "WebLN". Solo hay un pequeño recuadro para seleccionar y guardar.</li>
+    <li>Ahora, en la misma sección "Billeteras", ve a "Dirección Lightning" y configura tu dirección LN de Blixt. Suponemos que <a href="/faq_es#blixt-lnaddress">ya lo has configurado en Blixt</a>. Con esta dirección LN, podrás recibir zaps de otros usuarios en SN.</li>
+    <li>Para poder enviar y recibir de forma instantánea y constante, debes activar Blixt en "Modo Persistente". Ve a Blixt - Configuración - Sección Experimento - "Habilitar aplicación persistente". Se reiniciará y verás que el servicio LND siempre estará activo, incluso si cierras la aplicación de Blixt. Esto mantendrá tu nodo LN sincronizado y activo mientras no cierres el servicio LND.</li>
+    <li>Ahora empieza a publicar y comentar, y empieza a enviar sats a quienes lo merecen. También puedes recibir sats directamente en tu billetera de Blixt.</li>
+    </ul>
+    </section>
 </article>
